@@ -17,12 +17,15 @@
     import { OrbitControls } from 'https://cdn.skypack.dev/three@0.128.0/examples/jsm/controls/OrbitControls.js';
 
     //Constants
-    const DEG_TO_RAD = Math.PI / 180;
-    const AU_SCALE_FACTOR = 50;
-    const TA_TIME_SCALE_FACTOR = 0.0001; //this will not be needed when the true anomaly code is included
-    const SUN_MESH_N = 32;
-    const ORBIT_MESH_POINTS = 128;
-    const ORBIT_SEGMENT_CONST = 2 * Math.PI / ORBIT_MESH_POINTS;
+    DEG_TO_RAD = Math.PI / 180;
+    AU_SCALE_FACTOR = 50;
+    TA_TIME_SCALE_FACTOR = 0.0001; //this will not be needed when the true anomaly code is included
+    SUN_MESH_N = 32;
+    ORBIT_MESH_POINTS = 128;
+    ORBIT_SEGMENT_CONST = 2 * Math.PI / ORBIT_MESH_POINTS;
+    NEOCOLOR = 0x1e90FF;
+    NEORADIUS = 0.5;
+    NEOMESHN = 32;
     
     //Setup Scene
     const scene = new THREE.Scene();
@@ -189,12 +192,8 @@
     let planetMeshes;
 
     // create one mesh for neos with the same parameters
-    neoColor = 0x1E90FF
-    neo_radius = 0.5
-    neo_meshN = 32
-
-    const neoGeometry = new THREE.SphereGeometry(neo_radius, neo_meshN, neo_meshN); //radius, meshN, meshN
-    const neoMaterial = new THREE.MeshBasicMaterial({color: neoColor}); 
+    const neoGeometry = new THREE.SphereGeometry(NEORADIUS, NEOMESHN, NEOMESHN); //radius, meshN, meshN
+    const neoMaterial = new THREE.MeshBasicMaterial({color: NEOCOLOR}); 
     let neoMesh = new THREE.Mesh(neoGeometry, neoMaterial);
 
     const planets = require('./data/planet_data.json');
