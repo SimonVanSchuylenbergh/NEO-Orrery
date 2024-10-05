@@ -185,8 +185,8 @@
             const pos = getOrbitPosition(orbitParams.a, orbitParams.e, 0, orbitParams.transformMatrix); //need the true anonomaly function for proper initialization (set to 0 for now)
             neoMesh.position.set(pos.x, pos.y, pos.z);
 
-            scene.add(orbit);
-            scene.add(neoMesh);
+            //scene.add(orbit);
+            //scene.add(neoMesh);
 
             i += 1;
             if (i == MAX_VISIBLE_NEOS) { break };
