@@ -25,7 +25,7 @@
     const ORBIT_SEGMENT_CONST = 2 * Math.PI / ORBIT_MESH_POINTS;
     const NEO_COLOR = 0x1e90FF;
     const NEO_RADIUS = 0.5;
-    const MAX_VISIBLE_NEOS = 10;
+    const MAX_VISIBLE_NEOS = 100;
 
     // FPS control
     const targetFPS = 60; // Target frames per second
@@ -166,8 +166,8 @@
             const pos = getOrbitPosition(orbitParams.a, orbitParams.e, 0, orbitParams.transformMatrix);
             neoMesh.position.set(pos.x, pos.y, pos.z);
 
-            //scene.add(orbit);
-            //scene.add(neoMesh);
+            scene.add(orbit);
+            scene.add(neoMesh);
 
             i += 1;
             if (i == MAX_VISIBLE_NEOS) { break };
