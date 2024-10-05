@@ -13,7 +13,8 @@
         "renderParams": {
 
             "radius": 0.4,
-            "color": "#cc9966"
+            "color": "#cc9966",
+            "texture": "8k_mercury.jpg"
         }
     },
     "Venus": {
@@ -30,7 +31,8 @@
         "renderParams": {
 
             "radius": 0.45,
-            "color": "#ff9900"
+            "color": "#ff9900",
+            "texture": "8k_venus_surface.jpg"
         }
     },
     "Earth": {
@@ -47,7 +49,8 @@
         "renderParams": {
 
             "radius": 0.6,
-            "color": "#0000ff"
+            "color": "#0000ff",
+            "texture": "8k_earth_daymap.jpg"
         }
     },
     "Mars": {
@@ -64,7 +67,8 @@
         "renderParams": {
 
             "radius": 0.5,
-            "color": "#ff0000"
+            "color": "#ff0000",
+            "texture": "8k_mars.jpg"
         }
     },
     "Jupiter": {
@@ -81,7 +85,8 @@
         "renderParams": {
 
             "radius": 0.8,
-            "color": "#ffcc00"
+            "color": "#ffcc00",
+            "texture": "8k_jupiter.jpg"
         }
     },
     "Saturn": {
@@ -98,7 +103,8 @@
         "renderParams": {
 
             "radius": 0.6,
-            "color": "#ead6b8"
+            "color": "#ead6b8",
+            "texture": "8k_saturn.jpg"
         }
     },
     "Uranus": {
@@ -115,7 +121,8 @@
         "renderParams": {
 
             "radius": 0.5,
-            "color": "#d1e7e7"
+            "color": "#d1e7e7",
+            "texture": "2k_uranus.jpg"
         }
     },
     "Neptune": {
@@ -132,7 +139,8 @@
         "renderParams": {
 
             "radius": 0.5,
-            "color": "#3f54ba"
+            "color": "#3f54ba",
+            "texture": "2k_neptune.jpg"
         }
     }
 }
