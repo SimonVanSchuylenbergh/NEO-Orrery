@@ -17,17 +17,17 @@
     import { OrbitControls } from 'https://cdn.skypack.dev/three@0.128.0/examples/jsm/controls/OrbitControls.js';
 
     //Constants
-    DEG_TO_RAD = Math.PI / 180;
-    AU_SCALE_FACTOR = 50;
-    TA_TIME_SCALE_FACTOR = 0.0001; //this will not be needed when the true anomaly code is included
-    SUN_MESH_N = 32;
-    ORBIT_MESH_POINTS = 128;
-    ORBIT_SEGMENT_CONST = 2 * Math.PI / ORBIT_MESH_POINTS;
+    const DEG_TO_RAD = Math.PI / 180;
+    const AU_SCALE_FACTOR = 50;
+    const TA_TIME_SCALE_FACTOR = 0.0001; //this will not be needed when the true anomaly code is included
+    const SUN_MESH_N = 32;
+    const ORBIT_MESH_POINTS = 128;
+    const ORBIT_SEGMENT_CONST = 2 * Math.PI / ORBIT_MESH_POINTS;
     
     //Setup Scene
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000);
-    const renderer = new THREE.WebGLRenderer({antialias:true, canvas: document.getElementById("my_canvas")});
+    const renderer = new THREE.WebGLRenderer({antialias:true, canvas: document.getElementById("orreryCanvas")});
     renderer.setSize(window.innerWidth, window.innerHeight);
 
     camera.position.set(100, 100, 100);
@@ -38,7 +38,7 @@
     scene.add(light);
 
     //Setup Controls
-    const controls = new OrbitControls(amera, renderer.domElement);
+    const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
     controls.update();
 
@@ -51,6 +51,21 @@
     
 
     //Functions
+    function readJSON(file) {
+        fetch(file)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                return data; //data from the file
+            })
+            .catch(error => {
+                console.error('There was a problem trying to read ' + file +':', error);
+            });
+    }
 
     //Create the mesh orbit for a given object and generate the orbit's transform matrix
     function createOrbit(orbitParams, color) {
@@ -62,9 +77,9 @@
         const cosInc = Math.cos(orbitParams.inc);
         const sinInc = Math.sin(orbitParams.inc);
         
-        m1 = Math.matrix([[cosNode, -sinNode, 0], [sinNode, cosNode, 0], [0, 0, 1]]);
-        m2 = Math.matrix([[1, 0, 0], [0, cosInc, -sinInc], [0, sinInc, cosInc]]);
-        m3 = Math.matrix([[cosPeri, -sinNode, 0], [sinPeri, cosPeri, 0], [0, 0, 1]]);
+        const m1 = Math.matrix([[cosNode, -sinNode, 0], [sinNode, cosNode, 0], [0, 0, 1]]);
+        const m2 = Math.matrix([[1, 0, 0], [0, cosInc, -sinInc], [0, sinInc, cosInc]]);
+        const m3 = Math.matrix([[cosPeri, -sinNode, 0], [sinPeri, cosPeri, 0], [0, 0, 1]]);
 
         const matrix =  Math.multiply(Math.multiply(m1, m2), m3);
         orbitParams['transformMatrix'] = matrix; 
@@ -112,20 +127,11 @@
     function addSun() {
         const geometry = new THREE.SphereGeometry(1, SUN_MESH_N, SUN_MESH_N); 
         const material = new THREE.MeshBasicMaterial({color: 0xffff00}); 
-        sunMesh = new THREE.Mesh(geometry, material);
+        const sunMesh = new THREE.Mesh(geometry, material);
         scene.add(sunMesh);
     }
 
     function initializePlanets() { //process the planet data and initialize the scene
-        for (const [planetName, planetData] of Object.entries(planets)) {
-                //convert the orbital parameters into the values that will be used by other functions
-                planetData.orbitParams.i *= DEG_TO_RAD;
-                planetData.orbitParams.lan *= DEG_TO_RAD;
-                planetData.orbitParams.aop *= DEG_TO_RAD;
-                planetData.orbitParams.ma *= DEG_TO_RAD;
-                // planetData.orbitParams.ma -= planetData.orbitParams.aop;
-                // planetData.orbitParams.aop -= planetData.orbitParams.lan;
-                
                 createOrbit(planetData.orbitParams, planetData.renderParams.color); //create the orbit and its mesh
                 const orbitParams = planetData.orbitParams;
 
@@ -154,7 +160,7 @@
     let sunMesh;
     let planetMeshes;
 
-    const planets = require('./data/planet_data.json');
+    const planets = readJSON('/data/planet_data.json');
 
     addSun();
     initializePlanets();
