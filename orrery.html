@@ -38,6 +38,24 @@
     const renderer = new THREE.WebGLRenderer({antialias:true, canvas: document.getElementById("orreryCanvas")});
     renderer.setSize(window.innerWidth, window.innerHeight);
 
+    // Load skybox texture
+    const loader = new THREE.CubeTextureLoader();
+    const texture = loader.load([
+        'assets/px.png', // Right
+        'assets/nx.png', // Left
+        'assets/py.png', // Top
+        'assets/ny.png', // Bottom
+        'assets/pz.png', // Front
+        'assets/nz.png'  // Back
+    ]);
+
+    // Set the scene background to the skybox texture
+    scene.background = texture;
+
+    // Set camera position
+    camera.position.z = 1;
+
+
     camera.position.set(100, 100, 100);
     camera.lookAt(0, 0, 0);
 
