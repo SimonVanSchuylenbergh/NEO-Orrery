@@ -13,6 +13,7 @@
 - [x] make it load faster the orbit
 - [ ] Add key for centering the camera to the Sun
 - [ ] Add key for resetting the camera entirely
+- [ ] Add key to center camera on currently selected object
 - [ ] DEMO ppt submit by 7pm with title explain what the screen capture is showing
 
 **if time allows**
