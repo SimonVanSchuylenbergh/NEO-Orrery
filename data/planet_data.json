@@ -142,9 +142,9 @@
             "color": "#3f54ba",
             "texture": "2k_neptune.jpg"
         }
-    },
-	"Ceres": {
-		"OrbitParams": {
+    },	
+    "Ceres": {
+		"orbitParams": {
 			"epoch": 2460600.5,
 			"a": 2.767,
 			"e": 0.0792,
@@ -209,10 +209,16 @@
 			"n_dop_obs_used": 0.0,
 			"condition_code": 0.0,
 			"rms": 0.43153
-		}
+		},
+            "renderParams": {
+
+            "radius": 0.5,
+            "color": "#3f54ba",
+            "texture": "2k_neptune.jpg"
+        }
 	},
 	"Pluto": {
-		"OrbitParams": {
+		"orbitParams": {
 			"epoch": 2457588.5,
 			"a": 39.59,
 			"e": 0.2518,
@@ -252,10 +258,16 @@
 			"first_obs": "29/03/1930",
 			"last_obs": "19/07/2016",
 			"n_obs_used": 7212
-		}
+		},
+        "renderParams": {
+
+            "radius": 0.5,
+            "color": "#3f54ba",
+            "texture": "2k_neptune.jpg"
+        }
 	},
 	"Haumea": {
-		"OrbitParams": {
+		"orbitParams": {
 			"epoch": 2460600.5,
 			"a": 42.92,
 			"e": 0.1983,
@@ -308,10 +320,16 @@
 			"n_obs_used": 5512,
 			"condition_code": 1.0,
 			"rms": 0.25679
-		}
+		},
+        "renderParams": {
+
+            "radius": 0.5,
+            "color": "#3f54ba",
+            "texture": "2k_neptune.jpg"
+        }
 	},
 	"Eris": {
-		"OrbitParams": {
+		"orbitParams": {
 			"epoch": 2460600.5,
 			"a": 68.1,
 			"e": 0.4343,
@@ -364,10 +382,16 @@
 			"n_obs_used": 3135,
 			"condition_code": 3.0,
 			"rms": 0.37354
-		}
+		},
+        "renderParams": {
+
+            "radius": 0.5,
+            "color": "#3f54ba",
+            "texture": "2k_neptune.jpg"
+        }
 	},
 	"Makemake": {
-		"OrbitParams": {
+		"orbitParams": {
 			"epoch": 2460600.5,
 			"a": 45.38,
 			"e": 0.1635,
@@ -420,6 +444,12 @@
 			"n_obs_used": 5169,
 			"condition_code": 1.0,
 			"rms": 0.23977
-		}
+		},
+        "renderParams": {
+
+            "radius": 0.5,
+            "color": "#3f54ba",
+            "texture": "2k_neptune.jpg"
+        }
 	}
 }
