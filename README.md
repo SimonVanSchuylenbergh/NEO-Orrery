@@ -10,7 +10,7 @@
 - [ ] Matrix rotation function
 - [ ] Toggle Satelite/Earth and slider JD and number of shown NEOs
 - [ ] Python to Javascript conversion to boot the page
-- [ ] DEMO ppt submit by 7pm with title explain what the scren capture is showing
+- [ ] DEMO ppt submit by 7pm with title explain what the screen capture is showing
 
 **if time allows**
 - [ ] Skybox milkyway
