@@ -169,6 +169,13 @@
             planetMeshes[planetName].position = getOrbitPosition(orbitParams.a, orbitParams.e, trueAnomaly, orbitParams.transformMatrix);
         }
 
+        for (const [neoName, neoData] of Object.entries(neos)) {
+            const orbitParams = neoData.OrbitParams;
+
+            const trueAnomaly = Date.now() * TA_TIME_SCALE_FACTOR;
+            neoMeshes[neoName].position = getOrbitPosition(orbitParams.a, orbitParams.e, trueAnomaly, orbitParams.transformMatrix);
+        }
+
         controls.update();
         renderer.render(scene, camera);
     }
