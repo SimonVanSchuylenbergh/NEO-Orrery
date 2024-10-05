@@ -85,11 +85,15 @@
     [0.40, 0.45, 0.60, 0.50, 0.80]
     [0xffff00, 0xcc9966, 0xff9900, 0x0000ff, 0xff0000, 0xffcc00]
 
-    planets.Mercury = {OrbitParams: {epoch: 0, a: 0.38709893, e:  0.20563069, i: 7.00487, lan: 48.33167, aop: 77.45645, ma: 252.25084}, renderParams: {radius: 0.40, meshN: SUN_MESH_N / 2, color: 0xffff00}}
-
-
-
-
+    planets.Mercury = {OrbitParams: {epoch: 0, a: 0.38709893, e:  0.20563069, inc: 7.00487, node: 48.33167, peri: 29.12478, ma:	174.79439}, renderParams: {radius: 0.40, meshN: SUN_MESH_N / 2, color: 0xffff00}}
+    planets.Venus = {OrbitParams: {epoch: 0, a: 0.72333199, e: 0.00677323, inc: 3.39471, node: 76.68069, peri: 54.85229, ma: 50.44675}}
+    planets.Earth = {OrbitParams: {epoch: 0, a: 1.00000011, e: 0.01671022, inc: 0.00005, node: -11.26064, peri: 114.20783, ma: 357.51716}} //chatgpt baby
+    planets.Mars = {OrbitParams: {epoch: 0, a: 1.52366231, e: 0.09341233, inc: 1.85061, node: 49.57854, peri: 286.4623, ma:	19.41248}}
+    planets.Jupiter = {OrbitParams: {epoch: 0, a: 5.20336301, e: 0.04839266, inc: 1.30530, node: 100.55615, peri: -85.8023, ma:	19.65053}}
+    planets.Saturn = {OrbitParams: {epoch: 0, a: 9.53707032, e: 0.05415060, inc: 2.48446, node: 113.71504, peri: -21.2831, ma: -42.48762}}
+    planets.Uranus = {OrbitParams: {epoch: 0, a: 19.19126393, e: 0.04716771, inc: 0.76986, node: 74.22988, peri: 96.73436, ma: 142.26794}}
+    planets.Neptune = {OrbitParams: {epoch: 0, a: 30.06896348, e: 0.00858587, inc: 1.76917, node: 131.72169, peri: -86.75034, ma: 259.9086}}
+    planets.Pluto = {OrbitParams: {epoch: 0, a: 39.48168677, e: 0.24880766, inc: 17.14175, node: 110.30347, peri: 113.834, ma: 14.950}} //chatgpt baby
 
     //The animation loop function which updates the scene (keep at the bottom of the file)
     function animate() {
