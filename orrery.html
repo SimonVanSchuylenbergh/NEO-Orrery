@@ -21,7 +21,7 @@
     const AU_SCALE_FACTOR = 50;
     const TA_TIME_SCALE_FACTOR = 0.0001; //this will not be needed when the true anomaly code is included
     const DEFAULT_MESH_N = 32;
-    const ORBIT_MESH_POINTS = 128;
+    const ORBIT_MESH_POINTS = 64;
     const ORBIT_SEGMENT_CONST = 2 * Math.PI / ORBIT_MESH_POINTS;
     const NEO_COLOR = 0x1e90FF;
     const NEO_RADIUS = 0.5;
@@ -76,11 +76,16 @@
         const cosInc = Math.cos(orbitParams.inc);
         const sinInc = Math.sin(orbitParams.inc);
         
-        const m1 = Math.matrix([[cosNode, -sinNode, 0], [sinNode, cosNode, 0], [0, 0, 1]]);
-        const m2 = Math.matrix([[1, 0, 0], [0, cosInc, -sinInc], [0, sinInc, cosInc]]);
-        const m3 = Math.matrix([[cosPeri, -sinNode, 0], [sinPeri, cosPeri, 0], [0, 0, 1]]);
+        //const m1 = math.matrix([[cosNode, -sinNode, 0], [sinNode, cosNode, 0], [0, 0, 1]]);
+        //const m2 = math.matrix([[1, 0, 0], [0, cosInc, -sinInc], [0, sinInc, cosInc]]);
+        //const m3 = math.matrix([[cosPeri, -sinNode, 0], [sinPeri, cosPeri, 0], [0, 0, 1]]);
+        //const matrix =  math.multiply(math.multiply(m1, m2), m3);
 
-        const matrix =  Math.multiply(Math.multiply(m1, m2), m3);
+        const row1 = [cosPeri*cosNode - cosInc*sinPeri*sinNode, -cosNode*sinPeri - cosInc*cosPeri*sinNode, sinInc*sinNode];
+        const row2 = [cosPeri*sinNode + cosInc*cosNode*sinPeri, -sinPeri*sinNode + cosInc*cosPeri*cosNode, -sinInc*cosNode];
+        const row3 = [sinInc*sinPeri, sinInc*cosPeri, cosInc];
+        const matrix = [row1, row2, row3];
+
         orbitParams['transformMatrix'] = matrix; 
 
         const points = [];
@@ -139,8 +144,7 @@
             orbitParams.node *= DEG_TO_RAD;
             orbitParams.peri *= DEG_TO_RAD;
             orbitParams.ma *= DEG_TO_RAD;
-
-            createOrbit(planetData.orbitParams, planetData.renderParams.color); //create the orbit and its mesh
+            orbitParams.a *= AU_SCALE_FACTOR;
 
             //create the meshes for the planets and add them to the scene
             const geometry = new THREE.SphereGeometry(planetData.renderParams.radius, DEFAULT_MESH_N, DEFAULT_MESH_N); 
@@ -150,7 +154,8 @@
 
             //create orbit and place the planet on the orbit
             const orbit = createOrbit(orbitParams, planetData.renderParams.color); //create the orbit and its mesh
-            planetMesh.position = getOrbitPosition(orbitParams.a, orbitParams.e, 0, orbitParams.transformMatrix); //need the true anonomaly function for proper initialization (set to 0 for now)
+            const pos = getOrbitPosition(orbitParams.a, orbitParams.e, 0, orbitParams.transformMatrix); //need the true anonomaly function for proper initialization (set to 0 for now)
+            planetMesh.position.set(pos.x, pos.y, pos.z);
             
             scene.add(orbit);
             scene.add(planetMesh);
@@ -167,8 +172,7 @@
             orbitParams.node *= DEG_TO_RAD;
             orbitParams.peri *= DEG_TO_RAD;
             orbitParams.ma *= DEG_TO_RAD;
-
-            createOrbit(neoData.orbitParams, NEO_COLOR); //create the orbit and its mesh
+            orbitParams.a *= AU_SCALE_FACTOR;
 
             //create the meshes for the neos and add them to the scene
             const geometry = new THREE.SphereGeometry(NEO_RADIUS, DEFAULT_MESH_N / 2, DEFAULT_MESH_N / 2); 
@@ -177,9 +181,9 @@
             neoMeshes[neoName] = neoMesh;
 
             //create orbit and place the neo on the orbit
-
             const orbit = createOrbit(orbitParams, NEO_COLOR); //create the orbit and its mesh
-            neoMesh.position = getOrbitPosition(orbitParams.a, orbitParams.e, 0, orbitParams.transformMatrix); //need the true anonomaly function for proper initialization (set to 0 for now)
+            const pos = getOrbitPosition(orbitParams.a, orbitParams.e, 0, orbitParams.transformMatrix); //need the true anonomaly function for proper initialization (set to 0 for now)
+            neoMesh.position.set(pos.x, pos.y, pos.z);
 
             scene.add(orbit);
             scene.add(neoMesh);
@@ -191,8 +195,8 @@
 
     //Data
     let sunMesh;
-    let planetMeshes;
-    let neoMeshes;
+    const planetMeshes = {};
+    const neoMeshes = {};
 
     const planets = await readJSON('data/planet_data.json');
     const neos = await readJSON('data/risk_list_neo_data.json');
@@ -209,15 +213,17 @@
             const orbitParams = neoData.orbitParams;
 
             const trueAnomaly = Date.now() * TA_TIME_SCALE_FACTOR;
-            planetMeshes[planetName].position = getOrbitPosition(orbitParams.a, orbitParams.e, trueAnomaly, orbitParams.transformMatrix);
+            const pos = getOrbitPosition(orbitParams.a, orbitParams.e, trueAnomaly, orbitParams.transformMatrix);
+            planetMeshes[planetName].position.set(pos.x, pos.y, pos.z);
         }
 
         let i = 0;
         for (const [neoName, neoData] of Object.entries(neos)) {
-            const orbitParams = neoData.OrbitParams;
+            const orbitParams = neoData.orbitParams;
 
             const trueAnomaly = Date.now() * TA_TIME_SCALE_FACTOR;
-            neoMesh[neoName].position = getOrbitPosition(orbitParams.a, orbitParams.e, trueAnomaly, orbitParams.transformMatrix);
+            const pos = getOrbitPosition(orbitParams.a, orbitParams.e, trueAnomaly, orbitParams.transformMatrix);
+            neoMeshes[neoName].position.set(pos.x, pos.y, pos.z);
         
             i += 1;
             if (i == MAX_VISIBLE_NEOS) { break };
