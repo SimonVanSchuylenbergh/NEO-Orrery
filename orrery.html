@@ -185,8 +185,14 @@
     }
 
     function addSun() {
+        // add Sun Texture
+        const sunTextureLoader = new THREE.TextureLoader();
+        const sunTexture = sunTextureLoader.load(
+            'assets/body_textures/8k_sun.jpg'
+        );
+
         const geometry = new THREE.SphereGeometry(1, DEFAULT_MESH_N, DEFAULT_MESH_N);
-        const material = new THREE.MeshBasicMaterial({ color: 0xffff00 });
+        const material = new THREE.MeshBasicMaterial({map: sunTexture});
         const sunMesh = new THREE.Mesh(geometry, material);
         scene.add(sunMesh);
     }
