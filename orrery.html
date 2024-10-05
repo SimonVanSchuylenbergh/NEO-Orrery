@@ -55,20 +55,16 @@
     
 
     //Functions
-    function readJSON(file) {
-        fetch(file)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                return data; //data from the file that we want
-            })
-            .catch(error => {
-                console.error('There was a problem trying to read ' + file +':', error);
-            });
+    async function readJSON(filePath) {
+        try {
+            const response = await fetch(filePath);
+            
+            // Check if the response is ok (status in the range 200-299)
+            if (!response.ok) { throw new Error('Network response was not ok'); }
+        
+            const data = await response.json(); // Parse the JSON from the response
+            return data; // Return the parsed data
+        } catch (error) { console.error('There was a problem trying to read ' + filePath + ':', error); }
     }
 
     //Create the mesh orbit for a given object and generate the orbit's transform matrix
@@ -199,8 +195,8 @@
     let planetMeshes;
     let neoMeshes;
 
-    const planets = readJSON('./data/planet_data.json'); //require('./data/planet_data.json');
-    //const neos = require('./data/risk_list_neo_data.json');
+    const planets = await readJSON('data/planet_data.json');
+    const neos = await readJSON('data/risk_list_neo_data.json');
 
     addSun();
     initializePlanets();  // initializing planets
