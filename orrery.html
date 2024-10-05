@@ -23,9 +23,9 @@
     SUN_MESH_N = 32;
     ORBIT_MESH_POINTS = 128;
     ORBIT_SEGMENT_CONST = 2 * Math.PI / ORBIT_MESH_POINTS;
-    NEOCOLOR = 0x1e90FF;
-    NEORADIUS = 0.5;
-    NEOMESHN = 32;
+    NEO_COLOR = 0x1e90FF;
+    NEO_RADIUS = 0.5;
+    NEO_MESH_N = 32;
     
     //Setup Scene
     const scene = new THREE.Scene();
@@ -168,7 +168,7 @@
                 orbitParams.peri *= DEG_TO_RAD;
                 orbitParams.ma *= DEG_TO_RAD;
 
-                createOrbit(neoData.orbitParams, neoColor); //create the orbit and its mesh
+                createOrbit(neoData.orbitParams, NEO_COLOR); //create the orbit and its mesh
                 const orbitParams = neoData.orbitParams;
 
                 // //create the meshes for the planets and add them to the scene
@@ -179,7 +179,7 @@
 
                 //create orbit and place the neo on the orbit
 
-                const orbit = createOrbit(orbitParams, neoColor); //create the orbit and its mesh
+                const orbit = createOrbit(orbitParams, NEO_COLOR); //create the orbit and its mesh
                 neoMesh.position = getOrbitPosition(orbitParams.a, orbitParams.e, 0, orbitParams.transformMatrix); //need the true anonomaly function for proper initialization (set to 0 for now)
 
                 scene.add(orbit);
@@ -192,8 +192,8 @@
     let planetMeshes;
 
     // create one mesh for neos with the same parameters
-    const neoGeometry = new THREE.SphereGeometry(NEORADIUS, NEOMESHN, NEOMESHN); //radius, meshN, meshN
-    const neoMaterial = new THREE.MeshBasicMaterial({color: NEOCOLOR}); 
+    const neoGeometry = new THREE.SphereGeometry(NEO_RADIUS, NEO_MESH_N, NEO_MESH_N); //radius, meshN, meshN
+    const neoMaterial = new THREE.MeshBasicMaterial({color: NEO_COLOR}); 
     let neoMesh = new THREE.Mesh(neoGeometry, neoMaterial);
 
     const planets = require('./data/planet_data.json');
