@@ -46,8 +46,7 @@
     renderer.setSize(window.innerWidth, window.innerHeight);
 
     // Load skybox texture
-    const skyboxLoader = new THREE.CubeTextureLoader();
-    const skyboxTexture = skyboxLoader.load([
+    scene.background = new THREE.CubeTextureLoader().load([
         'assets/px.png', // Right
         'assets/nx.png', // Left
         'assets/py.png', // Top
@@ -55,9 +54,6 @@
         'assets/pz.png', // Front
         'assets/nz.png'  // Back
     ]);
-
-    // Set the scene background to the skybox texture
-    scene.background = skyboxTexture;
 
     // Set camera position
     camera.position.z = 1;
