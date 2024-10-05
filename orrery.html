@@ -118,22 +118,14 @@
 
     function initializePlanets() { //process the planet data and initialize the scene
         for (const [planetName, planetData] of Object.entries(planets)) {
-                //convert the orbital parameters into the values that will be used by other functions
-                planetData.orbitParams.i *= DEG_TO_RAD;
-                planetData.orbitParams.lan *= DEG_TO_RAD;
-                planetData.orbitParams.aop *= DEG_TO_RAD;
-                planetData.orbitParams.ma *= DEG_TO_RAD;
-                // planetData.orbitParams.ma -= planetData.orbitParams.aop;
-                // planetData.orbitParams.aop -= planetData.orbitParams.lan;
-                
-                createOrbit(planetData.orbitParams, planetData.renderParams.color); //create the orbit and its mesh
-                const orbitParams = planetData.orbitParams;
-
                 //convert the angular orbital parameters to radians
                 orbitParams.inc *= DEG_TO_RAD;
                 orbitParams.node *= DEG_TO_RAD;
                 orbitParams.peri *= DEG_TO_RAD;
                 orbitParams.ma *= DEG_TO_RAD;
+
+                createOrbit(planetData.orbitParams, planetData.renderParams.color); //create the orbit and its mesh
+                const orbitParams = planetData.orbitParams;
 
                 //create the meshes for the planets and add them to the scene
                 const geometry = new THREE.SphereGeometry(planetData.renderParams.radius, planetData.renderParams.meshN, planetData.renderParams.meshN); 
@@ -151,24 +143,15 @@
     }
 
     function initializeNeos() { //process the NEO data and initialize the scene
-
         for (const [neoName, neoData] of Object.entries(neos)) {
-                //convert the orbital parameters into the values that will be used by other functions
-                neoData.orbitParams.i *= DEG_TO_RAD;
-                neoData.orbitParams.lan *= DEG_TO_RAD;
-                neoData.orbitParams.aop *= DEG_TO_RAD;
-                neoData.orbitParams.ma *= DEG_TO_RAD;
-                // neoData.orbitParams.ma -= neoData.orbitParams.aop;
-                // neoData.orbitParams.aop -= neoData.orbitParams.lan;
-                
-                createOrbit(neoData.orbitParams, neoColor); //create the orbit and its mesh
-                const orbitParams = neoData.orbitParams;
-
                 //convert the angular orbital parameters to radians
                 orbitParams.inc *= DEG_TO_RAD;
                 orbitParams.node *= DEG_TO_RAD;
                 orbitParams.peri *= DEG_TO_RAD;
                 orbitParams.ma *= DEG_TO_RAD;
+
+                createOrbit(neoData.orbitParams, neoColor); //create the orbit and its mesh
+                const orbitParams = neoData.orbitParams;
 
                 // //create the meshes for the planets and add them to the scene
                 // const geometry = new THREE.SphereGeometry(neoData.renderParams.radius, neoData.renderParams.meshN, neoData.renderParams.meshN); 
