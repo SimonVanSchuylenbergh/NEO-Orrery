@@ -17,15 +17,15 @@
     import { OrbitControls } from 'https://cdn.skypack.dev/three@0.128.0/examples/jsm/controls/OrbitControls.js';
 
     //Constants
-    DEG_TO_RAD = Math.PI / 180;
-    AU_SCALE_FACTOR = 50;
-    TA_TIME_SCALE_FACTOR = 0.0001; //this will not be needed when the true anomaly code is included
-    SUN_MESH_N = 32;
-    ORBIT_MESH_POINTS = 128;
-    ORBIT_SEGMENT_CONST = 2 * Math.PI / ORBIT_MESH_POINTS;
-    NEOCOLOR = 0x1e90FF;
-    NEORADIUS = 0.5;
-    NEOMESHN = 32;
+    const DEG_TO_RAD = Math.PI / 180;
+    const AU_SCALE_FACTOR = 50;
+    const TA_TIME_SCALE_FACTOR = 0.0001; //this will not be needed when the true anomaly code is included
+    const SUN_MESH_N = 32;
+    const ORBIT_MESH_POINTS = 128;
+    const ORBIT_SEGMENT_CONST = 2 * Math.PI / ORBIT_MESH_POINTS;
+    const NEO_COLOR = 0x1e90FF;
+    const NEORADIUS = 0.5;
+    const NEOMESHN = 32;
     
     //Setup Scene
     const scene = new THREE.Scene();
@@ -63,7 +63,7 @@
                 return response.json();
             })
             .then(data => {
-                return data; //data from the file
+                return data; //data from the file that we want
             })
             .catch(error => {
                 console.error('There was a problem trying to read ' + file +':', error);
@@ -136,54 +136,56 @@
 
     function initializePlanets() { //process the planet data and initialize the scene
         for (const [planetName, planetData] of Object.entries(planets)) {
-                //convert the angular orbital parameters to radians
-                orbitParams.inc *= DEG_TO_RAD;
-                orbitParams.node *= DEG_TO_RAD;
-                orbitParams.peri *= DEG_TO_RAD;
-                orbitParams.ma *= DEG_TO_RAD;
+            const orbitParams = planetData.orbitParams;
 
-                createOrbit(planetData.orbitParams, planetData.renderParams.color); //create the orbit and its mesh
-                const orbitParams = planetData.orbitParams;
+            //convert the angular orbital parameters to radians
+            orbitParams.inc *= DEG_TO_RAD;
+            orbitParams.node *= DEG_TO_RAD;
+            orbitParams.peri *= DEG_TO_RAD;
+            orbitParams.ma *= DEG_TO_RAD;
 
-                //create the meshes for the planets and add them to the scene
-                const geometry = new THREE.SphereGeometry(planetData.renderParams.radius, planetData.renderParams.meshN, planetData.renderParams.meshN); 
-                const material = new THREE.MeshBasicMaterial({color: planetData.renderParams.color}); 
-                const planetMesh = new THREE.Mesh(geometry, material);
-                planetMeshes[planetName] = planetMesh;
+            createOrbit(planetData.orbitParams, planetData.renderParams.color); //create the orbit and its mesh
 
-                //create orbit and place the planet on the orbit
-                const orbit = createOrbit(orbitParams, planetData.renderParams.color); //create the orbit and its mesh
-                planetMesh.position = getOrbitPosition(orbitParams.a, orbitParams.e, 0, orbitParams.transformMatrix); //need the true anonomaly function for proper initialization (set to 0 for now)
-                
-                scene.add(orbit);
-                scene.add(planetMesh);
+            //create the meshes for the planets and add them to the scene
+            const geometry = new THREE.SphereGeometry(planetData.renderParams.radius, planetData.renderParams.meshN, planetData.renderParams.meshN); 
+            const material = new THREE.MeshBasicMaterial({color: planetData.renderParams.color}); 
+            const planetMesh = new THREE.Mesh(geometry, material);
+            planetMeshes[planetName] = planetMesh;
+
+            //create orbit and place the planet on the orbit
+            const orbit = createOrbit(orbitParams, planetData.renderParams.color); //create the orbit and its mesh
+            planetMesh.position = getOrbitPosition(orbitParams.a, orbitParams.e, 0, orbitParams.transformMatrix); //need the true anonomaly function for proper initialization (set to 0 for now)
+            
+            scene.add(orbit);
+            scene.add(planetMesh);
         }
     }
 
     function initializeNeos() { //process the NEO data and initialize the scene
         for (const [neoName, neoData] of Object.entries(neos)) {
-                //convert the angular orbital parameters to radians
-                orbitParams.inc *= DEG_TO_RAD;
-                orbitParams.node *= DEG_TO_RAD;
-                orbitParams.peri *= DEG_TO_RAD;
-                orbitParams.ma *= DEG_TO_RAD;
+            const orbitParams = neoData.orbitParams;
 
-                createOrbit(neoData.orbitParams, neoColor); //create the orbit and its mesh
-                const orbitParams = neoData.orbitParams;
+            //convert the angular orbital parameters to radians
+            orbitParams.inc *= DEG_TO_RAD;
+            orbitParams.node *= DEG_TO_RAD;
+            orbitParams.peri *= DEG_TO_RAD;
+            orbitParams.ma *= DEG_TO_RAD;
 
-                // //create the meshes for the planets and add them to the scene
-                // const geometry = new THREE.SphereGeometry(neoData.renderParams.radius, neoData.renderParams.meshN, neoData.renderParams.meshN); 
-                // const material = new THREE.MeshBasicMaterial({color: neoData.renderParams.color}); 
-                // const planetMesh = new THREE.Mesh(geometry, material);
-                // planetMeshes[planetName] = planetMesh;
+            createOrbit(neoData.orbitParams, NEO_COLOR); //create the orbit and its mesh
 
-                //create orbit and place the neo on the orbit
+            // //create the meshes for the planets and add them to the scene
+            // const geometry = new THREE.SphereGeometry(neoData.renderParams.radius, neoData.renderParams.meshN, neoData.renderParams.meshN); 
+            // const material = new THREE.MeshBasicMaterial({color: neoData.renderParams.color}); 
+            // const planetMesh = new THREE.Mesh(geometry, material);
+            // planetMeshes[planetName] = planetMesh;
 
-                const orbit = createOrbit(orbitParams, neoColor); //create the orbit and its mesh
-                neoMesh.position = getOrbitPosition(orbitParams.a, orbitParams.e, 0, orbitParams.transformMatrix); //need the true anonomaly function for proper initialization (set to 0 for now)
+            //create orbit and place the neo on the orbit
 
-                scene.add(orbit);
-                // scene.add(planetMesh);
+            const orbit = createOrbit(orbitParams, NEO_COLOR); //create the orbit and its mesh
+            neoMesh.position = getOrbitPosition(orbitParams.a, orbitParams.e, 0, orbitParams.transformMatrix); //need the true anonomaly function for proper initialization (set to 0 for now)
+
+            scene.add(orbit);
+            // scene.add(planetMesh);
         }
     }
 
@@ -193,11 +195,11 @@
 
     // create one mesh for neos with the same parameters
     const neoGeometry = new THREE.SphereGeometry(NEORADIUS, NEOMESHN, NEOMESHN); //radius, meshN, meshN
-    const neoMaterial = new THREE.MeshBasicMaterial({color: NEOCOLOR}); 
+    const neoMaterial = new THREE.MeshBasicMaterial({color: NEO_COLOR}); 
     let neoMesh = new THREE.Mesh(neoGeometry, neoMaterial);
 
-    const planets = require('./data/planet_data.json');
-    const neos = require('./data/risk_list_neo_data.json');
+    const planets = readJSON('./data/planet_data.json'); //require('./data/planet_data.json');
+    //const neos = require('./data/risk_list_neo_data.json');
 
     addSun();
     initializePlanets();  // initializing planets
