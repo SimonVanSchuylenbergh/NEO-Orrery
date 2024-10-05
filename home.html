@@ -7,6 +7,26 @@
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
+  <div class="selection-panel">
+    <div>
+      Selection order: 
+      <nav class="selection-order-dropdown">
+        <button class="selection-order-dropdown-button">Risk</button>
+        <div class="selection-order-dropdown-content">
+          <a href="#" data-value="Risk">Risk</a>
+          <a href="#" data-value="Size">Size</a>
+          <a href="#" data-value="First possible impact">First possible impact</a>
+          <a href="#" data-value="Semi-major axis">Semi-major axis</a>
+          <a href="#" data-value="Eccentricity">Eccentricity</a>
+        </div>
+      </nav>
+    </div>
+    <div class="selection-panel-button-container">
+      <button class="selection-panel-button" id="prev-btn">Previous</button>
+      <button class="selection-panel-button" id="next-btn">Next</button>
+    </div>
+  </div>
+
   <div class="info-panel">
     <h1 id="info-name"></h1>
     <p id="info-diameter"></p>
@@ -24,12 +44,32 @@
     <p id="info-epoch" style="padding-left: 20px;"></p>
   </div>
 
-  <button id="next-btn">Next</button>
+  <div class="time-control-panel">
+    <button class="time-control-button" onmouseover="swapImage(this, 'assets/icon-time-fastbackward-hover.png')" onmouseout="swapImage(this, 'assets/icon-time-fastbackward.png')">
+      <img src="assets/icon-time-fastbackward.png" alt="" width="198" height="128" class="time-control-icon">
+    </button>
+    <button class="time-control-button" onmouseover="swapImage(this, 'assets/icon-time-backward-hover.png')" onmouseout="swapImage(this, 'assets/icon-time-backward.png')">
+      <img src="assets/icon-time-backward.png" alt="" width="128" height="128" class="time-control-icon">
+    </button>
+    <button class="time-control-button" onmouseover="swapImage(this, 'assets/icon-time-now-hover.png')" onmouseout="swapImage(this, 'assets/icon-time-now.png')">
+      <img src="assets/icon-time-now.png" alt="" width="128" height="128" class="time-control-icon">
+    </button>
+    <button class="time-control-button" onmouseover="swapImage(this, 'assets/icon-time-forward-hover.png')" onmouseout="swapImage(this, 'assets/icon-time-forward.png')">
+      <img src="assets/icon-time-forward.png" alt="" width="128" height="128" class="time-control-icon">
+    </button>
+    <button class="time-control-button" onmouseover="swapImage(this, 'assets/icon-time-fastforward-hover.png')" onmouseout="swapImage(this, 'assets/icon-time-fastforward.png')">
+      <img src="assets/icon-time-fastforward.png" alt="" width="198" height="128" class="time-control-icon">
+    </button>
+  </div>
 
   <script>
     // Global variable to store JSON data
     let jsonData = [];
     let currentIndex = 0;
+
+    const dropdownButton = document.querySelector('.selection-order-dropdown-button');
+    const dropdownContent = document.querySelector('.selection-order-dropdown-content');
+    const dropdownLinks = document.querySelectorAll('.selection-order-dropdown-content a');
 
     // Function to load JSON and store in jsonData
     function loadJsonData() {
@@ -106,9 +146,37 @@
       displayObjects();
     });
 
+    // Animations for time controls
+    function swapImage(button, newimage) {
+      const img = button.querySelector('.time-control-icon');
+      img.src = newimage;
+    }
+
+    // Toggle dropdown visibility on button click
+    dropdownButton.addEventListener('click', function() {
+      dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+    });
+
+    // Selection order controls
+    dropdownLinks.forEach(link => {
+      link.addEventListener('click', function(event) {
+        event.preventDefault();
+        const selectedValue = this.getAttribute('data-value');
+        dropdownButton.textContent = selectedValue
+        dropdownContent.style.display = 'none';
+      });
+    });
+
+    // Close dropdown if clicked outside
+    window.addEventListener('click', function(event) {
+      if (!event.target.matches('.selection-order-dropdown-button')) {
+        dropdownContent.style.display = 'none';
+      }
+    });
+
     // Load the data and initialize the table
-    loadJsonData()
-    .then(displayObjects);
+    //loadJsonData()
+    //.then(displayObjects);
   </script>
 </body>
 </html>

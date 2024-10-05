@@ -11,6 +11,90 @@ canvas {
     display: block;
 }
 
+.selection-panel {
+    float: left;
+    font-size: large;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 1%;
+    padding: 15px 20px;
+    border-radius: 7px;
+    white-space: nowrap;
+    border-style: solid;
+    border-width: 2px;
+    background-color: #ffffff20;
+    border-color: #ffffff40;
+    color: white;
+}
+
+
+.selection-panel-button-container {
+    display: flex;
+    width: 100%;
+}
+
+.selection-panel-button {
+    flex: 1;
+    padding: 10px;
+    font-size: large;
+    margin: 5px;
+    background-color: #f9f9f9;
+    color: black;
+    padding: 2px 8px;
+    font-size: large;
+    border: solid;
+    border-color: #00000070;
+    border-width: 2px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.selection-panel-button:disabled {
+    background-color: #888888;
+}
+
+
+.selection-order-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.selection-order-dropdown-button {
+    background-color: #f9f9f9;
+    color: black;
+    padding: 2px 8px;
+    font-size: large;
+    border: solid;
+    border-color: #00000070;
+    border-width: 2px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.selection-order-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    ;border-radius: 5px;
+}
+
+.selection-order-dropdown-content a {
+    font-size: large;
+    color: black;
+    padding: 4px 10px;
+    text-decoration: none;
+    display: block;
+}
+
+.selection-order-dropdown-content a:hover {
+    background-color: #f1f1f1;
+    border-radius: 5px;
+}
+
+
 .info-panel {
     float: right;
     font-size: large;
@@ -42,4 +126,34 @@ canvas {
     font-weight: bold;
     margin-bottom: 5px;
 }
+
+.time-control-panel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    gap: 4px;
+    flex: 2;
+}
+
+.time-control-button {
+    display: block;
+    background: none;
+    border: none;
+    margin: 0px;
+    cursor: pointer;
+}
+
+.time-control-icon {
+    max-height: 30px;
+    width: auto;
+}
+
+
+
+
+
 
