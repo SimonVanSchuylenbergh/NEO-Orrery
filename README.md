@@ -1,2 +1,13 @@
 # NEO-SAC
- Space Apps Challenge 2024
+ Space Apps Challenge 2024 
+- [ ] CSV Planets ephemeris
+- [ ] CSV Sporadics meteor showers and parent bodies
+- [ ] CSV Risk list asteroids
+- [ ] CSV to json file Javascript
+- [ ] Orbit and body
+- [ ] Matrix rotation function
+- [ ] Toggle Satelite/Earth and slider JD and number of shown NEOs
+- [ ] Python to Javascript conversion to boot the page
+Plus : if time allows
+- [ ] Skybox milkyway
+- [ ] Texture planet atmosphere
