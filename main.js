@@ -1,5 +1,6 @@
 // Imports
 import * as THREE from 'https://cdn.skypack.dev/three@0.128.0/build/three.module.js';
+import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.114/examples/jsm/loaders/GLTFLoader.js';
 import { OrbitControls } from 'https://cdn.skypack.dev/three@0.128.0/examples/jsm/controls/OrbitControls.js';
 import { createOrbit, getOrbitPosition } from './orbits.js'
 
@@ -189,6 +190,27 @@ const neos = await readJSON('data/risk_list_neo_data.json');
 addSun();
 initializePlanets(); // Initialize planets once
 initializeNeos(); // Initialize NEOs once
+// console.log(planets.Saturn);
+
+// Add Saturn's Rings:
+// const saturnData = planets.Saturn
+// const ringLoader = new GLTFLoader();
+// ringLoader.load('assets/body_textures/Saturn_rings.glb', function (gltf) {
+//     const ringTexture = gltf.scene.children[0].material.map; // Extract texture from .glb
+//     // Load Saturn again to put its rings on it
+//     const ringGeometry = new THREE.SphereGeometry(0.02, DEFAULT_MESH_N, DEFAULT_MESH_N);  // Create a sphere
+//     const ringMaterial = new THREE.MeshBasicMaterial({ map: ringTexture });  // Apply the loaded texture
+//     const ringSphere = new THREE.Mesh(ringGeometry, ringMaterial);  // Create a mesh with the geometry and material
+//     // Orbits
+//     // const ringOrbit = createOrbit(saturnData.orbitParams, saturnData.renderParams.color, ORBIT_MESH_POINTS);
+//     // const ringPos = getOrbitPosition(saturnData.orbitParams.a, saturnData.orbitParams.e, 0, saturnData.orbitParams.transformMatrix);
+//     ringSphere.position.set(0, 0, 0);
+//     // add to scene
+//      //scene.add(ringOrbit);
+//     scene.add(ringSphere);
+// }, undefined, function (error) {
+//     console.error('An error occurred loading the GLB:', error);
+// });
 
 // Animation loop with FPS control
 function animate(time) {
