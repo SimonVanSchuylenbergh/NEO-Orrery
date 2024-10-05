@@ -2,9 +2,9 @@
  Space Apps Challenge 2024 
  
  **TO DO**
-- [ ] CSV Planets ephemeris
-- [ ] CSV Sporadics meteor showers and parent bodies
-- [ ] CSV Risk list asteroids
+- [ ] CSV Planets ephemeris J2000
+- [ ] CSV Sporadics meteor showers and parent bodies J2000
+- [ ] CSV Risk list asteroids J2000
 - [ ] CSV to json file Python
 - [ ] Orbit and body
 - [ ] Matrix rotation function
