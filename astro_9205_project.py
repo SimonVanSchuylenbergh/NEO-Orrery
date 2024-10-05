@@ -7,6 +7,8 @@ from itertools import combinations, chain
 from sys import float_info
 from math import isinf
 
+# WMPG was here
+
 #Equations for parabolic and hyperbolic orbits taken from
 #https://www.bogan.ca/orbits/kepler/orbteqtn.html
 #Website source reference is:
