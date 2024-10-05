@@ -9,6 +9,11 @@
             "node": 48.33167,
             "peri": 29.12478,
             "ma": 174.79439
+        },
+        "renderParams": {
+
+            "radius": 0,
+            "color": 0
         }
     },
     "Venus": {
@@ -21,6 +26,11 @@
             "node": 76.68069,
             "peri": 54.85229,
             "ma": 50.44675
+        },
+        "renderParams": {
+
+            "radius": 0,
+            "color": 0
         }
     },
     "Earth": {
@@ -33,6 +43,11 @@
             "node": -11.26064,
             "peri": 114.20783,
             "ma": 357.51716
+        },
+        "renderParams": {
+
+            "radius": 0,
+            "color": 0
         }
     },
     "Mars": {
@@ -45,6 +60,11 @@
             "node": 49.57854,
             "peri": 286.4623,
             "ma": 19.41248
+        },
+        "renderParams": {
+
+            "radius": 0,
+            "color": 0
         }
     },
     "Jupiter": {
@@ -57,6 +77,11 @@
             "node": 100.55615,
             "peri": -85.8023,
             "ma": 19.65053
+        },
+        "renderParams": {
+
+            "radius": 0,
+            "color": 0
         }
     },
     "Saturn": {
@@ -69,6 +94,11 @@
             "node": 113.71504,
             "peri": -21.2831,
             "ma": -42.48762
+        },
+        "renderParams": {
+
+            "radius": 0,
+            "color": 0
         }
     },
     "Uranus": {
@@ -81,6 +111,11 @@
             "node": 74.22988,
             "peri": 96.73436,
             "ma": 142.26794
+        },
+        "renderParams": {
+
+            "radius": 0,
+            "color": 0
         }
     },
     "Neptune": {
@@ -93,6 +128,11 @@
             "node": 131.72169,
             "peri": -86.75034,
             "ma": 259.9086
+        },
+        "renderParams": {
+
+            "radius": 0,
+            "color": 0
         }
     },
     "Pluto": {
@@ -105,6 +145,11 @@
             "node": 110.30347,
             "peri": 113.834,
             "ma": 14.950
+        },
+        "renderParams": {
+
+            "radius": 0,
+            "color": 0
         }
     }
 }
