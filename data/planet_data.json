@@ -13,7 +13,7 @@
         "renderParams": {
 
             "radius": 0.4,
-            "color": "0xcc9966"
+            "color": "#cc9966"
         }
     },
     "Venus": {
@@ -30,7 +30,7 @@
         "renderParams": {
 
             "radius": 0.45,
-            "color": "0xff9900"
+            "color": "#ff9900"
         }
     },
     "Earth": {
@@ -47,7 +47,7 @@
         "renderParams": {
 
             "radius": 0.6,
-            "color": "0x0000ff"
+            "color": "#0000ff"
         }
     },
     "Mars": {
@@ -64,7 +64,7 @@
         "renderParams": {
 
             "radius": 0.5,
-            "color": "0xff0000"
+            "color": "#ff0000"
         }
     },
     "Jupiter": {
@@ -81,7 +81,7 @@
         "renderParams": {
 
             "radius": 0.8,
-            "color": "0xffcc00"
+            "color": "#ffcc00"
         }
     },
     "Saturn": {
