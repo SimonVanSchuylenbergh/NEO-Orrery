@@ -52,12 +52,6 @@
     // Set the scene background to the skybox texture
     scene.background = skyboxTexture;
 
-    // Load Earth Texture;
-    const earthLoader = new THREE.TextureLoader();
-    const earthTexture = earthLoader.load(
-        'assets/8081_earthmap10k.jpg'
-    );
-
     // Set camera position
     camera.position.z = 1;
 
@@ -155,9 +149,15 @@
             orbitParams.peri *= DEG_TO_RAD;
             orbitParams.ma *= DEG_TO_RAD;
             orbitParams.a *= AU_SCALE_FACTOR;
+            // get planet texture
+            const planetTextureName = planetData.renderParams.texture;
+            const planetTextureLoader = new THREE.TextureLoader();
+            const planetTexture = planetTextureLoader.load(
+                'assets/body_textures/' + planetTextureName
+            );
 
             const geometry = new THREE.SphereGeometry(planetData.renderParams.radius, DEFAULT_MESH_N, DEFAULT_MESH_N);
-            const material = new THREE.MeshBasicMaterial({map: earthTexture});
+            const material = new THREE.MeshBasicMaterial({map: planetTexture}); // add texture
             const planetMesh = new THREE.Mesh(geometry, material);
             planetMeshes[planetName] = planetMesh;
 
