@@ -10,10 +10,13 @@
 - [x] Matrix rotation function
 - [x] Toggle Satelite/Earth and slider JD and number of shown NEOs
 - [x] Python to Javascript conversion to boot the page
-- [ ] make it load faster the orbit
+- [x] make it load faster the orbit
+- [ ] Add key for centering the camera to the Sun
+- [ ] Add key for resetting the camera entirely
+- [ ] Add key to center camera on currently selected object
 - [ ] DEMO ppt submit by 7pm with title explain what the screen capture is showing
 
 **if time allows**
-- [ ] Skybox milkyway
+- [x] Skybox milkyway
 - [ ] Texture planet atmosphere
 - [ ] Texture and halo Sun

@@ -43,6 +43,29 @@
     const renderer = new THREE.WebGLRenderer({antialias:true, canvas: document.getElementById("orreryCanvas")});
     renderer.setSize(window.innerWidth, window.innerHeight);
 
+    // Load skybox texture
+    const skyboxLoader = new THREE.CubeTextureLoader();
+    const skyboxTexture = skyboxLoader.load([
+        'assets/px.png', // Right
+        'assets/nx.png', // Left
+        'assets/py.png', // Top
+        'assets/ny.png', // Bottom
+        'assets/pz.png', // Front
+        'assets/nz.png'  // Back
+    ]);
+
+    // Set the scene background to the skybox texture
+    scene.background = skyboxTexture;
+
+    // Load Earth Texture;
+    const earthLoader = new THREE.TextureLoader();
+    const earthTexture = earthLoader.load(
+        'assets/8081_earthmap10k.jpg'
+    );
+
+    // Set camera position
+    camera.position.z = 1;
+
     camera.position.set(100, 100, 100);
     camera.lookAt(0, 0, 0);
 
@@ -182,7 +205,7 @@
             orbitParams.a *= AU_SCALE_FACTOR;
 
             const geometry = new THREE.SphereGeometry(planetData.renderParams.radius, DEFAULT_MESH_N, DEFAULT_MESH_N);
-            const material = new THREE.MeshBasicMaterial({ color: planetData.renderParams.color });
+            const material = new THREE.MeshBasicMaterial({map: earthTexture});
             const planetMesh = new THREE.Mesh(geometry, material);
             planetMeshes[planetName] = planetMesh;
 
