@@ -5,7 +5,7 @@
 - [ ] CSV Planets ephemeris
 - [ ] CSV Sporadics meteor showers and parent bodies
 - [ ] CSV Risk list asteroids
-- [ ] CSV to json file Javascript
+- [ ] CSV to json file Python
 - [ ] Orbit and body
 - [ ] Matrix rotation function
 - [ ] Toggle Satelite/Earth and slider JD and number of shown NEOs
