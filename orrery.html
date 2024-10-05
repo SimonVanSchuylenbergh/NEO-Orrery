@@ -47,8 +47,8 @@
                 planetData.orbParams.lan *= DEG_TO_RAD;
                 planetData.orbParams.aop *= DEG_TO_RAD;
                 planetData.orbParams.ma *= DEG_TO_RAD;
-                planetData.orbParams.ma -= planetData.orbParams.aop;
-                planetData.orbParams.aop -= planetData.orbParams.lan;
+                // planetData.orbParams.ma -= planetData.orbParams.aop;
+                // planetData.orbParams.aop -= planetData.orbParams.lan;
                 
                 createOrbit(planetData.orbParams, planetData.renderParams.color); //create the orbit and its mesh
 
@@ -68,24 +68,24 @@
 
     //Data
 
-    planets = dict([
-    ("Mercury", ["dimgrey", np.array([0.38709893, 0.20563069, 7.00487, 48.33167, 77.45645, 252.25084])]),
-    ("Venus", ["chocolate", np.array([0.72333199, 0.00677323, 3.39471, 76.68069, 131.53298, 181.97973])]),
-    ("Earth", ["mediumblue", np.array([1.00000011, 0.01671022, 0.00005, -11.26064, 102.94719, 100.46435])]),
-    ("Mars", ["firebrick", np.array([1.52366231, 0.09341233, 1.85061, 49.57854, 336.04084, 355.45332])]),
-    ("Jupiter", ["darkorange", np.array([5.20336301, 0.04839266, 1.30530, 100.55615, 14.75385, 34.40438])]),
-    ("Saturn", ["peachpuff", np.array([9.53707032, 0.05415060, 2.48446, 113.71504, 92.43194, 49.94432])]),
-    ("Uranus", ["lightblue", np.array([19.19126393, 0.04716771, 0.76986, 74.22988, 170.96424, 313.23218])]),
-    ("Neptune", ["royalblue", np.array([30.06896348, 0.00858587, 1.76917, 131.72169, 44.97135, 304.88003])]),
-    ("Pluto", ["tan", np.array([39.48168677, 0.24880766, 17.14175, 110.30347, 224.06676, 238.92881])])])
+    // planets = dict([
+    // ("Mercury", ["dimgrey", np.array([0.38709893, 0.20563069, 7.00487, 48.33167, 77.45645, 252.25084])]),
+    // ("Venus", ["chocolate", np.array([0.72333199, 0.00677323, 3.39471, 76.68069, 131.53298, 181.97973])]),
+    // ("Earth", ["mediumblue", np.array([1.00000011, 0.01671022, 0.00005, -11.26064, 102.94719, 100.46435])]),
+    // ("Mars", ["firebrick", np.array([1.52366231, 0.09341233, 1.85061, 49.57854, 336.04084, 355.45332])]),
+    // ("Jupiter", ["darkorange", np.array([5.20336301, 0.04839266, 1.30530, 100.55615, 14.75385, 34.40438])]),
+    // ("Saturn", ["peachpuff", np.array([9.53707032, 0.05415060, 2.48446, 113.71504, 92.43194, 49.94432])]),
+    // ("Uranus", ["lightblue", np.array([19.19126393, 0.04716771, 0.76986, 74.22988, 170.96424, 313.23218])]),
+    // ("Neptune", ["royalblue", np.array([30.06896348, 0.00858587, 1.76917, 131.72169, 44.97135, 304.88003])]),
+    // ("Pluto", ["tan", np.array([39.48168677, 0.24880766, 17.14175, 110.30347, 224.06676, 238.92881])])])
 
-    let planets;
+    // let planets;
     let planetMeshes;
 
     [0.40, 0.45, 0.60, 0.50, 0.80]
     [0xffff00, 0xcc9966, 0xff9900, 0x0000ff, 0xff0000, 0xffcc00]
-    planets = fetch(planet_data.json); // import planets from json
-    neos = fetch(risk_list_neo_data.json); // import neos from json
+    let planets = fetch(planet_data.json); // import planets from json
+    let neos = fetch(risk_list_neo_data.json); // import neos from json
 
     // planets.Mercury = {OrbitParams: {epoch: 2451545, a: 0.38709893, e:  0.20563069, inc: 7.00487, node: 48.33167, peri: 29.12478, ma:	174.79439}, renderParams: {radius: 0.40, meshN: SUN_MESH_N / 2, color: 0xffff00}}
     // planets.Venus = {OrbitParams: {epoch: 2451545, a: 0.72333199, e: 0.00677323, inc: 3.39471, node: 76.68069, peri: 54.85229, ma: 50.44675}}
