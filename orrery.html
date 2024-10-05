@@ -116,6 +116,15 @@
 
     function initializePlanets() { //process the planet data and initialize the scene
         for (const [planetName, planetData] of Object.entries(planets)) {
+                //convert the orbital parameters into the values that will be used by other functions
+                planetData.orbParams.i *= DEG_TO_RAD;
+                planetData.orbParams.lan *= DEG_TO_RAD;
+                planetData.orbParams.aop *= DEG_TO_RAD;
+                planetData.orbParams.ma *= DEG_TO_RAD;
+                // planetData.orbParams.ma -= planetData.orbParams.aop;
+                // planetData.orbParams.aop -= planetData.orbParams.lan;
+                
+                createOrbit(planetData.orbParams, planetData.renderParams.color); //create the orbit and its mesh
                 const orbParams = planetData.orbParams;
 
                 //convert the angular orbital parameters to radians
