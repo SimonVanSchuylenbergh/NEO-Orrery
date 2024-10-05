@@ -97,8 +97,8 @@
         },
         "renderParams": {
 
-            "radius": 0,
-            "color": 0
+            "radius": 0.6,
+            "color": "#ead6b8"
         }
     },
     "Uranus": {
@@ -114,8 +114,8 @@
         },
         "renderParams": {
 
-            "radius": 0,
-            "color": 0
+            "radius": 0.5,
+            "color": "#d1e7e7"
         }
     },
     "Neptune": {
@@ -131,8 +131,8 @@
         },
         "renderParams": {
 
-            "radius": 0,
-            "color": 0
+            "radius": 0.5,
+            "color": "#3f54ba"
         }
     },
     "Pluto": {
@@ -148,8 +148,8 @@
         },
         "renderParams": {
 
-            "radius": 0,
-            "color": 0
+            "radius": 0.3,
+            "color": "#968570"
         }
     }
 }
