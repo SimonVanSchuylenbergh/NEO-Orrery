@@ -19,7 +19,10 @@
     //Constants
     DEG_TO_RAD = Math.PI / 180;
     AU_SCALE_FACTOR = 50;
+    TA_TIME_SCALE_FACTOR = 0.00001; //this will not be needed when the true anomaly code is included
     SUN_MESH_N = 32;
+    ORBIT_MESH_POINTS = 128;
+    ORBIT_SEGMENT_CONST = 2 * Math.PI / ORBIT_MESH_POINTS;
     
     //Setup Scene
     const scene = new THREE.Scene();
@@ -30,82 +33,145 @@
     camera.position.set(100, 100, 100);
     camera.lookAt(0,0,0);
 
+    //Add lighting
+    const light = new THREE.AmbientLight(0x404040, 0.5); // soft white light
+    scene.add(light);
+
     //Setup Controls
     const controls = new OrbitControls(amera, renderer.domElement);
     controls.enableDamping = true;
     controls.update();
 
     //Setup Event Listeners
-    
+    window.addEventListener("resize", () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    });
     
 
     //Functions
-    function processPlanetData() { //process the planet data and initialize the scene
+
+    //Create the mesh orbit for a given object and generate the orbit's transform matrix
+    function createOrbit(orbParams, color) {
+        //creat transform matrix
+        const cosNode = Math.cos(orbParams.node);
+        const sinNode = Math.sin(orbParams.node);
+        const cosPeri = Math.cos(orbParams.peri);
+        const sinPeri = Math.sin(orbParams.peri);
+        const cosInc = Math.cos(orbParams.inc);
+        const sinInc = Math.sin(orbParams.inc);
+        
+        m1 = Math.matrix([[cosNode, -sinNode, 0], [sinNode, cosNode, 0], [0, 0, 1]]);
+        m2 = Math.matrix([[1, 0, 0], [0, cosNode, 0], [0, 0, 1]]);
+        m3 = Math.matrix([[cosNode, -sinNode, 0], [sinNode, cosNode, 0], [0, 0, 1]]);
+
+            
+
+        const points = [];
+        const b = orbParams.a * Math.sqrt(1 - orbParams.e ** 2); //semi minor axis
+
+        for (let i = 0; i <= ORBIT_MESH_POINTS; i++) {
+            //compute a point along the orbit
+            const eccentric_anomaly = ORBIT_SEGMENT_CONST * i; //angle
+            const xOrb = orbParams.a * (Math.cos(eccentric_anomaly) - orbParams.e); //shift the x position so the right side focus is at the center when looking from above
+            const yOrb = b * Math.sin(eccentric_anomaly);
+ 
+            //convert orbital coords to ecliptic coords (same as camera coords) via matrix vector multiplication
+            const xCamera = matrix[0][0] * xOrb + matrix[0][1] * yOrb;
+            const yCamera = matrix[1][0] * xOrb + matrix[1][1] * yOrb;
+            const zCamera = matrix[2][0] * xOrb + matrix[2][1] * yOrb;
+
+            points.push(new THREE.Vector3(xCamera, yCamera, zCamera));
+        }
+        
+        const geometry = new THREE.BufferGeometry().setFromPoints(points);
+        const material = new THREE.LineBasicMaterial({color: color});
+        return new THREE.Line(geometry, material);    }
+
+    //get the position of a given object along its orbit at a specific time (based on true anomaly)
+    function getOrbitPosition(a, e, true_anomaly, matrix) {
+        const cosTA = Math.cos(true_anomaly);
+        const sinTA = Math.sin(true_anomaly);
+
+        const radius = a * (1 - e*e) / (1 + e * cosTA);
+
+        const xOrb = radius * cosTA;
+        const yOrb = radius * sinTA;
+
+        //convert orbital coords to ecliptic coords (same as camera coords) via matrix vector multiplication
+        const xCamera = matrix[0][0] * xOrb + matrix[0][1] * yOrb;
+        const yCamera = matrix[1][0] * xOrb + matrix[1][1] * yOrb;
+        const zCamera = matrix[2][0] * xOrb + matrix[2][1] * yOrb;
+
+        return new THREE.Vector3(xCamera, yCamera, zCamera);
+    }
+
+    function addSun() {
+        const geometry = new THREE.SphereGeometry(1, SUN_MESH_N, SUN_MESH_N); 
+        const material = new THREE.MeshBasicMaterial({color: 0xffff00}); 
+        sunMesh = new THREE.Mesh(geometry, material);
+        scene.add(sunMesh);
+    }
+
+    function initializePlanets() { //process the planet data and initialize the scene
         for (const [planetName, planetData] of Object.entries(planets)) {
                 //convert the orbital parameters into the values that will be used by other functions
                 planetData.orbParams.i *= DEG_TO_RAD;
                 planetData.orbParams.lan *= DEG_TO_RAD;
                 planetData.orbParams.aop *= DEG_TO_RAD;
                 planetData.orbParams.ma *= DEG_TO_RAD;
-                planetData.orbParams.ma -= planetData.orbParams.aop;
-                planetData.orbParams.aop -= planetData.orbParams.lan;
+                // planetData.orbParams.ma -= planetData.orbParams.aop;
+                // planetData.orbParams.aop -= planetData.orbParams.lan;
                 
                 createOrbit(planetData.orbParams, planetData.renderParams.color); //create the orbit and its mesh
+                const orbParams = planetData.orbParams;
+
+                //convert the angular orbital parameters to radians
+                orbParams.inc *= DEG_TO_RAD;
+                orbParams.node *= DEG_TO_RAD;
+                orbParams.peri *= DEG_TO_RAD;
+                orbParams.ma *= DEG_TO_RAD;
 
                 //create the meshes for the planets and add them to the scene
                 const geometry = new THREE.SphereGeometry(planetData.renderParams.radius, planetData.renderParams.meshN, planetData.renderParams.meshN); 
                 const material = new THREE.MeshBasicMaterial({color: planetData.renderParams.color}); 
-                const planetMesh = new THREE.Mesh( geometry, material );
+                const planetMesh = new THREE.Mesh(geometry, material);
+                planetMeshes[planetName] = planetMesh;
+
+                //create orbit and place the planet on the orbit
+                const orbit = createOrbit(orbParams, planetData.renderParams.color); //create the orbit and its mesh
+                planetMesh.position = getOrbitPosition(OrbitParams.a, orbParams.e, 0, orbParams.transformMatrix); //need the true anonomaly function for proper initialization (set to 0 for now)
                 
-
-            planet_meshes
-
-                scene.add(sphere);
+                scene.add(orbit);
+                scene.add(planetMesh);
         }
-
     }
 
-
     //Data
-
-    planets = dict([
-    ("Mercury", ["dimgrey", np.array([0.38709893, 0.20563069, 7.00487, 48.33167, 77.45645, 252.25084])]),
-    ("Venus", ["chocolate", np.array([0.72333199, 0.00677323, 3.39471, 76.68069, 131.53298, 181.97973])]),
-    ("Earth", ["mediumblue", np.array([1.00000011, 0.01671022, 0.00005, -11.26064, 102.94719, 100.46435])]),
-    ("Mars", ["firebrick", np.array([1.52366231, 0.09341233, 1.85061, 49.57854, 336.04084, 355.45332])]),
-    ("Jupiter", ["darkorange", np.array([5.20336301, 0.04839266, 1.30530, 100.55615, 14.75385, 34.40438])]),
-    ("Saturn", ["peachpuff", np.array([9.53707032, 0.05415060, 2.48446, 113.71504, 92.43194, 49.94432])]),
-    ("Uranus", ["lightblue", np.array([19.19126393, 0.04716771, 0.76986, 74.22988, 170.96424, 313.23218])]),
-    ("Neptune", ["royalblue", np.array([30.06896348, 0.00858587, 1.76917, 131.72169, 44.97135, 304.88003])]),
-    ("Pluto", ["tan", np.array([39.48168677, 0.24880766, 17.14175, 110.30347, 224.06676, 238.92881])])])
-
+    let sunMesh;
     let planets;
     let planetMeshes;
+
 
     [0.40, 0.45, 0.60, 0.50, 0.80]
     [0xffff00, 0xcc9966, 0xff9900, 0x0000ff, 0xff0000, 0xffcc00]
 
-    planets.Mercury = {OrbitParams: {epoch: 2451545, a: 0.38709893, e:  0.20563069, inc: 7.00487, node: 48.33167, peri: 29.12478, ma:	174.79439}, renderParams: {radius: 0.40, meshN: SUN_MESH_N / 2, color: 0xffff00}}
-    planets.Venus = {OrbitParams: {epoch: 2451545, a: 0.72333199, e: 0.00677323, inc: 3.39471, node: 76.68069, peri: 54.85229, ma: 50.44675}}
-    planets.Earth = {OrbitParams: {epoch: 2451545, a: 1.00000011, e: 0.01671022, inc: 0.00005, node: -11.26064, peri: 114.20783, ma: 357.51716}} //chatgpt baby
-    planets.Mars = {OrbitParams: {epoch: 2451545, a: 1.52366231, e: 0.09341233, inc: 1.85061, node: 49.57854, peri: 286.4623, ma:	19.41248}}
-    planets.Jupiter = {OrbitParams: {epoch: 2451545, a: 5.20336301, e: 0.04839266, inc: 1.30530, node: 100.55615, peri: -85.8023, ma:	19.65053}}
-    planets.Saturn = {OrbitParams: {epoch: 2451545, a: 9.53707032, e: 0.05415060, inc: 2.48446, node: 113.71504, peri: -21.2831, ma: -42.48762}}
-    planets.Uranus = {OrbitParams: {epoch: 2451545, a: 19.19126393, e: 0.04716771, inc: 0.76986, node: 74.22988, peri: 96.73436, ma: 142.26794}}
-    planets.Neptune = {OrbitParams: {epoch: 2451545, a: 30.06896348, e: 0.00858587, inc: 1.76917, node: 131.72169, peri: -86.75034, ma: 259.9086}}
-    planets.Pluto = {OrbitParams: {epoch: 2451545, a: 39.48168677, e: 0.24880766, inc: 17.14175, node: 110.30347, peri: 113.834, ma: 14.950}} //chatgpt baby
+    // planets.Mercury = {OrbitParams: {epoch: 0, a: 0.38709893, e:  0.20563069, inc: 7.00487, node: 48.33167, peri: 77.45645, ma: 252.25084}, renderParams: {radius: 0.40, meshN: SUN_MESH_N / 2, color: 0xffff00}}
+
+    addSun();
+    initializePlanets();
 
     //The animation loop function which updates the scene (keep at the bottom of the file)
     function animate() {
         requestAnimationFrame(animate);
 
         for (const [planetName, planetData] of Object.entries(planets)) {
-            planetData.orbParams = 0;
+            planetData.orbParams = null; //Placeholder
         }
 
 
         controls.update();
-
         renderer.render(scene, camera);
     }
 

@@ -1,3 +1,4 @@
 # MacOS junk
 .DS_Store
-
+# ignore vscode
+.vscode/
