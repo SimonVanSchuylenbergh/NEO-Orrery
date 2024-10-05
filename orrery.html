@@ -20,12 +20,17 @@
     const DEG_TO_RAD = Math.PI / 180;
     const AU_SCALE_FACTOR = 50;
     const TA_TIME_SCALE_FACTOR = 0.0001; // This will not be needed when the true anomaly code is included
+    
     const DEFAULT_MESH_N = 32;
-    const ORBIT_MESH_POINTS = 64;
+    const ORBIT_MESH_POINTS = 128;
     const ORBIT_SEGMENT_CONST = 2 * Math.PI / ORBIT_MESH_POINTS;
-    const NEO_COLOR = 0x1e90FF;
+    
+    const NEO_ORBIT_COLOR = 0x1e90FF;
+    const NEO_COLOR = 0xFFFFFF;
     const NEO_RADIUS = 0.5;
-    const MAX_VISIBLE_NEOS = 100;
+    const MAX_VISIBLE_NEOS = 50;
+
+    const MOUSE_MIN_MOVE_CLICK = 0.01;
 
     // FPS control
     const targetFPS = 60; // Target frames per second
@@ -56,6 +61,49 @@
         camera.updateProjectionMatrix();
         renderer.setSize(window.innerWidth, window.innerHeight);
     });
+
+    const mouseDownXY = new THREE.Vector2();
+    const mouseUpXY = new THREE.Vector2();
+    const raycaster = new THREE.Raycaster();
+    
+    document.addEventListener('mousedown', (event) => {
+        mouseDownXY.x = (event.clientX / window.innerWidth) * 2 - 1;
+        mouseDownXY.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+        console.log(mouseUpXY.x, mouseUpXY.y, "DOWN");
+    });
+
+    document.addEventListener('mouseup', (event) => {
+        mouseUpXY.x = (event.clientX / window.innerWidth) * 2 - 1;
+        mouseUpXY.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+        console.log(mouseUpXY.x, mouseUpXY.y, "UP");
+
+        //if (mouseDownXY.sub(mouseUpXY)) {
+
+        //}
+
+        //update the picking ray with the camera and pointer position
+        raycaster.setFromCamera(mouseUpXY, camera);
+
+        // alculate objects intersecting the picking ray
+        const intersects = raycaster.intersectObjects(scene.children);
+
+        for (let i = 0; i < intersects.length; i ++ ) {
+            intersects[i].object.material.color.set(0x00ff00); 
+        }
+    });
+
+    
+    document.addEventListener("click", (event) => {
+        mouseDownXY.x = (event.clientX / window.innerWidth) * 2 - 1;
+        mouseDownXY.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+        console.log(mouseDownXY.x, mouseDownXY.y, "CLICK");
+    });
+
+
+
 
     // Functions
     async function readJSON(filePath) {
@@ -162,7 +210,7 @@
             const neoMesh = new THREE.Mesh(geometry, material);
             neoMeshes[neoName] = neoMesh;
 
-            const orbit = createOrbit(orbitParams, NEO_COLOR);
+            const orbit = createOrbit(orbitParams, NEO_ORBIT_COLOR);
             const pos = getOrbitPosition(orbitParams.a, orbitParams.e, 0, orbitParams.transformMatrix);
             neoMesh.position.set(pos.x, pos.y, pos.z);
 
