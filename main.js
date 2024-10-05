@@ -4,16 +4,14 @@ import { OrbitControls } from 'https://cdn.skypack.dev/three@0.128.0/examples/js
 
 // Constants
 const DEG_TO_RAD = Math.PI / 180;
-const AU_SCALE_FACTOR = 50;
 const TA_TIME_SCALE_FACTOR = 0.0001; // This will not be needed when the true anomaly code is included
 
 const DEFAULT_MESH_N = 32;
 const ORBIT_MESH_POINTS = 128;
-const ORBIT_SEGMENT_CONST = 2 * Math.PI / ORBIT_MESH_POINTS;
 
 const NEO_ORBIT_COLOR = 0x1e90FF;
 const NEO_COLOR = 0xFFFFFF;
-const NEO_RADIUS = 0.5;
+const NEO_RADIUS = 0.01;
 const MAX_VISIBLE_NEOS = 50;
 
 const MOUSE_MIN_MOVE_CLICK = 0.01;
@@ -25,7 +23,7 @@ let lastFrameTime = 0; // Tracks the last frame's timestamp
 
 // Setup Scene
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000);
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 const renderer = new THREE.WebGLRenderer({antialias:true, canvas: document.getElementById("orreryCanvas")});
 renderer.setSize(window.innerWidth, window.innerHeight);
 
@@ -42,7 +40,7 @@ scene.background = new THREE.CubeTextureLoader().load([
 // Set camera position
 camera.position.z = 1;
 
-camera.position.set(100, 100, 100);
+camera.position.set(2, 2, 2);
 camera.lookAt(0, 0, 0);
 
 // Add lighting
@@ -114,7 +112,8 @@ async function readJSON(filePath) {
     } catch (error) { console.error('There was a problem trying to read ' + filePath + ':', error); }
 }
 
-function createOrbit(orbitParams, color) {
+function createOrbit(orbitParams, color, n_mesh_points) {
+    const orbit_segment_const = 2 * Math.PI / n_mesh_points;
     const cosNode = Math.cos(orbitParams.node);
     const sinNode = Math.sin(orbitParams.node);
     const cosPeri = Math.cos(orbitParams.peri);
@@ -132,8 +131,8 @@ function createOrbit(orbitParams, color) {
     const points = [];
     const b = orbitParams.a * Math.sqrt(1 - orbitParams.e ** 2); // Semi-minor axis
 
-    for (let i = 0; i <= ORBIT_MESH_POINTS; i++) {
-        const eccentric_anomaly = ORBIT_SEGMENT_CONST * i; // Angle
+    for (let i = 0; i <= n_mesh_points; i++) {
+        const eccentric_anomaly = orbit_segment_const * i; // Angle
         const xOrb = orbitParams.a * (Math.cos(eccentric_anomaly) - orbitParams.e);
         const yOrb = b * Math.sin(eccentric_anomaly);
 
@@ -171,7 +170,7 @@ function addSun() {
         'assets/body_textures/8k_sun.jpg'
     );
 
-    const geometry = new THREE.SphereGeometry(1, DEFAULT_MESH_N, DEFAULT_MESH_N);
+    const geometry = new THREE.SphereGeometry(0.02, DEFAULT_MESH_N, DEFAULT_MESH_N);
     const material = new THREE.MeshBasicMaterial({map: sunTexture});
     const sunMesh = new THREE.Mesh(geometry, material);
     scene.add(sunMesh);
@@ -184,7 +183,6 @@ function initializePlanets() {
         orbitParams.node *= DEG_TO_RAD;
         orbitParams.peri *= DEG_TO_RAD;
         orbitParams.ma *= DEG_TO_RAD;
-        orbitParams.a *= AU_SCALE_FACTOR;
         // get planet texture
         const planetTextureName = planetData.renderParams.texture;
         const planetTextureLoader = new THREE.TextureLoader();
@@ -197,7 +195,7 @@ function initializePlanets() {
         const planetMesh = new THREE.Mesh(geometry, material);
         planetMeshes[planetName] = planetMesh;
 
-        const orbit = createOrbit(orbitParams, planetData.renderParams.color);
+        const orbit = createOrbit(orbitParams, planetData.renderParams.color, ORBIT_MESH_POINTS);
         const pos = getOrbitPosition(orbitParams.a, orbitParams.e, 0, orbitParams.transformMatrix);
         planetMesh.position.set(pos.x, pos.y, pos.z);
 
@@ -214,14 +212,13 @@ function initializeNeos() {
         orbitParams.node *= DEG_TO_RAD;
         orbitParams.peri *= DEG_TO_RAD;
         orbitParams.ma *= DEG_TO_RAD;
-        orbitParams.a *= AU_SCALE_FACTOR;
 
         const geometry = new THREE.SphereGeometry(NEO_RADIUS, DEFAULT_MESH_N / 2, DEFAULT_MESH_N / 2);
         const material = new THREE.MeshBasicMaterial({ color: NEO_COLOR });
         const neoMesh = new THREE.Mesh(geometry, material);
         neoMeshes[neoName] = neoMesh;
 
-        const orbit = createOrbit(orbitParams, NEO_ORBIT_COLOR);
+        const orbit = createOrbit(orbitParams, NEO_ORBIT_COLOR, ORBIT_MESH_POINTS);
         const pos = getOrbitPosition(orbitParams.a, orbitParams.e, 0, orbitParams.transformMatrix);
         neoMesh.position.set(pos.x, pos.y, pos.z);
 

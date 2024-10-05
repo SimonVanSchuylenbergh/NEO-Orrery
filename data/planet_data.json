@@ -12,7 +12,7 @@
         },
         "renderParams": {
             "is_dwarf": false,
-            "radius": 0.4,
+            "radius": 0.008,
             "color": "#B7B8B9",
             "texture": "8k_mercury.jpg"
         }
@@ -30,7 +30,7 @@
         },
         "renderParams": {
             "is_dwarf": false,
-            "radius": 0.45,
+            "radius": 0.009,
             "color": "#c18f17",
             "texture": "4k_venus_atmosphere.jpg"
         }
@@ -48,7 +48,7 @@
         },
         "renderParams": {
             "is_dwarf": false,
-            "radius": 0.6,
+            "radius": 0.012,
             "color": "#0000A0",
             "texture": "8k_earth_daymap.jpg"
         }
@@ -66,7 +66,7 @@
         },
         "renderParams": {
             "is_dwarf": false,
-            "radius": 0.5,
+            "radius": 0.01,
             "color": "#c1440e",
             "texture": "8k_mars.jpg"
         }
@@ -84,7 +84,7 @@
         },
         "renderParams": {
             "is_dwarf": false,
-            "radius": 0.8,
+            "radius": 0.016,
             "color": "#ffcc00",
             "texture": "8k_jupiter.jpg"
         }
@@ -102,7 +102,7 @@
         },
         "renderParams": {
             "is_dwarf": false,
-            "radius": 0.6,
+            "radius": 0.012,
             "color": "#ead6b8",
             "texture": "8k_saturn.jpg"
         }
@@ -120,7 +120,7 @@
         },
         "renderParams": {
             "is_dwarf": false,
-            "radius": 0.5,
+            "radius": 0.01,
             "color": "#d1e7e7",
             "texture": "2k_uranus.jpg"
         }
@@ -138,7 +138,7 @@
         },
         "renderParams": {
             "is_dwarf": false,
-            "radius": 0.5,
+            "radius": 0.01,
             "color": "#3f54ba",
             "texture": "2k_neptune.jpg"
         }
@@ -212,7 +212,7 @@
 		},
             "renderParams": {
             "is_dwarf": true,
-            "radius": 0.5,
+            "radius": 0.01,
             "color": "#B7B8B9",
             "texture": "4k_ceres_fictional.jpg"
         }
@@ -261,7 +261,7 @@
 		},
         "renderParams": {
             "is_dwarf": true,
-            "radius": 0.5,
+            "radius": 0.01,
             "color": "#B7B8B9",
             "texture": "pluto_texture_map__25k__by_askaniy_dcjk44z.jpg"
         }
@@ -323,7 +323,7 @@
 		},
         "renderParams": {
             "is_dwarf": true,
-            "radius": 0.5,
+            "radius": 0.01,
             "color": "#B7B8B9",
             "texture": "4k_haumea_fictional.jpg"
         }
@@ -385,7 +385,7 @@
 		},
         "renderParams": {
             "is_dwarf": true,
-            "radius": 0.5,
+            "radius": 0.01,
             "color": "#B7B8B9",
             "texture": "4k_eris_fictional.jpg"
         }
@@ -447,7 +447,7 @@
 		},
         "renderParams": {
             "is_dwarf": true,
-            "radius": 0.5,
+            "radius": 0.01,
             "color": "#B7B8B9",
             "texture": "4k_makemake_fictional.jpg"
         }
