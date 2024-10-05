@@ -1,5 +1,6 @@
 # NEO-SAC
  Space Apps Challenge 2024 
+ **TO DO :**
 - [ ] CSV Planets ephemeris
 - [ ] CSV Sporadics meteor showers and parent bodies
 - [ ] CSV Risk list asteroids
@@ -8,6 +9,6 @@
 - [ ] Matrix rotation function
 - [ ] Toggle Satelite/Earth and slider JD and number of shown NEOs
 - [ ] Python to Javascript conversion to boot the page
-Plus : if time allows
+**if time allows :**
 - [ ] Skybox milkyway
 - [ ] Texture planet atmosphere
