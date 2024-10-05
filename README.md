@@ -14,6 +14,6 @@
 - [ ] DEMO ppt submit by 7pm with title explain what the screen capture is showing
 
 **if time allows**
-- [ ] Skybox milkyway
+- [x] Skybox milkyway
 - [ ] Texture planet atmosphere
 - [ ] Texture and halo Sun
