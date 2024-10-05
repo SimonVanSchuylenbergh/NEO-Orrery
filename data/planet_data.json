@@ -213,7 +213,7 @@
             "renderParams": {
             "is_dwarf": true,
             "radius": 0.5,
-            "color": "#3f54ba",
+            "color": "#B7B8B9",
             "texture": "4k_ceres_fictional.jpg"
         }
 	},
@@ -262,7 +262,7 @@
         "renderParams": {
             "is_dwarf": true,
             "radius": 0.5,
-            "color": "#3f54ba",
+            "color": "#B7B8B9",
             "texture": "pluto_texture_map__25k__by_askaniy_dcjk44z.jpg"
         }
 	},
@@ -324,7 +324,7 @@
         "renderParams": {
             "is_dwarf": true,
             "radius": 0.5,
-            "color": "#3f54ba",
+            "color": "#B7B8B9",
             "texture": "4k_haumea_fictional.jpg"
         }
 	},
@@ -386,7 +386,7 @@
         "renderParams": {
             "is_dwarf": true,
             "radius": 0.5,
-            "color": "#3f54ba",
+            "color": "#B7B8B9",
             "texture": "4k_eris_fictional.jpg"
         }
 	},
@@ -448,7 +448,7 @@
         "renderParams": {
             "is_dwarf": true,
             "radius": 0.5,
-            "color": "#3f54ba",
+            "color": "#B7B8B9",
             "texture": "4k_makemake_fictional.jpg"
         }
 	}
