@@ -26,6 +26,7 @@
     const NEO_COLOR = 0x1e90FF;
     const NEO_RADIUS = 0.5;
     const NEO_MESHN = 32;
+    const MAX_VISIBLE_NEOS = 10;
     
     //Setup Scene
     const scene = new THREE.Scene();
@@ -162,6 +163,7 @@
     }
 
     function initializeNeos() { //process the NEO data and initialize the scene
+        let i = 0;
         for (const [neoName, neoData] of Object.entries(neos)) {
             const orbitParams = neoData.orbitParams;
 
@@ -173,11 +175,11 @@
 
             createOrbit(neoData.orbitParams, NEO_COLOR); //create the orbit and its mesh
 
-            // //create the meshes for the planets and add them to the scene
-            // const geometry = new THREE.SphereGeometry(neoData.renderParams.radius, neoData.renderParams.meshN, neoData.renderParams.meshN); 
-            // const material = new THREE.MeshBasicMaterial({color: neoData.renderParams.color}); 
-            // const planetMesh = new THREE.Mesh(geometry, material);
-            // planetMeshes[planetName] = planetMesh;
+            //create the meshes for the neos and add them to the scene
+            const geometry = new THREE.SphereGeometry(NEO_RADIUS, NEO_MESH_N, NEO_MESH_N); 
+            const material = new THREE.MeshBasicMaterial({color: NEO_COLOR}); 
+            const neoMesh = new THREE.Mesh(geometry, material);
+            neoMeshes[neoName] = neoMesh;
 
             //create orbit and place the neo on the orbit
 
@@ -185,18 +187,17 @@
             neoMesh.position = getOrbitPosition(orbitParams.a, orbitParams.e, 0, orbitParams.transformMatrix); //need the true anonomaly function for proper initialization (set to 0 for now)
 
             scene.add(orbit);
-            // scene.add(planetMesh);
+            scene.add(neoMesh);
+
+            i += 1;
+            if (i == MAX_VISIBLE_NEOS) { break };
         }
     }
 
     //Data
     let sunMesh;
     let planetMeshes;
-
-    // create one mesh for neos with the same parameters
-    const neoGeometry = new THREE.SphereGeometry(NEO_RADIUS, NEO_MESH_N, NEO_MESH_N); //radius, meshN, meshN
-    const neoMaterial = new THREE.MeshBasicMaterial({color: NEO_COLOR}); 
-    let neoMesh = new THREE.Mesh(neoGeometry, neoMaterial);
+    let neoMeshes;
 
     const planets = readJSON('./data/planet_data.json'); //require('./data/planet_data.json');
     //const neos = require('./data/risk_list_neo_data.json');
@@ -216,11 +217,15 @@
             planetMeshes[planetName].position = getOrbitPosition(orbitParams.a, orbitParams.e, trueAnomaly, orbitParams.transformMatrix);
         }
 
+        let i = 0;
         for (const [neoName, neoData] of Object.entries(neos)) {
             const orbitParams = neoData.OrbitParams;
 
             const trueAnomaly = Date.now() * TA_TIME_SCALE_FACTOR;
             neoMesh[neoName].position = getOrbitPosition(orbitParams.a, orbitParams.e, trueAnomaly, orbitParams.transformMatrix);
+        
+            i += 1;
+            if (i == MAX_VISIBLE_NEOS) { break };
         }
 
         controls.update();
