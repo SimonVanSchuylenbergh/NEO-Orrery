@@ -214,7 +214,7 @@
 
             "radius": 0.5,
             "color": "#3f54ba",
-            "texture": "2k_neptune.jpg"
+            "texture": "4k_ceres_fictional.jpg"
         }
 	},
 	"Pluto": {
@@ -263,7 +263,7 @@
 
             "radius": 0.5,
             "color": "#3f54ba",
-            "texture": "2k_neptune.jpg"
+            "texture": "pluto_texture_map__25k__by_askaniy_dcjk44z.jpg"
         }
 	},
 	"Haumea": {
@@ -325,7 +325,7 @@
 
             "radius": 0.5,
             "color": "#3f54ba",
-            "texture": "2k_neptune.jpg"
+            "texture": "4k_haumea_fictional.jpg"
         }
 	},
 	"Eris": {
@@ -387,7 +387,7 @@
 
             "radius": 0.5,
             "color": "#3f54ba",
-            "texture": "2k_neptune.jpg"
+            "texture": "4k_eris_fictional.jpg"
         }
 	},
 	"Makemake": {
@@ -449,7 +449,7 @@
 
             "radius": 0.5,
             "color": "#3f54ba",
-            "texture": "2k_neptune.jpg"
+            "texture": "4k_makemake_fictional.jpg"
         }
 	}
 }
