@@ -194,7 +194,7 @@
     let planetMeshes;
 
     // create one mesh for neos with the same parameters
-    const neoGeometry = new THREE.SphereGeometry(NEORADIUS, NEOMESHN, NEOMESHN); //radius, meshN, meshN
+    const neoGeometry = new THREE.SphereGeometry(NEO_RADIUS, NEO_MESH_N, NEO_MESH_N); //radius, meshN, meshN
     const neoMaterial = new THREE.MeshBasicMaterial({color: NEO_COLOR}); 
     let neoMesh = new THREE.Mesh(neoGeometry, neoMaterial);
 
