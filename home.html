@@ -4,8 +4,111 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NEO Page</title>
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    
+  <div class="info-panel">
+    <h1 id="info-name"></h1>
+    <p id="info-diameter"></p>
+    <p id="info-first-impact"></p>
+    <p id="info-impact-period"></p>
+    <p id="info-risk"></p>
+    <p id="info-vel"></p>
+    <h2>Orbital parameters:</h2>
+    <p id="info-a" style="padding-left: 20px;"></p>
+    <p id="info-e" style="padding-left: 20px;"></p>
+    <p id="info-inc" style="padding-left: 20px;"></p>
+    <p id="info-node" style="padding-left: 20px;"></p>
+    <p id="info-peri" style="padding-left: 20px;"></p>
+    <p id="info-ma" style="padding-left: 20px;"></p>
+    <p id="info-epoch" style="padding-left: 20px;"></p>
+  </div>
+
+  <button id="next-btn">Next</button>
+
+  <script>
+    // Global variable to store JSON data
+    let jsonData = [];
+    let currentIndex = 0;
+
+    // Function to load JSON and store in jsonData
+    function loadJsonData() {
+      return fetch('data/risk_list_neo_data.json')
+        .then(response => response.json())
+        .then(data => {
+          jsonData = data; // Store the entire JSON data in the global variable
+          console.log('Data loaded'); // Check if data is stored
+        })
+        .catch(error => console.error('Error fetching JSON:', error));
+    }
+
+    function sortByImpact(data) {
+      return data.slice().sort((a, b) => new Date(a.impact) - new Date(b.impact));
+    }
+
+    function sortBySemiMajorAxis(data) {
+      return data.slice().sort((a, b) => a.a - b.a);
+    }
+
+    function sortByEccentricity(data) {
+      return data.slice().sort((a, b) => a.e - b.e);
+    }
+
+    function sortByRisk(data) {
+      return data.slice().sort((a, b) => b['PS max'] - a['PS max']);
+    }
+
+    function sortByInclination(data) {
+      return data.slice().sort((a, b) => a.inc - b.inc);
+    }
+
+    function sortBySize(data) {
+      return data.slice().sort((a, b) => b.diameter - a.diameter);
+    }
+
+    // Function to display the next set of 10 objects
+    function displayObjects() {
+      const sortedData = sortByRisk(jsonData); // Get a sorted copy
+
+      // Get the objects to display for the current page
+      const objectToDisplay = sortedData[currentIndex];
+
+      document.getElementById('info-name').textContent = `${objectToDisplay.name}`;
+      if (objectToDisplay.diameter_based_on_magnitude)
+        document.getElementById('info-diameter').textContent = `Diameter: ${objectToDisplay.diameter} m  (*)`;
+      else
+        document.getElementById('info-diameter').textContent = `Diameter: ${objectToDisplay.diameter} m`;
+      document.getElementById('info-first-impact').textContent = `First possible impact: ${objectToDisplay.impact}`;
+      document.getElementById('info-impact-period').textContent = `Possible impacts between ${objectToDisplay.years.split('-')[0]} and ${objectToDisplay.years.split('-')[1]}`;
+      document.getElementById('info-risk').textContent = `Risk: ${objectToDisplay["PS max"]} (Palermo Scale)`;
+      document.getElementById('info-vel').textContent = `Velocity: ${objectToDisplay.vel} km/s`;
+
+      document.getElementById('info-a').textContent = `Semi-major axis: ${objectToDisplay.a.toFixed(3)} AU`;
+      document.getElementById('info-e').textContent = `Eccentricity: ${objectToDisplay.e.toFixed(3)}`;
+      document.getElementById('info-inc').textContent = `Inclination: ${objectToDisplay.inc.toFixed(3)}\u00B0`;
+      document.getElementById('info-node').textContent = `Argument of ascending node: ${objectToDisplay.node.toFixed(3)}\u00B0`;
+      document.getElementById('info-peri').textContent = `Longitude of perihelion: ${objectToDisplay.peri.toFixed(3)}\u00B0`;
+      document.getElementById('info-ma').textContent = `Mean anomaly: ${objectToDisplay.ma.toFixed(3)}\u00B0`;
+      document.getElementById('info-epoch').textContent = `Epoch: ${objectToDisplay.epoch} (MJD)`;
+
+      // Disable the "Next" button if we reach the end of the data
+      const nextBtn = document.getElementById('next-btn');
+      if (currentIndex + 1 >= sortedData.length) {
+        nextBtn.disabled = true; // Disable button when no more objects are left to display
+      } else {
+        nextBtn.disabled = false; // Enable if more objects can be displayed
+      }
+    }
+
+    // Function to handle the "Next" button click
+    document.getElementById('next-btn').addEventListener('click', function() {
+      currentIndex += 1;
+      displayObjects();
+    });
+
+    // Load the data and initialize the table
+    loadJsonData()
+    .then(displayObjects);
+  </script>
 </body>
 </html>
