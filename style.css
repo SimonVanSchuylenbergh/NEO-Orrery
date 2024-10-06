@@ -150,6 +150,7 @@ canvas {
     border: none;
     margin: 0px;
     cursor: pointer;
+    pointer-events: auto;
 }
 
 .time-control-icon {
