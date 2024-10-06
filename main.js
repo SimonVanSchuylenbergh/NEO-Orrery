@@ -1136,8 +1136,7 @@ function animate(time) {
     else{
         document.getElementById("timespeed").textContent = `Speed: ${TIMESPEEDS[timeSpeedIndex].toPrecision(3)} days/second`;
     }
-
-
+    
     controls.update();
     renderer.render(scene, camera);
 }
