@@ -38,7 +38,11 @@
             "Remarks": "",
             "OTe": "",
             "L-T": "LookUptablefilename",
-            "References": "4]<Ahref='http://adsabs.harvard.edu/abs/1973NASSP.319..183C'target=_blank>Cook,1973</A>"
+            "References": "4]<Ahref='http://adsabs.harvard.edu/abs/1973NASSP.319..183C'target=_blank>Cook,1973</A>",
+            "true_anomaly_begin": -272.96,
+            "true_anomaly_end": -257.96,
+            "activity_start": "07-24",
+            "activity_end": "08-08"
         }
     },
     "alpha-Capricornids_2": {
@@ -80,7 +84,11 @@
             "Remarks": "Resultsobtainedusingwaveletanalysis",
             "OTe": "R",
             "L-T": "LookUptablefilename",
-            "References": "6]<Ahref='http://adsabs.harvard.edu/abs/2008Icar..195..317B'target=_blank>Brownetal.,2008</A>"
+            "References": "6]<Ahref='http://adsabs.harvard.edu/abs/2008Icar..195..317B'target=_blank>Brownetal.,2008</A>",
+            "true_anomaly_begin": -276.5,
+            "true_anomaly_end": -264.5,
+            "activity_start": "07-16",
+            "activity_end": "07-28"
         }
     },
     "alpha-Capricornids_3": {
@@ -122,7 +130,11 @@
             "Remarks": "",
             "OTe": "T",
             "L-T": "LookUptablefilename",
-            "References": "9]<Ahref='http://adsabs.harvard.edu/abs/2016Icar..266..331J'target=_blank>Jenniskensetal.,2016</A>"
+            "References": "9]<Ahref='http://adsabs.harvard.edu/abs/2016Icar..266..331J'target=_blank>Jenniskensetal.,2016</A>",
+            "true_anomaly_begin": -293.29999999999995,
+            "true_anomaly_end": -256.29999999999995,
+            "activity_start": "07-01",
+            "activity_end": "08-08"
         }
     },
     "alpha-Capricornids_4": {
@@ -206,7 +218,11 @@
             "Remarks": "meanofsolarlongitude=120-127degree",
             "OTe": "T",
             "L-T": "001_CAP2.csv",
-            "References": "12)<Ahref='https://ui.adsabs.harvard.edu/abs/2022JIMO...50...38S/abstract'target=_blank>Shiba,2022.</a>"
+            "References": "12)<Ahref='https://ui.adsabs.harvard.edu/abs/2022JIMO...50...38S/abstract'target=_blank>Shiba,2022.</a>",
+            "true_anomaly_begin": -274.14099999999996,
+            "true_anomaly_end": -267.32599999999996,
+            "activity_start": "07-20",
+            "activity_end": "07-27"
         }
     },
     "alpha-Capricornids_6": {
@@ -248,7 +264,11 @@
             "Remarks": "meanofsolarlongitude=127-138degree",
             "OTe": "T",
             "L-T": "001_CAP3.csv",
-            "References": "13)<Ahref='https://ui.adsabs.harvard.edu/abs/2022JIMO...50...38S/abstract'target=_blank>Shiba,2022.</a>"
+            "References": "13)<Ahref='https://ui.adsabs.harvard.edu/abs/2022JIMO...50...38S/abstract'target=_blank>Shiba,2022.</a>",
+            "true_anomaly_begin": -268.588,
+            "true_anomaly_end": -256.69100000000003,
+            "activity_start": "07-27",
+            "activity_end": "08-08"
         }
     },
     "SouthernTaurids_1": {
@@ -332,7 +352,11 @@
             "Remarks": "memberofTauridComplex(247)",
             "OTe": "R",
             "L-T": "LookUptablefilename",
-            "References": "4]<Ahref='http://adsabs.harvard.edu/abs/2008Icar..195..317B'target=_blank>Brownetal.,2008</A>"
+            "References": "4]<Ahref='http://adsabs.harvard.edu/abs/2008Icar..195..317B'target=_blank>Brownetal.,2008</A>",
+            "true_anomaly_begin": 33.5,
+            "true_anomaly_end": 79.5,
+            "activity_start": "09-11",
+            "activity_end": "10-28"
         }
     },
     "SouthernTaurids_3": {
@@ -374,7 +398,11 @@
             "Remarks": "memberofTauridComplex(247)",
             "OTe": "R",
             "L-T": "LookUptablefilename",
-            "References": "6]<Ahref='http://adsabs.harvard.edu/abs/2010Icar..207...66B'target=_blank>Brownetal.,2010</A>"
+            "References": "6]<Ahref='http://adsabs.harvard.edu/abs/2010Icar..207...66B'target=_blank>Brownetal.,2010</A>",
+            "true_anomaly_begin": 34.74000000000001,
+            "true_anomaly_end": 78.74000000000001,
+            "activity_start": "09-12",
+            "activity_end": "10-27"
         }
     },
     "SouthernTaurids_4": {
@@ -416,7 +444,11 @@
             "Remarks": "memberofTauridComplex(247)",
             "OTe": "T",
             "L-T": "LookUptablefilename",
-            "References": "7]<Ahref='http://adsabs.harvard.edu/abs/2016Icar..266..331J'target=_blank>Jenniskensetal.,2016</A>"
+            "References": "7]<Ahref='http://adsabs.harvard.edu/abs/2016Icar..266..331J'target=_blank>Jenniskensetal.,2016</A>",
+            "true_anomaly_begin": 29.0,
+            "true_anomaly_end": 121.0,
+            "activity_start": "09-19",
+            "activity_end": "12-21"
         }
     },
     "SouthernTaurids_5": {
@@ -458,7 +490,11 @@
             "Remarks": "",
             "OTe": "T",
             "L-T": "002_STA0.csv",
-            "References": "9)<Ahref='https://ui.adsabs.harvard.edu/abs/2022JIMO...50...38S/abstract'target=_blank>Shiba,2022.</a>"
+            "References": "9)<Ahref='https://ui.adsabs.harvard.edu/abs/2022JIMO...50...38S/abstract'target=_blank>Shiba,2022.</a>",
+            "true_anomaly_begin": 52.452,
+            "true_anomaly_end": 82.32300000000001,
+            "activity_start": "10-20",
+            "activity_end": "11-19"
         }
     },
     "SouthernTaurids_6": {
@@ -500,7 +536,11 @@
             "Remarks": "meanofsolarlongitude=187-213degree",
             "OTe": "T",
             "L-T": "002_STA1.csv",
-            "References": "10)<Ahref='https://ui.adsabs.harvard.edu/abs/2022JIMO...50...38S/abstract'target=_blank>Shiba,2022.</a>"
+            "References": "10)<Ahref='https://ui.adsabs.harvard.edu/abs/2022JIMO...50...38S/abstract'target=_blank>Shiba,2022.</a>",
+            "true_anomaly_begin": 43.66300000000001,
+            "true_anomaly_end": 69.27600000000001,
+            "activity_start": "09-27",
+            "activity_end": "10-23"
         }
     },
     "SouthernTaurids_7": {
@@ -542,7 +582,11 @@
             "Remarks": "meanofsolarlongitude=213-231degree",
             "OTe": "T",
             "L-T": "002_STA2.csv",
-            "References": "11)<Ahref='https://ui.adsabs.harvard.edu/abs/2022JIMO...50...38S/abstract'target=_blank>Shiba,2022.</a>"
+            "References": "11)<Ahref='https://ui.adsabs.harvard.edu/abs/2022JIMO...50...38S/abstract'target=_blank>Shiba,2022.</a>",
+            "true_anomaly_begin": 58.762,
+            "true_anomaly_end": 76.679,
+            "activity_start": "10-23",
+            "activity_end": "11-10"
         }
     },
     "SouthernTaurids_8": {
@@ -584,7 +628,11 @@
             "Remarks": "meanofsolarlongitude=231-258degree",
             "OTe": "T",
             "L-T": "002_STA3.csv",
-            "References": "12)<Ahref='https://ui.adsabs.harvard.edu/abs/2022JIMO...50...38S/abstract'target=_blank>Shiba,2022.</a>"
+            "References": "12)<Ahref='https://ui.adsabs.harvard.edu/abs/2022JIMO...50...38S/abstract'target=_blank>Shiba,2022.</a>",
+            "true_anomaly_begin": 72.501,
+            "true_anomaly_end": 99.46300000000002,
+            "activity_start": "11-10",
+            "activity_end": "12-07"
         }
     },
     "SouthernTaurids_9": {
@@ -626,7 +674,11 @@
             "Remarks": "meanofsolarlongitude=231-258degree",
             "OTe": "T",
             "L-T": "002_STA4.csv",
-            "References": "13)<Ahref='https://ui.adsabs.harvard.edu/abs/2022JIMO...50...38S/abstract'target=_blank>Shiba,2022.</a>"
+            "References": "13)<Ahref='https://ui.adsabs.harvard.edu/abs/2022JIMO...50...38S/abstract'target=_blank>Shiba,2022.</a>",
+            "true_anomaly_begin": 89.02900000000002,
+            "true_anomaly_end": 110.13000000000002,
+            "activity_start": "12-07",
+            "activity_end": "12-29"
         }
     },
     "Southerniota-Aquariids_1": {
@@ -668,7 +720,11 @@
             "Remarks": "Memberof298/IAQComplex",
             "OTe": "",
             "L-T": "LookUptablefilename",
-            "References": "1]<Ahref='http://adsabs.harvard.edu/abs/1973NASSP.319..183C'target=_blank>Cook,1973</A>"
+            "References": "1]<Ahref='http://adsabs.harvard.edu/abs/1973NASSP.319..183C'target=_blank>Cook,1973</A>",
+            "true_anomaly_begin": -330.84000000000003,
+            "true_anomaly_end": -291.84000000000003,
+            "activity_start": "07-13",
+            "activity_end": "08-21"
         }
     },
     "Southerniota-Aquariids_2": {
@@ -710,7 +766,11 @@
             "Remarks": "Memberof298/IAQComplex.RemovedfromtheListofEstablishedShowers(2015)Jenniskensetal.Trans.IAU,vol10,issueT28pp120-123",
             "OTe": "R",
             "L-T": "LookUptablefilename",
-            "References": "3]<Ahref='http://adsabs.harvard.edu/abs/2008Icar..195..317B'target=_blank>Brownetal.,2008</A>"
+            "References": "3]<Ahref='http://adsabs.harvard.edu/abs/2008Icar..195..317B'target=_blank>Brownetal.,2008</A>",
+            "true_anomaly_begin": -315.40000000000003,
+            "true_anomaly_end": -310.40000000000003,
+            "activity_start": "07-28",
+            "activity_end": "08-02"
         }
     },
     "Geminids_1": {
@@ -752,7 +812,11 @@
             "Remarks": "",
             "OTe": "R",
             "L-T": "LookUptablefilename",
-            "References": "4]<Ahref='http://adsabs.harvard.edu/abs/2008Icar..195..317B'target=_blank>Brownetal.,2008</A>"
+            "References": "4]<Ahref='http://adsabs.harvard.edu/abs/2008Icar..195..317B'target=_blank>Brownetal.,2008</A>",
+            "true_anomaly_begin": -341.9000000000001,
+            "true_anomaly_end": -318.9000000000001,
+            "activity_start": "11-23",
+            "activity_end": "12-16"
         }
     },
     "Geminids_2": {
@@ -794,7 +858,11 @@
             "Remarks": "",
             "OTe": "R",
             "L-T": "LookUptablefilename",
-            "References": "6]<Ahref='http://adsabs.harvard.edu/abs/2010Icar..207...66B'target=_blank>Brownetal.,2010</A>"
+            "References": "6]<Ahref='http://adsabs.harvard.edu/abs/2010Icar..207...66B'target=_blank>Brownetal.,2010</A>",
+            "true_anomaly_begin": -345.95000000000005,
+            "true_anomaly_end": -312.95000000000005,
+            "activity_start": "11-19",
+            "activity_end": "12-22"
         }
     },
     "Geminids_3": {
@@ -836,7 +904,11 @@
             "Remarks": "thePhaetonComplex",
             "OTe": "T",
             "L-T": "LookUptablefilename",
-            "References": "7]<Ahref='http://adsabs.harvard.edu/abs/2016Icar..266..331J'target=_blank>Jenniskensetal.,2016</A>"
+            "References": "7]<Ahref='http://adsabs.harvard.edu/abs/2016Icar..266..331J'target=_blank>Jenniskensetal.,2016</A>",
+            "true_anomaly_begin": -343.0,
+            "true_anomaly_end": -324.0,
+            "activity_start": "11-22",
+            "activity_end": "12-11"
         }
     },
     "Southerndelta-Aquariids_1": {
@@ -920,7 +992,11 @@
             "Remarks": "Memberof297/DAQ",
             "OTe": "",
             "L-T": "LookUptablefilename",
-            "References": "4]<Ahref='http://adsabs.harvard.edu/abs/1973NASSP.319..183C'target=_blank>Cook,1973</A>"
+            "References": "4]<Ahref='http://adsabs.harvard.edu/abs/1973NASSP.319..183C'target=_blank>Cook,1973</A>",
+            "true_anomaly_begin": -339.8,
+            "true_anomaly_end": -302.8,
+            "activity_start": "07-19",
+            "activity_end": "08-25"
         }
     },
     "Southerndelta-Aquariids_3": {
@@ -1004,7 +1080,11 @@
             "Remarks": "Memberof297/DAQComplex",
             "OTe": "R",
             "L-T": "LookUptablefilename",
-            "References": "7]<Ahref='http://adsabs.harvard.edu/abs/2008Icar..195..317B'target=_blank>Brownetal.,2008</A>"
+            "References": "7]<Ahref='http://adsabs.harvard.edu/abs/2008Icar..195..317B'target=_blank>Brownetal.,2008</A>",
+            "true_anomaly_begin": -345.1,
+            "true_anomaly_end": -315.1,
+            "activity_start": "07-15",
+            "activity_end": "08-15"
         }
     },
     "Southerndelta-Aquariids_5": {
@@ -1046,7 +1126,11 @@
             "Remarks": "Memberof297/DAQComplex(!!Whodecided?)",
             "OTe": "T",
             "L-T": "LookUptablefilename",
-            "References": "9]<Ahref='http://adsabs.harvard.edu/abs/2016Icar..266..331J'target=_blank>Jenniskensetal.,2016</A>"
+            "References": "9]<Ahref='http://adsabs.harvard.edu/abs/2016Icar..266..331J'target=_blank>Jenniskensetal.,2016</A>",
+            "true_anomaly_begin": -342.5,
+            "true_anomaly_end": -313.5,
+            "activity_start": "07-17",
+            "activity_end": "08-16"
         }
     },
     "Southerndelta-Aquariids_6": {
@@ -1088,7 +1172,11 @@
             "Remarks": "",
             "OTe": "T",
             "L-T": "005_SDA.csv",
-            "References": "11)<Ahref='https://ui.adsabs.harvard.edu/abs/2022JIMO...50...38S/abstract'target=_blank>Shiba,2022.</a>"
+            "References": "11)<Ahref='https://ui.adsabs.harvard.edu/abs/2022JIMO...50...38S/abstract'target=_blank>Shiba,2022.</a>",
+            "true_anomaly_begin": -341.38800000000003,
+            "true_anomaly_end": -310.459,
+            "activity_start": "07-18",
+            "activity_end": "08-19"
         }
     },
     "AprilLyrids_1": {
@@ -1172,7 +1260,11 @@
             "Remarks": "",
             "OTe": "",
             "L-T": "LookUptablefilename",
-            "References": "3]<Ahref='http://adsabs.harvard.edu/abs/1973NASSP.319..183C'target=_blank>Cook,1973</A>"
+            "References": "3]<Ahref='http://adsabs.harvard.edu/abs/1973NASSP.319..183C'target=_blank>Cook,1973</A>",
+            "true_anomaly_begin": -216.11999999999998,
+            "true_anomaly_end": -214.11999999999998,
+            "activity_start": "04-21",
+            "activity_end": "04-23"
         }
     },
     "AprilLyrids_3": {
@@ -1214,7 +1306,11 @@
             "Remarks": "Resultsobtainedusingwaveletanalysis",
             "OTe": "R",
             "L-T": "LookUptablefilename",
-            "References": "5]<Ahref='http://adsabs.harvard.edu/abs/2008Icar..195..317B'target=_blank>Brownetal.,2008</A>"
+            "References": "5]<Ahref='http://adsabs.harvard.edu/abs/2008Icar..195..317B'target=_blank>Brownetal.,2008</A>",
+            "true_anomaly_begin": -217.10000000000002,
+            "true_anomaly_end": -215.10000000000002,
+            "activity_start": "04-21",
+            "activity_end": "04-23"
         }
     },
     "AprilLyrids_4": {
@@ -1256,7 +1352,11 @@
             "Remarks": "",
             "OTe": "R",
             "L-T": "LookUptablefilename",
-            "References": "7]<Ahref='http://adsabs.harvard.edu/abs/2010Icar..207...66B'target=_blank>Brownetal.,2010</A>"
+            "References": "7]<Ahref='http://adsabs.harvard.edu/abs/2010Icar..207...66B'target=_blank>Brownetal.,2010</A>",
+            "true_anomaly_begin": -217.71,
+            "true_anomaly_end": -213.71,
+            "activity_start": "04-20",
+            "activity_end": "04-24"
         }
     },
     "AprilLyrids_5": {
@@ -1298,7 +1398,11 @@
             "Remarks": "",
             "OTe": "T",
             "L-T": "LookUptablefilename",
-            "References": "8]<Ahref='http://adsabs.harvard.edu/abs/2016Icar..266..331J'target=_blank>Jenniskensetal.,2016</A>"
+            "References": "8]<Ahref='http://adsabs.harvard.edu/abs/2016Icar..266..331J'target=_blank>Jenniskensetal.,2016</A>",
+            "true_anomaly_begin": -225.3,
+            "true_anomaly_end": -201.3,
+            "activity_start": "04-11",
+            "activity_end": "05-05"
         }
     },
     "AprilLyrids_6": {
@@ -1340,7 +1444,11 @@
             "Remarks": "",
             "OTe": "T",
             "L-T": "006LYR_Shiba.csv",
-            "References": "1)Shiba,2023,submittedtowgn."
+            "References": "1)Shiba,2023,submittedtowgn.",
+            "true_anomaly_begin": -223.67,
+            "true_anomaly_end": -208.17999999999998,
+            "activity_start": "04-12",
+            "activity_end": "04-28"
         }
     },
     "Perseids_1": {
@@ -1424,7 +1532,11 @@
             "Remarks": "",
             "OTe": "R",
             "L-T": "LookUptablefilename",
-            "References": "4]<Ahref='http://adsabs.harvard.edu/abs/2008Icar..195..317B'target=_blank>Brownetal.,2008</A>"
+            "References": "4]<Ahref='http://adsabs.harvard.edu/abs/2008Icar..195..317B'target=_blank>Brownetal.,2008</A>",
+            "true_anomaly_begin": -160.89999999999998,
+            "true_anomaly_end": -152.89999999999998,
+            "activity_start": "08-03",
+            "activity_end": "08-12"
         }
     },
     "Perseids_3": {
@@ -1466,7 +1578,11 @@
             "Remarks": "",
             "OTe": "R",
             "L-T": "LookUptablefilename",
-            "References": "6]<Ahref='http://adsabs.harvard.edu/abs/2010Icar..207...66B'target=_blank>Brownetal.,2010</A>"
+            "References": "6]<Ahref='http://adsabs.harvard.edu/abs/2010Icar..207...66B'target=_blank>Brownetal.,2010</A>",
+            "true_anomaly_begin": -170.12,
+            "true_anomaly_end": -146.12,
+            "activity_start": "07-23",
+            "activity_end": "08-17"
         }
     },
     "Perseids_4": {
@@ -1508,7 +1624,11 @@
             "Remarks": "",
             "OTe": "T",
             "L-T": "LookUptablefilename",
-            "References": "7]<Ahref='http://adsabs.harvard.edu/abs/2016Icar..266..331J'target=_blank>Jenniskensetal.,2016</A>"
+            "References": "7]<Ahref='http://adsabs.harvard.edu/abs/2016Icar..266..331J'target=_blank>Jenniskensetal.,2016</A>",
+            "true_anomaly_begin": -174.70000000000005,
+            "true_anomaly_end": -131.70000000000005,
+            "activity_start": "07-15",
+            "activity_end": "08-28"
         }
     },
     "Perseids_5": {
@@ -1550,7 +1670,11 @@
             "Remarks": "",
             "OTe": "T",
             "L-T": "007PER_Shiba.csv",
-            "References": "1)Shiba,2023,submittedtowgn."
+            "References": "1)Shiba,2023,submittedtowgn.",
+            "true_anomaly_begin": -169.14,
+            "true_anomaly_end": -128.72,
+            "activity_start": "07-20",
+            "activity_end": "08-30"
         }
     },
     "Orionids_1": {
@@ -1634,7 +1758,11 @@
             "Remarks": "",
             "OTe": "R",
             "L-T": "LookUptablefilename",
-            "References": "4]<Ahref='http://adsabs.harvard.edu/abs/2008Icar..195..317B'target=_blank>Brownetal.,2008</A>"
+            "References": "4]<Ahref='http://adsabs.harvard.edu/abs/2008Icar..195..317B'target=_blank>Brownetal.,2008</A>",
+            "true_anomaly_begin": 90.9,
+            "true_anomaly_end": 113.9,
+            "activity_start": "10-07",
+            "activity_end": "10-31"
         }
     },
     "Orionids_3": {
@@ -1676,7 +1804,11 @@
             "Remarks": "",
             "OTe": "R",
             "L-T": "LookUptablefilename",
-            "References": "6]<Ahref='http://adsabs.harvard.edu/abs/2010Icar..207...66B'target=_blank>Brownetal.,2010</A>"
+            "References": "6]<Ahref='http://adsabs.harvard.edu/abs/2010Icar..207...66B'target=_blank>Brownetal.,2010</A>",
+            "true_anomaly_begin": 86.02,
+            "true_anomaly_end": 115.02,
+            "activity_start": "10-07",
+            "activity_end": "11-06"
         }
     },
     "Orionids_4": {
@@ -1718,7 +1850,11 @@
             "Remarks": "TheHalleyComplex",
             "OTe": "T",
             "L-T": "LookUptablefilename",
-            "References": "7]<Ahref='http://adsabs.harvard.edu/abs/2016Icar..266..331J'target=_blank>Jenniskensetal.,2016</A>"
+            "References": "7]<Ahref='http://adsabs.harvard.edu/abs/2016Icar..266..331J'target=_blank>Jenniskensetal.,2016</A>",
+            "true_anomaly_begin": 69.5,
+            "true_anomaly_end": 134.5,
+            "activity_start": "09-19",
+            "activity_end": "11-24"
         }
     },
     "Orionids_5": {
@@ -1760,7 +1896,11 @@
             "Remarks": "",
             "OTe": "T",
             "L-T": "008ORI_Shiba.csv",
-            "References": "1)Shiba,2023,submittedtowgn."
+            "References": "1)Shiba,2023,submittedtowgn.",
+            "true_anomaly_begin": 87.38,
+            "true_anomaly_end": 116.91999999999999,
+            "activity_start": "10-10",
+            "activity_end": "11-09"
         }
     },
     "OctoberDraconids_1": {
@@ -1844,7 +1984,11 @@
             "Remarks": "",
             "OTe": "R",
             "L-T": "LookUptablefilename",
-            "References": "3]<Ahref='http://adsabs.harvard.edu/abs/2008Icar..195..317B'target=_blank>Brownetal.,2008</A>"
+            "References": "3]<Ahref='http://adsabs.harvard.edu/abs/2008Icar..195..317B'target=_blank>Brownetal.,2008</A>",
+            "true_anomaly_begin": -173.5,
+            "true_anomaly_end": -173.5,
+            "activity_start": "10-04",
+            "activity_end": "10-04"
         }
     },
     "OctoberDraconids_3": {
@@ -1886,7 +2030,11 @@
             "Remarks": "",
             "OTe": "T",
             "L-T": "LookUptablefilename",
-            "References": "4]<Ahref='http://adsabs.harvard.edu/abs/2016Icar..266..331J'target=_blank>Jenniskensetal.,2016</A>"
+            "References": "4]<Ahref='http://adsabs.harvard.edu/abs/2016Icar..266..331J'target=_blank>Jenniskensetal.,2016</A>",
+            "true_anomaly_begin": -173.2,
+            "true_anomaly_end": -172.2,
+            "activity_start": "10-04",
+            "activity_end": "10-05"
         }
     },
     "OctoberDraconids_4": {
@@ -1928,7 +2076,11 @@
             "Remarks": "",
             "OTe": "T",
             "L-T": "009_DRA.csv",
-            "References": "7)<Ahref='https://ui.adsabs.harvard.edu/abs/2022JIMO...50...38S/abstract'target=_blank>Shiba,2022.</a>"
+            "References": "7)<Ahref='https://ui.adsabs.harvard.edu/abs/2022JIMO...50...38S/abstract'target=_blank>Shiba,2022.</a>",
+            "true_anomaly_begin": -175.92400000000004,
+            "true_anomaly_end": -169.64900000000003,
+            "activity_start": "09-30",
+            "activity_end": "10-07"
         }
     },
     "Quadrantids_1": {
@@ -1970,7 +2122,11 @@
             "Remarks": "",
             "OTe": "R",
             "L-T": "LookUptablefilename",
-            "References": "3]<Ahref='http://adsabs.harvard.edu/abs/2008Icar..195..317B'target=_blank>Brownetal.,2008</A>"
+            "References": "3]<Ahref='http://adsabs.harvard.edu/abs/2008Icar..195..317B'target=_blank>Brownetal.,2008</A>",
+            "true_anomaly_begin": -172.7,
+            "true_anomaly_end": -166.7,
+            "activity_start": "12-29",
+            "activity_end": "01-04"
         }
     },
     "Quadrantids_2": {
@@ -2012,7 +2168,11 @@
             "Remarks": "",
             "OTe": "R",
             "L-T": "LookUptablefilename",
-            "References": "5]<Ahref='http://adsabs.harvard.edu/abs/2010Icar..207...66B'target=_blank>Brownetal.,2010</A>"
+            "References": "5]<Ahref='http://adsabs.harvard.edu/abs/2010Icar..207...66B'target=_blank>Brownetal.,2010</A>",
+            "true_anomaly_begin": -219.14,
+            "true_anomaly_end": -160.14,
+            "activity_start": "11-11",
+            "activity_end": "01-10"
         }
     },
     "Quadrantids_3": {
@@ -2054,7 +2214,11 @@
             "Remarks": "TheMachholzComplex",
             "OTe": "T",
             "L-T": "LookUptablefilename",
-            "References": "6]<Ahref='http://adsabs.harvard.edu/abs/2016Icar..266..331J'target=_blank>Jenniskensetal.,2016</A>"
+            "References": "6]<Ahref='http://adsabs.harvard.edu/abs/2016Icar..266..331J'target=_blank>Jenniskensetal.,2016</A>",
+            "true_anomaly_begin": -184.70000000000005,
+            "true_anomaly_end": -157.70000000000005,
+            "activity_start": "12-19",
+            "activity_end": "01-16"
         }
     },
     "Quadrantids_4": {
@@ -2096,7 +2260,11 @@
             "Remarks": "",
             "OTe": "T",
             "L-T": "010_QUA.csv",
-            "References": "8)<Ahref='https://ui.adsabs.harvard.edu/abs/2022JIMO...50...38S/abstract'target=_blank>Shiba,2022.</a>"
+            "References": "8)<Ahref='https://ui.adsabs.harvard.edu/abs/2022JIMO...50...38S/abstract'target=_blank>Shiba,2022.</a>",
+            "true_anomaly_begin": -175.75699999999995,
+            "true_anomaly_end": -166.03899999999993,
+            "activity_start": "12-30",
+            "activity_end": "01-08"
         }
     },
     "eta-Virginids_1": {
@@ -2180,7 +2348,11 @@
             "Remarks": "",
             "OTe": "T",
             "L-T": "LookUptablefilename",
-            "References": "3]<Ahref='http://adsabs.harvard.edu/abs/2016Icar..266..331J'target=_blank>Jenniskensetal.,2016</A>"
+            "References": "3]<Ahref='http://adsabs.harvard.edu/abs/2016Icar..266..331J'target=_blank>Jenniskensetal.,2016</A>",
+            "true_anomaly_begin": -636.7,
+            "true_anomaly_end": -277.70000000000005,
+            "activity_start": "03-21",
+            "activity_end": "03-20"
         }
     },
     "eta-Virginids_3": {
@@ -2222,7 +2394,11 @@
             "Remarks": "",
             "OTe": "T",
             "L-T": "011_EVI.csv",
-            "References": "7)<Ahref='https://ui.adsabs.harvard.edu/abs/2022JIMO...50...38S/abstract'target=_blank>Shiba,2022.</a>"
+            "References": "7)<Ahref='https://ui.adsabs.harvard.edu/abs/2022JIMO...50...38S/abstract'target=_blank>Shiba,2022.</a>",
+            "true_anomaly_begin": -280.511,
+            "true_anomaly_end": -640.496,
+            "activity_start": "03-21",
+            "activity_end": "03-21"
         }
     },
     "kappa-Cygnids_1": {
@@ -2264,7 +2440,11 @@
             "Remarks": "",
             "OTe": "",
             "L-T": "LookUptablefilename",
-            "References": "1]<Ahref='http://adsabs.harvard.edu/abs/1973NASSP.319..183C'target=_blank>Cook,1973</A>"
+            "References": "1]<Ahref='http://adsabs.harvard.edu/abs/1973NASSP.319..183C'target=_blank>Cook,1973</A>",
+            "true_anomaly_begin": -202.99,
+            "true_anomaly_end": -145.99,
+            "activity_start": "08-06",
+            "activity_end": "10-03"
         }
     },
     "kappa-Cygnids_2": {
@@ -2306,7 +2486,11 @@
             "Remarks": "",
             "OTe": "T",
             "L-T": "LookUptablefilename",
-            "References": "8]<Ahref='http://adsabs.harvard.edu/abs/2016Icar..266..331J'target=_blank>Jenniskensetal.,2016</A>"
+            "References": "8]<Ahref='http://adsabs.harvard.edu/abs/2016Icar..266..331J'target=_blank>Jenniskensetal.,2016</A>",
+            "true_anomaly_begin": -200.89999999999998,
+            "true_anomaly_end": -192.89999999999998,
+            "activity_start": "08-05",
+            "activity_end": "08-14"
         }
     },
     "kappa-Cygnids_3": {
@@ -2348,7 +2532,11 @@
             "Remarks": "",
             "OTe": "T",
             "L-T": "012_KCG.csv",
-            "References": "12)<Ahref='https://ui.adsabs.harvard.edu/abs/2022JIMO...50...38S/abstract'target=_blank>Shiba,2022.</a>"
+            "References": "12)<Ahref='https://ui.adsabs.harvard.edu/abs/2022JIMO...50...38S/abstract'target=_blank>Shiba,2022.</a>",
+            "true_anomaly_begin": -226.33000000000004,
+            "true_anomaly_end": -187.65400000000002,
+            "activity_start": "07-21",
+            "activity_end": "08-29"
         }
     },
     "Leonids_1": {
@@ -2390,7 +2578,11 @@
             "Remarks": "",
             "OTe": "",
             "L-T": "LookUptablefilename",
-            "References": "2]<Ahref='http://adsabs.harvard.edu/abs/1973NASSP.319..183C'target=_blank>Cook,1973</A>"
+            "References": "2]<Ahref='http://adsabs.harvard.edu/abs/1973NASSP.319..183C'target=_blank>Cook,1973</A>",
+            "true_anomaly_begin": -175.99,
+            "true_anomaly_end": -169.99,
+            "activity_start": "11-11",
+            "activity_end": "11-17"
         }
     },
     "Leonids_2": {
@@ -2474,7 +2666,11 @@
             "Remarks": "",
             "OTe": "R",
             "L-T": "LookUptablefilename",
-            "References": "6]<Ahref='http://adsabs.harvard.edu/abs/2008Icar..195..317B'target=_blank>Brownetal.,2008</A>"
+            "References": "6]<Ahref='http://adsabs.harvard.edu/abs/2008Icar..195..317B'target=_blank>Brownetal.,2008</A>",
+            "true_anomaly_begin": -178.5,
+            "true_anomaly_end": -168.5,
+            "activity_start": "11-07",
+            "activity_end": "11-17"
         }
     },
     "Leonids_4": {
@@ -2516,7 +2712,11 @@
             "Remarks": "",
             "OTe": "R",
             "L-T": "LookUptablefilename",
-            "References": "8]<Ahref='http://adsabs.harvard.edu/abs/2010Icar..207...66B'target=_blank>Brownetal.,2010</A>"
+            "References": "8]<Ahref='http://adsabs.harvard.edu/abs/2010Icar..207...66B'target=_blank>Brownetal.,2010</A>",
+            "true_anomaly_begin": -178.11,
+            "true_anomaly_end": -171.11,
+            "activity_start": "11-09",
+            "activity_end": "11-16"
         }
     },
     "Leonids_5": {
@@ -2558,7 +2758,11 @@
             "Remarks": "",
             "OTe": "T",
             "L-T": "LookUptablefilename",
-            "References": "9]<Ahref='http://adsabs.harvard.edu/abs/2016Icar..266..331J'target=_blank>Jenniskensetal.,2016</A>"
+            "References": "9]<Ahref='http://adsabs.harvard.edu/abs/2016Icar..266..331J'target=_blank>Jenniskensetal.,2016</A>",
+            "true_anomaly_begin": -185.3,
+            "true_anomaly_end": -157.3,
+            "activity_start": "10-30",
+            "activity_end": "11-27"
         }
     },
     "Leonids_6": {
@@ -2600,7 +2804,11 @@
             "Remarks": "",
             "OTe": "T",
             "L-T": "013LEO_Shiba.csv",
-            "References": "1)Shiba,2023,submittedtowgn."
+            "References": "1)Shiba,2023,submittedtowgn.",
+            "true_anomaly_begin": -192.64000000000001,
+            "true_anomaly_end": -151.11,
+            "activity_start": "10-27",
+            "activity_end": "12-08"
         }
     },
     "Ursids_1": {
@@ -2642,7 +2850,11 @@
             "Remarks": "",
             "OTe": "R",
             "L-T": "LookUptablefilename",
-            "References": "2]<Ahref='http://adsabs.harvard.edu/abs/2008Icar..195..317B'target=_blank>Brownetal.,2008</A>"
+            "References": "2]<Ahref='http://adsabs.harvard.edu/abs/2008Icar..195..317B'target=_blank>Brownetal.,2008</A>",
+            "true_anomaly_begin": -202.39999999999998,
+            "true_anomaly_end": -202.39999999999998,
+            "activity_start": "12-19",
+            "activity_end": "12-19"
         }
     },
     "Ursids_2": {
@@ -2684,7 +2896,11 @@
             "Remarks": "",
             "OTe": "R",
             "L-T": "LookUptablefilename",
-            "References": "4]<Ahref='http://adsabs.harvard.edu/abs/2010Icar..207...66B'target=_blank>Brownetal.,2010</A>"
+            "References": "4]<Ahref='http://adsabs.harvard.edu/abs/2010Icar..207...66B'target=_blank>Brownetal.,2010</A>",
+            "true_anomaly_begin": -203.52999999999997,
+            "true_anomaly_end": -200.52999999999997,
+            "activity_start": "12-18",
+            "activity_end": "12-21"
         }
     },
     "Ursids_3": {
@@ -2726,7 +2942,11 @@
             "Remarks": "TheMachholzComplex",
             "OTe": "T",
             "L-T": "LookUptablefilename",
-            "References": "5]<Ahref='http://adsabs.harvard.edu/abs/2016Icar..266..331J'target=_blank>Jenniskensetal.,2016</A>"
+            "References": "5]<Ahref='http://adsabs.harvard.edu/abs/2016Icar..266..331J'target=_blank>Jenniskensetal.,2016</A>",
+            "true_anomaly_begin": -208.70000000000005,
+            "true_anomaly_end": -204.70000000000005,
+            "activity_start": "12-16",
+            "activity_end": "12-20"
         }
     },
     "Ursids_4": {
@@ -2768,7 +2988,11 @@
             "Remarks": "",
             "OTe": "T",
             "L-T": "015_URS.csv",
-            "References": "9)<Ahref='https://ui.adsabs.harvard.edu/abs/2022JIMO...50...38S/abstract'target=_blank>Shiba,2022.</a>"
+            "References": "9)<Ahref='https://ui.adsabs.harvard.edu/abs/2022JIMO...50...38S/abstract'target=_blank>Shiba,2022.</a>",
+            "true_anomaly_begin": -216.42000000000002,
+            "true_anomaly_end": -196.767,
+            "activity_start": "12-10",
+            "activity_end": "12-30"
         }
     },
     "sigma-Hydrids_1": {
@@ -2810,7 +3034,11 @@
             "Remarks": "",
             "OTe": "T",
             "L-T": "LookUptablefilename",
-            "References": "4]<Ahref='http://adsabs.harvard.edu/abs/2016Icar..266..331J'target=_blank>Jenniskensetal.,2016</A>"
+            "References": "4]<Ahref='http://adsabs.harvard.edu/abs/2016Icar..266..331J'target=_blank>Jenniskensetal.,2016</A>",
+            "true_anomaly_begin": -8.0,
+            "true_anomaly_end": 79.0,
+            "activity_start": "09-27",
+            "activity_end": "12-25"
         }
     },
     "sigma-Hydrids_2": {
@@ -2852,7 +3080,11 @@
             "Remarks": "",
             "OTe": "T",
             "L-T": "016HYD_Shiba.csv",
-            "References": "1)Shiba,2023,submittedtowgn."
+            "References": "1)Shiba,2023,submittedtowgn.",
+            "true_anomaly_begin": 41.5,
+            "true_anomaly_end": 94.12,
+            "activity_start": "11-16",
+            "activity_end": "01-09"
         }
     },
     "NorthernTaurids_1": {
@@ -2978,7 +3210,11 @@
             "Remarks": "memberofTauridcomplex(247)",
             "OTe": "R",
             "L-T": "LookUptablefilename",
-            "References": "5]<Ahref='http://adsabs.harvard.edu/abs/2008Icar..195..317B'target=_blank>Brownetal.,2008</A>"
+            "References": "5]<Ahref='http://adsabs.harvard.edu/abs/2008Icar..195..317B'target=_blank>Brownetal.,2008</A>",
+            "true_anomaly_begin": -311.6,
+            "true_anomaly_end": -283.6,
+            "activity_start": "10-17",
+            "activity_end": "11-14"
         }
     },
     "NorthernTaurids_4": {
@@ -3020,7 +3256,11 @@
             "Remarks": "memberofTauridComplex(247)",
             "OTe": "R",
             "L-T": "LookUptablefilename",
-            "References": "7]<Ahref='http://adsabs.harvard.edu/abs/2010Icar..207...66B'target=_blank>Brownetal.,2010</A>"
+            "References": "7]<Ahref='http://adsabs.harvard.edu/abs/2010Icar..207...66B'target=_blank>Brownetal.,2010</A>",
+            "true_anomaly_begin": 62.81,
+            "true_anomaly_end": 86.81,
+            "activity_start": "10-27",
+            "activity_end": "11-20"
         }
     },
     "NorthernTaurids_5": {
@@ -3062,7 +3302,11 @@
             "Remarks": "memberofTauridComplex(247)",
             "OTe": "T",
             "L-T": "LookUptablefilename",
-            "References": "8]<Ahref='http://adsabs.harvard.edu/abs/2016Icar..266..331J'target=_blank>Jenniskensetal.,2016</A>"
+            "References": "8]<Ahref='http://adsabs.harvard.edu/abs/2016Icar..266..331J'target=_blank>Jenniskensetal.,2016</A>",
+            "true_anomaly_begin": -334.20000000000005,
+            "true_anomaly_end": -295.20000000000005,
+            "activity_start": "09-20",
+            "activity_end": "10-30"
         }
     },
     "NorthernTaurids_6": {
@@ -3104,7 +3348,11 @@
             "Remarks": "meanofsolarlongitude=200-225degree",
             "OTe": "T",
             "L-T": "017_NTA1.csv",
-            "References": "10)<Ahref='https://ui.adsabs.harvard.edu/abs/2022JIMO...50...38S/abstract'target=_blank>Shiba,2022.</a>"
+            "References": "10)<Ahref='https://ui.adsabs.harvard.edu/abs/2022JIMO...50...38S/abstract'target=_blank>Shiba,2022.</a>",
+            "true_anomaly_begin": -317.2690000000001,
+            "true_anomaly_end": -292.41100000000006,
+            "activity_start": "10-10",
+            "activity_end": "11-04"
         }
     },
     "NorthernTaurids_7": {
@@ -3146,7 +3394,11 @@
             "Remarks": "meanofsolarlongitude=225-258degree",
             "OTe": "T",
             "L-T": "017_NTA2.csv",
-            "References": "11)<Ahref='https://ui.adsabs.harvard.edu/abs/2022JIMO...50...38S/abstract'target=_blank>Shiba,2022.</a>"
+            "References": "11)<Ahref='https://ui.adsabs.harvard.edu/abs/2022JIMO...50...38S/abstract'target=_blank>Shiba,2022.</a>",
+            "true_anomaly_begin": -300.79499999999996,
+            "true_anomaly_end": -267.93799999999993,
+            "activity_start": "11-04",
+            "activity_end": "12-07"
         }
     },
     "NorthernTaurids_8": {
@@ -3188,7 +3440,11 @@
             "Remarks": "meanofsolarlongitude=258-270degree",
             "OTe": "T",
             "L-T": "017_NTA3.csv",
-            "References": "12)<Ahref='https://ui.adsabs.harvard.edu/abs/2022JIMO...50...38S/abstract'target=_blank>Shiba,2022.</a>"
+            "References": "12)<Ahref='https://ui.adsabs.harvard.edu/abs/2022JIMO...50...38S/abstract'target=_blank>Shiba,2022.</a>",
+            "true_anomaly_begin": -282.01700000000005,
+            "true_anomaly_end": -270.35900000000004,
+            "activity_start": "12-07",
+            "activity_end": "12-19"
         }
     },
     "DecemberMonocerotids_1": {
@@ -3230,7 +3486,11 @@
             "Remarks": "",
             "OTe": "R",
             "L-T": "LookUptablefilename",
-            "References": "3]<Ahref='http://adsabs.harvard.edu/abs/2008Icar..195..317B'target=_blank>Brownetal.,2008</A>"
+            "References": "3]<Ahref='http://adsabs.harvard.edu/abs/2008Icar..195..317B'target=_blank>Brownetal.,2008</A>",
+            "true_anomaly_begin": 42.80000000000001,
+            "true_anomaly_end": 54.80000000000001,
+            "activity_start": "12-01",
+            "activity_end": "12-13"
         }
     },
     "DecemberMonocerotids_2": {
@@ -3272,7 +3532,11 @@
             "Remarks": "",
             "OTe": "R",
             "L-T": "LookUptablefilename",
-            "References": "5]<Ahref='http://adsabs.harvard.edu/abs/2010Icar..207...66B'target=_blank>Brownetal.,2010</A>"
+            "References": "5]<Ahref='http://adsabs.harvard.edu/abs/2010Icar..207...66B'target=_blank>Brownetal.,2010</A>",
+            "true_anomaly_begin": 47.349999999999994,
+            "true_anomaly_end": 56.349999999999994,
+            "activity_start": "12-06",
+            "activity_end": "12-15"
         }
     },
     "DecemberMonocerotids_3": {
@@ -3314,7 +3578,11 @@
             "Remarks": "",
             "OTe": "T",
             "L-T": "LookUptablefilename",
-            "References": "6]<Ahref='http://adsabs.harvard.edu/abs/2016Icar..266..331J'target=_blank>Jenniskensetal.,2016</A>"
+            "References": "6]<Ahref='http://adsabs.harvard.edu/abs/2016Icar..266..331J'target=_blank>Jenniskensetal.,2016</A>",
+            "true_anomaly_begin": 38.80000000000001,
+            "true_anomaly_end": 67.80000000000001,
+            "activity_start": "11-25",
+            "activity_end": "12-25"
         }
     },
     "DecemberMonocerotids_4": {
@@ -3356,7 +3624,11 @@
             "Remarks": "",
             "OTe": "T",
             "L-T": "019MON_Shiba.csv",
-            "References": "1)Shiba,2023,submittedtowgn."
+            "References": "1)Shiba,2023,submittedtowgn.",
+            "true_anomaly_begin": 38.28,
+            "true_anomaly_end": 61.07000000000002,
+            "activity_start": "11-25",
+            "activity_end": "12-19"
         }
     },
     "ComaeBerenicids_1": {
@@ -3440,7 +3712,11 @@
             "Remarks": "",
             "OTe": "T",
             "L-T": "LookUptablefilename",
-            "References": "9]<Ahref='http://adsabs.harvard.edu/abs/2016Icar..266..331J'target=_blank>Jenniskensetal.,2016</A>"
+            "References": "9]<Ahref='http://adsabs.harvard.edu/abs/2016Icar..266..331J'target=_blank>Jenniskensetal.,2016</A>",
+            "true_anomaly_begin": -283.70000000000005,
+            "true_anomaly_end": -233.70000000000005,
+            "activity_start": "12-01",
+            "activity_end": "01-21"
         }
     },
     "ComaeBerenicids_3": {
@@ -3482,7 +3758,11 @@
             "Remarks": "",
             "OTe": "T",
             "L-T": "020COM_Shiba.csv",
-            "References": "1)Shiba,2023,submittedtowgn."
+            "References": "1)Shiba,2023,submittedtowgn.",
+            "true_anomaly_begin": -290.31999999999994,
+            "true_anomaly_end": -209.95999999999998,
+            "activity_start": "11-25",
+            "activity_end": "02-15"
         }
     },
     "alpha-Virginids_1": {
@@ -3566,7 +3846,11 @@
             "Remarks": "",
             "OTe": "T",
             "L-T": "LookUptablefilename",
-            "References": "5]<Ahref='http://adsabs.harvard.edu/abs/2016Icar..266..355J'target=_blank>Jenniskensetal.,2016</A>"
+            "References": "5]<Ahref='http://adsabs.harvard.edu/abs/2016Icar..266..355J'target=_blank>Jenniskensetal.,2016</A>",
+            "true_anomaly_begin": -252.89999999999998,
+            "true_anomaly_end": -240.89999999999998,
+            "activity_start": "04-15",
+            "activity_end": "04-27"
         }
     },
     "alpha-Virginids_3": {
@@ -3608,7 +3892,11 @@
             "Remarks": "",
             "OTe": "T",
             "L-T": "021_AVB.csv",
-            "References": "7)<Ahref='https://ui.adsabs.harvard.edu/abs/2022JIMO...50...38S/abstract'target=_blank>Shiba,2022.</a>"
+            "References": "7)<Ahref='https://ui.adsabs.harvard.edu/abs/2022JIMO...50...38S/abstract'target=_blank>Shiba,2022.</a>",
+            "true_anomaly_begin": -262.76800000000003,
+            "true_anomaly_end": -238.54,
+            "activity_start": "04-05",
+            "activity_end": "04-30"
         }
     },
     "LeonisMinorids_1": {
@@ -3692,7 +3980,11 @@
             "Remarks": "",
             "OTe": "T",
             "L-T": "LookUptablefilename",
-            "References": "4]<Ahref='http://adsabs.harvard.edu/abs/2016Icar..266..331J'target=_blank>Jenniskensetal.,2016</A>"
+            "References": "4]<Ahref='http://adsabs.harvard.edu/abs/2016Icar..266..331J'target=_blank>Jenniskensetal.,2016</A>",
+            "true_anomaly_begin": -113.5,
+            "true_anomaly_end": -89.5,
+            "activity_start": "10-08",
+            "activity_end": "11-02"
         }
     },
     "LeonisMinorids_3": {
@@ -3734,7 +4026,11 @@
             "Remarks": "",
             "OTe": "T",
             "L-T": "022LMI_Shiba.csv",
-            "References": "1)Shiba,2023,submittedtowgn."
+            "References": "1)Shiba,2023,submittedtowgn.",
+            "true_anomaly_begin": -112.66999999999999,
+            "true_anomaly_end": -94.63,
+            "activity_start": "10-11",
+            "activity_end": "10-29"
         }
     },
     "epsilon-Geminids_1": {
@@ -3776,7 +4072,11 @@
             "Remarks": "",
             "OTe": "",
             "L-T": "LookUptablefilename",
-            "References": "2]<Ahref='http://adsabs.harvard.edu/abs/1973NASSP.319..183C'target=_blank>Cook,1973</A>"
+            "References": "2]<Ahref='http://adsabs.harvard.edu/abs/1973NASSP.319..183C'target=_blank>Cook,1973</A>",
+            "true_anomaly_begin": -244.96999999999997,
+            "true_anomaly_end": -231.96999999999997,
+            "activity_start": "10-11",
+            "activity_end": "10-24"
         }
     },
     "epsilon-Geminids_2": {
@@ -3818,7 +4118,11 @@
             "Remarks": "",
             "OTe": "T",
             "L-T": "LookUptablefilename",
-            "References": "3]<Ahref='http://adsabs.harvard.edu/abs/2016Icar..266..331J'target=_blank>Jenniskensetal.,2016</A>"
+            "References": "3]<Ahref='http://adsabs.harvard.edu/abs/2016Icar..266..331J'target=_blank>Jenniskensetal.,2016</A>",
+            "true_anomaly_begin": -242.3,
+            "true_anomaly_end": -217.3,
+            "activity_start": "09-26",
+            "activity_end": "10-22"
         }
     },
     "epsilon-Geminids_3": {
@@ -3860,7 +4164,11 @@
             "Remarks": "",
             "OTe": "T",
             "L-T": "023EGE_Shiba.csv",
-            "References": "1)Shiba,2023,submittedtowgn."
+            "References": "1)Shiba,2023,submittedtowgn.",
+            "true_anomaly_begin": -252.14,
+            "true_anomaly_end": -222.64999999999998,
+            "activity_start": "09-29",
+            "activity_end": "10-29"
         }
     },
     "Northerndelta-Aquariids_1": {
@@ -3986,7 +4294,11 @@
             "Remarks": "Memberof297/DAQ",
             "OTe": "R",
             "L-T": "LookUptablefilename",
-            "References": "4]<Ahref='http://adsabs.harvard.edu/abs/2008Icar..195..317B'target=_blank>Brownetal.,2008</A>"
+            "References": "4]<Ahref='http://adsabs.harvard.edu/abs/2008Icar..195..317B'target=_blank>Brownetal.,2008</A>",
+            "true_anomaly_begin": -339.9,
+            "true_anomaly_end": -312.9,
+            "activity_start": "07-28",
+            "activity_end": "08-25"
         }
     },
     "Northerndelta-Aquariids_4": {
@@ -4028,7 +4340,11 @@
             "Remarks": "Memberof297/DAQ",
             "OTe": "R",
             "L-T": "LookUptablefilename",
-            "References": "6]<Ahref='http://adsabs.harvard.edu/abs/2010Icar..207...66B'target=_blank>Brownetal.,2010</A>"
+            "References": "6]<Ahref='http://adsabs.harvard.edu/abs/2010Icar..207...66B'target=_blank>Brownetal.,2010</A>",
+            "true_anomaly_begin": -342.94,
+            "true_anomaly_end": -312.94,
+            "activity_start": "07-26",
+            "activity_end": "08-26"
         }
     },
     "Northerndelta-Aquariids_5": {
@@ -4070,7 +4386,11 @@
             "Remarks": "Memberof297/DAQ,seealso<Ahref='http://adsabs.harvard.edu/abs/2012JIMO...40..166H'target=_blank>Holman&Jenniskens2012</A>",
             "OTe": "T",
             "L-T": "LookUptablefilename",
-            "References": "9]<Ahref='http://adsabs.harvard.edu/abs/2016Icar..266..331J'target=_blank>Jenniskensetal.,2016</A>"
+            "References": "9]<Ahref='http://adsabs.harvard.edu/abs/2016Icar..266..331J'target=_blank>Jenniskensetal.,2016</A>",
+            "true_anomaly_begin": -351.5,
+            "true_anomaly_end": -317.5,
+            "activity_start": "07-20",
+            "activity_end": "08-24"
         }
     },
     "Northerndelta-Aquariids_6": {
@@ -4112,7 +4432,11 @@
             "Remarks": "",
             "OTe": "T",
             "L-T": "026_NDA.csv",
-            "References": "11)<Ahref='https://ui.adsabs.harvard.edu/abs/2022JIMO...50...38S/abstract'target=_blank>Shiba,2022.</a>"
+            "References": "11)<Ahref='https://ui.adsabs.harvard.edu/abs/2022JIMO...50...38S/abstract'target=_blank>Shiba,2022.</a>",
+            "true_anomaly_begin": -350.992,
+            "true_anomaly_end": -303.807,
+            "activity_start": "07-22",
+            "activity_end": "09-08"
         }
     },
     "eta-Aquariids_1": {
@@ -4154,7 +4478,11 @@
             "Remarks": "",
             "OTe": "R",
             "L-T": "LookUptablefilename",
-            "References": "4]<Ahref='http://adsabs.harvard.edu/abs/2008Icar..195..317B'target=_blank>Brownetal.,2008</A>"
+            "References": "4]<Ahref='http://adsabs.harvard.edu/abs/2008Icar..195..317B'target=_blank>Brownetal.,2008</A>",
+            "true_anomaly_begin": -101.69999999999999,
+            "true_anomaly_end": -77.69999999999999,
+            "activity_start": "04-25",
+            "activity_end": "05-19"
         }
     },
     "eta-Aquariids_2": {
@@ -4238,7 +4566,11 @@
             "Remarks": "",
             "OTe": "T",
             "L-T": "LookUptablefilename",
-            "References": "9]<Ahref='http://adsabs.harvard.edu/abs/2016Icar..266..331J'target=_blank>Jenniskensetal.,2016</A>"
+            "References": "9]<Ahref='http://adsabs.harvard.edu/abs/2016Icar..266..331J'target=_blank>Jenniskensetal.,2016</A>",
+            "true_anomaly_begin": -117.60000000000002,
+            "true_anomaly_end": -80.60000000000002,
+            "activity_start": "04-17",
+            "activity_end": "05-24"
         }
     },
     "eta-Aquariids_4": {
@@ -4280,7 +4612,11 @@
             "Remarks": "",
             "OTe": "T",
             "L-T": "031ETA_Shiba.csv",
-            "References": "1)Shiba,2023,submittedtowgn."
+            "References": "1)Shiba,2023,submittedtowgn.",
+            "true_anomaly_begin": -109.18,
+            "true_anomaly_end": -78.18,
+            "activity_start": "04-26",
+            "activity_end": "05-27"
         }
     },
     "DecemberLeonisMinorids_1": {
@@ -4364,7 +4700,11 @@
             "Remarks": "Memberof298/IAQcomplex",
             "OTe": "",
             "L-T": "LookUptablefilename",
-            "References": "1]<Ahref='http://adsabs.harvard.edu/abs/1973NASSP.319..183C'target=_blank>Cook,1973</A>"
+            "References": "1]<Ahref='http://adsabs.harvard.edu/abs/1973NASSP.319..183C'target=_blank>Cook,1973</A>",
+            "true_anomaly_begin": -342.96,
+            "true_anomaly_end": -277.96,
+            "activity_start": "07-13",
+            "activity_end": "09-17"
         }
     },
     "Northerniota-Aquariids_2": {
@@ -4406,7 +4746,11 @@
             "Remarks": "Memberof298/IAQcomplex",
             "OTe": "R",
             "L-T": "LookUptablefilename",
-            "References": "3]<Ahref='http://adsabs.harvard.edu/abs/2008Icar..195..317B'target=_blank>Brownetal.,2008</A>"
+            "References": "3]<Ahref='http://adsabs.harvard.edu/abs/2008Icar..195..317B'target=_blank>Brownetal.,2008</A>",
+            "true_anomaly_begin": -322.8,
+            "true_anomaly_end": -291.8,
+            "activity_start": "08-15",
+            "activity_end": "09-15"
         }
     },
     "Northerniota-Aquariids_3": {
@@ -4448,7 +4792,11 @@
             "Remarks": "Memberof298/IAQ",
             "OTe": "R",
             "L-T": "LookUptablefilename",
-            "References": "4]<Ahref='http://adsabs.harvard.edu/abs/2010Icar..207...66B'target=_blank>Brownetal.,2010</A>"
+            "References": "4]<Ahref='http://adsabs.harvard.edu/abs/2010Icar..207...66B'target=_blank>Brownetal.,2010</A>",
+            "true_anomaly_begin": -322.07,
+            "true_anomaly_end": -303.07,
+            "activity_start": "08-15",
+            "activity_end": "09-03"
         }
     },
     "Northerniota-Aquariids_4": {
@@ -4532,7 +4880,11 @@
             "Remarks": "",
             "OTe": "T",
             "L-T": "033_NIA.csv",
-            "References": "8)<Ahref='https://ui.adsabs.harvard.edu/abs/2022JIMO...50...38S/abstract'target=_blank>Shiba,2022.</a>"
+            "References": "8)<Ahref='https://ui.adsabs.harvard.edu/abs/2022JIMO...50...38S/abstract'target=_blank>Shiba,2022.</a>",
+            "true_anomaly_begin": -332.244,
+            "true_anomaly_end": -283.47900000000004,
+            "activity_start": "08-10",
+            "activity_end": "09-29"
         }
     },
     "mu-Virginids_1": {
@@ -4742,7 +5094,11 @@
             "Remarks": "Nouniqueidentity,indistinguishablefromsporadicbackground-Jenniskensetal.,2016",
             "OTe": "",
             "L-T": "LookUptablefilename",
-            "References": "2]<Ahref='http://adsabs.harvard.edu/abs/1973NASSP.319..183C'target=_blank>Cook,1973</A>"
+            "References": "2]<Ahref='http://adsabs.harvard.edu/abs/1973NASSP.319..183C'target=_blank>Cook,1973</A>",
+            "true_anomaly_begin": -335.0,
+            "true_anomaly_end": -305.0,
+            "activity_start": "04-11",
+            "activity_end": "05-11"
         }
     },
     "tau-Herculids_1": {
@@ -4868,7 +5224,11 @@
             "Remarks": "",
             "OTe": "T",
             "L-T": "LookUptablefilename",
-            "References": "2]<Ahref='http://adsabs.harvard.edu/abs/2016Icar..266..331J'target=_blank>Jenniskensetal.,2016</A>"
+            "References": "2]<Ahref='http://adsabs.harvard.edu/abs/2016Icar..266..331J'target=_blank>Jenniskensetal.,2016</A>",
+            "true_anomaly_begin": -206.5,
+            "true_anomaly_end": -190.5,
+            "activity_start": "06-09",
+            "activity_end": "06-25"
         }
     },
     "Northernmu-Sagittariids_1": {
@@ -4994,7 +5354,11 @@
             "Remarks": "",
             "OTe": "T",
             "L-T": "LookUptablefilename",
-            "References": "2]<Ahref='http://adsabs.harvard.edu/abs/2016Icar..266..355J'target=_blank>Jenniskensetal.,2016</A>"
+            "References": "2]<Ahref='http://adsabs.harvard.edu/abs/2016Icar..266..355J'target=_blank>Jenniskensetal.,2016</A>",
+            "true_anomaly_begin": -293.9,
+            "true_anomaly_end": -266.9,
+            "activity_start": "06-07",
+            "activity_end": "07-04"
         }
     },
     "Southernmu-Sagittariids_3": {
@@ -5036,7 +5400,11 @@
             "Remarks": "",
             "OTe": "T",
             "L-T": "069_SSG.csv",
-            "References": "4)<Ahref='https://ui.adsabs.harvard.edu/abs/2022JIMO...50...38S/abstract'target=_blank>Shiba,2022.</a>"
+            "References": "4)<Ahref='https://ui.adsabs.harvard.edu/abs/2022JIMO...50...38S/abstract'target=_blank>Shiba,2022.</a>",
+            "true_anomaly_begin": -295.71999999999997,
+            "true_anomaly_end": -268.258,
+            "activity_start": "06-01",
+            "activity_end": "06-29"
         }
     },
     "JanuarypiVirginids_1": {
@@ -5078,7 +5446,11 @@
             "Remarks": "",
             "OTe": "T",
             "L-T": "089PVI_Shiba.csv",
-            "References": "1)Shiba,2023,submittedtowgn."
+            "References": "1)Shiba,2023,submittedtowgn.",
+            "true_anomaly_begin": -277.35999999999996,
+            "true_anomaly_end": -263.7,
+            "activity_start": "01-02",
+            "activity_end": "01-16"
         }
     },
     "rho-Geminids_1": {
@@ -5246,7 +5618,11 @@
             "Remarks": "",
             "OTe": "T",
             "L-T": "101PIH_Shiba.csv",
-            "References": "1)Shiba,2023,submittedtowgn."
+            "References": "1)Shiba,2023,submittedtowgn.",
+            "true_anomaly_begin": 135.88,
+            "true_anomaly_end": 164.58999999999997,
+            "activity_start": "01-20",
+            "activity_end": "02-18"
         }
     },
     "Northerndelta-Leonids_1": {
@@ -5876,7 +6252,11 @@
             "Remarks": "",
             "OTe": "T",
             "L-T": "LookUptablefilename",
-            "References": "5]<Ahref='http://adsabs.harvard.edu/abs/2016Icar..266..331J'target=_blank>Jenniskensetal.,2016</A>"
+            "References": "5]<Ahref='http://adsabs.harvard.edu/abs/2016Icar..266..331J'target=_blank>Jenniskensetal.,2016</A>",
+            "true_anomaly_begin": -195.4,
+            "true_anomaly_end": -189.4,
+            "activity_start": "05-07",
+            "activity_end": "05-13"
         }
     },
     "eta-Lyrids_2": {
@@ -5918,7 +6298,11 @@
             "Remarks": "",
             "OTe": "T",
             "L-T": "145ELY_Shiba.csv",
-            "References": "1)Shiba,2023,submittedtowgn."
+            "References": "1)Shiba,2023,submittedtowgn.",
+            "true_anomaly_begin": -199.91000000000003,
+            "true_anomaly_end": -180.12000000000003,
+            "activity_start": "04-30",
+            "activity_end": "05-20"
         }
     },
     "phi-Aquariids_1": {
@@ -6212,7 +6596,11 @@
             "Remarks": "memberof294/DMA",
             "OTe": "R",
             "L-T": "LookUptablefilename",
-            "References": "3]<Ahref='http://adsabs.harvard.edu/abs/2008Icar..195..317B'target=_blank>Brownetal.,2008</A>"
+            "References": "3]<Ahref='http://adsabs.harvard.edu/abs/2008Icar..195..317B'target=_blank>Brownetal.,2008</A>",
+            "true_anomaly_begin": -435.79999999999995,
+            "true_anomaly_end": -395.79999999999995,
+            "activity_start": "04-13",
+            "activity_end": "05-23"
         }
     },
     "Southernomega-Scorpiids_1": {
@@ -6338,7 +6726,11 @@
             "Remarks": "Memberof295/JAQComplex",
             "OTe": "R",
             "L-T": "LookUptablefilename",
-            "References": "2]<Ahref='http://adsabs.harvard.edu/abs/2008Icar..195..317B'target=_blank>Brownetal.,2008</A>"
+            "References": "2]<Ahref='http://adsabs.harvard.edu/abs/2008Icar..195..317B'target=_blank>Brownetal.,2008</A>",
+            "true_anomaly_begin": -352.0,
+            "true_anomaly_end": -312.0,
+            "activity_start": "06-07",
+            "activity_end": "07-17"
         }
     },
     "NorthernJuneAquilids_3": {
@@ -6380,7 +6772,11 @@
             "Remarks": "Memberof295/JAQ",
             "OTe": "T",
             "L-T": "LookUptablefilename",
-            "References": "4]<Ahref='http://adsabs.harvard.edu/abs/2016Icar..266..331J'target=_blank>Jenniskensetal.,2016</A>"
+            "References": "4]<Ahref='http://adsabs.harvard.edu/abs/2016Icar..266..331J'target=_blank>Jenniskensetal.,2016</A>",
+            "true_anomaly_begin": -353.59999999999997,
+            "true_anomaly_end": -309.59999999999997,
+            "activity_start": "06-05",
+            "activity_end": "07-19"
         }
     },
     "NorthernJuneAquilids_4": {
@@ -6422,7 +6818,11 @@
             "Remarks": "",
             "OTe": "T",
             "L-T": "164_NZC.csv",
-            "References": "6)<Ahref='https://ui.adsabs.harvard.edu/abs/2022JIMO...50...38S/abstract'target=_blank>Shiba,2022.</a>"
+            "References": "6)<Ahref='https://ui.adsabs.harvard.edu/abs/2022JIMO...50...38S/abstract'target=_blank>Shiba,2022.</a>",
+            "true_anomaly_begin": -350.622,
+            "true_anomaly_end": -303.014,
+            "activity_start": "06-12",
+            "activity_end": "07-30"
         }
     },
     "SouthernJuneAquilids_1": {
@@ -6464,7 +6864,11 @@
             "Remarks": "Memberof295/JAQComplex",
             "OTe": "R",
             "L-T": "LookUptablefilename",
-            "References": "2]<Ahref='http://adsabs.harvard.edu/abs/2008Icar..195..317B'target=_blank>Brownetal.,2008</A>"
+            "References": "2]<Ahref='http://adsabs.harvard.edu/abs/2008Icar..195..317B'target=_blank>Brownetal.,2008</A>",
+            "true_anomaly_begin": -341.0,
+            "true_anomaly_end": -337.0,
+            "activity_start": "06-08",
+            "activity_end": "06-12"
         }
     },
     "SouthernJuneAquilids_2": {
@@ -6506,7 +6910,11 @@
             "Remarks": "Memberof295/JAQ",
             "OTe": "T",
             "L-T": "LookUptablefilename",
-            "References": "3]<Ahref='http://adsabs.harvard.edu/abs/2016Icar..266..331J'target=_blank>Jenniskensetal.,2016</A>"
+            "References": "3]<Ahref='http://adsabs.harvard.edu/abs/2016Icar..266..331J'target=_blank>Jenniskensetal.,2016</A>",
+            "true_anomaly_begin": -352.0,
+            "true_anomaly_end": -316.0,
+            "activity_start": "06-09",
+            "activity_end": "07-15"
         }
     },
     "SouthernJuneAquilids_3": {
@@ -6548,7 +6956,11 @@
             "Remarks": "",
             "OTe": "T",
             "L-T": "165_SZC.csv",
-            "References": "5)<Ahref='https://ui.adsabs.harvard.edu/abs/2022JIMO...50...38S/abstract'target=_blank>Shiba,2022.</a>"
+            "References": "5)<Ahref='https://ui.adsabs.harvard.edu/abs/2022JIMO...50...38S/abstract'target=_blank>Shiba,2022.</a>",
+            "true_anomaly_begin": -340.979,
+            "true_anomaly_end": -314.48499999999996,
+            "activity_start": "06-22",
+            "activity_end": "07-19"
         }
     },
     "Northernsigma-Sagittariids_1": {
@@ -6758,7 +7170,11 @@
             "Remarks": "",
             "OTe": "T",
             "L-T": "170_JBO.csv",
-            "References": "5)<Ahref='https://ui.adsabs.harvard.edu/abs/2022JIMO...50...38S/abstract'target=_blank>Shiba,2022.</a>"
+            "References": "5)<Ahref='https://ui.adsabs.harvard.edu/abs/2022JIMO...50...38S/abstract'target=_blank>Shiba,2022.</a>",
+            "true_anomaly_begin": -192.57099999999997,
+            "true_anomaly_end": -184.807,
+            "activity_start": "06-15",
+            "activity_end": "06-23"
         }
     },
     "JuneBootids_3": {
@@ -6800,7 +7216,11 @@
             "Remarks": "",
             "OTe": "T",
             "L-T": "0170_JBO_2010.csv",
-            "References": "6)Roggemansetal.2023,submittedtoeMetN"
+            "References": "6)Roggemansetal.2023,submittedtoeMetN",
+            "true_anomaly_begin": -186.02999999999997,
+            "true_anomaly_end": -185.52999999999997,
+            "activity_start": "06-22",
+            "activity_end": "06-22"
         }
     },
     "JuneBootids_4": {
@@ -6842,7 +7262,11 @@
             "Remarks": "",
             "OTe": "T",
             "L-T": "0170_JBO_2016.csv",
-            "References": "7)Roggemansetal.2023,submittedtoeMetN"
+            "References": "7)Roggemansetal.2023,submittedtoeMetN",
+            "true_anomaly_begin": -185.96,
+            "true_anomaly_end": -176.96,
+            "activity_start": "06-19",
+            "activity_end": "06-28"
         }
     },
     "JuneBootids_5": {
@@ -6884,7 +7308,11 @@
             "Remarks": "",
             "OTe": "T",
             "L-T": "0170_JBO_2022.csv",
-            "References": "8)Roggemansetal.2023,submittedtoeMetN"
+            "References": "8)Roggemansetal.2023,submittedtoeMetN",
+            "true_anomaly_begin": -187.47,
+            "true_anomaly_end": -184.76999999999998,
+            "activity_start": "06-17",
+            "activity_end": "06-20"
         }
     }
 }
