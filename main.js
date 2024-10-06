@@ -19,8 +19,8 @@ const PARENT_ORBIT_COLOR = 0xFF0000;
 
 const NEO_COLOR = 0xFFFFFF;
 const NEO_RADIUS = 0.01;
-const MAX_VISIBLE_NEOS = 9999;
-const MAX_VISIBLE_SHOWERS = 9999;
+const MAX_VISIBLE_NEOS = 999;
+const MAX_VISIBLE_SHOWERS = 999;
 
 const MOUSE_MIN_MOVE_CLICK = 0.005;
 
@@ -542,69 +542,76 @@ async function initializeNeos() {
 }
 
 
-const animatedParentBodies = {}; // Store parent body positions and orbits for animation
+// Store parent body positions and orbits for animation
 
-async function initializeShower() {
-    let j = 0;
-    let i = 0;
+async function initializeShowers() {
     const showers_json = await readJSON('data/stream_dataIAU2022.json');
-    const parentBodies = await readJSON('data/stream_parentbody.json');
-    const showerEntries = Object.entries(showers_json);
-    for (const [showerName, showerData] of showerEntries) {
+    const parentBodies_json = await readJSON('data/stream_parentbody.json');
+    const parentBodies = Object.entries(parentBodies_json);
+    
+    let visibleShowersCount = 0; // Counter to limit the number of visible showers
+
+    for (const [showerName, showerData] of Object.entries(showers_json)) {
+        if (visibleShowersCount === MAX_VISIBLE_SHOWERS) break;
+
         const orbitParams = showerData.orbitParams;
         const extraParams = showerData.extraParams;
+        const code = extraParams.Code; // Get the Code for this stream
 
         orbitParams.inc *= DEG_TO_RAD;
         orbitParams.node *= DEG_TO_RAD;
         orbitParams.peri *= DEG_TO_RAD;
 
-        const orbit = createOrbit(orbitParams, SHOWER_ORBIT_COLOR, ORBIT_MESH_POINTS);
-        const body = new Body(showerName, showerData, orbit, null);
-        orbit.userData.parent = body;
+        // Create the stream's orbit mesh
+        const orbitMesh = createOrbit(orbitParams, SHOWER_ORBIT_COLOR, ORBIT_MESH_POINTS);
+        const body = new Body(showerName, showerData, orbitMesh, null);
+        orbitMesh.userData.parent = body;
 
-        stream.push(body);
+        let currentShower = showers.find((shower) => shower.code === code);
 
-        scene.add(orbit);
-        if (i + 1 < showerEntries.length) {
-            const nextShowerData = showerEntries[i + 1][1];
-            if (showerData.extraParams.Code !== nextShowerData.extraParams.Code) {
-                j += 1;
-                for (const [parentBodyName, parentBodyData] of Object.entries(parentBodies)) {
-                    if (parentBodyData.extraParams.Code === extraParams.Code) {
-                        const orbitParams_parent = parentBodyData.orbitParams;
-                        orbitParams_parent.inc *= DEG_TO_RAD;
-                        orbitParams_parent.node *= DEG_TO_RAD;
-                        orbitParams_parent.peri *= DEG_TO_RAD;
-                        orbitParams_parent.ma *= DEG_TO_RAD;
-                        const geometry = new THREE.SphereGeometry(NEO_RADIUS, DEFAULT_MESH_N / 2, DEFAULT_MESH_N / 2);
-                        const material = new THREE.MeshBasicMaterial({ color: PARENT_ORBIT_COLOR });
-                        const parentMesh = new THREE.Mesh(geometry, material);
-                        const orbit = createOrbit(orbitParams_parent, PARENT_ORBIT_COLOR, ORBIT_MESH_POINTS);
-                        const pos = getOrbitPosition(orbitParams_parent.a, orbitParams_parent.e, 0, orbitParams_parent.transformMatrix);
-                        parentMesh.position.set(pos.x, pos.y, pos.z);
-                        const body = new Body(parentBodyName, parentBodyData, orbit, parentMesh)
-                        parentMesh.userData.parent = body;
-                        orbit.userData.parent = body;
-                        neos.push(body)
-                        scene.add(orbit);
-                        scene.add(parentMesh);
-                        animatedParentBodies[parentBodyName] = {
-                            mesh: parentMesh,
-                            orbitParams: orbitParams_parent,
-                            currentAnomaly: orbitParams_parent.ma
-                        };
-                        break;
-                    }
-                }
+        if (currentShower === undefined) {
+            currentShower = new Shower(showerName, code, [orbitMesh], null, 'Unknown');
+            showers.push(currentShower);
+            visibleShowersCount++;
+        }
+        else { currentShower.orbitMeshes.push(orbitMesh); }
+
+        // Now check if a parent body exists with the same Code
+        const parentBody = parentBodies.find(([pBodyName, pBodyData]) => pBodyData.extraParams.Code === code);
+
+        if (parentBody && currentShower.parentBodyMesh === null) {
+            const [parentBodyName, parentBodyData] = parentBody;
+
+            // Create parent body's mesh and orbit if available
+            const orbitParams_parent = parentBodyData.orbitParams;
+            if (orbitParams_parent) {
+                orbitParams_parent.inc *= DEG_TO_RAD;
+                orbitParams_parent.node *= DEG_TO_RAD;
+                orbitParams_parent.peri *= DEG_TO_RAD;
+                orbitParams_parent.ma *= DEG_TO_RAD;
+
+                const geometry = new THREE.SphereGeometry(NEO_RADIUS, DEFAULT_MESH_N, DEFAULT_MESH_N);
+                const material = new THREE.MeshBasicMaterial({ color: PARENT_ORBIT_COLOR });
+                const parentMesh = new THREE.Mesh(geometry, material);
+
+                const parentOrbit = createOrbit(orbitParams_parent, PARENT_ORBIT_COLOR, ORBIT_MESH_POINTS);
+                const body = new Body(parentBodyName, parentBodyData, parentOrbit, parentMesh);
+                parentOrbit.userData.parent = body;
+
+                const pos = getOrbitPosition(orbitParams_parent.a, orbitParams_parent.e, 0, orbitParams_parent.transformMatrix);
+                parentMesh.position.set(pos.x, pos.y, pos.z);
+
+                currentShower.parentBodyMesh = parentMesh;
+                currentShower.parentBodyName = parentBodyName;
+                currentShower.orbitMeshes = [parentOrbit].concat(currentShower.orbitMeshes); //parent orbit always first
+
+                scene.add(parentOrbit);
+                scene.add(parentMesh);
             }
         }
-        i += 1;
-        if (j === MAX_VISIBLE_SHOWERS) { break; }
+        scene.add(orbitMesh); // Add stream orbit mesh to the scene
     }
 }
-
-
-
 
 // Add radial gradient plane
 function createRadialGradientPlane(width, height) {
@@ -734,6 +741,47 @@ class Body {
     }
 }
 
+class Shower {
+    constructor(name, code, orbitMeshes, parentBodyMesh, parentBodyName) {
+        this.name = name;
+        this.code = code;
+        this.orbitMeshes = orbitMeshes; // An array of orbit meshes for each stream
+        this.parentBodyMesh = parentBodyMesh;   // Parent body, if it exists
+        this.parentBodyName = parentBodyName;
+    }
+
+    setPosition(pos) {
+        // Update the position of the parent body, if it exists
+        if (this.parentBodyMesh) {
+            this.parentBodyMesh.position.set(pos.x, pos.y, pos.z);
+        }
+    }
+
+    show() {
+        // Make all orbits visible
+        this.orbitMeshes.forEach(orbit => orbit.visible = true);
+        if (this.parentBodyMesh) this.parentBodyMesh.visible = true;
+    }
+
+    hide() {
+        // Hide all orbits
+        this.orbitMeshes.forEach(orbit => orbit.visible = false);
+        if (this.parentBodyMesh) this.parentBodyMesh.visible = false;
+    }
+
+    highlight() {
+        // Highlight all orbits in the shower
+        this.orbitMeshes.forEach(orbit => orbit.material.color.set(0x00FF00));
+        if (this.parentBodyMesh) this.parentBodyMesh.material.color.set(0x00FF00);
+    }
+
+    resetColor() {
+        // Reset color of the orbits and parent body
+        this.orbitMeshes.forEach(orbit => orbit.material.color.set(SHOWER_ORBIT_COLOR));
+        if (this.parentBodyMesh) this.parentBodyMesh.material.color.set(PARENT_ORBIT_COLOR);
+    }
+}
+
 
 // Helper function to normalize true anomalies (make them positive if negative)
 function normalizeAnomaly(anomaly) {
@@ -754,28 +802,10 @@ function isEarthInStreamRange(earthAnomaly, streamAnomalyBegin, streamAnomalyEnd
     return earthAnomaly >= streamAnomalyBegin && earthAnomaly <= streamAnomalyEnd;
 }
 
-function updateParentBodyPosition(parentBody, JD) {
-    const orbitParams = parentBody.orbitParams;
-    const trueAnomaly = JulianDateToTrueAnomaly(orbitParams, JD);
-
-    const pos = getOrbitPosition(orbitParams.a, orbitParams.e, trueAnomaly, orbitParams.transformMatrix);
-    parentBody.mesh.position.set(pos.x, pos.y, pos.z);
-}
-
-function updateParentBodyPosition(parentBody, JD) {
-    const orbitParams = parentBody.orbitParams;
-    const trueAnomaly = JulianDateToTrueAnomaly(orbitParams, JD);
-
-    const pos = getOrbitPosition(orbitParams.a, orbitParams.e, trueAnomaly, orbitParams.transformMatrix);
-    parentBody.mesh.position.set(pos.x, pos.y, pos.z);
-}
-
-
 let sunMesh = addSun(); // Generate sunMesh and also return it so can be rotated
 await initializePlanets(); // Initialize planets once
 await initializeNeos(); // Initialize NEOs once
-await initializeShower();
-
+await initializeShowers();
 
 // Event listeners for filter toggles
 document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
@@ -789,6 +819,34 @@ document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
         }
     });
 });
+
+function updateOrbits(filterConditions) {
+    // Remove everything from the scene
+    for (let i = 0; i < planets.length; i++) {
+        scene.remove(scene.getObjectByProperty('uuid', planets[i].orbitMesh.uuid));
+        scene.remove(scene.getObjectByProperty('uuid', planets[i].bodyMesh.uuid));
+    }
+    for (let i = 0; i < neos.length; i++) {
+        scene.remove(scene.getObjectByProperty('uuid', neos[i].orbitMesh.uuid));
+        scene.remove(scene.getObjectByProperty('uuid', neos[i].bodyMesh.uuid));
+    }
+
+    // Planets and dwarf planets
+    for (let i = 0; i < planets.length; i++) {
+        if (filterConditions.checkPassesFilters(planets[i])) {
+            scene.add(planets[i].orbitMesh)
+            scene.add(planets[i].bodyMesh)
+        }
+    }
+
+    // NEOs
+    for (let i = 0; i < neos.length; i++) {
+        if (filterConditions.checkPassesFilters(neos[i])) {
+            scene.add(neos[i].orbitMesh)
+            scene.add(neos[i].bodyMesh)
+        }
+    }
+}
 
 // Create quantiles of parameter values used for filtering
 function getQuantiles(objects, attribute) {
@@ -1003,58 +1061,52 @@ function animate(time) {
         const pos = getOrbitPosition(orbitParams.a, orbitParams.e, trueAnomaly, orbitParams.transformMatrix);
         neos[i].setPosition(pos);
     }
-
-    // Update parent body positions for showers if they exist
-    for (const parentBodyName in animatedParentBodies) {
-        updateParentBodyPosition(animatedParentBodies[parentBodyName], JD);
-    }
-
     
     // for each stream, check if the earth is in the stream's range
-    // if so, highlight the stream
-    // else, unhighlight the stream
     const earthOrbitParams = planets.find(p => p.name === 'Earth').data.orbitParams;
-    const earthAnomaly = normalizeAnomaly(JulianDateToTrueAnomaly(earthOrbitParams, JD)* 180 / Math.PI);
-    // console.log(stream.length, 'there are this many streams');
-    for (let i = 0; i < stream.length; i++) { 
-        const streamData = stream[i].data;
-        const streamName = stream[i].name;
-        const streamExtraParams = streamData.extraParams;
-        const streamAnomalyBegin = normalizeAnomaly(streamExtraParams.true_anomaly_begin+180);
-        const streamAnomalyEnd = normalizeAnomaly(streamExtraParams.true_anomaly_end+180);
-        console.log(streamName, 'the stream name', streamAnomalyBegin, streamAnomalyEnd, 'the stream anomaly begin and end', earthAnomaly);
-        if (isEarthInStreamRange(earthAnomaly, streamAnomalyBegin, streamAnomalyEnd)) {
-            stream[i].orbitMesh.material.color.set(SHOWER_ORBIT_COLOR); // Set to green
-            stream[i].orbitMesh.material.transparent = false; // Make it opaque
-            stream[i].orbitMesh.material.opacity = 1; // Full opacity
-            stream[i].orbitMesh.raycast = THREE.Mesh.prototype.raycast; // Enable clickability
-            console.log(streamName, 'is in range');
-        } else if (stream[i].orbitMesh.material.color.getHex() === SHOWER_ORBIT_COLOR) {
-            stream[i].orbitMesh.material.color.set(SHOWER_ORBIT_COLOR_NOTVIS); // Reset color
-            stream[i].orbitMesh.material.transparent = true; // Make it transparent
-            stream[i].orbitMesh.material.opacity = 0.5; // Half opacity
-            stream[i].orbitMesh.raycast = function() {}; // Disable clickability
-            console.log(streamName, 'is not in range');
+    const earthTrueAnomaly = JulianDateToTrueAnomaly(earthOrbitParams, JD);
+
+    // Update parent body positions for showers if they exist
+    for (let i = 0; i < showers.length; i++) {
+        if (showers[i].parentBodyMesh) { // Only update position if parent body exists
+
+            const parentOrbitParams = showers[i].orbitMeshes[0].userData.parent.data.orbitParams;
+            if (parentOrbitParams) {
+                const parentTrueAnomaly = JulianDateToTrueAnomaly(parentOrbitParams, JD);
+                const parentPos = getOrbitPosition(parentOrbitParams.a, parentOrbitParams.e, parentTrueAnomaly, parentOrbitParams.transformMatrix);
+                showers[i].setPosition(parentPos); // Correctly update the parent body position
+            } else {
+                console.warn(`No orbit parameters found for parent body ${showers[i].parentBodyName}`);
+            }
+        }
+
+        for (let j = 0; j < showers[i].orbitMeshes.length; j++) {
+            const orbMesh = showers[i].orbitMeshes[j];
+            const streamAnomalyBegin = orbMesh.userData.parent.data.extraParams.true_anomaly_begin;
+            const streamAnomalyEnd = orbMesh.userData.parent.data.extraParams.true_anomaly_end;
+
+            const streamName = showers[i].name;
+            //console.log(streamName, 'the stream name', streamAnomalyBegin, streamAnomalyEnd, 'the stream anomaly begin and end', earthTrueAnomaly);
+
+            if (isEarthInStreamRange(earthTrueAnomaly * 180 / Math.PI, streamAnomalyBegin, streamAnomalyEnd)) {
+                orbMesh.material.color.set(SHOWER_ORBIT_COLOR); // Set to green
+                orbMesh.material.transparent = false; // Make it opaque
+                orbMesh.material.opacity = 1; // Full opacity
+                orbMesh.raycast = THREE.Mesh.prototype.raycast; // Enable clickability
+            } else if (orbMesh.material.color.getHex() === SHOWER_ORBIT_COLOR) {
+                orbMesh.material.color.set(SHOWER_ORBIT_COLOR_NOTVIS); // Reset color
+                orbMesh.material.transparent = true; // Make it transparent
+                orbMesh.material.opacity = 0.05; // Half opacity
+                orbMesh.raycast = function() {}; // Disable clickability
+            }
         }
     }
-
-    // Update visibility and color of showers based on Earth's position
-    showers.forEach(shower => {
-        const streamAnomalyBegin = shower.data.extraParams.true_anomaly_begin;
-        const streamAnomalyEnd = shower.data.extraParams.true_anomaly_end;
-
-        if (isEarthInStreamRange(earthTrueAnomaly, streamAnomalyBegin, streamAnomalyEnd)) {
-            shower.highlight();  // Highlight active shower
-        } else {
-            shower.resetColor();  // Reset inactive shower
-        }
-    });
 
     // Update the billboard plane to face the camera
     updateBillboard(billboardPlane, camera);
 
     // Update the current time and time speed displays
-    document.getElementById("current-time").textContent = MJDToDatetime(MJD);
+    document.getElementById("current-time").textContent = 'Date: ' + MJDToDatetime(MJD);
     let daytext = 'days';
     if (timeSpeedIndex == 10)
         {daytext = 'day'};
