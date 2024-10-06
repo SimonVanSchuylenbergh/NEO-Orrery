@@ -396,7 +396,7 @@ async function initializePlanets() {
         // check if planet is saturn's rings
         // if so, make it a ring geometry with specified parameters -- otherwise, make it a sphere egeometry
         // console.log(planetName)
-        if (planetName == 'rings'){
+        if (planetName === 'rings'){
             const geometry = new THREE.RingGeometry(planetData.renderParams.innerRadius, planetData.renderParams.outerRadius, 64);
             const material = new THREE.MeshBasicMaterial({
                 map: planetTexture,
@@ -754,8 +754,16 @@ function animate(time) {
         // Update Position
         const pos = getOrbitPosition(orbitParams.a, orbitParams.e, trueAnomaly, orbitParams.transformMatrix);
         planets[i].setPosition(pos);
+        // Compute normalized axis of rotation
+        const axis = new THREE.Vector3(
+            Math.sin(extraParams.obliquity * DEG_TO_RAD), 
+            Math.cos(extraParams.obliquity * DEG_TO_RAD), 
+            0).normalize();
+        // Set rotation speed
+        // console.log(planets[i], axis, 2 * Math.PI/(60 * extraParams.rotation_period) * TIMESPEEDS[timeSpeedIndex])
+        planets[i].bodyMesh.rotateOnAxis(axis, 
+            (2 * Math.PI/(60 * extraParams.rotation_period)) * 1 * TIMESPEEDS[timeSpeedIndex]);
 
-        // .project(camera);
         // Rotate
         //planets[i].bodyMesh.rotation.x += orbitParams.rotateX;
         //planets[i].bodyMesh.rotation.y += orbitParams.rotateY;
