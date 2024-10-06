@@ -1,5 +1,5 @@
 {
-    "alpha-Capricornids_1": {
+    "alpha-Capricornids from 07-24 to 08-08": {
         "orbitParams": {
             "a": 2.53,
             "e": 0.77,
@@ -45,7 +45,7 @@
             "activity_end": "08-08"
         }
     },
-    "alpha-Capricornids_2": {
+    "alpha-Capricornids from 07-16 to 07-28": {
         "orbitParams": {
             "a": 2.35,
             "e": 0.75,
@@ -91,7 +91,7 @@
             "activity_end": "07-28"
         }
     },
-    "alpha-Capricornids_3": {
+    "alpha-Capricornids from 07-01 to 08-08": {
         "orbitParams": {
             "a": 2.54,
             "e": 0.774,
@@ -137,49 +137,7 @@
             "activity_end": "08-08"
         }
     },
-    "alpha-Capricornids_4": {
-        "orbitParams": {
-            "a": 2.4,
-            "e": 0.793,
-            "inc": 7.6,
-            "node": 115.2,
-            "peri": 279.1,
-            "ma": 0
-        },
-        "extraParams": {
-            "Code": "CAP",
-            "showername-designation": "alpha-Capricornids",
-            "IAUNo": 1,
-            "AdNo": 10,
-            "s": 1,
-            "sub.date": "16/11/2022",
-            "activity": "annual",
-            "LoSb": "",
-            "LoSe": "",
-            "LoS": 115.2,
-            "Ra": "300",
-            "De": "-11.9",
-            "dRa": "0.63",
-            "dDe": "0.24",
-            "Vg": 25.0,
-            "LoR": "299.65",
-            "S_LoR": "184.45",
-            "LaR": "8.5",
-            "theta": "94.4",
-            "phi": "261.47",
-            "Flags": "",
-            "q": 0.496,
-            "N": "142",
-            "Group": 0,
-            "CG": 0,
-            "Origin": "",
-            "Remarks": "meanofsolarlongitude=105-120degree",
-            "OTe": "T",
-            "L-T": "001_CAP1.csv",
-            "References": "11)<Ahref='https://ui.adsabs.harvard.edu/abs/2022JIMO...50...38S/abstract'target=_blank>Shiba,2022.</a>"
-        }
-    },
-    "alpha-Capricornids_5": {
+    "alpha-Capricornids from 07-20 to 07-27": {
         "orbitParams": {
             "a": 2.586,
             "e": 0.78,
@@ -225,7 +183,7 @@
             "activity_end": "07-27"
         }
     },
-    "alpha-Capricornids_6": {
+    "alpha-Capricornids from 07-27 to 08-08": {
         "orbitParams": {
             "a": 2.584,
             "e": 0.763,
@@ -271,49 +229,7 @@
             "activity_end": "08-08"
         }
     },
-    "SouthernTaurids_1": {
-        "orbitParams": {
-            "a": 2.07,
-            "e": 0.825,
-            "inc": 5.4,
-            "node": 37.3,
-            "peri": 115.4,
-            "ma": 0
-        },
-        "extraParams": {
-            "Code": "STA",
-            "showername-designation": "SouthernTaurids",
-            "IAUNo": 2,
-            "AdNo": 0,
-            "s": 1,
-            "sub.date": "2002-mm-dd",
-            "activity": "annual",
-            "LoSb": "",
-            "LoSe": "",
-            "LoS": 217.3,
-            "Ra": "48.7",
-            "De": "13",
-            "dRa": "0.73",
-            "dDe": "0.18",
-            "Vg": 28.0,
-            "LoR": "49.8",
-            "S_LoR": "192.5",
-            "LaR": "-4.86",
-            "theta": "102.46",
-            "phi": "274.98",
-            "Flags": "",
-            "q": 0.352,
-            "N": "97",
-            "Group": 247,
-            "CG": 2,
-            "Origin": "2P/Encke",
-            "Remarks": "memberofTauridComplex(247)",
-            "OTe": "P",
-            "L-T": "LookUptablefilename",
-            "References": "1]<Ahref='http://adsabs.harvard.edu/abs/2002ESASP.500..177P'target=_blank>Porubcan&Kornos,2002</A>"
-        }
-    },
-    "SouthernTaurids_2": {
+    "SouthernTaurids from 09-11 to 10-28": {
         "orbitParams": {
             "a": 1.67,
             "e": 0.8144,
@@ -359,7 +275,7 @@
             "activity_end": "10-28"
         }
     },
-    "SouthernTaurids_3": {
+    "SouthernTaurids from 09-12 to 10-27": {
         "orbitParams": {
             "a": 1.72,
             "e": 0.82,
@@ -405,7 +321,7 @@
             "activity_end": "10-27"
         }
     },
-    "SouthernTaurids_4": {
+    "SouthernTaurids from 09-19 to 12-21": {
         "orbitParams": {
             "a": 1.95,
             "e": 0.798,
@@ -451,7 +367,7 @@
             "activity_end": "12-21"
         }
     },
-    "SouthernTaurids_5": {
+    "SouthernTaurids from 10-20 to 11-19": {
         "orbitParams": {
             "a": 2.122,
             "e": 0.827,
@@ -497,7 +413,7 @@
             "activity_end": "11-19"
         }
     },
-    "SouthernTaurids_6": {
+    "SouthernTaurids from 09-27 to 10-23": {
         "orbitParams": {
             "a": 1.813,
             "e": 0.828,
@@ -543,7 +459,7 @@
             "activity_end": "10-23"
         }
     },
-    "SouthernTaurids_7": {
+    "SouthernTaurids from 10-23 to 11-10": {
         "orbitParams": {
             "a": 2.034,
             "e": 0.816,
@@ -589,7 +505,7 @@
             "activity_end": "11-10"
         }
     },
-    "SouthernTaurids_8": {
+    "SouthernTaurids from 11-10 to 12-07": {
         "orbitParams": {
             "a": 2.105,
             "e": 0.756,
@@ -635,7 +551,7 @@
             "activity_end": "12-07"
         }
     },
-    "SouthernTaurids_9": {
+    "SouthernTaurids from 12-07 to 12-29": {
         "orbitParams": {
             "a": 2.14,
             "e": 0.711,
@@ -681,7 +597,7 @@
             "activity_end": "12-29"
         }
     },
-    "Southerniota-Aquariids_1": {
+    "Southerniota-Aquariids from 07-13 to 08-21": {
         "orbitParams": {
             "a": 2.36,
             "e": 0.912,
@@ -727,7 +643,7 @@
             "activity_end": "08-21"
         }
     },
-    "Southerniota-Aquariids_2": {
+    "Southerniota-Aquariids from 07-28 to 08-02": {
         "orbitParams": {
             "a": 1.546,
             "e": 0.8587,
@@ -773,7 +689,7 @@
             "activity_end": "08-02"
         }
     },
-    "Geminids_1": {
+    "Geminids from 11-23 to 12-16": {
         "orbitParams": {
             "a": 1.416,
             "e": 0.904,
@@ -819,7 +735,7 @@
             "activity_end": "12-16"
         }
     },
-    "Geminids_2": {
+    "Geminids from 11-19 to 12-22": {
         "orbitParams": {
             "a": 1.35,
             "e": 0.898,
@@ -865,7 +781,7 @@
             "activity_end": "12-22"
         }
     },
-    "Geminids_3": {
+    "Geminids from 11-22 to 12-11": {
         "orbitParams": {
             "a": 1.31,
             "e": 0.889,
@@ -911,49 +827,7 @@
             "activity_end": "12-11"
         }
     },
-    "Southerndelta-Aquariids_1": {
-        "orbitParams": {
-            "a": 2.8,
-            "e": 0.972,
-            "inc": 25.5,
-            "node": 306.71,
-            "peri": 150.59,
-            "ma": 0
-        },
-        "extraParams": {
-            "Code": "SDA",
-            "showername-designation": "Southerndelta-Aquariids",
-            "IAUNo": 5,
-            "AdNo": 2,
-            "s": 1,
-            "sub.date": "1970-mm-dd",
-            "activity": "annual",
-            "LoSb": "",
-            "LoSe": "",
-            "LoS": 126.7,
-            "Ra": "339.57",
-            "De": "-16.27",
-            "dRa": "0.67",
-            "dDe": "0.29",
-            "Vg": 41.01,
-            "LoR": "335.03",
-            "S_LoR": "208.33",
-            "LaR": "-7.11",
-            "theta": "118.1",
-            "phi": "278.06",
-            "Flags": "R",
-            "q": 0.079,
-            "N": "28",
-            "Group": 297,
-            "CG": 3,
-            "Origin": "",
-            "Remarks": "Memberof297/DAQComplex",
-            "OTe": "P",
-            "L-T": "LookUptablefilename",
-            "References": "3]<Ahref='http://adsabs.harvard.edu/abs/1970BAICz..21..153K'target=_blank>Kresak&Porubcan,1970</A>"
-        }
-    },
-    "Southerndelta-Aquariids_2": {
+    "Southerndelta-Aquariids from 07-19 to 08-25": {
         "orbitParams": {
             "a": 2.86,
             "e": 0.976,
@@ -999,49 +873,7 @@
             "activity_end": "08-25"
         }
     },
-    "Southerndelta-Aquariids_3": {
-        "orbitParams": {
-            "a": 2.33,
-            "e": 0.97,
-            "inc": 32.5,
-            "node": 306.51,
-            "peri": 152.39,
-            "ma": 0
-        },
-        "extraParams": {
-            "Code": "SDA",
-            "showername-designation": "Southerndelta-Aquariids",
-            "IAUNo": 5,
-            "AdNo": 4,
-            "s": 1,
-            "sub.date": "1964-mm-dd",
-            "activity": "1961",
-            "LoSb": "",
-            "LoSe": "",
-            "LoS": 126.5,
-            "Ra": "340.07",
-            "De": "-16.87",
-            "dRa": "0.81",
-            "dDe": "0.29",
-            "Vg": 40.8,
-            "LoR": "335.25",
-            "S_LoR": "208.75",
-            "LaR": "-7.84",
-            "theta": "118.46",
-            "phi": "278.93",
-            "Flags": "R",
-            "q": 0.07,
-            "N": "48",
-            "Group": 297,
-            "CG": 3,
-            "Origin": "",
-            "Remarks": "Memberof297/DAQComplex;a,qwerecalculatedfrom1/a,e",
-            "OTe": "R",
-            "L-T": "LookUptablefilename",
-            "References": "5]<Ahref='http://adsabs.harvard.edu/abs/1964AuJPh..17..205N'target=_blank>Nilsson,1964</A>"
-        }
-    },
-    "Southerndelta-Aquariids_4": {
+    "Southerndelta-Aquariids from 07-15 to 08-15": {
         "orbitParams": {
             "a": 2.38,
             "e": 0.9726,
@@ -1087,7 +919,7 @@
             "activity_end": "08-15"
         }
     },
-    "Southerndelta-Aquariids_5": {
+    "Southerndelta-Aquariids from 07-17 to 08-16": {
         "orbitParams": {
             "a": 2.59,
             "e": 0.975,
@@ -1133,7 +965,7 @@
             "activity_end": "08-16"
         }
     },
-    "Southerndelta-Aquariids_6": {
+    "Southerndelta-Aquariids from 07-18 to 08-19": {
         "orbitParams": {
             "a": 2.512,
             "e": 0.965,
@@ -1179,49 +1011,7 @@
             "activity_end": "08-19"
         }
     },
-    "AprilLyrids_1": {
-        "orbitParams": {
-            "a": 56.0,
-            "e": 0.984,
-            "inc": 79.51,
-            "node": 32.2,
-            "peri": 214.52,
-            "ma": 0
-        },
-        "extraParams": {
-            "Code": "LYR",
-            "showername-designation": "AprilLyrids",
-            "IAUNo": 6,
-            "AdNo": 0,
-            "s": 1,
-            "sub.date": "1970-mm-dd",
-            "activity": "annual",
-            "LoSb": "",
-            "LoSe": "",
-            "LoS": 32.2,
-            "Ra": "272.36",
-            "De": "33.31",
-            "dRa": "1.17",
-            "dDe": "0.51",
-            "Vg": 47.07,
-            "LoR": "273.59",
-            "S_LoR": "241.39",
-            "LaR": "56.72",
-            "theta": "118.8",
-            "phi": "197.45",
-            "Flags": "R",
-            "q": 0.918,
-            "N": "7",
-            "Group": 0,
-            "CG": 0,
-            "Origin": "",
-            "Remarks": "InKresakandPorubcan1970theshowernameisLyrids",
-            "OTe": "P",
-            "L-T": "LookUptablefilename",
-            "References": "2]<Ahref='http://adsabs.harvard.edu/abs/1970BAICz..21..153K'target=_blank>KresakandPorubcan,1970</A>"
-        }
-    },
-    "AprilLyrids_2": {
+    "AprilLyrids from 04-21 to 04-23": {
         "orbitParams": {
             "a": 28.0,
             "e": 0.968,
@@ -1267,7 +1057,7 @@
             "activity_end": "04-23"
         }
     },
-    "AprilLyrids_3": {
+    "AprilLyrids from 04-21 to 04-23_2": {
         "orbitParams": {
             "a": 22.2,
             "e": 0.9589,
@@ -1313,7 +1103,7 @@
             "activity_end": "04-23"
         }
     },
-    "AprilLyrids_4": {
+    "AprilLyrids from 04-20 to 04-24": {
         "orbitParams": {
             "a": 10.85,
             "e": 0.916,
@@ -1359,7 +1149,7 @@
             "activity_end": "04-24"
         }
     },
-    "AprilLyrids_5": {
+    "AprilLyrids from 04-11 to 05-05": {
         "orbitParams": {
             "a": 10.8,
             "e": 0.956,
@@ -1405,7 +1195,7 @@
             "activity_end": "05-05"
         }
     },
-    "AprilLyrids_6": {
+    "AprilLyrids from 04-12 to 04-28": {
         "orbitParams": {
             "a": 25.1,
             "e": 0.963,
@@ -1451,49 +1241,7 @@
             "activity_end": "04-28"
         }
     },
-    "Perseids_1": {
-        "orbitParams": {
-            "a": 24.0,
-            "e": 0.96,
-            "inc": 112.99,
-            "node": 139.7,
-            "peri": 150.39,
-            "ma": 0
-        },
-        "extraParams": {
-            "Code": "PER",
-            "showername-designation": "Perseids",
-            "IAUNo": 7,
-            "AdNo": 0,
-            "s": 1,
-            "sub.date": "1970-mm-dd",
-            "activity": "annual",
-            "LoSb": "",
-            "LoSe": "",
-            "LoS": 139.7,
-            "Ra": "47.77",
-            "De": "57.79",
-            "dRa": "1.92",
-            "dDe": "-0.1",
-            "Vg": 59.49,
-            "LoR": "62.85",
-            "S_LoR": "283.15",
-            "LaR": "38.27",
-            "theta": "139.86",
-            "phi": "163.91",
-            "Flags": "R1",
-            "q": 0.949,
-            "N": "254",
-            "Group": 0,
-            "CG": 0,
-            "Origin": "109P/Swift-Tuttle",
-            "Remarks": "",
-            "OTe": "P",
-            "L-T": "LookUptablefilename",
-            "References": "1]<Ahref='http://adsabs.harvard.edu/abs/1970BAICz..21..153K'target=_blank>Kresak&Porubcan,1970</A>"
-        }
-    },
-    "Perseids_2": {
+    "Perseids from 08-03 to 08-12": {
         "orbitParams": {
             "a": -6.4,
             "e": 1.15,
@@ -1539,7 +1287,7 @@
             "activity_end": "08-12"
         }
     },
-    "Perseids_3": {
+    "Perseids from 07-23 to 08-17": {
         "orbitParams": {
             "a": -9.91,
             "e": 1.096,
@@ -1585,7 +1333,7 @@
             "activity_end": "08-17"
         }
     },
-    "Perseids_4": {
+    "Perseids from 07-15 to 08-28": {
         "orbitParams": {
             "a": 9.57,
             "e": 0.95,
@@ -1631,7 +1379,7 @@
             "activity_end": "08-28"
         }
     },
-    "Perseids_5": {
+    "Perseids from 07-20 to 08-30": {
         "orbitParams": {
             "a": 19.3,
             "e": 0.951,
@@ -1677,49 +1425,7 @@
             "activity_end": "08-30"
         }
     },
-    "Orionids_1": {
-        "orbitParams": {
-            "a": 18.0,
-            "e": 0.968,
-            "inc": 164.31,
-            "node": 28.71,
-            "peri": 81.5,
-            "ma": 0
-        },
-        "extraParams": {
-            "Code": "ORI",
-            "showername-designation": "Orionids",
-            "IAUNo": 8,
-            "AdNo": 0,
-            "s": 1,
-            "sub.date": "1970-mm-dd",
-            "activity": "annual",
-            "LoSb": "",
-            "LoSe": "",
-            "LoS": 208.7,
-            "Ra": "95.42",
-            "De": "15.89",
-            "dRa": "0.68",
-            "dDe": "-0.07",
-            "Vg": 66.53,
-            "LoR": "95.26",
-            "S_LoR": "246.56",
-            "LaR": "-7.45",
-            "theta": "155.47",
-            "phi": "288.2",
-            "Flags": "R1",
-            "q": 0.578,
-            "N": "30",
-            "Group": 0,
-            "CG": 0,
-            "Origin": "1P/Halley",
-            "Remarks": "",
-            "OTe": "P",
-            "L-T": "LookUptablefilename",
-            "References": "2]<Ahref='http://adsabs.harvard.edu/abs/1970BAICz..21..153K'target=_blank>Kresak&Porubcan,1970</A>"
-        }
-    },
-    "Orionids_2": {
+    "Orionids from 10-07 to 10-31": {
         "orbitParams": {
             "a": 9.71,
             "e": 0.9385,
@@ -1765,7 +1471,7 @@
             "activity_end": "10-31"
         }
     },
-    "Orionids_3": {
+    "Orionids from 10-07 to 11-06": {
         "orbitParams": {
             "a": 5.47,
             "e": 0.895,
@@ -1811,7 +1517,7 @@
             "activity_end": "11-06"
         }
     },
-    "Orionids_4": {
+    "Orionids from 09-19 to 11-24": {
         "orbitParams": {
             "a": 6.87,
             "e": 0.944,
@@ -1857,7 +1563,7 @@
             "activity_end": "11-24"
         }
     },
-    "Orionids_5": {
+    "Orionids from 10-10 to 11-09": {
         "orbitParams": {
             "a": 12.1,
             "e": 0.953,
@@ -1903,49 +1609,7 @@
             "activity_end": "11-09"
         }
     },
-    "OctoberDraconids_1": {
-        "orbitParams": {
-            "a": 2.392,
-            "e": 0.584,
-            "inc": 25.5,
-            "node": 203.9,
-            "peri": 178.2,
-            "ma": 0
-        },
-        "extraParams": {
-            "Code": "DRA",
-            "showername-designation": "OctoberDraconids",
-            "IAUNo": 9,
-            "AdNo": 0,
-            "s": 1,
-            "sub.date": "1995-mm-dd",
-            "activity": "annual",
-            "LoSb": "",
-            "LoSe": "",
-            "LoS": 203.9,
-            "Ra": "274.7",
-            "De": "52.4",
-            "dRa": "",
-            "dDe": "",
-            "Vg": 16.7,
-            "LoR": "281.64",
-            "S_LoR": "77.74",
-            "LaR": "75.65",
-            "theta": "75.98",
-            "phi": "176.89",
-            "Flags": "",
-            "q": 0.995,
-            "N": "7",
-            "Group": 0,
-            "CG": 0,
-            "Origin": "",
-            "Remarks": "",
-            "OTe": "P",
-            "L-T": "LookUptablefilename",
-            "References": "1]<Ahref='http://adsabs.harvard.edu/abs/1994CoSka..24..101G'target=_blank>Gavajdova,1995</A>"
-        }
-    },
-    "OctoberDraconids_2": {
+    "OctoberDraconids from 10-04 to 10-04": {
         "orbitParams": {
             "a": 2.89,
             "e": 0.6561,
@@ -1991,7 +1655,7 @@
             "activity_end": "10-04"
         }
     },
-    "OctoberDraconids_3": {
+    "OctoberDraconids from 10-04 to 10-05": {
         "orbitParams": {
             "a": 3.15,
             "e": 0.706,
@@ -2037,7 +1701,7 @@
             "activity_end": "10-05"
         }
     },
-    "OctoberDraconids_4": {
+    "OctoberDraconids from 09-30 to 10-07": {
         "orbitParams": {
             "a": 2.88,
             "e": 0.654,
@@ -2083,7 +1747,7 @@
             "activity_end": "10-07"
         }
     },
-    "Quadrantids_1": {
+    "Quadrantids from 12-29 to 01-04": {
         "orbitParams": {
             "a": 3.7,
             "e": 0.7367,
@@ -2129,7 +1793,7 @@
             "activity_end": "01-04"
         }
     },
-    "Quadrantids_2": {
+    "Quadrantids from 11-11 to 01-10": {
         "orbitParams": {
             "a": 3.35,
             "e": 0.709,
@@ -2175,7 +1839,7 @@
             "activity_end": "01-10"
         }
     },
-    "Quadrantids_3": {
+    "Quadrantids from 12-19 to 01-16": {
         "orbitParams": {
             "a": 2.82,
             "e": 0.657,
@@ -2221,7 +1885,7 @@
             "activity_end": "01-16"
         }
     },
-    "Quadrantids_4": {
+    "Quadrantids from 12-30 to 01-08": {
         "orbitParams": {
             "a": 2.872,
             "e": 0.659,
@@ -2267,49 +1931,7 @@
             "activity_end": "01-08"
         }
     },
-    "eta-Virginids_1": {
-        "orbitParams": {
-            "a": 2.637,
-            "e": 0.912,
-            "inc": 3.51,
-            "node": 334.54,
-            "peri": 308.0,
-            "ma": 0
-        },
-        "extraParams": {
-            "Code": "EVI",
-            "showername-designation": "eta-Virginids",
-            "IAUNo": 11,
-            "AdNo": 0,
-            "s": 1,
-            "sub.date": "1971-mm-dd",
-            "activity": "annual",
-            "LoSb": "",
-            "LoSe": "",
-            "LoS": 334.5,
-            "Ra": "173.64",
-            "De": "4.86",
-            "dRa": "",
-            "dDe": "",
-            "Vg": 36.0,
-            "LoR": "172.24",
-            "S_LoR": "197.74",
-            "LaR": "1.94",
-            "theta": "107.73",
-            "phi": "267.96",
-            "Flags": "R",
-            "q": 0.234,
-            "N": "4",
-            "Group": 0,
-            "CG": 0,
-            "Origin": "",
-            "Remarks": "InLindblad1971theshowernameisNorthernVirginids(Tab.1aand1bNo62)",
-            "OTe": "P",
-            "L-T": "LookUptablefilename",
-            "References": "1]<Ahref='http://adsabs.harvard.edu/abs/1971SCoA...12...14L'target=_blank>Lindblad,1971</A>"
-        }
-    },
-    "eta-Virginids_2": {
+    "eta-Virginids from 03-21 to 03-20": {
         "orbitParams": {
             "a": 2.47,
             "e": 0.812,
@@ -2355,7 +1977,7 @@
             "activity_end": "03-20"
         }
     },
-    "eta-Virginids_3": {
+    "eta-Virginids from 03-21 to 03-21": {
         "orbitParams": {
             "a": 2.488,
             "e": 0.822,
@@ -2401,7 +2023,7 @@
             "activity_end": "03-21"
         }
     },
-    "kappa-Cygnids_1": {
+    "kappa-Cygnids from 08-06 to 10-03": {
         "orbitParams": {
             "a": 3.09,
             "e": 0.68,
@@ -2447,7 +2069,7 @@
             "activity_end": "10-03"
         }
     },
-    "kappa-Cygnids_2": {
+    "kappa-Cygnids from 08-05 to 08-14": {
         "orbitParams": {
             "a": 2.95,
             "e": 0.662,
@@ -2493,7 +2115,7 @@
             "activity_end": "08-14"
         }
     },
-    "kappa-Cygnids_3": {
+    "kappa-Cygnids from 07-21 to 08-29": {
         "orbitParams": {
             "a": 3.524,
             "e": 0.725,
@@ -2539,7 +2161,7 @@
             "activity_end": "08-29"
         }
     },
-    "Leonids_1": {
+    "Leonids from 11-11 to 11-17": {
         "orbitParams": {
             "a": 11.5,
             "e": 0.915,
@@ -2585,49 +2207,7 @@
             "activity_end": "11-17"
         }
     },
-    "Leonids_2": {
-        "orbitParams": {
-            "a": 10.3,
-            "e": 0.904,
-            "inc": 162.1,
-            "node": 235.08,
-            "peri": 172.41,
-            "ma": 0
-        },
-        "extraParams": {
-            "Code": "LEO",
-            "showername-designation": "Leonids",
-            "IAUNo": 13,
-            "AdNo": 2,
-            "s": 1,
-            "sub.date": "1970-mm-dd",
-            "activity": "annual",
-            "LoSb": "",
-            "LoSe": "",
-            "LoS": 235.1,
-            "Ra": "153.39",
-            "De": "22.38",
-            "dRa": "0.47",
-            "dDe": "-0.53",
-            "Vg": 70.26,
-            "LoR": "147.27",
-            "S_LoR": "272.17",
-            "LaR": "10.63",
-            "theta": "169.15",
-            "phi": "168.59",
-            "Flags": "R1",
-            "q": 0.984,
-            "N": "9",
-            "Group": 0,
-            "CG": 0,
-            "Origin": "55P/Temple-Tuttle",
-            "Remarks": "",
-            "OTe": "P",
-            "L-T": "LookUptablefilename",
-            "References": "3]<Ahref='http://adsabs.harvard.edu/abs/1970BAICz..21..153K'target=_blank>Kresak&Porubcan,1970</A>"
-        }
-    },
-    "Leonids_3": {
+    "Leonids from 11-07 to 11-17": {
         "orbitParams": {
             "a": 4.22,
             "e": 0.7674,
@@ -2673,7 +2253,7 @@
             "activity_end": "11-17"
         }
     },
-    "Leonids_4": {
+    "Leonids from 11-09 to 11-16": {
         "orbitParams": {
             "a": 2.52,
             "e": 0.61,
@@ -2719,7 +2299,7 @@
             "activity_end": "11-16"
         }
     },
-    "Leonids_5": {
+    "Leonids from 10-30 to 11-27": {
         "orbitParams": {
             "a": 6.63,
             "e": 0.867,
@@ -2765,7 +2345,7 @@
             "activity_end": "11-27"
         }
     },
-    "Leonids_6": {
+    "Leonids from 10-27 to 12-08": {
         "orbitParams": {
             "a": 9.56,
             "e": 0.897,
@@ -2811,7 +2391,7 @@
             "activity_end": "12-08"
         }
     },
-    "Ursids_1": {
+    "Ursids from 12-19 to 12-19": {
         "orbitParams": {
             "a": -10.3,
             "e": 1.09,
@@ -2857,7 +2437,7 @@
             "activity_end": "12-19"
         }
     },
-    "Ursids_2": {
+    "Ursids from 12-18 to 12-21": {
         "orbitParams": {
             "a": 24.11,
             "e": 0.961,
@@ -2903,7 +2483,7 @@
             "activity_end": "12-21"
         }
     },
-    "Ursids_3": {
+    "Ursids from 12-16 to 12-20": {
         "orbitParams": {
             "a": 4.87,
             "e": 0.807,
@@ -2949,7 +2529,7 @@
             "activity_end": "12-20"
         }
     },
-    "Ursids_4": {
+    "Ursids from 12-10 to 12-30": {
         "orbitParams": {
             "a": 5.775,
             "e": 0.838,
@@ -2995,7 +2575,7 @@
             "activity_end": "12-30"
         }
     },
-    "sigma-Hydrids_1": {
+    "sigma-Hydrids from 09-27 to 12-25": {
         "orbitParams": {
             "a": 9.08,
             "e": 0.985,
@@ -3041,7 +2621,7 @@
             "activity_end": "12-25"
         }
     },
-    "sigma-Hydrids_2": {
+    "sigma-Hydrids from 11-16 to 01-09": {
         "orbitParams": {
             "a": 24.9,
             "e": 0.99,
@@ -3087,91 +2667,7 @@
             "activity_end": "01-09"
         }
     },
-    "NorthernTaurids_1": {
-        "orbitParams": {
-            "a": 2.12,
-            "e": 0.832,
-            "inc": 3.1,
-            "node": 226.2,
-            "peri": 294.9,
-            "ma": 0
-        },
-        "extraParams": {
-            "Code": "NTA",
-            "showername-designation": "NorthernTaurids",
-            "IAUNo": 17,
-            "AdNo": 0,
-            "s": 1,
-            "sub.date": "2002-mm-dd",
-            "activity": "annual",
-            "LoSb": "",
-            "LoSe": "",
-            "LoS": 226.2,
-            "Ra": "58.6",
-            "De": "21.6",
-            "dRa": "0.8",
-            "dDe": "0.16",
-            "Vg": 28.3,
-            "LoR": "61.02",
-            "S_LoR": "194.82",
-            "LaR": "1.26",
-            "theta": "104.81",
-            "phi": "268.69",
-            "Flags": "",
-            "q": 0.35,
-            "N": "49",
-            "Group": 247,
-            "CG": 3,
-            "Origin": "2P/Encke",
-            "Remarks": "memberofTauridComplex(247)",
-            "OTe": "",
-            "L-T": "LookUptablefilename",
-            "References": "1]<Ahref='http://adsabs.harvard.edu/abs/2002ESASP.500..177P'target=_blank>Porubcan&Kornos,2002</A>"
-        }
-    },
-    "NorthernTaurids_2": {
-        "orbitParams": {
-            "a": 2.2,
-            "e": 0.871,
-            "inc": 2.89,
-            "node": 212.78,
-            "peri": 302.3,
-            "ma": 0
-        },
-        "extraParams": {
-            "Code": "NTA",
-            "showername-designation": "NorthernTaurids",
-            "IAUNo": 17,
-            "AdNo": 1,
-            "s": 1,
-            "sub.date": "1970-mm-dd",
-            "activity": "annual",
-            "LoSb": "",
-            "LoSe": "",
-            "LoS": 212.7,
-            "Ra": "44.71",
-            "De": "19",
-            "dRa": "0.92",
-            "dDe": "0.06",
-            "Vg": 30.69,
-            "LoR": "47.75",
-            "S_LoR": "195.05",
-            "LaR": "1.95",
-            "theta": "105.04",
-            "phi": "267.98",
-            "Flags": "R",
-            "q": 0.284,
-            "N": "25",
-            "Group": 247,
-            "CG": 3,
-            "Origin": "",
-            "Remarks": "memberofTauridComplex(247)",
-            "OTe": "P",
-            "L-T": "LookUptablefilename",
-            "References": "2]<Ahref='http://adsabs.harvard.edu/abs/1970BAICz..21..153K'target=_blank>Kresak&Porubcan,1970</A>"
-        }
-    },
-    "NorthernTaurids_3": {
+    "NorthernTaurids from 10-17 to 11-14": {
         "orbitParams": {
             "a": 2.06,
             "e": 0.8283,
@@ -3217,7 +2713,7 @@
             "activity_end": "11-14"
         }
     },
-    "NorthernTaurids_4": {
+    "NorthernTaurids from 10-27 to 11-20": {
         "orbitParams": {
             "a": 2.06,
             "e": 0.83,
@@ -3263,7 +2759,7 @@
             "activity_end": "11-20"
         }
     },
-    "NorthernTaurids_5": {
+    "NorthernTaurids from 09-20 to 10-30": {
         "orbitParams": {
             "a": 2.13,
             "e": 0.829,
@@ -3309,7 +2805,7 @@
             "activity_end": "10-30"
         }
     },
-    "NorthernTaurids_6": {
+    "NorthernTaurids from 10-10 to 11-04": {
         "orbitParams": {
             "a": 2.057,
             "e": 0.844,
@@ -3355,7 +2851,7 @@
             "activity_end": "11-04"
         }
     },
-    "NorthernTaurids_7": {
+    "NorthernTaurids from 11-04 to 12-07": {
         "orbitParams": {
             "a": 2.142,
             "e": 0.815,
@@ -3401,7 +2897,7 @@
             "activity_end": "12-07"
         }
     },
-    "NorthernTaurids_8": {
+    "NorthernTaurids from 12-07 to 12-19": {
         "orbitParams": {
             "a": 2.186,
             "e": 0.767,
@@ -3447,7 +2943,7 @@
             "activity_end": "12-19"
         }
     },
-    "DecemberMonocerotids_1": {
+    "DecemberMonocerotids from 12-01 to 12-13": {
         "orbitParams": {
             "a": 22.3,
             "e": 0.9913,
@@ -3493,7 +2989,7 @@
             "activity_end": "12-13"
         }
     },
-    "DecemberMonocerotids_2": {
+    "DecemberMonocerotids from 12-06 to 12-15": {
         "orbitParams": {
             "a": 8.88,
             "e": 0.978,
@@ -3539,7 +3035,7 @@
             "activity_end": "12-15"
         }
     },
-    "DecemberMonocerotids_3": {
+    "DecemberMonocerotids from 11-25 to 12-25": {
         "orbitParams": {
             "a": 8.2,
             "e": 0.983,
@@ -3585,7 +3081,7 @@
             "activity_end": "12-25"
         }
     },
-    "DecemberMonocerotids_4": {
+    "DecemberMonocerotids from 11-25 to 12-19": {
         "orbitParams": {
             "a": 11.6,
             "e": 0.984,
@@ -3631,49 +3127,7 @@
             "activity_end": "12-19"
         }
     },
-    "ComaeBerenicids_1": {
-        "orbitParams": {
-            "a": 3.76,
-            "e": 0.81,
-            "inc": 138.0,
-            "node": 261.69,
-            "peri": 249.01,
-            "ma": 0
-        },
-        "extraParams": {
-            "Code": "COM",
-            "showername-designation": "ComaeBerenicids",
-            "IAUNo": 20,
-            "AdNo": 6,
-            "s": 1,
-            "sub.date": "1966-mm-dd",
-            "activity": "1959/60",
-            "LoSb": "",
-            "LoSe": "",
-            "LoS": 261.7,
-            "Ra": "163.69",
-            "De": "29.87",
-            "dRa": "",
-            "dDe": "",
-            "Vg": 63.02,
-            "LoR": "153.14",
-            "S_LoR": "251.44",
-            "LaR": "21.1",
-            "theta": "152.18",
-            "phi": "219.52",
-            "Flags": "RR",
-            "q": 0.71,
-            "N": "9",
-            "Group": 0,
-            "CG": 0,
-            "Origin": "",
-            "Remarks": "InKashcheev..1967,p.171,Tab4.8theshowerisdesignatedasNo193,nonameisgiven",
-            "OTe": "R",
-            "L-T": "LookUptablefilename",
-            "References": "7]<Ahref='http://adsabs.harvard.edu/abs/1967SCoA...11..183K'target=_blank>Kashcheev&Lebedinets,1967</A>"
-        }
-    },
-    "ComaeBerenicids_2": {
+    "ComaeBerenicids from 12-01 to 01-21": {
         "orbitParams": {
             "a": 8.58,
             "e": 0.962,
@@ -3719,7 +3173,7 @@
             "activity_end": "01-21"
         }
     },
-    "ComaeBerenicids_3": {
+    "ComaeBerenicids from 11-25 to 02-15": {
         "orbitParams": {
             "a": 19.7,
             "e": 0.972,
@@ -3765,49 +3219,7 @@
             "activity_end": "02-15"
         }
     },
-    "alpha-Virginids_1": {
-        "orbitParams": {
-            "a": 2.349,
-            "e": 0.663,
-            "inc": 0.71,
-            "node": 28.6,
-            "peri": 247.5,
-            "ma": 0
-        },
-        "extraParams": {
-            "Code": "AVB",
-            "showername-designation": "alpha-Virginids",
-            "IAUNo": 21,
-            "AdNo": 0,
-            "s": 1,
-            "sub.date": "1971-mm-dd",
-            "activity": "annual",
-            "LoSb": "",
-            "LoSe": "",
-            "LoS": 28.9,
-            "Ra": "195.65",
-            "De": "-5.13",
-            "dRa": "",
-            "dDe": "",
-            "Vg": 20.0,
-            "LoR": "196.39",
-            "S_LoR": "167.49",
-            "LaR": "1.42",
-            "theta": "77.49",
-            "phi": "268.55",
-            "Flags": "R",
-            "q": 0.753,
-            "N": "19",
-            "Group": 0,
-            "CG": 0,
-            "Origin": "",
-            "Remarks": "InLindblad1971btheshowerisnamedsigma-Leonids(Tab.2a,2bNo8)",
-            "OTe": "P",
-            "L-T": "LookUptablefilename",
-            "References": "3]<Ahref='http://adsabs.harvard.edu/abs/1971SCoA...12...14L'target=_blank>Lindblad,1971b</A>"
-        }
-    },
-    "alpha-Virginids_2": {
+    "alpha-Virginids from 04-15 to 04-27": {
         "orbitParams": {
             "a": 2.55,
             "e": 0.716,
@@ -3853,7 +3265,7 @@
             "activity_end": "04-27"
         }
     },
-    "alpha-Virginids_3": {
+    "alpha-Virginids from 04-05 to 04-30": {
         "orbitParams": {
             "a": 2.709,
             "e": 0.735,
@@ -3899,49 +3311,7 @@
             "activity_end": "04-30"
         }
     },
-    "LeonisMinorids_1": {
-        "orbitParams": {
-            "a": 33.6,
-            "e": 0.985,
-            "inc": 124.5,
-            "node": 209.9,
-            "peri": 106.3,
-            "ma": 0
-        },
-        "extraParams": {
-            "Code": "LMI",
-            "showername-designation": "LeonisMinorids",
-            "IAUNo": 22,
-            "AdNo": 0,
-            "s": 1,
-            "sub.date": "1999-mm-dd",
-            "activity": "annual",
-            "LoSb": "",
-            "LoSe": "",
-            "LoS": 209.0,
-            "Ra": "160.7",
-            "De": "37.2",
-            "dRa": "0.96",
-            "dDe": "0.08",
-            "Vg": 61.8,
-            "LoR": "147.33",
-            "S_LoR": "298.33",
-            "LaR": "26.74",
-            "theta": "141.82",
-            "phi": "136.72",
-            "Flags": "",
-            "q": 0.641,
-            "N": "4",
-            "Group": 0,
-            "CG": 0,
-            "Origin": "",
-            "Remarks": "",
-            "OTe": "T",
-            "L-T": "LookUptablefilename",
-            "References": "2]<Ahref='http://adsabs.harvard.edu/abs/1999JIMO...27..195D'target=_blank>deLignie&Betlem,1999</A>"
-        }
-    },
-    "LeonisMinorids_2": {
+    "LeonisMinorids from 10-08 to 11-02": {
         "orbitParams": {
             "a": 10.6,
             "e": 0.989,
@@ -3987,7 +3357,7 @@
             "activity_end": "11-02"
         }
     },
-    "LeonisMinorids_3": {
+    "LeonisMinorids from 10-11 to 10-29": {
         "orbitParams": {
             "a": 23.3,
             "e": 0.973,
@@ -4033,7 +3403,7 @@
             "activity_end": "10-29"
         }
     },
-    "epsilon-Geminids_1": {
+    "epsilon-Geminids from 10-11 to 10-24": {
         "orbitParams": {
             "a": 26.77,
             "e": 0.97,
@@ -4079,7 +3449,7 @@
             "activity_end": "10-24"
         }
     },
-    "epsilon-Geminids_2": {
+    "epsilon-Geminids from 09-26 to 10-22": {
         "orbitParams": {
             "a": 11.3,
             "e": 0.957,
@@ -4125,7 +3495,7 @@
             "activity_end": "10-22"
         }
     },
-    "epsilon-Geminids_3": {
+    "epsilon-Geminids from 09-29 to 10-29": {
         "orbitParams": {
             "a": 25.2,
             "e": 0.969,
@@ -4171,91 +3541,7 @@
             "activity_end": "10-29"
         }
     },
-    "Northerndelta-Aquariids_1": {
-        "orbitParams": {
-            "a": 2.8,
-            "e": 0.966,
-            "inc": 19.79,
-            "node": 140.69,
-            "peri": 327.4,
-            "ma": 0
-        },
-        "extraParams": {
-            "Code": "NDA",
-            "showername-designation": "Northerndelta-Aquariids",
-            "IAUNo": 26,
-            "AdNo": 0,
-            "s": 1,
-            "sub.date": "1970-mm-dd",
-            "activity": "annual",
-            "LoSb": "",
-            "LoSe": "",
-            "LoS": 140.7,
-            "Ra": "335.45",
-            "De": "-2.27",
-            "dRa": "0.72",
-            "dDe": "0.3",
-            "Vg": 39.78,
-            "LoR": "336.42",
-            "S_LoR": "195.72",
-            "LaR": "7.4",
-            "theta": "105.58",
-            "phi": "262.32",
-            "Flags": "R",
-            "q": 0.096,
-            "N": "8",
-            "Group": 297,
-            "CG": 3,
-            "Origin": "",
-            "Remarks": "Memberof297/DAQ",
-            "OTe": "P",
-            "L-T": "LookUptablefilename",
-            "References": "2]<Ahref='http://adsabs.harvard.edu/abs/1970BAICz..21..153K'target=_blank>Kresak&Porubcan,1970</A>"
-        }
-    },
-    "Northerndelta-Aquariids_2": {
-        "orbitParams": {
-            "a": 2.62,
-            "e": 0.973,
-            "inc": 20.39,
-            "node": 139.59,
-            "peri": 332.6,
-            "ma": 0
-        },
-        "extraParams": {
-            "Code": "NDA",
-            "showername-designation": "Northerndelta-Aquariids",
-            "IAUNo": 26,
-            "AdNo": 2,
-            "s": 1,
-            "sub.date": "1963-mm-dd",
-            "activity": "annual",
-            "LoSb": "",
-            "LoSe": "",
-            "LoS": 139.6,
-            "Ra": "339.65",
-            "De": "-4.87",
-            "dRa": "",
-            "dDe": "",
-            "Vg": 42.3,
-            "LoR": "339.37",
-            "S_LoR": "199.77",
-            "LaR": "3.44",
-            "theta": "109.74",
-            "phi": "266.35",
-            "Flags": "R",
-            "q": 0.07,
-            "N": "9",
-            "Group": 297,
-            "CG": 3,
-            "Origin": "",
-            "Remarks": "Memberof297/DAQ",
-            "OTe": "",
-            "L-T": "LookUptablefilename",
-            "References": "3]<Ahref='http://adsabs.harvard.edu/abs/1963mmc..book..774J'target=_blank>Jacchia,1963</A>"
-        }
-    },
-    "Northerndelta-Aquariids_3": {
+    "Northerndelta-Aquariids from 07-28 to 08-25": {
         "orbitParams": {
             "a": 1.81,
             "e": 0.9464,
@@ -4301,7 +3587,7 @@
             "activity_end": "08-25"
         }
     },
-    "Northerndelta-Aquariids_4": {
+    "Northerndelta-Aquariids from 07-26 to 08-26": {
         "orbitParams": {
             "a": 1.7,
             "e": 0.944,
@@ -4347,7 +3633,7 @@
             "activity_end": "08-26"
         }
     },
-    "Northerndelta-Aquariids_5": {
+    "Northerndelta-Aquariids from 07-20 to 08-24": {
         "orbitParams": {
             "a": 1.97,
             "e": 0.955,
@@ -4393,7 +3679,7 @@
             "activity_end": "08-24"
         }
     },
-    "Northerndelta-Aquariids_6": {
+    "Northerndelta-Aquariids from 07-22 to 09-08": {
         "orbitParams": {
             "a": 2.232,
             "e": 0.957,
@@ -4439,7 +3725,7 @@
             "activity_end": "09-08"
         }
     },
-    "eta-Aquariids_1": {
+    "eta-Aquariids from 04-25 to 05-19": {
         "orbitParams": {
             "a": 7.07,
             "e": 0.924,
@@ -4485,49 +3771,7 @@
             "activity_end": "05-19"
         }
     },
-    "eta-Aquariids_2": {
-        "orbitParams": {
-            "a": 20.881,
-            "e": 0.968,
-            "inc": 166.1,
-            "node": 58.1,
-            "peri": 107.9,
-            "ma": 0
-        },
-        "extraParams": {
-            "Code": "ETA",
-            "showername-designation": "eta-Aquariids",
-            "IAUNo": 31,
-            "AdNo": 5,
-            "s": 1,
-            "sub.date": "2010-mm-dd",
-            "activity": "2002",
-            "LoSb": "",
-            "LoSe": "",
-            "LoS": 58.1,
-            "Ra": "347.2",
-            "De": "2.1",
-            "dRa": "",
-            "dDe": "",
-            "Vg": 66.9,
-            "LoR": "349.05",
-            "S_LoR": "290.95",
-            "LaR": "6.99",
-            "theta": "157.97",
-            "phi": "108.93",
-            "Flags": "1",
-            "q": 0.662,
-            "N": "12",
-            "Group": 0,
-            "CG": 0,
-            "Origin": "",
-            "Remarks": "",
-            "OTe": "T",
-            "L-T": "LookUptablefilename",
-            "References": "6]<Ahref='http://adsabs.harvard.edu/abs/2010MNRAS.404..867J'target=_blank>Jopeketal.,2010</A>"
-        }
-    },
-    "eta-Aquariids_3": {
+    "eta-Aquariids from 04-17 to 05-24": {
         "orbitParams": {
             "a": 7.41,
             "e": 0.955,
@@ -4573,7 +3817,7 @@
             "activity_end": "05-24"
         }
     },
-    "eta-Aquariids_4": {
+    "eta-Aquariids from 04-26 to 05-27": {
         "orbitParams": {
             "a": 14.8,
             "e": 0.96,
@@ -4619,49 +3863,7 @@
             "activity_end": "05-27"
         }
     },
-    "DecemberLeonisMinorids_1": {
-        "orbitParams": {
-            "a": 3.76,
-            "e": 0.81,
-            "inc": 138.0,
-            "node": 261.69,
-            "peri": 249.01,
-            "ma": 0
-        },
-        "extraParams": {
-            "Code": "DLM",
-            "showername-designation": "DecemberLeonisMinorids",
-            "IAUNo": 32,
-            "AdNo": 1,
-            "s": 0,
-            "sub.date": "1966-mm-dd",
-            "activity": "1959/60",
-            "LoSb": "",
-            "LoSe": "",
-            "LoS": 261.7,
-            "Ra": "163.69",
-            "De": "29.87",
-            "dRa": "",
-            "dDe": "",
-            "Vg": 63.02,
-            "LoR": "153.14",
-            "S_LoR": "251.44",
-            "LaR": "21.1",
-            "theta": "152.18",
-            "phi": "219.52",
-            "Flags": "RR",
-            "q": 0.71,
-            "N": "9",
-            "Group": 0,
-            "CG": 0,
-            "Origin": "",
-            "Remarks": "InKashcheev...1967,p.171,Tab.4.8showerno193,thasamerecordasgivenin20/006!!???",
-            "OTe": "R",
-            "L-T": "LookUptablefilename",
-            "References": "2]<Ahref='http://adsabs.harvard.edu/abs/1967SCoA...11..183K'target=_blank>Kashcheev&Lebedinets,1967</A>"
-        }
-    },
-    "Northerniota-Aquariids_1": {
+    "Northerniota-Aquariids from 07-13 to 09-17": {
         "orbitParams": {
             "a": 1.75,
             "e": 0.84,
@@ -4707,7 +3909,7 @@
             "activity_end": "09-17"
         }
     },
-    "Northerniota-Aquariids_2": {
+    "Northerniota-Aquariids from 08-15 to 09-15": {
         "orbitParams": {
             "a": 1.52,
             "e": 0.825,
@@ -4753,7 +3955,7 @@
             "activity_end": "09-15"
         }
     },
-    "Northerniota-Aquariids_3": {
+    "Northerniota-Aquariids from 08-15 to 09-03": {
         "orbitParams": {
             "a": 1.57,
             "e": 0.827,
@@ -4799,49 +4001,7 @@
             "activity_end": "09-03"
         }
     },
-    "Northerniota-Aquariids_4": {
-        "orbitParams": {
-            "a": 1.76,
-            "e": 0.874,
-            "inc": 5.9,
-            "node": 147.8,
-            "peri": 310.5,
-            "ma": 0
-        },
-        "extraParams": {
-            "Code": "NIA",
-            "showername-designation": "Northerniota-Aquariids",
-            "IAUNo": 33,
-            "AdNo": 5,
-            "s": 1,
-            "sub.date": "23/08/2015",
-            "activity": "annual",
-            "LoSb": "",
-            "LoSe": "",
-            "LoS": 148.0,
-            "Ra": "346.7",
-            "De": "-1.2",
-            "dRa": "0.92",
-            "dDe": "0.39",
-            "Vg": 31.3,
-            "LoR": "347.3",
-            "S_LoR": "199.3",
-            "LaR": "4.14",
-            "theta": "109.24",
-            "phi": "265.61",
-            "Flags": "M1",
-            "q": 0.234,
-            "N": "94",
-            "Group": 298,
-            "CG": 2,
-            "Origin": "?2006PF1",
-            "Remarks": "Memberof298/IAQcomplex",
-            "OTe": "T",
-            "L-T": "LookUptablefilename",
-            "References": "6]<Ahref='http://adsabs.harvard.edu/abs/2016Icar..266..331J'target=_blank>Jenniskensetal.,2016</A>"
-        }
-    },
-    "Northerniota-Aquariids_5": {
+    "Northerniota-Aquariids from 08-10 to 09-29": {
         "orbitParams": {
             "a": 1.795,
             "e": 0.848,
@@ -4887,175 +4047,7 @@
             "activity_end": "09-29"
         }
     },
-    "mu-Virginids_1": {
-        "orbitParams": {
-            "a": 2.531,
-            "e": 0.836,
-            "inc": 9.1,
-            "node": 38.97,
-            "peri": 286.5,
-            "ma": 0
-        },
-        "extraParams": {
-            "Code": "DLI",
-            "showername-designation": "mu-Virginids",
-            "IAUNo": 47,
-            "AdNo": 0,
-            "s": 0,
-            "sub.date": "1994-02-dd",
-            "activity": "annual",
-            "LoSb": "",
-            "LoSe": "",
-            "LoS": 39.7,
-            "Ra": "227.47",
-            "De": "-8.79",
-            "dRa": "",
-            "dDe": "",
-            "Vg": 28.3,
-            "LoR": "227.5",
-            "S_LoR": "187.8",
-            "LaR": "8.59",
-            "theta": "97.71",
-            "phi": "261.33",
-            "Flags": "R",
-            "q": 0.418,
-            "N": "3",
-            "Group": 0,
-            "CG": 0,
-            "Origin": "",
-            "Remarks": "InPorubcas&Gavajdowathenameisbeta-Librids(Tab.2)",
-            "OTe": "P",
-            "L-T": "LookUptablefilename",
-            "References": "1]<Ahref='http://adsabs.harvard.edu/abs/1994P%26SS...42..151P'target=_blank>Porubcan&Gavajdova,1994</A>"
-        }
-    },
-    "mu-Virginids_2": {
-        "orbitParams": {
-            "a": 2.435,
-            "e": 0.848,
-            "inc": 6.6,
-            "node": 37.3,
-            "peri": 292.2,
-            "ma": 0
-        },
-        "extraParams": {
-            "Code": "DLI",
-            "showername-designation": "mu-Virginids",
-            "IAUNo": 47,
-            "AdNo": 2,
-            "s": 0,
-            "sub.date": "16/11/2022",
-            "activity": "annual",
-            "LoSb": "",
-            "LoSe": "",
-            "LoS": 37.3,
-            "Ra": "226.8",
-            "De": "-11.8",
-            "dRa": "1.05",
-            "dDe": "-0.27",
-            "Vg": 29.3,
-            "LoR": "227.69",
-            "S_LoR": "190.39",
-            "LaR": "5.52",
-            "theta": "100.34",
-            "phi": "264.39",
-            "Flags": "",
-            "q": 0.371,
-            "N": "68",
-            "Group": 0,
-            "CG": 0,
-            "Origin": "",
-            "Remarks": "",
-            "OTe": "T",
-            "L-T": "047_DLI.csv",
-            "References": "3)<Ahref='https://ui.adsabs.harvard.edu/abs/2022JIMO...50...38S/abstract'target=_blank>Shiba,2022.</a>"
-        }
-    },
-    "lambda-Virginids_1": {
-        "orbitParams": {
-            "a": 2.63,
-            "e": 0.87,
-            "inc": 2.01,
-            "node": 20.12,
-            "peri": 295.0,
-            "ma": 0
-        },
-        "extraParams": {
-            "Code": "LVI",
-            "showername-designation": "lambda-Virginids",
-            "IAUNo": 49,
-            "AdNo": 0,
-            "s": -3,
-            "sub.date": "1971-mm-dd",
-            "activity": "annual",
-            "LoSb": "",
-            "LoSe": "",
-            "LoS": 20.7,
-            "Ra": "210.67",
-            "De": "-10.12",
-            "dRa": "",
-            "dDe": "",
-            "Vg": 26.8,
-            "LoR": "212.07",
-            "S_LoR": "191.37",
-            "LaR": "2.21",
-            "theta": "101.36",
-            "phi": "267.75",
-            "Flags": "R",
-            "q": 0.343,
-            "N": "2",
-            "Group": 0,
-            "CG": 0,
-            "Origin": "",
-            "Remarks": "InLindblad1971thisshowernameisNorthernlambda-Virginids(Tab.2a,2bNo83)",
-            "OTe": "P",
-            "L-T": "LookUptablefilename",
-            "References": "1]<Ahref='http://adsabs.harvard.edu/abs/1971SCoA...12...14L'target=_blank>Lindblad,1971b</A>"
-        }
-    },
-    "alpha-Scorpiids_1": {
-        "orbitParams": {
-            "a": 2.64,
-            "e": 0.875,
-            "inc": 9.8,
-            "node": 237.53,
-            "peri": 116.49,
-            "ma": 0
-        },
-        "extraParams": {
-            "Code": "ASC",
-            "showername-designation": "alpha-Scorpiids",
-            "IAUNo": 55,
-            "AdNo": 0,
-            "s": -6,
-            "sub.date": "1994-02-dd",
-            "activity": "annual",
-            "LoSb": "",
-            "LoSe": "",
-            "LoS": 57.5,
-            "Ra": "247.78",
-            "De": "-28.85",
-            "dRa": "",
-            "dDe": "",
-            "Vg": 31.0,
-            "LoR": "250.51",
-            "S_LoR": "193.01",
-            "LaR": "-6.9",
-            "theta": "102.92",
-            "phi": "277.09",
-            "Flags": "R",
-            "q": 0.33,
-            "N": "3",
-            "Group": 0,
-            "CG": 0,
-            "Origin": "",
-            "Remarks": "Nouniqueidentity,indistinguishablefromsporadicbackground-Jenniskensetal.,2016",
-            "OTe": "P",
-            "L-T": "LookUptablefilename",
-            "References": "1]<Ahref='http://adsabs.harvard.edu/abs/1994P%26SS...42..151P'target=_blank>Porubcan&Gavajdova,1994</A>"
-        }
-    },
-    "alpha-Scorpiids_2": {
+    "alpha-Scorpiids from 04-11 to 05-11": {
         "orbitParams": {
             "a": 2.15,
             "e": 0.9,
@@ -5101,91 +4093,7 @@
             "activity_end": "05-11"
         }
     },
-    "tau-Herculids_1": {
-        "orbitParams": {
-            "a": 2.695,
-            "e": 0.633,
-            "inc": 18.6,
-            "node": 72.58,
-            "peri": 204.21,
-            "ma": 0
-        },
-        "extraParams": {
-            "Code": "TAH",
-            "showername-designation": "tau-Herculids",
-            "IAUNo": 61,
-            "AdNo": 0,
-            "s": 1,
-            "sub.date": "1971-mm-dd",
-            "activity": "annual",
-            "LoSb": "",
-            "LoSe": "",
-            "LoS": 72.6,
-            "Ra": "228.47",
-            "De": "39.91",
-            "dRa": "",
-            "dDe": "",
-            "Vg": 18.0,
-            "LoR": "208.11",
-            "S_LoR": "135.51",
-            "LaR": "54.79",
-            "theta": "66.17",
-            "phi": "206.72",
-            "Flags": "R",
-            "q": 0.97,
-            "N": "14",
-            "Group": 0,
-            "CG": 0,
-            "Origin": "73P/Schwassmann-Wachmann3",
-            "Remarks": "",
-            "OTe": "P",
-            "L-T": "LookUptablefilename",
-            "References": "1]<Ahref='http://adsabs.harvard.edu/abs/1971SCoA...12...14L'target=_blank>Lindblad,1971b</A>"
-        }
-    },
-    "tau-Herculids_2": {
-        "orbitParams": {
-            "a": 2.663,
-            "e": 0.623,
-            "inc": 19.1,
-            "node": 84.4,
-            "peri": 194.1,
-            "ma": 0
-        },
-        "extraParams": {
-            "Code": "TAH",
-            "showername-designation": "tau-Herculids",
-            "IAUNo": 61,
-            "AdNo": 2,
-            "s": 1,
-            "sub.date": "16/11/2022",
-            "activity": "annual",
-            "LoSb": "",
-            "LoSe": "",
-            "LoS": 84.4,
-            "Ra": "230.4",
-            "De": "44.8",
-            "dRa": "-0.33",
-            "dDe": "-0.06",
-            "Vg": 14.2,
-            "LoR": "206.07",
-            "S_LoR": "121.67",
-            "LaR": "59.77",
-            "theta": "64.63",
-            "phi": "197.02",
-            "Flags": "",
-            "q": 1.003,
-            "N": "18",
-            "Group": 0,
-            "CG": 0,
-            "Origin": "",
-            "Remarks": "",
-            "OTe": "T",
-            "L-T": "061_TAH.csv",
-            "References": "3)<Ahref='https://ui.adsabs.harvard.edu/abs/2022JIMO...50...38S/abstract'target=_blank>Shiba,2022.</a>"
-        }
-    },
-    "Corvids_1": {
+    "Corvids from 06-09 to 06-25": {
         "orbitParams": {
             "a": 2.35,
             "e": 0.571,
@@ -5231,91 +4139,7 @@
             "activity_end": "06-25"
         }
     },
-    "Northernmu-Sagittariids_1": {
-        "orbitParams": {
-            "a": 2.39,
-            "e": 0.764,
-            "inc": 4.5,
-            "node": 92.32,
-            "peri": 271.21,
-            "ma": 0
-        },
-        "extraParams": {
-            "Code": "NSA",
-            "showername-designation": "Northernmu-Sagittariids",
-            "IAUNo": 67,
-            "AdNo": 0,
-            "s": 0,
-            "sub.date": "1994-02-dd",
-            "activity": "annual",
-            "LoSb": "",
-            "LoSe": "",
-            "LoS": 92.4,
-            "Ra": "272.63",
-            "De": "-17.29",
-            "dRa": "",
-            "dDe": "",
-            "Vg": 22.9,
-            "LoR": "272.52",
-            "S_LoR": "180.12",
-            "LaR": "6.12",
-            "theta": "90.12",
-            "phi": "263.88",
-            "Flags": "R",
-            "q": 0.566,
-            "N": "6",
-            "Group": 163,
-            "CG": 2,
-            "Origin": "",
-            "Remarks": "InPorubcan&Gavajdova1994,theshowernameistheta-Ophiuchids(N)",
-            "OTe": "P",
-            "L-T": "LookUptablefilename",
-            "References": "1]<Ahref='http://adsabs.harvard.edu/abs/1994P%26SS...42..151P'target=_blank>Porubcan&Gavajdova,1994</A>"
-        }
-    },
-    "Southernmu-Sagittariids_1": {
-        "orbitParams": {
-            "a": 2.142,
-            "e": 0.693,
-            "inc": 2.6,
-            "node": 280.24,
-            "peri": 84.29,
-            "ma": 0
-        },
-        "extraParams": {
-            "Code": "SSG",
-            "showername-designation": "Southernmu-Sagittariids",
-            "IAUNo": 69,
-            "AdNo": 0,
-            "s": 1,
-            "sub.date": "1994-02-dd",
-            "activity": "annual",
-            "LoSb": "",
-            "LoSe": "",
-            "LoS": 100.1,
-            "Ra": "277.18",
-            "De": "-27.48",
-            "dRa": "",
-            "dDe": "",
-            "Vg": 19.6,
-            "LoR": "276.39",
-            "S_LoR": "176.29",
-            "LaR": "-4.2",
-            "theta": "86.3",
-            "phi": "274.21",
-            "Flags": "R",
-            "q": 0.65,
-            "N": "5",
-            "Group": 163,
-            "CG": 3,
-            "Origin": "",
-            "Remarks": "InPorubcan&Gavajdova1994,theshowernameistheta-Ophiuchids(S)",
-            "OTe": "P",
-            "L-T": "LookUptablefilename",
-            "References": "1]<Ahref='http://adsabs.harvard.edu/abs/1994P%26SS...42..151P'target=_blank>Porubcan&Gavajdova,1994</A>"
-        }
-    },
-    "Southernmu-Sagittariids_2": {
+    "Southernmu-Sagittariids from 06-07 to 07-04": {
         "orbitParams": {
             "a": 2.02,
             "e": 0.769,
@@ -5361,7 +4185,7 @@
             "activity_end": "07-04"
         }
     },
-    "Southernmu-Sagittariids_3": {
+    "Southernmu-Sagittariids from 06-01 to 06-29": {
         "orbitParams": {
             "a": 2.605,
             "e": 0.82,
@@ -5407,7 +4231,7 @@
             "activity_end": "06-29"
         }
     },
-    "JanuarypiVirginids_1": {
+    "JanuarypiVirginids from 01-02 to 01-16": {
         "orbitParams": {
             "a": 41.1,
             "e": 0.988,
@@ -5453,133 +4277,7 @@
             "activity_end": "01-16"
         }
     },
-    "rho-Geminids_1": {
-        "orbitParams": {
-            "a": 2.197,
-            "e": 0.673,
-            "inc": 5.0,
-            "node": 298.46,
-            "peri": 252.29,
-            "ma": 0
-        },
-        "extraParams": {
-            "Code": "RGE",
-            "showername-designation": "rho-Geminids",
-            "IAUNo": 94,
-            "AdNo": 0,
-            "s": 0,
-            "sub.date": "1971-mm-dd",
-            "activity": "annual",
-            "LoSb": "",
-            "LoSe": "",
-            "LoS": 298.4,
-            "Ra": "112.79",
-            "De": "30.95",
-            "dRa": "",
-            "dDe": "",
-            "Vg": 21.0,
-            "LoR": "109.66",
-            "S_LoR": "171.26",
-            "LaR": "9.05",
-            "theta": "81.37",
-            "phi": "260.85",
-            "Flags": "R",
-            "q": 0.708,
-            "N": "3",
-            "Group": 0,
-            "CG": 0,
-            "Origin": "",
-            "Remarks": "",
-            "OTe": "P",
-            "L-T": "LookUptablefilename",
-            "References": "1]<Ahref='http://adsabs.harvard.edu/abs/1971SCoA...12...14L'target=_blank>Lindblad,1971b</A>"
-        }
-    },
-    "Daytimexi-Sagittariids_1": {
-        "orbitParams": {
-            "a": 1.744,
-            "e": 0.78,
-            "inc": 4.3,
-            "node": 296.07,
-            "peri": 66.59,
-            "ma": 0
-        },
-        "extraParams": {
-            "Code": "XSA",
-            "showername-designation": "Daytimexi-Sagittariids",
-            "IAUNo": 100,
-            "AdNo": 0,
-            "s": 1,
-            "sub.date": "1976-mm-dd",
-            "activity": "1968/69",
-            "LoSb": "",
-            "LoSe": "",
-            "LoS": 296.0,
-            "Ra": "284.83",
-            "De": "-18.67",
-            "dRa": "",
-            "dDe": "",
-            "Vg": 26.3,
-            "LoR": "284.07",
-            "S_LoR": "348.07",
-            "LaR": "4.05",
-            "theta": "101.9",
-            "phi": "94.14",
-            "Flags": "R",
-            "q": 0.383,
-            "N": "14",
-            "Group": 0,
-            "CG": 0,
-            "Origin": "",
-            "Remarks": "InSekanina1976,theshowernameisJanuarySagittariids(Tab.VI,p.274)",
-            "OTe": "R",
-            "L-T": "LookUptablefilename",
-            "References": "1]<Ahref='http://adsabs.harvard.edu/abs/1976Icar...27..265S'target=_blank>Sekanina,1976</A>"
-        }
-    },
-    "Daytimexi-Sagittariids_2": {
-        "orbitParams": {
-            "a": 1.08,
-            "e": 0.736,
-            "inc": 1.1,
-            "node": 305.86,
-            "peri": 46.9,
-            "ma": 0
-        },
-        "extraParams": {
-            "Code": "XSA",
-            "showername-designation": "Daytimexi-Sagittariids",
-            "IAUNo": 100,
-            "AdNo": 1,
-            "s": 1,
-            "sub.date": "1976-mm-dd",
-            "activity": "1968/69",
-            "LoSb": "",
-            "LoSe": "",
-            "LoS": 305.6,
-            "Ra": "284.45",
-            "De": "-21.87",
-            "dRa": "",
-            "dDe": "",
-            "Vg": 24.4,
-            "LoR": "283.39",
-            "S_LoR": "337.79",
-            "LaR": "0.9",
-            "theta": "112.2",
-            "phi": "90.98",
-            "Flags": "R",
-            "q": 0.285,
-            "N": "26",
-            "Group": 0,
-            "CG": 0,
-            "Origin": "",
-            "Remarks": "InSekanina1976,theshowernameisxi-Sagittariids(Tab.VI,p.274)",
-            "OTe": "R",
-            "L-T": "LookUptablefilename",
-            "References": "2]<Ahref='http://adsabs.harvard.edu/abs/1976Icar...27..265S'target=_blank>Sekanina,1976</A>"
-        }
-    },
-    "pi-Hydrids_1": {
+    "pi-Hydrids from 01-20 to 02-18": {
         "orbitParams": {
             "a": 18.0,
             "e": 0.949,
@@ -5625,595 +4323,7 @@
             "activity_end": "02-18"
         }
     },
-    "Northerndelta-Leonids_1": {
-        "orbitParams": {
-            "a": 1.954,
-            "e": 0.687,
-            "inc": 4.81,
-            "node": 331.43,
-            "peri": 266.4,
-            "ma": 0
-        },
-        "extraParams": {
-            "Code": "NDL",
-            "showername-designation": "Northerndelta-Leonids",
-            "IAUNo": 112,
-            "AdNo": 1,
-            "s": 0,
-            "sub.date": "1973-02-dd",
-            "activity": "1961/65",
-            "LoSb": "",
-            "LoSe": "",
-            "LoS": 331.4,
-            "Ra": "154.98",
-            "De": "18.17",
-            "dRa": "",
-            "dDe": "",
-            "Vg": 20.6,
-            "LoR": "150.22",
-            "S_LoR": "178.82",
-            "LaR": "7.26",
-            "theta": "88.83",
-            "phi": "262.74",
-            "Flags": "R",
-            "q": 0.612,
-            "N": "8",
-            "Group": 29,
-            "CG": 2,
-            "Origin": "",
-            "Remarks": "InSekanina1973,theshowernameisdelta-Leonids(p.255&258),memberof29/DLE",
-            "OTe": "R",
-            "L-T": "LookUptablefilename",
-            "References": "2]<Ahref='http://adsabs.harvard.edu/abs/1973Icar...18..253S'target=_blank>Sekanina,1973</A>"
-        }
-    },
-    "Northerndelta-Leonids_2": {
-        "orbitParams": {
-            "a": 2.618,
-            "e": 0.747,
-            "inc": 6.21,
-            "node": 338.82,
-            "peri": 259.0,
-            "ma": 0
-        },
-        "extraParams": {
-            "Code": "NDL",
-            "showername-designation": "Northerndelta-Leonids",
-            "IAUNo": 112,
-            "AdNo": 2,
-            "s": 0,
-            "sub.date": "1971-mm-dd",
-            "activity": "annual",
-            "LoSb": "",
-            "LoSe": "",
-            "LoS": 338.8,
-            "Ra": "159.67",
-            "De": "18.87",
-            "dRa": "",
-            "dDe": "",
-            "Vg": 23.0,
-            "LoR": "154.13",
-            "S_LoR": "175.34",
-            "LaR": "9.55",
-            "theta": "85.4",
-            "phi": "260.41",
-            "Flags": "R",
-            "q": 0.643,
-            "N": "24",
-            "Group": 29,
-            "CG": 2,
-            "Origin": "",
-            "Remarks": "memberof29/DLE",
-            "OTe": "P",
-            "L-T": "LookUptablefilename",
-            "References": "3]<Ahref='http://adsabs.harvard.edu/abs/1971SCoA...12...14L'target=_blank>Lindblad,1971b</A>"
-        }
-    },
-    "Southerndelta-Leonids_1": {
-        "orbitParams": {
-            "a": 2.182,
-            "e": 0.664,
-            "inc": 4.29,
-            "node": 146.36,
-            "peri": 69.0,
-            "ma": 0
-        },
-        "extraParams": {
-            "Code": "SDL",
-            "showername-designation": "Southerndelta-Leonids",
-            "IAUNo": 113,
-            "AdNo": 0,
-            "s": 0,
-            "sub.date": "1989-mm-dd",
-            "activity": "annual",
-            "LoSb": "",
-            "LoSe": "",
-            "LoS": 326.4,
-            "Ra": "137.7",
-            "De": "17.9",
-            "dRa": "",
-            "dDe": "",
-            "Vg": 17.42,
-            "LoR": "134.76",
-            "S_LoR": "168.36",
-            "LaR": "1.56",
-            "theta": "78.36",
-            "phi": "268.41",
-            "Flags": "RR",
-            "q": 0.729,
-            "N": "",
-            "Group": 29,
-            "CG": 3,
-            "Origin": "",
-            "Remarks": "InTerentjeva1989,Tab1.thisshowerisnamedalpha-Cnc(c),memberof29/DLE",
-            "OTe": "P",
-            "L-T": "LookUptablefilename",
-            "References": "1]<Ahref='http://adsabs.harvard.edu/abs/1989JIMO...17..242T'target=_blank>Terentjeva,1989</A>"
-        }
-    },
-    "Southerndelta-Leonids_2": {
-        "orbitParams": {
-            "a": 1.788,
-            "e": 0.676,
-            "inc": 6.4,
-            "node": 134.46,
-            "peri": 91.3,
-            "ma": 0
-        },
-        "extraParams": {
-            "Code": "SDL",
-            "showername-designation": "Southerndelta-Leonids",
-            "IAUNo": 113,
-            "AdNo": 1,
-            "s": 0,
-            "sub.date": "19/05/1975",
-            "activity": "1968/69",
-            "LoSb": "",
-            "LoSe": "",
-            "LoS": 314.5,
-            "Ra": "135.87",
-            "De": "7.4",
-            "dRa": "",
-            "dDe": "",
-            "Vg": 20.9,
-            "LoR": "136.11",
-            "S_LoR": "181.61",
-            "LaR": "-9",
-            "theta": "91.59",
-            "phi": "279.01",
-            "Flags": "R",
-            "q": 0.58,
-            "N": "37",
-            "Group": 29,
-            "CG": 3,
-            "Origin": "",
-            "Remarks": "InSekanina1976theshowernameisdelta-Leonids(p.275),memberof29/DLE",
-            "OTe": "R",
-            "L-T": "LookUptablefilename",
-            "References": "2]<Ahref='http://adsabs.harvard.edu/abs/1976Icar...27..265S'target=_blank>Sekanina,1976</A>"
-        }
-    },
-    "Daytimechi-Capricornids_1": {
-        "orbitParams": {
-            "a": 3.103,
-            "e": 0.755,
-            "inc": 10.5,
-            "node": 312.02,
-            "peri": 118.2,
-            "ma": 0
-        },
-        "extraParams": {
-            "Code": "DXC",
-            "showername-designation": "Daytimechi-Capricornids",
-            "IAUNo": 114,
-            "AdNo": 0,
-            "s": 0,
-            "sub.date": "1973-02-dd",
-            "activity": "1961/65",
-            "LoSb": "",
-            "LoSe": "",
-            "LoS": 312.0,
-            "Ra": "321.42",
-            "De": "5.91",
-            "dRa": "",
-            "dDe": "",
-            "Vg": 18.5,
-            "LoR": "325.82",
-            "S_LoR": "13.82",
-            "LaR": "19.95",
-            "theta": "77.03",
-            "phi": "110.49",
-            "Flags": "R",
-            "q": 0.76,
-            "N": "5",
-            "Group": 0,
-            "CG": 0,
-            "Origin": "",
-            "Remarks": "InSekanina1973,theshowernameisEquuleids(p.255&258)",
-            "OTe": "R",
-            "L-T": "LookUptablefilename",
-            "References": "1]<Ahref='http://adsabs.harvard.edu/abs/1973Icar...18..253S'target=_blank>Sekanina,1973</A>"
-        }
-    },
-    "Daytimeepsilon-Aquariids_1": {
-        "orbitParams": {
-            "a": 2.004,
-            "e": 0.741,
-            "inc": 8.81,
-            "node": 315.83,
-            "peri": 84.8,
-            "ma": 0
-        },
-        "extraParams": {
-            "Code": "DEQ",
-            "showername-designation": "Daytimeepsilon-Aquariids",
-            "IAUNo": 116,
-            "AdNo": 0,
-            "s": 0,
-            "sub.date": "1976-02-dd",
-            "activity": "1968/69",
-            "LoSb": "",
-            "LoSe": "",
-            "LoS": 315.8,
-            "Ra": "310.87",
-            "De": "-6.71",
-            "dRa": "",
-            "dDe": "",
-            "Vg": 23.1,
-            "LoR": "311.46",
-            "S_LoR": "355.66",
-            "LaR": "11.04",
-            "theta": "94.26",
-            "phi": "101.08",
-            "Flags": "R",
-            "q": 0.529,
-            "N": "25",
-            "Group": 0,
-            "CG": 0,
-            "Origin": "",
-            "Remarks": "InSekanina1976,theshowernameisepsilon-Aquarids(Tab.VI,p.275)",
-            "OTe": "R",
-            "L-T": "LookUptablefilename",
-            "References": "1]<Ahref='http://adsabs.harvard.edu/abs/1976Icar...27..265S'target=_blank>Sekanina,1976</A>"
-        }
-    },
-    "nu-Hydrids_1": {
-        "orbitParams": {
-            "a": 2.521,
-            "e": 0.714,
-            "inc": 9.59,
-            "node": 184.6,
-            "peri": 70.8,
-            "ma": 0
-        },
-        "extraParams": {
-            "Code": "NHY",
-            "showername-designation": "nu-Hydrids",
-            "IAUNo": 121,
-            "AdNo": 0,
-            "s": 0,
-            "sub.date": "1989-mm-dd",
-            "activity": "annual",
-            "LoSb": "",
-            "LoSe": "",
-            "LoS": 4.6,
-            "Ra": "158.62",
-            "De": "-11.13",
-            "dRa": "",
-            "dDe": "",
-            "Vg": 19.29,
-            "LoR": "164.62",
-            "S_LoR": "160.02",
-            "LaR": "-18.63",
-            "theta": "71.1",
-            "phi": "289.73",
-            "Flags": "RR",
-            "q": 0.718,
-            "N": "",
-            "Group": 0,
-            "CG": 0,
-            "Origin": "",
-            "Remarks": "ShowerNr18",
-            "OTe": "P",
-            "L-T": "LookUptablefilename",
-            "References": "2]<Ahref='http://adsabs.harvard.edu/abs/1989JIMO...17..242T'target=_blank>Terentjeva,1989</A>"
-        }
-    },
-    "nu-Hydrids_2": {
-        "orbitParams": {
-            "a": 2.138,
-            "e": 0.711,
-            "inc": 0.49,
-            "node": 162.84,
-            "peri": 84.7,
-            "ma": 0
-        },
-        "extraParams": {
-            "Code": "NHY",
-            "showername-designation": "nu-Hydrids",
-            "IAUNo": 121,
-            "AdNo": 2,
-            "s": 0,
-            "sub.date": "1976-02-dd",
-            "activity": "1968/69",
-            "LoSb": "",
-            "LoSe": "",
-            "LoS": 343.0,
-            "Ra": "161.55",
-            "De": "7.17",
-            "dRa": "",
-            "dDe": "",
-            "Vg": 20.9,
-            "LoR": "160.26",
-            "S_LoR": "177.26",
-            "LaR": "-0.6",
-            "theta": "87.26",
-            "phi": "270.6",
-            "Flags": "R",
-            "q": 0.618,
-            "N": "29",
-            "Group": 0,
-            "CG": 0,
-            "Origin": "",
-            "Remarks": "InSekanina1976,theshowernameisrho-Leonids(Tab.VI,p.275)",
-            "OTe": "R",
-            "L-T": "LookUptablefilename",
-            "References": "3]<Ahref='http://adsabs.harvard.edu/abs/1976Icar...27..265S'target=_blank>Sekanina,1976</A>"
-        }
-    },
-    "NorthernMarchVirginids_1": {
-        "orbitParams": {
-            "a": 1.691,
-            "e": 0.707,
-            "inc": 3.71,
-            "node": 357.99,
-            "peri": 282.4,
-            "ma": 0
-        },
-        "extraParams": {
-            "Code": "NVI",
-            "showername-designation": "NorthernMarchVirginids",
-            "IAUNo": 123,
-            "AdNo": 0,
-            "s": 0,
-            "sub.date": "1973-02-dd",
-            "activity": "1961/65",
-            "LoSb": "",
-            "LoSe": "",
-            "LoS": 358.0,
-            "Ra": "185.74",
-            "De": "2.46",
-            "dRa": "",
-            "dDe": "",
-            "Vg": 23.0,
-            "LoR": "184.29",
-            "S_LoR": "186.29",
-            "LaR": "4.54",
-            "theta": "96.27",
-            "phi": "265.43",
-            "Flags": "R",
-            "q": 0.496,
-            "N": "11",
-            "Group": 50,
-            "CG": 2,
-            "Origin": "",
-            "Remarks": "InSekanina1973,theshowernameisNortherneta-Virginids(p.255&258),memberof50/VIR",
-            "OTe": "R",
-            "L-T": "LookUptablefilename",
-            "References": "1]<Ahref='http://adsabs.harvard.edu/abs/1973Icar...18..253S'target=_blank>Sekanina,1973</A>"
-        }
-    },
-    "SouthernMarchVirginids_1": {
-        "orbitParams": {
-            "a": 2.16,
-            "e": 0.738,
-            "inc": 6.09,
-            "node": 182.01,
-            "peri": 91.2,
-            "ma": 0
-        },
-        "extraParams": {
-            "Code": "SVI",
-            "showername-designation": "SouthernMarchVirginids",
-            "IAUNo": 124,
-            "AdNo": 0,
-            "s": 0,
-            "sub.date": "1973-02-dd",
-            "activity": "1961/65",
-            "LoSb": "",
-            "LoSe": "",
-            "LoS": 2.0,
-            "Ra": "179.74",
-            "De": "-8.34",
-            "dRa": "",
-            "dDe": "",
-            "Vg": 22.9,
-            "LoR": "183.1",
-            "S_LoR": "181.1",
-            "LaR": "-7.75",
-            "theta": "91.09",
-            "phi": "277.75",
-            "Flags": "R",
-            "q": 0.565,
-            "N": "13",
-            "Group": 50,
-            "CG": 3,
-            "Origin": "",
-            "Remarks": "InSekanina1973,theshowernameisSoutherneta-Virginids(p.255&258),memberof50/VIR",
-            "OTe": "R",
-            "L-T": "LookUptablefilename",
-            "References": "1]<Ahref='http://adsabs.harvard.edu/abs/1973Icar...18..253S'target=_blank>Sekanina,1973</A>"
-        }
-    },
-    "SouthernMarchVirginids_2": {
-        "orbitParams": {
-            "a": 1.95,
-            "e": 0.67,
-            "inc": 0.09,
-            "node": 175.74,
-            "peri": 83.0,
-            "ma": 0
-        },
-        "extraParams": {
-            "Code": "SVI",
-            "showername-designation": "SouthernMarchVirginids",
-            "IAUNo": 124,
-            "AdNo": 1,
-            "s": 0,
-            "sub.date": "1966-mm-dd",
-            "activity": "1959/60",
-            "LoSb": "",
-            "LoSe": "",
-            "LoS": 355.7,
-            "Ra": "172.64",
-            "De": "2.86",
-            "dRa": "",
-            "dDe": "",
-            "Vg": 20.1,
-            "LoR": "172.11",
-            "S_LoR": "176.42",
-            "LaR": "-0.29",
-            "theta": "86.42",
-            "phi": "270.29",
-            "Flags": "RR",
-            "q": 0.64,
-            "N": "5",
-            "Group": 50,
-            "CG": 3,
-            "Origin": "",
-            "Remarks": "Memberof50/VIRComplex,inKashcheevetal.thisshowerinTab4.8,No1wasnamedsigma-Leonids",
-            "OTe": "R",
-            "L-T": "LookUptablefilename",
-            "References": "2]<Ahref='http://adsabs.harvard.edu/abs/1967SCoA...11..183K'target=_blank>Kashcheev&Lebedinets,1967</A>"
-        }
-    },
-    "Daytimekappa-Aquariids_1": {
-        "orbitParams": {
-            "a": 2.13,
-            "e": 0.86,
-            "inc": 2.51,
-            "node": 354.4,
-            "peri": 59.7,
-            "ma": 0
-        },
-        "extraParams": {
-            "Code": "MKA",
-            "showername-designation": "Daytimekappa-Aquariids",
-            "IAUNo": 128,
-            "AdNo": 1,
-            "s": 1,
-            "sub.date": "1964-mm-dd",
-            "activity": "1961",
-            "LoSb": "",
-            "LoSe": "",
-            "LoS": 354.4,
-            "Ra": "340.15",
-            "De": "-7.47",
-            "dRa": "",
-            "dDe": "",
-            "Vg": 29.8,
-            "LoR": "338.86",
-            "S_LoR": "344.46",
-            "LaR": "0.84",
-            "theta": "105.53",
-            "phi": "90.87",
-            "Flags": "R",
-            "q": 0.3,
-            "N": "3",
-            "Group": 0,
-            "CG": 0,
-            "Origin": "",
-            "Remarks": "a,qcalculatedusing1/a,e,Tab.4,Gr.61.1.2",
-            "OTe": "R",
-            "L-T": "LookUptablefilename",
-            "References": "2]<Ahref='http://adsabs.harvard.edu/abs/1964AuJPh..17..205N'target=_blank>Nilsson,1964</A>"
-        }
-    },
-    "sigma-Leonids_1": {
-        "orbitParams": {
-            "a": 2.141,
-            "e": 0.739,
-            "inc": 6.21,
-            "node": 9.38,
-            "peri": 271.9,
-            "ma": 0
-        },
-        "extraParams": {
-            "Code": "SLE",
-            "showername-designation": "sigma-Leonids",
-            "IAUNo": 136,
-            "AdNo": 0,
-            "s": 0,
-            "sub.date": "1994-02-dd",
-            "activity": "annual",
-            "LoSb": "",
-            "LoSe": "",
-            "LoS": 9.4,
-            "Ra": "193.24",
-            "De": "2.96",
-            "dRa": "",
-            "dDe": "",
-            "Vg": 23.0,
-            "LoR": "191.02",
-            "S_LoR": "181.62",
-            "LaR": "7.96",
-            "theta": "91.6",
-            "phi": "262.04",
-            "Flags": "R",
-            "q": 0.561,
-            "N": "3",
-            "Group": 0,
-            "CG": 0,
-            "Origin": "",
-            "Remarks": "InPorubcan&Gavajdova1994,theshowernameispi-Virginids",
-            "OTe": "P",
-            "L-T": "LookUptablefilename",
-            "References": "1]<Ahref='http://adsabs.harvard.edu/abs/1994P%26SS...42..151P'target=_blank>Porubcan&Gavajdova,1994</A>"
-        }
-    },
-    "mu-Draconids_1": {
-        "orbitParams": {
-            "a": 2.359,
-            "e": 0.578,
-            "inc": 48.11,
-            "node": 20.6,
-            "peri": 172.6,
-            "ma": 0
-        },
-        "extraParams": {
-            "Code": "MDR",
-            "showername-designation": "mu-Draconids",
-            "IAUNo": 142,
-            "AdNo": 0,
-            "s": 0,
-            "sub.date": "1976-02-dd",
-            "activity": "1968/69",
-            "LoSb": "",
-            "LoSe": "",
-            "LoS": 20.6,
-            "Ra": "281.41",
-            "De": "57.63",
-            "dRa": "",
-            "dDe": "",
-            "Vg": 28.2,
-            "LoR": "306.04",
-            "S_LoR": "285.44",
-            "LaR": "79.63",
-            "theta": "99.99",
-            "phi": "177.21",
-            "Flags": "R",
-            "q": 0.997,
-            "N": "15",
-            "Group": 0,
-            "CG": 0,
-            "Origin": "",
-            "Remarks": "InSekanina1976,theshowernameisQDraconids(Tab.VI,p.277)",
-            "OTe": "R",
-            "L-T": "LookUptablefilename",
-            "References": "1]<Ahref='http://adsabs.harvard.edu/abs/1976Icar...27..265S'target=_blank>Sekanina,1976</A>"
-        }
-    },
-    "eta-Lyrids_1": {
+    "eta-Lyrids from 05-07 to 05-13": {
         "orbitParams": {
             "a": 21.4,
             "e": 0.954,
@@ -6259,7 +4369,7 @@
             "activity_end": "05-13"
         }
     },
-    "eta-Lyrids_2": {
+    "eta-Lyrids from 04-30 to 05-20": {
         "orbitParams": {
             "a": 24.2,
             "e": 0.959,
@@ -6305,259 +4415,7 @@
             "activity_end": "05-20"
         }
     },
-    "phi-Aquariids_1": {
-        "orbitParams": {
-            "a": 2.78,
-            "e": 0.8,
-            "inc": 174.1,
-            "node": 239.64,
-            "peri": 270.41,
-            "ma": 0
-        },
-        "extraParams": {
-            "Code": "PAQ",
-            "showername-designation": "phi-Aquariids",
-            "IAUNo": 147,
-            "AdNo": 0,
-            "s": 0,
-            "sub.date": "1964-mm-dd",
-            "activity": "1961",
-            "LoSb": "",
-            "LoSe": "",
-            "LoS": 59.7,
-            "Ra": "350.94",
-            "De": "-3.66",
-            "dRa": "",
-            "dDe": "",
-            "Vg": 63.5,
-            "LoR": "350.24",
-            "S_LoR": "290.54",
-            "LaR": "0.22",
-            "theta": "159.46",
-            "phi": "90.63",
-            "Flags": "R",
-            "q": 0.56,
-            "N": "3",
-            "Group": 0,
-            "CG": 0,
-            "Origin": "",
-            "Remarks": "a,qcalculatedusing1/a,e,inTab.4,Gr.61.5.12",
-            "OTe": "R",
-            "L-T": "LookUptablefilename",
-            "References": "1]<Ahref='http://adsabs.harvard.edu/abs/1964AuJPh..17..205N'target=_blank>Nilsson,1964</A>"
-        }
-    },
-    "Maylambda-Virginids_1": {
-        "orbitParams": {
-            "a": 3.232,
-            "e": 0.831,
-            "inc": 13.3,
-            "node": 223.42,
-            "peri": 90.49,
-            "ma": 0
-        },
-        "extraParams": {
-            "Code": "MLV",
-            "showername-designation": "Maylambda-Virginids",
-            "IAUNo": 148,
-            "AdNo": 0,
-            "s": 0,
-            "sub.date": "1989-mm-dd",
-            "activity": "annual",
-            "LoSb": "",
-            "LoSe": "",
-            "LoS": 43.4,
-            "Ra": "217.74",
-            "De": "-31.11",
-            "dRa": "",
-            "dDe": "",
-            "Vg": 25.56,
-            "LoR": "225.39",
-            "S_LoR": "181.99",
-            "LaR": "-15.4",
-            "theta": "91.92",
-            "phi": "285.41",
-            "Flags": "RR",
-            "q": 0.547,
-            "N": "",
-            "Group": 0,
-            "CG": 0,
-            "Origin": "",
-            "Remarks": "InTerentjeva1989,Tab.1thanameisLib(S)",
-            "OTe": "P",
-            "L-T": "LookUptablefilename",
-            "References": "1]<Ahref='http://adsabs.harvard.edu/abs/1989JIMO...17..242T'target=_blank>Terentjeva,1989</A>"
-        }
-    },
-    "NorthernDaytimeMayArietids_1": {
-        "orbitParams": {
-            "a": 1.528,
-            "e": 0.763,
-            "inc": 3.4,
-            "node": 54.9,
-            "peri": 60.81,
-            "ma": 0
-        },
-        "extraParams": {
-            "Code": "NMA",
-            "showername-designation": "NorthernDaytimeMayArietids",
-            "IAUNo": 155,
-            "AdNo": 0,
-            "s": 0,
-            "sub.date": "1976-02-dd",
-            "activity": "1968/69",
-            "LoSb": "",
-            "LoSe": "",
-            "LoS": 55.0,
-            "Ra": "37.19",
-            "De": "17.91",
-            "dRa": "",
-            "dDe": "",
-            "Vg": 25.2,
-            "LoR": "40.62",
-            "S_LoR": "345.62",
-            "LaR": "3.06",
-            "theta": "104.36",
-            "phi": "93.16",
-            "Flags": "R",
-            "q": 0.363,
-            "N": "56",
-            "Group": 294,
-            "CG": 2,
-            "Origin": "",
-            "Remarks": "InSekanina1976,theshowernameisMayArietids(Tab.VI,p.277)memberof294/DMA",
-            "OTe": "R",
-            "L-T": "LookUptablefilename",
-            "References": "1]<Ahref='http://adsabs.harvard.edu/abs/1976Icar...27..265S'target=_blank>Sekanina,1976</A>"
-        }
-    },
-    "NorthernDaytimeMayArietids_2": {
-        "orbitParams": {
-            "a": 1.56,
-            "e": 0.75,
-            "inc": 2.9,
-            "node": 62.68,
-            "peri": 64.81,
-            "ma": 0
-        },
-        "extraParams": {
-            "Code": "NMA",
-            "showername-designation": "NorthernDaytimeMayArietids",
-            "IAUNo": 155,
-            "AdNo": 1,
-            "s": 0,
-            "sub.date": "1964-mm-dd",
-            "activity": "1961",
-            "LoSb": "",
-            "LoSe": "",
-            "LoS": 62.8,
-            "Ra": "47.21",
-            "De": "19.2",
-            "dRa": "1",
-            "dDe": "",
-            "Vg": 24.4,
-            "LoR": "50.08",
-            "S_LoR": "347.28",
-            "LaR": "1.49",
-            "theta": "102.72",
-            "phi": "91.53",
-            "Flags": "R",
-            "q": 0.39,
-            "N": "11",
-            "Group": 294,
-            "CG": 2,
-            "Origin": "",
-            "Remarks": "a,qfrom1/a,e;memberof294/DMA?inTab.4,Gr.61.5.2",
-            "OTe": "R",
-            "L-T": "LookUptablefilename",
-            "References": "2]<Ahref='http://adsabs.harvard.edu/abs/1964AuJPh..17..205N'target=_blank>Nilsson,1964</A>"
-        }
-    },
-    "SouthernDaytimeMayArietids_1": {
-        "orbitParams": {
-            "a": 1.68,
-            "e": 0.84,
-            "inc": 5.0,
-            "node": 232.76,
-            "peri": 232.99,
-            "ma": 0
-        },
-        "extraParams": {
-            "Code": "SMA",
-            "showername-designation": "SouthernDaytimeMayArietids",
-            "IAUNo": 156,
-            "AdNo": 0,
-            "s": 1,
-            "sub.date": "1966-mm-dd",
-            "activity": "1959/60",
-            "LoSb": "",
-            "LoSe": "",
-            "LoS": 52.7,
-            "Ra": "33.67",
-            "De": "9.12",
-            "dRa": "",
-            "dDe": "",
-            "Vg": 28.91,
-            "LoR": "34.52",
-            "S_LoR": "341.82",
-            "LaR": "-4.15",
-            "theta": "108.13",
-            "phi": "85.63",
-            "Flags": "RR",
-            "q": 0.27,
-            "N": "43",
-            "Group": 294,
-            "CG": 3,
-            "Origin": "",
-            "Remarks": "InKashcheev...1967,p.168,Tab.4.8showerNo.41,nonameisgiven,memberof294/DMA",
-            "OTe": "R",
-            "L-T": "LookUptablefilename",
-            "References": "1]<Ahref='http://adsabs.harvard.edu/abs/1967SCoA...11..183K'target=_blank>Kashcheev&Lebedinets,1967</A>"
-        }
-    },
-    "SouthernDaytimeMayArietids_2": {
-        "orbitParams": {
-            "a": 3.23,
-            "e": 0.89,
-            "inc": 12.5,
-            "node": 242.63,
-            "peri": 243.69,
-            "ma": 0
-        },
-        "extraParams": {
-            "Code": "SMA",
-            "showername-designation": "SouthernDaytimeMayArietids",
-            "IAUNo": 156,
-            "AdNo": 1,
-            "s": 1,
-            "sub.date": "1964-mm-dd",
-            "activity": "1961",
-            "LoSb": "",
-            "LoSe": "",
-            "LoS": 62.6,
-            "Ra": "48.47",
-            "De": "8.19",
-            "dRa": "1.7",
-            "dDe": "-1.59",
-            "Vg": 31.8,
-            "LoR": "48.3",
-            "S_LoR": "345.7",
-            "LaR": "-9.44",
-            "theta": "104.1",
-            "phi": "80.27",
-            "Flags": "R",
-            "q": 0.35,
-            "N": "6",
-            "Group": 294,
-            "CG": 3,
-            "Origin": "",
-            "Remarks": "a,qfrom1/a,e;memberof294/DMA?,inTab.4,Gr.61.5.9",
-            "OTe": "R",
-            "L-T": "LookUptablefilename",
-            "References": "2]<Ahref='http://adsabs.harvard.edu/abs/1964AuJPh..17..205N'target=_blank>Nilsson,1964</A>"
-        }
-    },
-    "SouthernDaytimeMayArietids_3": {
+    "SouthernDaytimeMayArietids from 04-13 to 05-23": {
         "orbitParams": {
             "a": 1.51,
             "e": 0.8204,
@@ -6603,91 +4461,7 @@
             "activity_end": "05-23"
         }
     },
-    "Southernomega-Scorpiids_1": {
-        "orbitParams": {
-            "a": 2.852,
-            "e": 0.757,
-            "inc": 1.7,
-            "node": 250.21,
-            "peri": 74.69,
-            "ma": 0
-        },
-        "extraParams": {
-            "Code": "SSC",
-            "showername-designation": "Southernomega-Scorpiids",
-            "IAUNo": 161,
-            "AdNo": 0,
-            "s": -2,
-            "sub.date": "1988-mm-dd",
-            "activity": "annual",
-            "LoSb": "",
-            "LoSe": "",
-            "LoS": 70.7,
-            "Ra": "244.44",
-            "De": "-22.16",
-            "dRa": "0.97",
-            "dDe": "0.12",
-            "Vg": 23.0,
-            "LoR": "246.45",
-            "S_LoR": "175.75",
-            "LaR": "-0.79",
-            "theta": "85.75",
-            "phi": "270.79",
-            "Flags": "R",
-            "q": 0.693,
-            "N": "3",
-            "Group": 160,
-            "CG": 3,
-            "Origin": "",
-            "Remarks": "Memberof160/OSCComplex,",
-            "OTe": "",
-            "L-T": "LookUptablefilename",
-            "References": "1]<Ahref='http://adsabs.harvard.edu/abs/1988msdc.book.....K'target=_blank>Kronk,1988</A>"
-        }
-    },
-    "NorthernJuneAquilids_1": {
-        "orbitParams": {
-            "a": 1.348,
-            "e": 0.916,
-            "inc": 39.3,
-            "node": 86.49,
-            "peri": 329.51,
-            "ma": 0
-        },
-        "extraParams": {
-            "Code": "NZC",
-            "showername-designation": "NorthernJuneAquilids",
-            "IAUNo": 164,
-            "AdNo": 0,
-            "s": 1,
-            "sub.date": "1976-02-dd",
-            "activity": "1968/69",
-            "LoSb": "",
-            "LoSe": "",
-            "LoS": 86.5,
-            "Ra": "297.77",
-            "De": "-7.04",
-            "dRa": "",
-            "dDe": "",
-            "Vg": 36.3,
-            "LoR": "298.42",
-            "S_LoR": "211.92",
-            "LaR": "13.71",
-            "theta": "120.91",
-            "phi": "253.97",
-            "Flags": "R",
-            "q": 0.114,
-            "N": "35",
-            "Group": 295,
-            "CG": 2,
-            "Origin": "",
-            "Remarks": "InSekanina1976,theshowernameisJuneAquilids(Tab.VI,p.278)",
-            "OTe": "R",
-            "L-T": "LookUptablefilename",
-            "References": "1]<Ahref='http://adsabs.harvard.edu/abs/1976Icar...27..265S'target=_blank>Sekanina,1976</A>"
-        }
-    },
-    "NorthernJuneAquilids_2": {
+    "NorthernJuneAquilids from 06-07 to 07-17": {
         "orbitParams": {
             "a": 1.71,
             "e": 0.9356,
@@ -6733,7 +4507,7 @@
             "activity_end": "07-17"
         }
     },
-    "NorthernJuneAquilids_3": {
+    "NorthernJuneAquilids from 06-05 to 07-19": {
         "orbitParams": {
             "a": 1.79,
             "e": 0.937,
@@ -6779,7 +4553,7 @@
             "activity_end": "07-19"
         }
     },
-    "NorthernJuneAquilids_4": {
+    "NorthernJuneAquilids from 06-12 to 07-30": {
         "orbitParams": {
             "a": 2.038,
             "e": 0.941,
@@ -6825,7 +4599,7 @@
             "activity_end": "07-30"
         }
     },
-    "SouthernJuneAquilids_1": {
+    "SouthernJuneAquilids from 06-08 to 06-12": {
         "orbitParams": {
             "a": 1.12,
             "e": 0.9433,
@@ -6871,7 +4645,7 @@
             "activity_end": "06-12"
         }
     },
-    "SouthernJuneAquilids_2": {
+    "SouthernJuneAquilids from 06-09 to 07-15": {
         "orbitParams": {
             "a": 2.0,
             "e": 0.952,
@@ -6917,7 +4691,7 @@
             "activity_end": "07-15"
         }
     },
-    "SouthernJuneAquilids_3": {
+    "SouthernJuneAquilids from 06-22 to 07-19": {
         "orbitParams": {
             "a": 2.378,
             "e": 0.957,
@@ -6963,175 +4737,7 @@
             "activity_end": "07-19"
         }
     },
-    "Northernsigma-Sagittariids_1": {
-        "orbitParams": {
-            "a": 1.133,
-            "e": 0.707,
-            "inc": 8.2,
-            "node": 92.95,
-            "peri": 309.41,
-            "ma": 0
-        },
-        "extraParams": {
-            "Code": "NSS",
-            "showername-designation": "Northernsigma-Sagittariids",
-            "IAUNo": 167,
-            "AdNo": 0,
-            "s": 0,
-            "sub.date": "1976-02-dd",
-            "activity": "1968/69",
-            "LoSb": "",
-            "LoSe": "",
-            "LoS": 93.0,
-            "Ra": "293.1",
-            "De": "-14.05",
-            "dRa": "",
-            "dDe": "",
-            "Vg": 23.2,
-            "LoR": "292.59",
-            "S_LoR": "199.59",
-            "LaR": "7.6",
-            "theta": "109.41",
-            "phi": "261.94",
-            "Flags": "R",
-            "q": 0.332,
-            "N": "45",
-            "Group": 296,
-            "CG": 2,
-            "Origin": "",
-            "Remarks": "InSekanina1976,theshowernameissigma-Capricornids(Tab.VI,p.279)memberof296/SIS",
-            "OTe": "R",
-            "L-T": "LookUptablefilename",
-            "References": "1]<Ahref='http://adsabs.harvard.edu/abs/1976Icar...27..265S'target=_blank>Sekanina,1976</A>"
-        }
-    },
-    "Northernsigma-Sagittariids_2": {
-        "orbitParams": {
-            "a": 1.72,
-            "e": 0.78,
-            "inc": 4.5,
-            "node": 85.9,
-            "peri": 296.6,
-            "ma": 0
-        },
-        "extraParams": {
-            "Code": "NSS",
-            "showername-designation": "Northernsigma-Sagittariids",
-            "IAUNo": 167,
-            "AdNo": 1,
-            "s": 0,
-            "sub.date": "1964-mm-dd",
-            "activity": "1961",
-            "LoSb": "",
-            "LoSe": "",
-            "LoS": 85.9,
-            "Ra": "277.7",
-            "De": "-20",
-            "dRa": "1.3",
-            "dDe": "",
-            "Vg": 26.5,
-            "LoR": "277.24",
-            "S_LoR": "191.34",
-            "LaR": "3.25",
-            "theta": "101.33",
-            "phi": "266.69",
-            "Flags": "",
-            "q": 0.22,
-            "N": "4",
-            "Group": 296,
-            "CG": 2,
-            "Origin": "",
-            "Remarks": "a,qfrom1/a,e;memberof296/SIS?,inTab.4,Gr.61.6.6",
-            "OTe": "R",
-            "L-T": "LookUptablefilename",
-            "References": "2]<Ahref='http://adsabs.harvard.edu/abs/1964AuJPh..17..205N'target=_blank>Nilsson,1964</A>"
-        }
-    },
-    "Southernsigma-Sagittariids_1": {
-        "orbitParams": {
-            "a": 2.594,
-            "e": 0.861,
-            "inc": 2.8,
-            "node": 267.53,
-            "peri": 113.59,
-            "ma": 0
-        },
-        "extraParams": {
-            "Code": "SSS",
-            "showername-designation": "Southernsigma-Sagittariids",
-            "IAUNo": 168,
-            "AdNo": 0,
-            "s": 0,
-            "sub.date": "1973-02-dd",
-            "activity": "1961/65",
-            "LoSb": "",
-            "LoSe": "",
-            "LoS": 87.4,
-            "Ra": "278.57",
-            "De": "-25.28",
-            "dRa": "",
-            "dDe": "",
-            "Vg": 29.3,
-            "LoR": "277.75",
-            "S_LoR": "190.35",
-            "LaR": "-2.07",
-            "theta": "100.34",
-            "phi": "272.11",
-            "Flags": "R",
-            "q": 0.361,
-            "N": "17",
-            "Group": 296,
-            "CG": 3,
-            "Origin": "",
-            "Remarks": "InSekanina1973,theshowernameisScorpiids-Sagittariids(p.256&260);memberof296/SIS",
-            "OTe": "R",
-            "L-T": "LookUptablefilename",
-            "References": "1]<Ahref='http://adsabs.harvard.edu/abs/1973Icar...18..253S'target=_blank>Sekanina,1973</A>"
-        }
-    },
-    "JuneBootids_1": {
-        "orbitParams": {
-            "a": 2.479,
-            "e": 0.596,
-            "inc": 21.7,
-            "node": 91.18,
-            "peri": 168.01,
-            "ma": 0
-        },
-        "extraParams": {
-            "Code": "JBO",
-            "showername-designation": "JuneBootids",
-            "IAUNo": 170,
-            "AdNo": 0,
-            "s": 1,
-            "sub.date": "1976-02-dd",
-            "activity": "1968/69",
-            "LoSb": "",
-            "LoSe": "",
-            "LoS": 91.2,
-            "Ra": "207.78",
-            "De": "63.88",
-            "dRa": "",
-            "dDe": "",
-            "Vg": 15.1,
-            "LoR": "156.56",
-            "S_LoR": "65.36",
-            "LaR": "64.87",
-            "theta": "67.3",
-            "phi": "168.94",
-            "Flags": "R",
-            "q": 1.0,
-            "N": "54",
-            "Group": 0,
-            "CG": 0,
-            "Origin": "7P/Pons-Winnecke(1921)",
-            "Remarks": "InSekanina1976,p.279,TAbVItheshowernameisAlpha-Draconids",
-            "OTe": "R",
-            "L-T": "LookUptablefilename",
-            "References": "1]<Ahref='http://adsabs.harvard.edu/abs/1976Icar...27..265S'target=_blank>Sekanina,1976</A>"
-        }
-    },
-    "JuneBootids_2": {
+    "JuneBootids from 06-15 to 06-23": {
         "orbitParams": {
             "a": 3.001,
             "e": 0.663,
@@ -7177,7 +4783,7 @@
             "activity_end": "06-23"
         }
     },
-    "JuneBootids_3": {
+    "JuneBootids from 06-22 to 06-22": {
         "orbitParams": {
             "a": 3.11,
             "e": 0.6739,
@@ -7223,7 +4829,7 @@
             "activity_end": "06-22"
         }
     },
-    "JuneBootids_4": {
+    "JuneBootids from 06-19 to 06-28": {
         "orbitParams": {
             "a": 3.05,
             "e": 0.6673,
@@ -7269,7 +4875,7 @@
             "activity_end": "06-28"
         }
     },
-    "JuneBootids_5": {
+    "JuneBootids from 06-17 to 06-20": {
         "orbitParams": {
             "a": 3.11,
             "e": 0.6739,
