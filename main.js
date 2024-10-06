@@ -84,6 +84,8 @@ window.addEventListener("resize", () => {
     */
 });
 
+//All variables for key toggling go here
+
 // all keyboard events are handled here
 window.addEventListener("keydown", (event) => {
 
@@ -124,6 +126,16 @@ window.addEventListener("keydown", (event) => {
     }
     else if (event.code === 'KeyS') { //reserved for whatever
         console.log('S key is pressed down!');
+    }
+    else if (event.code === 'KeyT') { //track selected orbit
+        if (highlightedObj !== null){
+            controls.target = highlightedObj.userData.parent.bodyMesh.position;
+        }
+    }
+    else if (event.code === 'KeyU') { //untrack selected orbit
+        if (highlightedObj !== null){
+            controls.target = highlightedObj.userData.parent.bodyMesh.position.clone();
+        }
     }
     else if (event.code === 'Space') { //recenter on Sun
         controls.target = new THREE.Vector3(0, 0, 0);
@@ -193,7 +205,9 @@ document.addEventListener('pointerup', (event) => {
             highlightedObj.material.color.set(0x00ff00); //highlight the select object if it is an orbit
             document.querySelector('.info-panel').style.display = "block";
             // Update info in the info panel
-            const obj_data = selectedOrbits[stackedObjIndex].object.userData.parent.data;
+            const parentObj = selectedOrbits[stackedObjIndex].object.userData.parent;
+            const obj_data = parentObj.data;
+
             document.getElementById('info-name').textContent = selectedOrbits[stackedObjIndex].object.userData.parent.name;
             document.getElementById('info-diameter').textContent = `Diameter: ${obj_data.extraParams.diameter} m`;
             document.getElementById('info-first-impact').textContent = `First possible impact: ${obj_data.extraParams.impact}`;
@@ -579,7 +593,7 @@ function animate(time) {
     }
     lastFrameTime = time;
 
-    let timeSpeed = 86400;
+    let timeSpeed = 864000;
     let deltaJulian = deltaTime * timeSpeed / 1000 / 86400;
 
     JD += deltaJulian;

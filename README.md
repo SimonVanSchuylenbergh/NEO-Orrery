@@ -12,7 +12,7 @@
 - [x] Python to Javascript conversion to boot the page
 - [x] make it load faster the orbit
 - [x] Textures for planets and Sun
-- [ ] Add key for centering the camera to the Sun
+- [x] Add key for centering the camera to the Sun
 - [x] Add key for resetting the camera entirely
 - [ ] Add key to center camera on currently selected object
 - [x] True anomaly fix
