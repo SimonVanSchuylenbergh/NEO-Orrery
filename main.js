@@ -12,10 +12,10 @@ const TA_TIME_SCALE_FACTOR = 0.0001; // This will not be needed when the true an
 const DEFAULT_MESH_N = 32;
 const ORBIT_MESH_POINTS = 128;
 
-const NEO_ORBIT_COLOR = 0x1e90FF;
-const SHOWER_ORBIT_COLOR = 0x8B0000;
-const SHOWER_ORBIT_COLOR_NOTVIS = 0x7B1818;
-const PARENT_ORBIT_COLOR = 0xFF0000;
+const NEO_ORBIT_COLOR = 0xcd0000;//0x1e90FF;
+const SHOWER_ORBIT_COLOR = 0x0200b9;
+const SHOWER_ORBIT_COLOR_NOTVIS = 0x0200b9;
+const PARENT_ORBIT_COLOR = 0x1000ff;
 
 const NEO_COLOR = 0xFFFFFF;
 const NEO_RADIUS = 0.01;
@@ -633,7 +633,7 @@ function createRadialGradientPlane(width, height) {
                 if (alpha < 0.01) {
                     discard;
                 }
-                gl_FragColor = vec4(1.0, 0.0, 0.0, alpha);
+                gl_FragColor = vec4(0.0, 1.0, 0.0, alpha);
             }
         `,
         transparent: true,
@@ -717,7 +717,7 @@ function updateBillboard(plane, camera) {
 
 const planeWidth = 5.204 * 2;
 const radialGradientPlane = createRadialGradientPlane(planeWidth, planeWidth);
-// scene.add(radialGradientPlane);
+scene.add(radialGradientPlane);
 
 
 // Data
