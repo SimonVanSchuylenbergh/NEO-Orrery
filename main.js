@@ -139,12 +139,12 @@ window.addEventListener("keydown", (event) => {
         console.log('S key is pressed down!');
     }
     else if (event.code === 'KeyT') { //track selected orbit
-        if (highlightedObj !== null){
+        if (highlightedObj !== null && highlightedObj.userData.parent !== undefined){
             controls.target = highlightedObj.userData.parent.bodyMesh.position;
         }
     }
     else if (event.code === 'KeyU') { //untrack selected orbit
-        if (highlightedObj !== null){
+        if (highlightedObj !== null && highlightedObj.userData.parent !== undefined){
             controls.target = highlightedObj.userData.parent.bodyMesh.position.clone();
         }
     }
@@ -235,7 +235,7 @@ document.addEventListener('pointerup', (event) => {
             highlightedObj.material.color.set(0x00ff00); //highlight the select object if it is an orbit
             document.querySelector('.info-panel').style.display = "block";
             // Update info in the info panel
-            const parentObj = selectedOrbits[stackedObjIndex].object.userData.parent;
+            const parentObj = highlightedObj.userData.parent;
             
             if (parentObj !== null && parentObj !== undefined) {
                 const obj_data = parentObj.data;
