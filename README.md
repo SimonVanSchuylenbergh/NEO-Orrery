@@ -15,7 +15,7 @@
 - [ ] Add key for centering the camera to the Sun
 - [ ] Add key for resetting the camera entirely
 - [ ] Add key to center camera on currently selected object
-- [ ] True anomaly fix
+- [x] True anomaly fix
 - [ ] Make planets rotate
 - [ ] UI Filters
 - [ ] Keyboard controls

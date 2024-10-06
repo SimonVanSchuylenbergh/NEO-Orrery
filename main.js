@@ -17,7 +17,7 @@ const PARENT_ORBIT_COLOR = 0xFF0000;
 
 const NEO_COLOR = 0xFFFFFF;
 const NEO_RADIUS = 0.01;
-const MAX_VISIBLE_NEOS = 100;
+const MAX_VISIBLE_NEOS = 1;
 
 const MOUSE_MIN_MOVE_CLICK = 0.005;
 
@@ -501,9 +501,9 @@ function animate(time) {
         const pos = getOrbitPosition(orbitParams.a, orbitParams.e, trueAnomaly, orbitParams.transformMatrix);
         planets[i].setPosition(pos);
         // Rotate
-        planets[i].bodyMesh.rotation.x += orbitParams.rotateX;
-        planets[i].bodyMesh.rotation.y += orbitParams.rotateY;
-        planets[i].bodyMesh.rotation.z += orbitParams.rotateZ;
+        //planets[i].bodyMesh.rotation.x += orbitParams.rotateX;
+        //planets[i].bodyMesh.rotation.y += orbitParams.rotateY;
+        //planets[i].bodyMesh.rotation.z += orbitParams.rotateZ;
     }
 
     // Update NEO positions
