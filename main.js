@@ -294,8 +294,6 @@ document.addEventListener('pointerup', (event) => {
                 document.getElementById('info-peri').textContent = `Argument of perihelion: ${(obj_data.orbitParams.peri / Math.PI * 180).toFixed(3)}\u00B0`;
                 document.getElementById('info-ma').textContent = `Mean anomaly: ${(obj_data.orbitParams.ma / Math.PI * 180).toFixed(3)}\u00B0`;
                 document.getElementById('info-epoch').textContent = `Epoch: ${obj_data.orbitParams.epoch} (MJD)`;
-                // .project(camera);
-                // console.log(highlightedObj.userData.parent.name);
             }
         }
     }
