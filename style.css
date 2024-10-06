@@ -257,6 +257,12 @@ canvas {
     border-radius: 5px;
     margin-top: 5px;
     pointer-events: auto;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.open-btn:hover {
+    background-color: #e8e8e8; /* Background color on hover */
+    color: darkred;               /* Text color on hover (can change this if needed) */
 }
 
 /* Button to close the overlay */
@@ -269,7 +275,14 @@ canvas {
     border-radius: 5px;
     margin-top: 20px;
     pointer-events: auto;
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
+
+.close-btn:hover {
+    background-color: #e8e8e8; /* Background color on hover */
+    color: darkred;               /* Text color on hover (can change this if needed) */
+}
+
 
 /* Optional: Show the overlay when needed */
 .overlay.show {

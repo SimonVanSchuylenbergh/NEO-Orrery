@@ -23,6 +23,9 @@ const MAX_VISIBLE_SHOWERS = 9999;
 
 const MOUSE_MIN_MOVE_CLICK = 0.005;
 
+const SUNOBLIQUITY = 7.25; // degrees
+const SUNROTPER = 25.05;  // days
+
 const TIMESPEEDS = [-365, -30, -7, -1, -3600 / 86400, -60 / 86400, -1 / 86400, 1 / 86400, 60 / 86400, 3600 / 86400, 1, 7, 30, 365]
 
 //starting time
@@ -453,8 +456,10 @@ function addSun() {
 
     const geometry = new THREE.SphereGeometry(0.02, DEFAULT_MESH_N, DEFAULT_MESH_N);
     const material = new THREE.MeshBasicMaterial({map: sunTexture});
-    const sunMesh = new THREE.Mesh(geometry, material);
+    var sunMesh = new THREE.Mesh(geometry, material);
     scene.add(sunMesh);
+
+    return sunMesh;
 }
 
 async function initializePlanets() {
@@ -748,7 +753,7 @@ const radialGradientPlane = createRadialGradientPlane(planeWidth, planeWidth);
 
 
 // Data
-let sunMesh;
+// let sunMesh;
 const planets = [];
 const neos = [];
 const showers = [];
@@ -833,7 +838,7 @@ function isEarthInStreamRange(earthAnomaly, streamAnomalyBegin, streamAnomalyEnd
 }
 
 
-addSun();
+let sunMesh = addSun(); // Generate sunMesh and also return it so can be rotated
 await initializePlanets(); // Initialize planets once
 await initializeNeos(); // Initialize NEOs once
 await initializeShowers();
@@ -1023,6 +1028,16 @@ function animate(time) {
     JD += deltaJulian;
     MJD += deltaJulian;
 
+    // Rotate the Sun
+    // Compute axis of rotation
+    const sunAxis = new THREE.Vector3(
+        Math.sin(SUNOBLIQUITY * DEG_TO_RAD), 
+        Math.cos(SUNOBLIQUITY * DEG_TO_RAD),
+        0).normalize();
+    // Set rotation speed of the Sun
+    sunMesh.rotateOnAxis(sunAxis, 
+        (2 * Math.PI/(60 * SUNROTPER)) * 1 * TIMESPEEDS[timeSpeedIndex]);
+
     // Update planet positions and rotation
     for (let i = 0; i < planets.length; i++) {
         const orbitParams = planets[i].data.orbitParams;
@@ -1093,14 +1108,10 @@ function animate(time) {
 
     // Update the current time and time speed displays
     document.getElementById("current-time").textContent = MJDToDatetime(MJD);
-    document.getElementById("timespeed").textContent = `Speed: \u00D7${TIMESPEEDS[timeSpeedIndex].toPrecision(3)}`;
-
-    // if (TIMESPEEDS[timeSpeedIndex] < 1.00){
-    //     document.getElementById("timespeed").textContent = `Speed: ${TIMESPEEDS[timeSpeedIndex].toPrecision(3)}\u00D7 10\u207B\u2074`;
-
-    //     const speed = TIMESPEEDS[timeSpeedIndex] * 1e3.toPrecision(3)
-    // }
-    // const speed = 
+    let daytext = 'days';
+    if (timeSpeedIndex == 10)
+        {daytext = 'day'};
+    document.getElementById("timespeed").textContent = `Speed: ${TIMESPEEDS[timeSpeedIndex].toPrecision(3)} ${daytext}/second`;
 
     controls.update();
     renderer.render(scene, camera);
