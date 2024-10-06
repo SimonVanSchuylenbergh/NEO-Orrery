@@ -1125,7 +1125,7 @@ function animate(time) {
     updateBillboard(billboardPlane, camera);
 
     // Update the current time and time speed displays
-    document.getElementById("current-time").textContent = 'Date: ' + MJDToDatetime(MJD);
+    document.getElementById("current-time").textContent = 'Date: ' + MJDToDatetime(MJD) + ' UTC';
     if (timeSpeedIndex == 10)  // 1 day/second
         {document.getElementById("timespeed").textContent = `Speed: 1 day/second`}
     else if (timeSpeedIndex == 7){ // Real-time
