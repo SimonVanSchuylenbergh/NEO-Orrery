@@ -14,7 +14,7 @@
 - [x] Textures for planets and Sun
 - [x] Add key for centering the camera to the Sun
 - [x] Add key for resetting the camera entirely
-- [ ] Add key to center camera on currently selected object
+- [x] Add key to center camera on currently selected object
 - [x] True anomaly fix
 - [ ] Add planet labels
 - [ ] Make info panel for planets work
