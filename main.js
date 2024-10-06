@@ -23,8 +23,8 @@ const MAX_VISIBLE_NEOS = 1;
 const MOUSE_MIN_MOVE_CLICK = 0.005;
 
 //starting time
-const JD = (Date.now() / 86400000) + 2440587.5;
-const MJD = JDToMJD(JD);
+let JD = (Date.now() / 86400000) + 2440587.5;
+let MJD = JDToMJD(JD);
 
 // FPS control
 const targetFPS = 60; // Target frames per second
@@ -579,14 +579,17 @@ function animate(time) {
     }
     lastFrameTime = time;
 
-    let timeSpeed = 1;
-    let deltaJulian = deltaTime * timeSpeed / 1000;
+    let timeSpeed = 86400;
+    let deltaJulian = deltaTime * timeSpeed / 1000 / 86400;
+
+    JD += deltaJulian;
+    MJD += deltaJulian;
 
     // Update planet positions and rotation
     for (let i = 0; i < planets.length; i++) {
         const orbitParams = planets[i].data.orbitParams;
         const extraParams = planets[i].data.extraParams;
-        const trueAnomaly = JulianDateToTrueAnomaly(orbitParams, JD + deltaJulian);
+        const trueAnomaly = JulianDateToTrueAnomaly(orbitParams, JD);
         // Update Position
         const pos = getOrbitPosition(orbitParams.a, orbitParams.e, trueAnomaly, orbitParams.transformMatrix);
         planets[i].setPosition(pos);
@@ -600,13 +603,13 @@ function animate(time) {
     for (let i = 0; i < neos.length; i++) {
         const orbitParams = neos[i].data.orbitParams;
         // console.log(neos[i])
-        const trueAnomaly = JulianDateToTrueAnomaly(orbitParams, MJD + deltaJulian);
+        const trueAnomaly = JulianDateToTrueAnomaly(orbitParams, MJD);
         const pos = getOrbitPosition(orbitParams.a, orbitParams.e, trueAnomaly, orbitParams.transformMatrix);
         neos[i].setPosition(pos);
     }
 
     for (const parentBodyName in animatedParentBodies) {
-        updateParentBodyPosition(animatedParentBodies[parentBodyName], JD + deltaJulian);
+        updateParentBodyPosition(animatedParentBodies[parentBodyName], JD);
     }
 
     // Update the billboard plane to face the camera
