@@ -50,3 +50,75 @@ export function getOrbitPosition(a, e, trueAnomaly, matrix) {
 
     return new THREE.Vector3(xCamera, zCamera, -yCamera);
 }
+
+function JulianDateToTrueAnomaly(orbitParams, JD) {
+    const newMA = getCurrentMeanAnomaly(orbitParams.a, orbitParams.ma, JD, orbitParams.epoch);
+    const E = solveKepler(orbitParams.e, newMA);
+    return computeTrueAnomaly(E, orbitParams.e);
+}
+
+function getCurrentMeanAnomaly(a, ma, JD, epoch) {
+    const mu = 0.0002959122082855911025;
+    return (JD - epoch) * Math.sqrt(mu / Math.abs(a**3)) + ma;
+}
+
+//Computes the the true anomaly, given the eccentric anomaly along with the eccentricity
+function computeTrueAnomaly(E, e) { return 2*Math.atan(Math.sqrt((1+e) / (1-e)) * Math.tan(E/2)) }
+
+//function for solving Kepler's equation using a binary search approach given the eccentricity and the mean anomaly
+function solveKepler(e, M) {
+    espLim = 10*Math.max(Number.EPSILON, Math.abs(M)*Number.EPSILON);
+
+    if (e == 0) { return M } //trivial case
+
+    const keplerFunc = (e, E) => { E - e * Math.sin(E); };
+    let E = M; // starting guess
+    const EMult = np.sqrt(2);
+        
+    let minBound = 0;
+    let maxBound = 0;
+
+    let MTest = 0;
+    let MDiff = 0;
+
+    //initialize min and max bounds
+    if (M < 0) {
+        while (True) {
+            MTest = keplerFunc(e, E);
+            MDiff = M - MTest;
+            if (Math.abs(MDiff) < espLim) { return E; }
+            if (MDiff > 0) {
+                minBound = E;
+                break;
+            }
+            else { 
+                maxBound = E;
+                E *= EMult;
+            }
+        }
+    }
+    else {
+        while (True) {
+            MTest = keplerFunc(e, E);
+            MDiff = M - MTest;
+            if (Math.abs(MDiff) < espLim) { return E; }
+            if (MDiff > 0) {
+                minBound = E;
+                E *= EMult;
+            }
+            else { 
+                maxBound = E;
+                break;
+            }
+        }
+    }
+
+    while (True) { //perform a binary search to solve for E
+        E = (maxBound + minBound) / 2; //take E at the midpoint
+        MTest = keplerFunc(e, E);
+        MDiff = M - MTest;
+        if (Math.abs(MDiff) < espLim) { return E; }
+        if (MDiff > 0) { minBound = E; }
+        else { maxBound = E; }
+    }
+}
