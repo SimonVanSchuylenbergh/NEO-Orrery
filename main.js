@@ -351,7 +351,7 @@ document.addEventListener('pointerup', (event) => {
             updateSpriteTexture(sprite, highlightedObj.userData.parent.name);
             // Make visible
             sprite.scale.set(0.1, 0.1, 0.1);  // Adjust the size of the label
-            sprite.position.set(0.03, -0.015, 0.03);  // Move it above the object
+            sprite.position.set(0, -0.015, 0);  // Move it above the object
             highlightedObj.userData.parent.bodyMesh.add(sprite); // add to object
         }
     }
