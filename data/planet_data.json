@@ -14,7 +14,7 @@
             "is_dwarf": false,
             "radius": 0.008,
             "color": "#B7B8B9",
-            "texture": "8k_mercury.jpg"
+            "texture": "2k_mercury.jpg"
         }
     },
     "Venus": {
@@ -68,7 +68,7 @@
             "is_dwarf": false,
             "radius": 0.01,
             "color": "#c1440e",
-            "texture": "8k_mars.jpg"
+            "texture": "2k_mars.jpg"
         }
     },
     "Jupiter": {
@@ -86,7 +86,7 @@
             "is_dwarf": false,
             "radius": 0.016,
             "color": "#ffcc00",
-            "texture": "8k_jupiter.jpg"
+            "texture": "2k_jupiter.jpg"
         }
     },
     "Saturn": {
@@ -104,7 +104,26 @@
             "is_dwarf": false,
             "radius": 0.012,
             "color": "#ead6b8",
-            "texture": "8k_saturn.jpg"
+            "texture": "2k_saturn.jpg"
+        }
+    },
+    "rings": {
+        "orbitParams": {
+            
+            "epoch": 2451545,
+            "a": 9.53707032,
+            "e": 0.05415060,
+            "inc": 2.48446,
+            "node": 113.71504,
+            "peri": -21.2831,
+            "ma": -42.48762
+        },
+        "renderParams": {
+            "is_dwarf": false,
+            "innerRadius": 0.022,
+            "outerRadius": 0.042,
+            "color": "#ead6b8",
+            "texture": "2k_saturn_rings.png"
         }
     },
     "Uranus": {
@@ -263,7 +282,7 @@
             "is_dwarf": true,
             "radius": 0.01,
             "color": "#B7B8B9",
-            "texture": "pluto_texture_map__25k__by_askaniy_dcjk44z.jpg"
+            "texture": "plutomap2k.jpg"
         }
 	},
 	"Haumea": {

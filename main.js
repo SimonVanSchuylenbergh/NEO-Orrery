@@ -1,5 +1,5 @@
 // Imports
-import * as THREE from 'https://cdn.skypack.dev/three@0.128.0/build/three.module.js';
+import * as THREE from 'https://cdn.skypack.dev/three@0.124.0/build/three.module.js';
 import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.114/examples/jsm/loaders/GLTFLoader.js';
 import { OrbitControls } from 'https://cdn.skypack.dev/three@0.128.0/examples/jsm/controls/OrbitControls.js';
 import { createOrbit, getOrbitPosition } from './orbits.js'
@@ -62,7 +62,8 @@ window.addEventListener("resize", () => {
 const mouseDownXY = new THREE.Vector2(-10, -10);
 const mouseUpXY = new THREE.Vector2(-10, -10);
 const raycaster = new THREE.Raycaster(); //ray through the screen at the location of the mouse pointer (when the mouse is released)
-raycaster.params.Line = {threshold: 0.01}; //needs to depend on zoom level
+raycaster.params.Line = {threshold: 0.1}; //needs to depend on zoom level
+raycaster.params.Points = {threshold: 0.1}
 let highlightedObj = null;
 let prevColor = 0;
 let moved = false;
@@ -94,8 +95,6 @@ document.addEventListener('pointerup', (event) => {
         // calculate objects intersecting the picking ray
         const allSelectedObjs = raycaster.intersectObjects(scene.children);
 
-        console.log(allSelectedObjs);
-
         //remove duplicate intersections of the same orbit
         const seen = new Set();
         const selectedObjs = allSelectedObjs.filter(item => {
@@ -105,6 +104,8 @@ document.addEventListener('pointerup', (event) => {
             }
             return false; // same uuid
         });
+
+        console.log(selectedObjs);
 
         if (highlightedObj != null){ //clicking on the background deselects the current object (if there is one)
             highlightedObj.material.color.set(prevColor);
@@ -163,18 +164,40 @@ function initializePlanets() {
         const planetTexture = planetTextureLoader.load(
             'assets/body_textures/' + planetTextureName
         );
+        // check if planet is saturn's rings
+        // if so, make it a ring geometry with specified parameters -- otherwise, make it a spher egeometry
+        // console.log(planetName)
+        if (planetName == 'rings'){
+            const geometry = new THREE.RingGeometry(planetData.renderParams.innerRadius, 
+                planetData.renderParams.outerRadius, 64);
+            const material = new THREE.MeshBasicMaterial({
+                map: planetTexture,
+                side: THREE.DoubleSide,
+                transparent: true,
+                opacity: 0.7
+            });
 
-        const geometry = new THREE.SphereGeometry(planetData.renderParams.radius, DEFAULT_MESH_N, DEFAULT_MESH_N);
-        const material = new THREE.MeshBasicMaterial({map: planetTexture}); // add texture
-        const planetMesh = new THREE.Mesh(geometry, material);
-        planetMeshes[planetName] = planetMesh;
-
+            // Create the mesh
+            var mesh = new THREE.Mesh(geometry, material);
+            mesh.rotation.x = Math.PI / 2; //Rotate the rings to be flat
+        }
+        // if not ring do sphere
+        else {
+            const geometry = new THREE.SphereGeometry(planetData.renderParams.radius, DEFAULT_MESH_N, DEFAULT_MESH_N);
+            const material = new THREE.MeshBasicMaterial({map: planetTexture}); // add texture
+            // console.log(planetName)
+            // Create the mesh
+            var mesh = new THREE.Mesh(geometry, material);
+        };
+        // add mesh to planet meshes
+        planetMeshes[planetName] = mesh;
+        // Create and set orbit
         const orbit = createOrbit(orbitParams, planetData.renderParams.color, ORBIT_MESH_POINTS);
         const pos = getOrbitPosition(orbitParams.a, orbitParams.e, 0, orbitParams.transformMatrix);
-        planetMesh.position.set(pos.x, pos.y, pos.z);
-
+        mesh.position.set(pos.x, pos.y, pos.z);
+        // Add to scene
         scene.add(orbit);
-        scene.add(planetMesh);
+        scene.add(mesh);
     }
 }
 
@@ -217,26 +240,6 @@ initializePlanets(); // Initialize planets once
 initializeNeos(); // Initialize NEOs once
 // console.log(planets.Saturn);
 
-// Add Saturn's Rings:
-// const saturnData = planets.Saturn
-// const ringLoader = new GLTFLoader();
-// ringLoader.load('assets/body_textures/Saturn_rings.glb', function (gltf) {
-//     const ringTexture = gltf.scene.children[0].material.map; // Extract texture from .glb
-//     // Load Saturn again to put its rings on it
-//     const ringGeometry = new THREE.SphereGeometry(0.02, DEFAULT_MESH_N, DEFAULT_MESH_N);  // Create a sphere
-//     const ringMaterial = new THREE.MeshBasicMaterial({ map: ringTexture });  // Apply the loaded texture
-//     const ringSphere = new THREE.Mesh(ringGeometry, ringMaterial);  // Create a mesh with the geometry and material
-//     // Orbits
-//     // const ringOrbit = createOrbit(saturnData.orbitParams, saturnData.renderParams.color, ORBIT_MESH_POINTS);
-//     // const ringPos = getOrbitPosition(saturnData.orbitParams.a, saturnData.orbitParams.e, 0, saturnData.orbitParams.transformMatrix);
-//     ringSphere.position.set(0, 0, 0);
-//     // add to scene
-//      //scene.add(ringOrbit);
-//     scene.add(ringSphere);
-// }, undefined, function (error) {
-//     console.error('An error occurred loading the GLB:', error);
-// });
-
 // Animation loop with FPS control
 function animate(time) {
     requestAnimationFrame(animate);
@@ -269,6 +272,9 @@ function animate(time) {
         i += 1;
         if (i == MAX_VISIBLE_NEOS) { break };
     }
+
+    // Rotate Saturn's rings:
+    // rings.rotation.z += 0.002; //rotate rings slightly
 
     controls.update();
     renderer.render(scene, camera);
