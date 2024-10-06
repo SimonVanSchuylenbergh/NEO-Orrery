@@ -962,7 +962,10 @@ function animate(time) {
 
     // Update the current time and time speed displays
     document.getElementById("current-time").textContent = MJDToDatetime(MJD);
-    document.getElementById("timespeed").textContent = `Speed: \u00D7${TIMESPEEDS[timeSpeedIndex].toPrecision(3)}`;
+    let daytext = 'days';
+    if (timeSpeedIndex == 10)
+        {daytext = 'day'};
+    document.getElementById("timespeed").textContent = `Speed: ${TIMESPEEDS[timeSpeedIndex].toPrecision(3)} ${daytext}/second`;
 
     // if (TIMESPEEDS[timeSpeedIndex] < 1.00){
     //     document.getElementById("timespeed").textContent = `Speed: ${TIMESPEEDS[timeSpeedIndex].toPrecision(3)}\u00D7 10\u207B\u2074`;
