@@ -6,8 +6,7 @@
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <canvas id="orreryCanvas" style="position: absolute; left: 0; top: 0; z-index: 0;"></canvas>
-    <canvas id="2DCanvas" style="position: absolute; left: 0; top: 0; z-index: 1; pointer-events: none;"></canvas>
+    <canvas id="orreryCanvas"></canvas>
 
     <div class="info-panel">
         <h1 id="info-name"></h1>
@@ -26,7 +25,33 @@
         <p id="info-epoch" style="padding-left: 20px;"></p>
     </div>
 
+    <div class="time-control-panel">
+        <button class="time-control-button" onmouseover="swapImage(this, 'assets/icon-time-fastbackward-hover.png')" onmouseout="swapImage(this, 'assets/icon-time-fastbackward.png')">
+            <img src="assets/icon-time-fastbackward.png" alt="" width="198" height="128" class="time-control-icon">
+        </button>
+        <button class="time-control-button" onmouseover="swapImage(this, 'assets/icon-time-backward-hover.png')" onmouseout="swapImage(this, 'assets/icon-time-backward.png')">
+            <img src="assets/icon-time-backward.png" alt="" width="128" height="128" class="time-control-icon">
+        </button>
+        <button class="time-control-button" onmouseover="swapImage(this, 'assets/icon-time-now-hover.png')" onmouseout="swapImage(this, 'assets/icon-time-now.png')">
+            <img src="assets/icon-time-now.png" alt="" width="128" height="128" class="time-control-icon">
+        </button>
+        <button class="time-control-button" onmouseover="swapImage(this, 'assets/icon-time-forward-hover.png')" onmouseout="swapImage(this, 'assets/icon-time-forward.png')">
+            <img src="assets/icon-time-forward.png" alt="" width="128" height="128" class="time-control-icon">
+        </button>
+        <button class="time-control-button" onmouseover="swapImage(this, 'assets/icon-time-fastforward-hover.png')" onmouseout="swapImage(this, 'assets/icon-time-fastforward.png')">
+            <img src="assets/icon-time-fastforward.png" alt="" width="198" height="128" class="time-control-icon">
+        </button>
+      </div>
+
     <script src="TimeUtils.js"></script>
     <script type="module" src="main.js"></script>
+
+    <script>
+        // Animations for time controls
+        function swapImage(button, newimage) {
+            const img = button.querySelector('.time-control-icon');
+            img.src = newimage;
+        }
+    </script>
 </body>
 </html>

@@ -133,7 +133,7 @@ window.addEventListener("keydown", (event) => {
 const mouseDownXY = new THREE.Vector2(-10, -10);
 const mouseUpXY = new THREE.Vector2(-10, -10);
 const raycaster = new THREE.Raycaster(); //ray through the screen at the location of the mouse pointer (when the mouse is released)
-raycaster.params.Line = {threshold: 0.01}; //this will just be a user interactive slider
+raycaster.params.Line = {threshold: 0.05}; //this will just be a user interactive slider
 let highlightedObj = null;
 let prevColor = 0;
 let moved = false;
@@ -180,8 +180,6 @@ document.addEventListener('pointerup', (event) => {
             highlightedObj = null;
             document.querySelector('.info-panel').style.display = "none";
         }
-
-        // console.log(selectedOrbits);
         
         if (selectedOrbits.length != 0){
             if (!moved) { stackedObjIndex = (stackedObjIndex + 1) % selectedOrbits.length; }
