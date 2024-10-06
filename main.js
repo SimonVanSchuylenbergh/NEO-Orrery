@@ -140,12 +140,12 @@ window.addEventListener("keydown", (event) => {
         console.log('S key is pressed down!');
     }
     else if (event.code === 'KeyT') { //track selected orbit
-        if (highlightedObj !== null){
+        if (highlightedObj !== null && highlightedObj.userData.parent !== undefined){
             controls.target = highlightedObj.userData.parent.bodyMesh.position;
         }
     }
     else if (event.code === 'KeyU') { //untrack selected orbit
-        if (highlightedObj !== null){
+        if (highlightedObj !== null && highlightedObj.userData.parent !== undefined){
             controls.target = highlightedObj.userData.parent.bodyMesh.position.clone();
         }
     }
@@ -180,6 +180,27 @@ document.addEventListener('pointerdown', (event) => {
         stackedObjIndex = 0;
     }
 });
+
+// Create and label sprite with some initial text texture
+const spriteMaterial = new THREE.SpriteMaterial({ 
+    map: createTextTexture('Initial'),  // Create texture from canvas text
+    transparent: true 
+});
+var sprite = new THREE.Sprite(spriteMaterial);
+// Make it invisible to start
+sprite.scale.set(0, 0, 0);
+
+// Function to update the texture of the sprite with a given string
+function updateSpriteTexture(sprite, string) {
+    // Load the new texture
+    const newTexture = createTextTexture(string);
+
+    // Update the sprite's material map with the new texture
+    sprite.material.map = newTexture;
+
+    // Ensure the texture is updated
+    sprite.material.map.needsUpdate = true;
+}
 
 //activates when the mouse is released
 document.addEventListener('pointerup', (event) => {
@@ -218,6 +239,7 @@ document.addEventListener('pointerup', (event) => {
             document.getElementById('info-grav').textContent = '';
             document.getElementById('info-mass').textContent = '';
             document.getElementById('info-obl').textContent = '';
+            document.getElementById('info-rotper').textContent = '';
             document.getElementById('info-a').textContent = '';
             document.getElementById('info-e').textContent = '';
             document.getElementById('info-inc').textContent = '';
@@ -236,55 +258,59 @@ document.addEventListener('pointerup', (event) => {
             highlightedObj.material.color.set(0x00ff00); //highlight the select object if it is an orbit
             document.querySelector('.info-panel').style.display = "block";
             // Update info in the info panel
-            const parentObj = selectedOrbits[stackedObjIndex].object.userData.parent;
-            const obj_data = parentObj.data;
-
-            document.getElementById('info-name').textContent = selectedOrbits[stackedObjIndex].object.userData.parent.name;
-
-            if (('type' in obj_data.extraParams) && (obj_data.extraParams.type !== undefined)){
-                if (obj_data.extraParams.type == 'NEA')
-                    document.getElementById('info-type').textContent = `Type: Asteroid`;
-                else if (obj_data.extraParams.type == 'NEC')
-                    document.getElementById('info-type').textContent = `Type: Comet`;
-                else
-                    document.getElementById('info-type').textContent = `Type: ${obj_data.extraParams.type}`;
-            }
-            if (('renderParams' in obj_data) && ('is_dwarf' in obj_data.renderParams) && (obj_data.renderParams.is_dwarf !== undefined)){
-                if (obj_data.renderParams.is_dwarf)
-                    document.getElementById('info-type').textContent = `Type: Dwarf planet`;
-                else
-                    document.getElementById('info-type').textContent = `Type: Planet`;
-            }
-            if (('class' in obj_data.extraParams) && (obj_data.extraParams.class !== undefined))
-                document.getElementById('info-class').textContent = `Class: ${obj_data.extraParams.class}`;
-            if (('diameter' in obj_data.extraParams) && (obj_data.extraParams.diameter !== undefined))
-                document.getElementById('info-diameter').textContent = `Diameter: ${obj_data.extraParams.diameter} m`;
-            else if (('diameter_km' in obj_data.extraParams) && (obj_data.extraParams.diameter_km !== undefined))
-                document.getElementById('info-diameter').textContent = `Diameter: ${obj_data.extraParams.diameter_km} km`;
-            if (('impact' in obj_data.extraParams) && (obj_data.extraParams.impact !== undefined))
-                document.getElementById('info-first-impact').textContent = `First possible impact: ${obj_data.extraParams.impact}`;
-            if (('years' in obj_data.extraParams) && (obj_data.extraParams.years !== undefined))
-                document.getElementById('info-impact-period').textContent = `Possible impacts between ${obj_data.extraParams.years.split('-')[0]} and ${obj_data.extraParams.years.split('-')[1]}`;
-            if (('PS max' in obj_data.extraParams) && (obj_data.extraParams['PS max'] !== undefined))
-                document.getElementById('info-risk').textContent = `Risk: ${obj_data.extraParams['PS max']} (Palermo Scale)`;
-            if (('vel' in obj_data.extraParams) && (obj_data.extraParams.vel !== undefined))
-                document.getElementById('info-vel').textContent = `Velocity: ${obj_data.extraParams.vel} km/s`;
+            const parentObj = highlightedObj.userData.parent;
             
-            if (('average_temperature_C' in obj_data.extraParams) && (obj_data.extraParams.average_temperature_C !== undefined))
-                document.getElementById('info-temp').textContent = `Average temperature: ${obj_data.extraParams.average_temperature_C}\u00B0C`;
-            if (('surface_gravity_m_s2' in obj_data.extraParams) && (obj_data.extraParams.surface_gravity_m_s2 !== undefined))
-                document.getElementById('info-grav').textContent = `Surface gravity: ${obj_data.extraParams.surface_gravity_m_s2} m/s\u00B2`;
-            if (('mass_kg' in obj_data.extraParams) && (obj_data.extraParams.mass_kg !== undefined)){
-                const mass = obj_data.extraParams.mass_kg / 5.97237e+24
-                if (mass < 1e-3)
-                    document.getElementById('info-mass').textContent = `Mass: ${(mass * 1e4).toFixed(3)} \u00B7 10\u207B\u2074 M\u{1F728}`;
-                else if (mass < 1e-2)
-                    document.getElementById('info-mass').textContent = `Mass: ${(mass * 1e3).toFixed(3)} \u00B7 10\u207B\u00B3 M\u{1F728}`;
-                else
-                    document.getElementById('info-mass').textContent = `Mass: ${mass.toFixed(3)} M\u{1F728}`;
-            }
-            if (('obliquity' in obj_data.extraParams) && (obj_data.extraParams.obliquity !== undefined))
-                document.getElementById('info-obl').textContent = `Obliquity: ${obj_data.extraParams.obliquity.toFixed(1)}\u00B0`;
+            if (parentObj !== null && parentObj !== undefined) {
+                const obj_data = parentObj.data;
+
+                document.getElementById('info-name').textContent = parentObj.name;
+
+                if (('type' in obj_data.extraParams) && (obj_data.extraParams.type !== undefined)){
+                    if (obj_data.extraParams.type == 'NEA')
+                        document.getElementById('info-type').textContent = `Type: Asteroid`;
+                    else if (obj_data.extraParams.type == 'NEC')
+                        document.getElementById('info-type').textContent = `Type: Comet`;
+                    else
+                        document.getElementById('info-type').textContent = `Type: ${obj_data.extraParams.type}`;
+                }
+                if (('renderParams' in obj_data) && ('is_dwarf' in obj_data.renderParams) && (obj_data.renderParams.is_dwarf !== undefined)){
+                    if (obj_data.renderParams.is_dwarf)
+                        document.getElementById('info-type').textContent = `Type: Dwarf planet`;
+                    else
+                        document.getElementById('info-type').textContent = `Type: Planet`;
+                }
+                if (('class' in obj_data.extraParams) && (obj_data.extraParams.class !== undefined))
+                    document.getElementById('info-class').textContent = `Class: ${obj_data.extraParams.class}`;
+                if (('diameter' in obj_data.extraParams) && (obj_data.extraParams.diameter !== undefined) && (obj_data.extraParams.diameter !== null))
+                    document.getElementById('info-diameter').textContent = `Diameter: ${obj_data.extraParams.diameter} m`;
+                else if (('diameter_km' in obj_data.extraParams) && (obj_data.extraParams.diameter_km !== undefined))
+                    document.getElementById('info-diameter').textContent = `Diameter: ${obj_data.extraParams.diameter_km} km`;
+                if (('impact' in obj_data.extraParams) && (obj_data.extraParams.impact !== undefined))
+                    document.getElementById('info-first-impact').textContent = `First possible impact: ${obj_data.extraParams.impact}`;
+                if (('years' in obj_data.extraParams) && (obj_data.extraParams.years !== undefined))
+                    document.getElementById('info-impact-period').textContent = `Possible impacts between ${obj_data.extraParams.years.split('-')[0]} and ${obj_data.extraParams.years.split('-')[1]}`;
+                if (('PS max' in obj_data.extraParams) && (obj_data.extraParams['PS max'] !== undefined))
+                    document.getElementById('info-risk').textContent = `Risk: ${obj_data.extraParams['PS max']} (Palermo Scale)`;
+                if (('vel' in obj_data.extraParams) && (obj_data.extraParams.vel !== undefined))
+                    document.getElementById('info-vel').textContent = `Velocity: ${obj_data.extraParams.vel} km/s`;
+                
+                if (('average_temperature_C' in obj_data.extraParams) && (obj_data.extraParams.average_temperature_C !== undefined))
+                    document.getElementById('info-temp').textContent = `Average temperature: ${obj_data.extraParams.average_temperature_C}\u00B0C`;
+                if (('surface_gravity_m_s2' in obj_data.extraParams) && (obj_data.extraParams.surface_gravity_m_s2 !== undefined))
+                    document.getElementById('info-grav').textContent = `Surface gravity: ${obj_data.extraParams.surface_gravity_m_s2} m/s\u00B2`;
+                if (('mass_kg' in obj_data.extraParams) && (obj_data.extraParams.mass_kg !== undefined)){
+                    const mass = obj_data.extraParams.mass_kg / 5.97237e+24
+                    if (mass < 1e-3)
+                        document.getElementById('info-mass').textContent = `Mass: ${(mass * 1e4).toFixed(3)} \u00D7 10\u207B\u2074 M\u{1F728}`;
+                    else if (mass < 1e-2)
+                        document.getElementById('info-mass').textContent = `Mass: ${(mass * 1e3).toFixed(3)} \u00D7 10\u207B\u00B3 M\u{1F728}`;
+                    else
+                        document.getElementById('info-mass').textContent = `Mass: ${mass.toFixed(3)} M\u{1F728}`;
+                }
+                if (('obliquity' in obj_data.extraParams) && (obj_data.extraParams.obliquity !== undefined))
+                    document.getElementById('info-obl').textContent = `Obliquity: ${obj_data.extraParams.obliquity.toFixed(1)}\u00B0`;
+                if (('rotation_period' in obj_data.extraParams) && (obj_data.extraParams.rotation_period !== undefined))
+                    document.getElementById('info-rotper').textContent = `Rotation Period: ${obj_data.extraParams.rotation_period.toFixed(2)} days`;
 
             document.getElementById('info-a').textContent = `Semi-major axis: ${obj_data.orbitParams.a.toFixed(3)} AU`;
             document.getElementById('info-e').textContent = `Eccentricity: ${obj_data.orbitParams.e.toFixed(3)}`;
@@ -293,13 +319,25 @@ document.addEventListener('pointerup', (event) => {
             document.getElementById('info-peri').textContent = `Argument of perihelion: ${(obj_data.orbitParams.peri / Math.PI * 180).toFixed(3)}\u00B0`;
             document.getElementById('info-ma').textContent = `Mean anomaly: ${(obj_data.orbitParams.ma / Math.PI * 180).toFixed(3)}\u00B0`;
             document.getElementById('info-epoch').textContent = `Epoch: ${obj_data.orbitParams.epoch} (MJD)`;
+            
+            // Update sprite texture
+            updateSpriteTexture(sprite, highlightedObj.userData.parent.name);
+            // Make visible
+            sprite.scale.set(0.1, 0.1, 0.1);  // Adjust the size of the label
+            sprite.position.set(0.03, -0.015, 0.03);  // Move it above the object
+            highlightedObj.userData.parent.bodyMesh.add(sprite); // add to object
         }
     }
     else { //moved mouse
         moved = true;
         stackedObjIndex = 0;
+        // make invisible
+        sprite.scale.set(0, 0, 0);
+        }
     }
-});
+    }
+);
+
 
 // Event listeners for time controls
 document.getElementById('fastbackward-button').addEventListener('click', function() {
@@ -326,6 +364,7 @@ document.getElementById('fastforward-button').addEventListener('click', function
 });
 
 // Functions
+
 async function readJSON(filePath) {
     try {
         const response = await fetch(filePath);
@@ -361,7 +400,7 @@ async function initializePlanets() {
         // check if planet is saturn's rings
         // if so, make it a ring geometry with specified parameters -- otherwise, make it a sphere egeometry
         // console.log(planetName)
-        if (planetName == 'rings'){
+        if (planetName === 'rings'){
             const geometry = new THREE.RingGeometry(planetData.renderParams.innerRadius, planetData.renderParams.outerRadius, 64);
             const material = new THREE.MeshBasicMaterial({
                 map: planetTexture,
@@ -748,6 +787,23 @@ function drawNestedEllipses(x, y, initialWidth, initialHeight, count) {
 
 drawNestedEllipses(window.innerWidth / 2, window.innerHeight / 2, 150, 100, 10); // x, y, initial width, initial height, number of ellipses
 */
+// Function to create a text texture from canvas
+function createTextTexture(message) {
+    const canvas = document.createElement('canvas');
+    const context = canvas.getContext('2d');
+    const fontSize = 36;
+
+    canvas.width = 256;
+    canvas.height = 256;
+
+    context.font = `${fontSize}px Verdana`;
+    context.fillStyle = 'white';
+    context.fillText(message, 10, fontSize);
+
+    const texture = new THREE.Texture(canvas);
+    texture.needsUpdate = true;
+    return texture;
+}
 
 // Animation loop with FPS control
 function animate(time) {
@@ -773,6 +829,16 @@ function animate(time) {
         // Update Position
         const pos = getOrbitPosition(orbitParams.a, orbitParams.e, trueAnomaly, orbitParams.transformMatrix);
         planets[i].setPosition(pos);
+        // Compute normalized axis of rotation
+        const axis = new THREE.Vector3(
+            Math.sin(extraParams.obliquity * DEG_TO_RAD), 
+            Math.cos(extraParams.obliquity * DEG_TO_RAD), 
+            0).normalize();
+        // Set rotation speed
+        // console.log(planets[i], axis, 2 * Math.PI/(60 * extraParams.rotation_period) * TIMESPEEDS[timeSpeedIndex])
+        planets[i].bodyMesh.rotateOnAxis(axis, 
+            (2 * Math.PI/(60 * extraParams.rotation_period)) * 1 * TIMESPEEDS[timeSpeedIndex]);
+
         // Rotate
         //planets[i].bodyMesh.rotation.x += orbitParams.rotateX;
         //planets[i].bodyMesh.rotation.y += orbitParams.rotateY;
@@ -826,6 +892,23 @@ function animate(time) {
     controls.update();
     renderer.render(scene, camera);
 }
+function removeSpriteIfObjectExists(parentObject) {
+    // Check if the parent object exists
+    if (parentObject) {
+        // Loop through all the children of the parentObject
+        for (let i = parentObject.children.length - 1; i >= 0; i--) {
+            const child = parentObject.children[i];
 
+            // Check if the child is a Sprite
+            if (child instanceof THREE.Sprite) {
+                // Remove the sprite from the parent object
+                parentObject.remove(child);
+                console.log('Sprite removed from object.');
+            }
+        }
+    } else {
+        console.log('Parent object does not exist.');
+    }
+}
 // Start animation loop
 requestAnimationFrame(animate);
