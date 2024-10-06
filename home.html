@@ -62,6 +62,30 @@
     </button>
   </div>
 
+  <div class="filter-panel">
+    <form>
+      <label>
+        <input type="checkbox" name="planets" value="Planets">
+        Planets
+      </label><br>
+      
+      <label>
+        <input type="checkbox" name="neos" value="NEOs">
+        Near-Earth Objects
+      </label><br>
+    
+      <label>
+        <input type="checkbox" name="dwarf planets" value="Dwarf planets">
+        Dwarf planets
+      </label><br>
+
+      <label>
+        <input type="checkbox" name="showers" value="Showers">
+        Showers
+      </label>
+    </form>
+  </div>
+
   <script>
     // Global variable to store JSON data
     let jsonData = [];
@@ -70,17 +94,6 @@
     const dropdownButton = document.querySelector('.selection-order-dropdown-button');
     const dropdownContent = document.querySelector('.selection-order-dropdown-content');
     const dropdownLinks = document.querySelectorAll('.selection-order-dropdown-content a');
-
-    // Function to load JSON and store in jsonData
-    function loadJsonData() {
-      return fetch('data/risk_list_neo_data.json')
-        .then(response => response.json())
-        .then(data => {
-          jsonData = data; // Store the entire JSON data in the global variable
-          console.log('Data loaded'); // Check if data is stored
-        })
-        .catch(error => console.error('Error fetching JSON:', error));
-    }
 
     function sortByImpact(data) {
       return data.slice().sort((a, b) => new Date(a.impact) - new Date(b.impact));
@@ -104,40 +117,6 @@
 
     function sortBySize(data) {
       return data.slice().sort((a, b) => b.diameter - a.diameter);
-    }
-
-    // Function to display the next set of 10 objects
-    function displayObjects() {
-      const sortedData = sortByRisk(jsonData); // Get a sorted copy
-
-      // Get the objects to display for the current page
-      const objectToDisplay = sortedData[currentIndex];
-
-      document.getElementById('info-name').textContent = `${objectToDisplay.name}`;
-      if (objectToDisplay.diameter_based_on_magnitude)
-        document.getElementById('info-diameter').textContent = `Diameter: ${objectToDisplay.diameter} m  (*)`;
-      else
-        document.getElementById('info-diameter').textContent = `Diameter: ${objectToDisplay.diameter} m`;
-      document.getElementById('info-first-impact').textContent = `First possible impact: ${objectToDisplay.impact}`;
-      document.getElementById('info-impact-period').textContent = `Possible impacts between ${objectToDisplay.years.split('-')[0]} and ${objectToDisplay.years.split('-')[1]}`;
-      document.getElementById('info-risk').textContent = `Risk: ${objectToDisplay["PS max"]} (Palermo Scale)`;
-      document.getElementById('info-vel').textContent = `Velocity: ${objectToDisplay.vel} km/s`;
-
-      document.getElementById('info-a').textContent = `Semi-major axis: ${objectToDisplay.a.toFixed(3)} AU`;
-      document.getElementById('info-e').textContent = `Eccentricity: ${objectToDisplay.e.toFixed(3)}`;
-      document.getElementById('info-inc').textContent = `Inclination: ${objectToDisplay.inc.toFixed(3)}\u00B0`;
-      document.getElementById('info-node').textContent = `Argument of ascending node: ${objectToDisplay.node.toFixed(3)}\u00B0`;
-      document.getElementById('info-peri').textContent = `Longitude of perihelion: ${objectToDisplay.peri.toFixed(3)}\u00B0`;
-      document.getElementById('info-ma').textContent = `Mean anomaly: ${objectToDisplay.ma.toFixed(3)}\u00B0`;
-      document.getElementById('info-epoch').textContent = `Epoch: ${objectToDisplay.epoch} (MJD)`;
-
-      // Disable the "Next" button if we reach the end of the data
-      const nextBtn = document.getElementById('next-btn');
-      if (currentIndex + 1 >= sortedData.length) {
-        nextBtn.disabled = true; // Disable button when no more objects are left to display
-      } else {
-        nextBtn.disabled = false; // Enable if more objects can be displayed
-      }
     }
 
     // Function to handle the "Next" button click
@@ -174,9 +153,20 @@
       }
     });
 
-    // Load the data and initialize the table
-    //loadJsonData()
-    //.then(displayObjects);
+    document.querySelector('input[name="planets"]').checked = true;
+    document.querySelector('input[name="neos"]').checked = true;
+    document.querySelector('input[name="dwarf planets"]').checked = true;
+
+    // Add event listener to each checkbox
+    document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+      checkbox.addEventListener('change', (event) => {
+        if (event.target.checked) {
+          console.log(`${event.target.value} is checked`);
+        } else {
+          console.log(`${event.target.value} is unchecked`);
+        }
+      });
+    });
   </script>
 </body>
 </html>
