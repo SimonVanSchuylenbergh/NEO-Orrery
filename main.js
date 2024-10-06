@@ -105,8 +105,6 @@ document.addEventListener('pointerup', (event) => {
             return false; // same uuid
         });
 
-        console.log(selectedObjs);
-
         if (highlightedObj != null){ //clicking on the background deselects the current object (if there is one)
             highlightedObj.material.color.set(prevColor);
             highlightedObj = null;
