@@ -62,7 +62,8 @@ window.addEventListener("resize", () => {
 const mouseDownXY = new THREE.Vector2(-10, -10);
 const mouseUpXY = new THREE.Vector2(-10, -10);
 const raycaster = new THREE.Raycaster(); //ray through the screen at the location of the mouse pointer (when the mouse is released)
-raycaster.params.line = {threshold: 0}; //needs to depend on zoom level
+raycaster.params.Line = {threshold: 0.1}; //needs to depend on zoom level
+raycaster.params.Points = {threshold: 0.1}
 let highlightedObj = null;
 let prevColor = 0;
 let moved = false;
@@ -94,8 +95,6 @@ document.addEventListener('pointerup', (event) => {
         // calculate objects intersecting the picking ray
         const allSelectedObjs = raycaster.intersectObjects(scene.children);
 
-        console.log(allSelectedObjs);
-
         //remove duplicate intersections of the same orbit
         const seen = new Set();
         const selectedObjs = allSelectedObjs.filter(item => {
@@ -105,6 +104,8 @@ document.addEventListener('pointerup', (event) => {
             }
             return false; // same uuid
         });
+
+        console.log(selectedObjs);
 
         if (highlightedObj != null){ //clicking on the background deselects the current object (if there is one)
             highlightedObj.material.color.set(prevColor);
