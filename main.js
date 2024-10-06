@@ -330,38 +330,35 @@ function createRadialGradientPlane(width, height) {
     return plane;
 }
 
-// Function to create a radial gradient sphere for the sun haze
-function sunRadialGradientSphere(radius, segments) {
-    const geometry = new THREE.SphereGeometry(radius, segments, segments);
+// Function to create a radial gradient plane with an exponential drop-off
+function createSunGradientPlane(width, height) {
+    const geometry = new THREE.PlaneGeometry(width, height, 1, 1);
     const material = new THREE.ShaderMaterial({
         vertexShader: `
-            varying vec3 vPosition;
+            varying vec2 vUv;
             void main() {
-                vPosition = position;  // Pass the vertex position to the fragment shader
+                vUv = uv;
                 gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
             }
         `,
         fragmentShader: `
-            varying vec3 vPosition;
+            varying vec2 vUv;
             void main() {
-                // Calculate distance from the center of the sphere
-                float distanceFromCenter = length(vPosition);
+                // Calculate distance from the center of the plane (0.5, 0.5) in UV space
+                float distanceFromCenter = length(vUv - vec2(0.5, 0.5));
 
-                // Apply an r^(-1.3) drop-off for intensity
-                float alpha = pow(distanceFromCenter / 10.0, -1.3);  // Normalize the distance and apply the power law
+                // Exponential drop-off for the intensity
+                float alpha = exp(-50.0 * distanceFromCenter);  // Adjust for a faster/slower fade
 
-                // Further decrease intensity by scaling down alpha
-                alpha *= 0.005;  // Adjust this factor to control the intensity
-
-                // Clamp the alpha to [0, 1] range
+                // Clamp alpha to ensure it's between 0 and 1
                 alpha = clamp(alpha, 0.0, 1.0);
 
-                // Discard fragment if alpha is too low (full transparency)
+                // Discard very transparent fragments
                 if (alpha < 0.01) {
                     discard;
                 }
 
-                // Set the fragment color to a white-yellowish tone with the calculated alpha
+                // Set the color to a white-yellowish tone with the calculated alpha
                 gl_FragColor = vec4(1.0, 0.95, 0.6, alpha);
             }
         `,
@@ -371,18 +368,40 @@ function sunRadialGradientSphere(radius, segments) {
         depthTest: false,
     });
 
-    const sphere = new THREE.Mesh(geometry, material);
-    return sphere;
+    const plane = new THREE.Mesh(geometry, material);
+    plane.renderOrder = 1;  // Ensure the plane renders after other objects
+    return plane;
 }
+
+// Function to create a single plane that always faces the camera
+function createBillboardPlane(size) {
+    const width = size;
+    const height = size;
+
+    // Create the radial gradient plane
+    const gradientPlane = createSunGradientPlane(width, height);
+
+    // Return the gradient plane mesh
+    return gradientPlane;
+}
+
+// Example usage: Create a billboard plane that follows the camera
+const hazeSize = 2.0;  // Set the size of the haze plane
+const billboardPlane = createBillboardPlane(hazeSize);
+scene.add(billboardPlane);
+
+// Function to update the plane to always face the camera (billboarding effect)
+function updateBillboard(plane, camera) {
+    // Set the plane's rotation to always face the camera
+    plane.lookAt(camera.position);
+}
+
 
 
 
 const planeWidth = 5.204 * 2;
 const radialGradientPlane = createRadialGradientPlane(planeWidth, planeWidth);
-const hazeRadius = 0.05;  // Set the radius for the haze
-const radialSunHaze = sunRadialGradientSphere(hazeRadius, 64);  // 64 segments for smoothness
-scene.add(radialSunHaze);
-scene.add(radialGradientPlane);
+// scene.add(radialGradientPlane);
 
 
 
@@ -439,6 +458,9 @@ function animate(time) {
     for (const parentBodyName in animatedParentBodies) {
         updateParentBodyPosition(animatedParentBodies[parentBodyName]);
     }
+
+    // Update the billboard plane to face the camera
+    updateBillboard(billboardPlane, camera);
 
     // Rotate Saturn's rings:
     // rings.rotation.z += 0.002; //rotate rings slightly
