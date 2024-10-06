@@ -54,8 +54,10 @@ function resetCamera() {
     if (controls !== null) {controls.dispose( );}
     controls = new OrbitControls( camera, renderer.domElement );
 
-    camera.position.set(2, 2, 2);
-    camera.lookAt(0, 0, 0);
+    //camera.position.set(2, 2, 2);
+    //camera.lookAt(0, 0, 0);
+    controls.object.position.set(2, 2, 2);
+    controls.target = new THREE.Vector3(0, 0, 0);
     controls.enableDamping = true;
 }
 
@@ -119,8 +121,8 @@ window.addEventListener("keydown", (event) => {
     else if (event.code === 'KeyS') { //reserved for whatever
         console.log('S key is pressed down!');
     }
-    else if (event.code === 'KeyT') { //recenter on Sun
-        camera.lookAt(10, -2, 0); //doesn't work
+    else if (event.code === 'Space') { //recenter on Sun
+        controls.target = new THREE.Vector3(0, 0, 0);
     }
     else if (event.code === 'Backspace') { //recenter camera to initial settings
         resetCamera();
