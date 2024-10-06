@@ -173,7 +173,7 @@ function initializePlanets() {
                 map: planetTexture,
                 side: THREE.DoubleSide,
                 transparent: true,
-                opacity: 0.8
+                opacity: 0.7
             });
 
             // Create the mesh
