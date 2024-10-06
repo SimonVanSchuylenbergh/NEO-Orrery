@@ -30,6 +30,33 @@ let JD = (Date.now() / 86400000) + 2440587.5;
 let MJD = JDToMJD(JD);
 let timeSpeedIndex = 10;
 
+// Filter conditions for objects
+class FilterConditions{
+    constructor(){
+        this.riskRange = (-99, 99)
+        this.sizeRange = (0, 9999)
+        //this.firstImpactRange((Date.now() / 86400000) + 2440587.5, (Date.now() / 86400000) + 2440587.5 + 365 * 100)
+        this.aRange = (0, 100)
+        this.eRange = (0, 1)
+        //this.shownNEOClasses = []
+        this.shownTypes = ['Planet', 'Dwarf planet', 'NEO']
+    }
+
+    checkPassesFilters(object) {
+        if ((object.data.extraParams.risk < this.riskRange[0]) || (object.data.extraParams.risk > this.riskRange[1]))
+            return false;
+        if ((object.data.extraParams.diameter < this.sizeRange[0]) || (object.data.extraParams.diameter > this.sizeRange[1]))
+            return false;
+        if ((object.data.orbitParams.a < this.aRange[0]) || (object.data.orbitParams.a > this.aRange[1]))
+            return false;
+        if ((object.data.orbitParams.e < this.eRange[0]) || (object.data.orbitParams.e > this.eRange[1]))
+            return false;
+        return true;
+    }
+}
+
+let filterConditions = new FilterConditions()
+
 // FPS control
 const targetFPS = 60; // Target frames per second
 const frameInterval = 1000 / targetFPS; // Time per frame in milliseconds
@@ -431,10 +458,6 @@ async function initializePlanets() {
         orbit.userData.parent = body;
         mesh.userData.parent = body;
         planets.push(body);
-
-        // Add to scene
-        scene.add(orbit);
-        scene.add(mesh);
     }
 }
 
@@ -462,14 +485,35 @@ async function initializeNeos() {
         neoMesh.userData.parent = body;
         planets.push(body);
 
-        scene.add(orbit);
-        scene.add(neoMesh);
-
         i += 1;
         if (i == MAX_VISIBLE_NEOS) { break };
     }
 }
 
+function updateOrbits(filterConditions) {
+    console.log('number of objects before: ', scene.children.length)
+    // Remove everything from the scene
+    for (let obj of scene.children) {
+        if (obj instanceof THREE.Mesh) scene.remove( scene.getObjectByProperty( 'uuid', obj.uuid ) );
+    }
+    console.log('number of objects after: ', scene.children.length)
+
+    // Planets and dwarf planets
+    for (let i = 0; i < planets.length; i++) {
+        if (filterConditions.checkPassesFilters(planets[i])) {
+            scene.add(planets[i].orbitMesh)
+            scene.add(planets[i].bodyMesh)
+        }
+    }
+
+    // NEOs
+    for (let i = 0; i < neos.length; i++) {
+        if (filterConditions.checkPassesFilters(planets[i])) {
+            scene.add(neos[i].orbitMesh)
+            scene.add(neos[i].bodyMesh)
+        }
+    }
+}
 
 async function initializeShowers() {
     const showers_json = await readJSON('data/stream_dataIAU2022.json');
@@ -757,6 +801,8 @@ addSun();
 await initializePlanets(); // Initialize planets once
 await initializeNeos(); // Initialize NEOs once
 await initializeShowers();
+updateOrbits(filterConditions);
+
 // console.log(planets.Saturn);
 
 
