@@ -438,14 +438,15 @@ function animate(time) {
     // Update planet positions and rotate
     for (const [planetName, planetData] of Object.entries(planets)) {
         const orbitParams = planetData.orbitParams;
+        const ExtraParams = planetData.ExtraParams;
         const trueAnomaly = currentTime;
         // Update Position
         const pos = getOrbitPosition(orbitParams.a, orbitParams.e, trueAnomaly, orbitParams.transformMatrix);
         planetMeshes[planetName].position.set(pos.x, pos.y, pos.z);
-        // Rotate
-        planetMeshes[planetName].rotation.x += orbitParams.rotateX;
-        planetMeshes[planetName].rotation.y += orbitParams.rotateY;
-        planetMeshes[planetName].rotation.z += orbitParams.rotateZ;
+        // // Rotate
+        // planetMeshes[planetName].rotation.x += ExtraParams.rotateX;
+        // planetMeshes[planetName].rotation.y += ExtraParams.rotateY;
+        // planetMeshes[planetName].rotation.z += ExtraParams.rotateZ;
     }
 
     // Update NEO positions
