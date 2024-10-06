@@ -7,7 +7,8 @@
             "inc": 7.00487,
             "node": 48.33167,
             "peri": 29.12478,
-            "ma": 174.79439
+            "ma": 174.79439,
+            "obliquity": 0.01
         },
         "renderParams": {
             "is_dwarf": false,
@@ -30,7 +31,8 @@
             "inc": 3.39471,
             "node": 76.68069,
             "peri": 54.85229,
-            "ma": 50.44675
+            "ma": 50.44675,
+            "obliquity": 177.36
         },
         "renderParams": {
             "is_dwarf": false,
@@ -53,7 +55,8 @@
             "inc": 5e-05,
             "node": -11.26064,
             "peri": 114.20783,
-            "ma": 357.51716
+            "ma": 357.51716,
+            "obliquity": 23.45
         },
         "renderParams": {
             "is_dwarf": false,
