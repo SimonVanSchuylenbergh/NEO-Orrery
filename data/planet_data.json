@@ -21,6 +21,7 @@
             "surface_gravity_m_s2": 3.7,
             "mass_kg": 3.3011e+23,
             "obliquity": 0.01,
+            "rotation_period": 58.6462,
             "mass_earth": 0.05527286487608772
         }
     },
@@ -46,6 +47,7 @@
             "surface_gravity_m_s2": 8.87,
             "mass_kg": 4.8675e+24,
             "obliquity": 177.36,
+            "rotation_period": 243.018,
             "mass_earth": 0.8150030892258853
         }
     },
@@ -71,6 +73,7 @@
             "surface_gravity_m_s2": 9.81,
             "mass_kg": 5.97237e+24,
             "obliquity": 23.45,
+            "rotation_period": 0.99727,
             "mass_earth": 1.0
         }
     },
@@ -96,6 +99,7 @@
             "surface_gravity_m_s2": 3.71,
             "mass_kg": 6.4171e+23,
             "obliquity": 25.19,
+            "rotation_period": 1.026,
             "mass_earth": 0.10744645760393279
         }
     },
@@ -121,6 +125,7 @@
             "surface_gravity_m_s2": 24.79,
             "mass_kg": 1.8982e+27,
             "obliquity": 3.13,
+            "rotation_period": 0.41354,
             "mass_earth": 317.8302750834259
         }
     },
@@ -146,6 +151,7 @@
             "surface_gravity_m_s2": 10.44,
             "mass_kg": 5.6834e+26,
             "obliquity": 26.73,
+            "rotation_period": 0.44002,
             "mass_earth": 95.16155228159006
         }
     },
@@ -172,6 +178,7 @@
             "surface_gravity_m_s2": 10.44,
             "mass_kg": 5.6834e+26,
             "obliquity": 26.73,
+            "rotation_period": 0,
             "mass_earth": 95.16155228159006
         }
     },
@@ -197,6 +204,7 @@
             "surface_gravity_m_s2": 8.69,
             "mass_kg": 8.681e+25,
             "obliquity": 97.77,
+            "rotation_period": 0.71833,
             "mass_earth": 14.535268243595091
         }
     },
@@ -222,6 +230,7 @@
             "surface_gravity_m_s2": 11.15,
             "mass_kg": 1.02413e+26,
             "obliquity": 28.32,
+            "rotation_period": 0.67125,
             "mass_earth": 17.14779894748651
         }
     },
@@ -247,6 +256,7 @@
             "surface_gravity_m_s2": 0.27,
             "mass_kg": 9.3835e+20,
             "obliquity": 4,
+            "rotation_period": 0.3781,
             "mass_earth": 0.00015711518208014576
         }
     },
@@ -272,6 +282,7 @@
             "surface_gravity_m_s2": 0.62,
             "mass_kg": 1.303e+22,
             "obliquity": 122.53,
+            "rotation_period": 6.387229,
             "mass_earth": 0.0021817134571367816
         }
     },
@@ -297,6 +308,7 @@
             "surface_gravity_m_s2": 0.44,
             "mass_kg": 4.006e+21,
             "obliquity": 0,
+            "rotation_period": 0.16314,
             "mass_earth": 0.0006707554957244779
         }
     },
@@ -322,6 +334,7 @@
             "surface_gravity_m_s2": 0.82,
             "mass_kg": 1.6466e+22,
             "obliquity": 0,
+            "rotation_period": 1.08,
             "mass_earth": 0.00275702945396886
         }
     },
@@ -347,6 +360,7 @@
             "surface_gravity_m_s2": 0.5,
             "mass_kg": 3.1e+21,
             "obliquity": 0,
+            "rotation_period": 0.9367,
             "mass_earth": 0.0005190569238007692
         }
     }
