@@ -3,7 +3,7 @@ import * as THREE from 'https://cdn.skypack.dev/three@0.124.0/build/three.module
 // import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.114/examples/jsm/loaders/GLTFLoader.js';
 import { OrbitControls } from 'https://cdn.skypack.dev/three@0.128.0/examples/jsm/controls/OrbitControls.js';
 import { createOrbit, getOrbitPosition, JulianDateToTrueAnomaly } from './orbits.js'
-import { JDToMJD, MJDToJD} from './TimeUtils.js'
+import { JDToMJD, MJDToJD } from './TimeUtils.js'
 
 // Constants
 const DEG_TO_RAD = Math.PI / 180;
@@ -22,9 +22,12 @@ const MAX_VISIBLE_NEOS = 1;
 
 const MOUSE_MIN_MOVE_CLICK = 0.005;
 
+const TIMESPEEDS = [-365, -30, -7, -1, -3600 / 86400, -60 / 86400, -1 / 86400, 1 / 86400, 60 / 86400, 3600 / 86400, 1, 7, 30, 365]
+
 //starting time
 let JD = (Date.now() / 86400000) + 2440587.5;
 let MJD = JDToMJD(JD);
+let timeSpeedIndex = 10;
 
 // FPS control
 const targetFPS = 60; // Target frames per second
@@ -213,6 +216,30 @@ document.addEventListener('pointerup', (event) => {
         moved = true;
         stackedObjIndex = 0;
     }
+});
+
+// Event listeners for time controls
+document.getElementById('fastbackward-button').addEventListener('click', function() {
+    if (timeSpeedIndex > 0) timeSpeedIndex -= 1;
+    console.log('Timespeed: ', TIMESPEEDS[timeSpeedIndex]);
+});
+document.getElementById('backward-button').addEventListener('click', function() {
+    timeSpeedIndex = 6;
+    console.log('Timespeed: ', TIMESPEEDS[timeSpeedIndex]);
+});
+document.getElementById('now-button').addEventListener('click', function() {
+    timeSpeedIndex = 7;
+    JD = (Date.now() / 86400000) + 2440587.5;
+    MJD = JDToMJD(JD);
+    console.log('Timespeed: ', TIMESPEEDS[timeSpeedIndex]);
+});
+document.getElementById('forward-button').addEventListener('click', function() {
+    timeSpeedIndex = 7;
+    console.log('Timespeed: ', TIMESPEEDS[timeSpeedIndex]);
+});
+document.getElementById('fastforward-button').addEventListener('click', function() {
+    if (timeSpeedIndex < TIMESPEEDS.length-1) timeSpeedIndex += 1;
+    console.log('Timespeed: ', TIMESPEEDS[timeSpeedIndex]);
 });
 
 // Functions
@@ -579,8 +606,7 @@ function animate(time) {
     }
     lastFrameTime = time;
 
-    let timeSpeed = 86400;
-    let deltaJulian = deltaTime * timeSpeed / 1000 / 86400;
+    let deltaJulian = deltaTime * TIMESPEEDS[timeSpeedIndex] / 1000;
 
     JD += deltaJulian;
     MJD += deltaJulian;
