@@ -390,6 +390,16 @@ document.getElementById('fastforward-button').addEventListener('click', function
     //console.log('Timespeed: ', TIMESPEEDS[timeSpeedIndex]);
 });
 
+// Listeners for clicking overlay
+document.getElementById('open-overlay').addEventListener('click', function(){
+    console.log('test')
+    document.getElementById('keyboardOverlay').classList.add('show');
+})
+
+document.getElementById('close-overlay').addEventListener('click', function(){
+    document.getElementById('keyboardOverlay').classList.remove('show');
+})
+
 // Functions
 
 async function readJSON(filePath) {

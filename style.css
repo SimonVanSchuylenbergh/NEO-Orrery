@@ -177,12 +177,11 @@ canvas {
     pointer-events: auto;
 }
 
+
 .time-control-icon {
     max-height: 30px;
     width: auto;
 }
-
-
 
 
 .filter-panel {
@@ -205,4 +204,72 @@ canvas {
     color: white;
 }
 
+/* Full-screen overlay */
+.overlay {
+    position: fixed;        /* Fixed position for overlay */
+    top: 0;
+    left: 0;
+    width: 100%;           /* Cover the entire viewport */
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;          /* Text color */
+    display: none;         /* Initially hidden */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;         /* Ensure it's on top of everything */
+}
 
+/* Content inside the overlay */
+.overlay-content {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    text-align: center;
+}
+
+/* Title styling */
+.overlay-title {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+/* List of keyboard controls */
+.keyboard-controls {
+    list-style-type: none; /* Remove bullets */
+    padding: 0;
+}
+
+.keyboard-controls li {
+    font-size: 18px;
+    margin: 10px 0;
+}
+/* Button to open the overlay */
+.open-btn {
+    background-color: darkred;
+    color: #e8e8e8;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 5px;
+    pointer-events: auto;
+}
+
+/* Button to close the overlay */
+.close-btn {
+    background-color: darkred;
+    color: #e8e8e8;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+    pointer-events: auto;
+}
+
+/* Optional: Show the overlay when needed */
+.overlay.show {
+    display: flex; /* Make the overlay visible as a flexbox */
+}

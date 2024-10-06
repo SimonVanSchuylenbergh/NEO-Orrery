@@ -31,6 +31,27 @@
         <p id="info-ma" style="padding-left: 20px;"></p>
         <p id="info-epoch" style="padding-left: 20px;"></p>
     </div>
+
+    <!-- Button to open the overlay -->
+    <div class="container">
+        <button class="open-btn" id="open-overlay" style="font-family: Verdana">Show Keyboard Controls</button>
+    </div>
+    <!-- Overlay structure -->
+    <div class="overlay" id="keyboardOverlay">
+        <div class="overlay-content">
+            <h2 class="overlay-title">Keyboard Controls</h2>
+            <ul class="keyboard-controls">
+                <li><strong>Space:</strong> Re-center camera on Sun</li>
+                <li><strong>Backspace:</strong> Re-center camera to initial settings</li>
+                <li><strong>T:</strong> (T)rack selected orbit</li>
+                <li><strong>U:</strong> (U)ntrack selected orbit</li>
+                <li><strong>Q:</strong> Decrease clicking precision</li>
+                <li><strong>E:</strong> Increase clicking precision</li>
+            </ul>
+            <button class="close-btn" id="close-overlay" style="font-family: Verdana">Close</button>
+        </div>
+    </div>
+
     <div class="container">
         <div class="time-container">
             <div class="time-item" id="current-time"></div>
@@ -65,6 +86,7 @@
             const img = button.querySelector('.time-control-icon');
             img.src = newimage;
         }
+
     </script>
 </body>
 </html>
