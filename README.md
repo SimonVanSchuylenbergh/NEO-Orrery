@@ -15,7 +15,11 @@
 - [ ] Add key for centering the camera to the Sun
 - [ ] Add key for resetting the camera entirely
 - [ ] Add key to center camera on currently selected object
-- [ ] True anomaly fix
+- [x] True anomaly fix
+- [ ] Add planet labels
+- [ ] Make info panel for planets work
+- [ ] Make time controls work
+- [ ] Make filter controls work
 - [ ] Make planets rotate
 - [ ] UI Filters
 - [ ] Keyboard controls
@@ -25,4 +29,4 @@
 - [x] Skybox milkyway
 - [ ] Moons
 - [ ] Texture planet atmosphere
-- [ ] Texture and halo Sun
+- [x] Texture and halo Sun

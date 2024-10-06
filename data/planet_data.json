@@ -1,7 +1,6 @@
 {
     "Mercury": {
         "orbitParams": {
-            
             "epoch": 2451545,
             "a": 0.38709893,
             "e": 0.20563069,
@@ -15,11 +14,17 @@
             "radius": 0.008,
             "color": "#B7B8B9",
             "texture": "2k_mercury.jpg"
+        },
+        "extraParams": {
+            "diameter_km": 4880,
+            "average_temperature_C": 167,
+            "surface_gravity_m_s2": 3.7,
+            "mass_kg": 3.3011e+23,
+            "obliquity": 0.01
         }
     },
     "Venus": {
         "orbitParams": {
-           
             "epoch": 2451545,
             "a": 0.72333199,
             "e": 0.00677323,
@@ -33,15 +38,21 @@
             "radius": 0.009,
             "color": "#c18f17",
             "texture": "4k_venus_atmosphere.jpg"
+        },
+        "extraParams": {
+            "diameter_km": 12104,
+            "average_temperature_C": 464,
+            "surface_gravity_m_s2": 8.87,
+            "mass_kg": 4.8675e+24,
+            "obliquity": 177.36
         }
     },
     "Earth": {
         "orbitParams": {
-            
             "epoch": 2451545,
             "a": 1.00000011,
             "e": 0.01671022,
-            "inc": 0.00005,
+            "inc": 5e-05,
             "node": -11.26064,
             "peri": 114.20783,
             "ma": 357.51716
@@ -51,11 +62,17 @@
             "radius": 0.012,
             "color": "#0000A0",
             "texture": "8k_earth_daymap.jpg"
+        },
+        "extraParams": {
+            "diameter_km": 12742,
+            "average_temperature_C": 15,
+            "surface_gravity_m_s2": 9.81,
+            "mass_kg": 5.97237e+24,
+            "obliquity": 23.45
         }
     },
     "Mars": {
         "orbitParams": {
-            
             "epoch": 2451545,
             "a": 1.52366231,
             "e": 0.09341233,
@@ -69,15 +86,21 @@
             "radius": 0.01,
             "color": "#c1440e",
             "texture": "2k_mars.jpg"
+        },
+        "extraParams": {
+            "diameter_km": 6779,
+            "average_temperature_C": -60,
+            "surface_gravity_m_s2": 3.71,
+            "mass_kg": 6.4171e+23,
+            "obliquity": 25.19
         }
     },
     "Jupiter": {
         "orbitParams": {
-            
             "epoch": 2451545,
             "a": 5.20336301,
             "e": 0.04839266,
-            "inc": 1.30530,
+            "inc": 1.3053,
             "node": 100.55615,
             "peri": -85.8023,
             "ma": 19.65053
@@ -87,14 +110,20 @@
             "radius": 0.016,
             "color": "#ffcc00",
             "texture": "2k_jupiter.jpg"
+        },
+        "extraParams": {
+            "diameter_km": 139820,
+            "average_temperature_C": -145,
+            "surface_gravity_m_s2": 24.79,
+            "mass_kg": 1.8982e+27,
+            "obliquity": 3.13
         }
     },
     "Saturn": {
         "orbitParams": {
-            
             "epoch": 2451545,
             "a": 9.53707032,
-            "e": 0.05415060,
+            "e": 0.0541506,
             "inc": 2.48446,
             "node": 113.71504,
             "peri": -21.2831,
@@ -105,14 +134,20 @@
             "radius": 0.012,
             "color": "#ead6b8",
             "texture": "2k_saturn.jpg"
+        },
+        "extraParams": {
+            "diameter_km": 116460,
+            "average_temperature_C": -178,
+            "surface_gravity_m_s2": 10.44,
+            "mass_kg": 5.6834e+26,
+            "obliquity": 26.73
         }
     },
     "rings": {
         "orbitParams": {
-            
             "epoch": 2451545,
             "a": 9.53707032,
-            "e": 0.05415060,
+            "e": 0.0541506,
             "inc": 2.48446,
             "node": 113.71504,
             "peri": -21.2831,
@@ -124,11 +159,17 @@
             "outerRadius": 0.042,
             "color": "#ead6b8",
             "texture": "2k_saturn_rings.png"
+        },
+        "extraParams": {
+            "diameter_km": 116460,
+            "average_temperature_C": -178,
+            "surface_gravity_m_s2": 10.44,
+            "mass_kg": 5.6834e+26,
+            "obliquity": 26.73
         }
     },
     "Uranus": {
         "orbitParams": {
-            
             "epoch": 2451545,
             "a": 19.19126393,
             "e": 0.04716771,
@@ -142,11 +183,17 @@
             "radius": 0.01,
             "color": "#d1e7e7",
             "texture": "2k_uranus.jpg"
+        },
+        "extraParams": {
+            "diameter_km": 50724,
+            "average_temperature_C": -224,
+            "surface_gravity_m_s2": 8.69,
+            "mass_kg": 8.681e+25,
+            "obliquity": 97.77
         }
     },
     "Neptune": {
         "orbitParams": {
-            
             "epoch": 2451545,
             "a": 30.06896348,
             "e": 0.00858587,
@@ -160,315 +207,133 @@
             "radius": 0.01,
             "color": "#3f54ba",
             "texture": "2k_neptune.jpg"
+        },
+        "extraParams": {
+            "diameter_km": 49244,
+            "average_temperature_C": -214,
+            "surface_gravity_m_s2": 11.15,
+            "mass_kg": 1.02413e+26,
+            "obliquity": 28.32
         }
-    },	
+    },
     "Ceres": {
-		"orbitParams": {
-			"epoch": 2460600.5,
-			"a": 2.767,
-			"e": 0.0792,
-			"inc": 10.59,
-			"node": 80.25,
-			"peri": 73.29,
-			"ma": 145.85
-		},
-		"ExtraParams": {
-			"spkid": 20000001,
-			"full_name": "     1 Ceres (A801 AA)",
-			"pdes": 1,
-			"name": "Ceres",
-			"neo": "N",
-			"pha": "N",
-			"sats": 0,
-			"H": 3.34,
-			"G": 0.12,
-			"diameter": 939.4,
-			"extent": "964.4 x 964.2 x 891.8",
-			"albedo": 0.09,
-			"rot_per": 9.07417,
-			"GM": 62.6284,
-			"BV": 0.713,
-			"UB": 0.426,
-			"spec_B": "C",
-			"spec_T": "G",
-			"diameter_sigma": 0.2,
-			"orbit_id": "JPL 48",
-			"epoch_mjd": 60600,
-			"epoch_cal": "2024-10-17.0",
-			"equinox": "J2000",
-			"q": 2.548,
-			"ad": 2.99,
-			"n": 0.2142,
-			"tp": 2459919.54,
-			"tp_cal": "2022-12-06.0",
-			"per": 1680.0,
-			"per_y": 4.6,
-			"moid": 1.58,
-			"moid_ld": 617.0,
-			"moid_jup": 2.09,
-			"t_jup": 3.31,
-			"sigma_e": 4.8e-12,
-			"sigma_a": 1e-11,
-			"sigma_q": 1.9e-11,
-			"sigma_i": 4.6e-09,
-			"sigma_om": 6.2e-08,
-			"sigma_w": 6.6e-08,
-			"sigma_ma": 6.4e-09,
-			"sigma_ad": 1.1e-11,
-			"sigma_n": 1.2e-12,
-			"sigma_tp": 3.1e-08,
-			"sigma_per": 9.3e-09,
-			"class": "MBA",
-			"producer": "Davide Farnocchia",
-			"data_arc": 9520,
-			"first_obs": "05/01/1995",
-			"last_obs": "28/01/2021",
-			"n_obs_used": 1075,
-			"n_del_obs_used": 60.0,
-			"n_dop_obs_used": 0.0,
-			"condition_code": 0.0,
-			"rms": 0.43153
-		},
-            "renderParams": {
+        "orbitParams": {
+            "epoch": 2460600.5,
+            "a": 2.767,
+            "e": 0.0792,
+            "inc": 10.59,
+            "node": 80.25,
+            "peri": 73.29,
+            "ma": 145.85
+        },
+        "renderParams": {
             "is_dwarf": true,
             "radius": 0.01,
             "color": "#B7B8B9",
             "texture": "4k_ceres_fictional.jpg"
+        },
+        "extraParams": {
+            "diameter_km": 939.4,
+            "average_temperature_C": -105,
+            "surface_gravity_m_s2": 0.27,
+            "mass_kg": 9.3835e+20,
+            "obliquity": 4
         }
-	},
-	"Pluto": {
-		"orbitParams": {
-			"epoch": 2457588.5,
-			"a": 39.59,
-			"e": 0.2518,
-			"inc": 17.15,
-			"node": 110.29,
-			"peri": 113.71,
-			"ma": 38.68
-		},
-		"ExtraParams": {
-			"spkid": 20134340,
-			"full_name": "134340 Pluto (1930 BM)",
-			"pdes": 134340,
-			"name": "Pluto",
-			"neo": "N",
-			"pha": "N",
-			"sats": 5,
-			"H": -0.46,
-			"rot_per": 153.2935,
-			"orbit_id": "JPL 1",
-			"epoch_mjd": 57588,
-			"epoch_cal": "2016-07-19.0",
-			"equinox": "J2000",
-			"q": 29.619,
-			"ad": 49.56,
-			"n": 0.003957,
-			"tp": 2447812.09,
-			"tp_cal": "1989-10-12.5",
-			"per": 91000.0,
-			"per_y": 249.0,
-			"moid": 28.6,
-			"moid_ld": 11100.0,
-			"moid_jup": 24.4,
-			"t_jup": 5.23,
-			"class": "TNO",
-			"producer": "R.S. Park",
-			"data_arc": 31524,
-			"first_obs": "29/03/1930",
-			"last_obs": "19/07/2016",
-			"n_obs_used": 7212
-		},
+    },
+    "Pluto": {
+        "orbitParams": {
+            "epoch": 2457588.5,
+            "a": 39.59,
+            "e": 0.2518,
+            "inc": 17.15,
+            "node": 110.29,
+            "peri": 113.71,
+            "ma": 38.68
+        },
         "renderParams": {
             "is_dwarf": true,
             "radius": 0.01,
             "color": "#B7B8B9",
             "texture": "plutomap2k.jpg"
+        },
+        "extraParams": {
+            "diameter_km": 2376.6,
+            "average_temperature_C": -229,
+            "surface_gravity_m_s2": 0.62,
+            "mass_kg": 1.303e+22,
+            "obliquity": 122.53
         }
-	},
-	"Haumea": {
-		"orbitParams": {
-			"epoch": 2460600.5,
-			"a": 42.92,
-			"e": 0.1983,
-			"inc": 28.21,
-			"node": 121.87,
-			"peri": 241.0,
-			"ma": 220.88
-		},
-		"ExtraParams": {
-			"spkid": 20136108,
-			"full_name": "136108 Haumea (2003 EL61)",
-			"pdes": 136108,
-			"name": "Haumea",
-			"neo": "N",
-			"pha": "N",
-			"sats": 2,
-			"H": 0.19,
-			"rot_per": 3.9154,
-			"orbit_id": "JPL 121",
-			"epoch_mjd": 60600,
-			"epoch_cal": "2024-10-17.0",
-			"equinox": "J2000",
-			"q": 34.408,
-			"ad": 51.43,
-			"n": 0.003505,
-			"tp": 2500289.49,
-			"tp_cal": "2133-06-16.9",
-			"per": 103000.0,
-			"per_y": 281.0,
-			"moid": 33.5,
-			"moid_ld": 13000.0,
-			"moid_jup": 29.9,
-			"t_jup": 5.08,
-			"sigma_e": 1.3e-06,
-			"sigma_a": 4.2e-05,
-			"sigma_q": 6.5e-05,
-			"sigma_i": 1.2e-06,
-			"sigma_om": 1.9e-05,
-			"sigma_w": 0.00082,
-			"sigma_ma": 0.0012,
-			"sigma_ad": 5.1e-05,
-			"sigma_n": 5.2e-09,
-			"sigma_tp": 0.32,
-			"sigma_per": 0.15,
-			"class": "TNO",
-			"producer": "Otto Matic",
-			"data_arc": 25316,
-			"first_obs": "22/03/1955",
-			"last_obs": "13/07/2024",
-			"n_obs_used": 5512,
-			"condition_code": 1.0,
-			"rms": 0.25679
-		},
+    },
+    "Haumea": {
+        "orbitParams": {
+            "epoch": 2460600.5,
+            "a": 42.92,
+            "e": 0.1983,
+            "inc": 28.21,
+            "node": 121.87,
+            "peri": 241.0,
+            "ma": 220.88
+        },
         "renderParams": {
             "is_dwarf": true,
             "radius": 0.01,
             "color": "#B7B8B9",
             "texture": "4k_haumea_fictional.jpg"
+        },
+        "extraParams": {
+            "diameter_km": 1632,
+            "average_temperature_C": -241,
+            "surface_gravity_m_s2": 0.44,
+            "mass_kg": 4.006e+21,
+            "obliquity": 0
         }
-	},
-	"Eris": {
-		"orbitParams": {
-			"epoch": 2460600.5,
-			"a": 68.1,
-			"e": 0.4343,
-			"inc": 43.78,
-			"node": 36.06,
-			"peri": 150.72,
-			"ma": 210.55
-		},
-		"ExtraParams": {
-			"spkid": 20136199,
-			"full_name": "136199 Eris (2003 UB313)",
-			"pdes": 136199,
-			"name": "Eris",
-			"neo": "N",
-			"pha": "N",
-			"sats": 1,
-			"H": -1.23,
-			"rot_per": 25.9,
-			"orbit_id": "JPL 90",
-			"epoch_mjd": 60600,
-			"epoch_cal": "2024-10-17.0",
-			"equinox": "J2000",
-			"q": 38.526,
-			"ad": 97.68,
-			"n": 0.001754,
-			"tp": 2545818.73,
-			"tp_cal": "2258-02-11.2",
-			"per": 205000.0,
-			"per_y": 562.0,
-			"moid": 37.6,
-			"moid_ld": 14600.0,
-			"moid_jup": 33.3,
-			"t_jup": 4.78,
-			"sigma_e": 3.9e-06,
-			"sigma_a": 0.00029,
-			"sigma_q": 0.00016,
-			"sigma_i": 3.3e-05,
-			"sigma_om": 1.5e-05,
-			"sigma_w": 0.0025,
-			"sigma_ma": 0.0056,
-			"sigma_ad": 0.00042,
-			"sigma_n": 1.1e-08,
-			"sigma_tp": 2.7,
-			"sigma_per": 1.3,
-			"class": "TNO",
-			"producer": "Otto Matic",
-			"data_arc": 25512,
-			"first_obs": "03/09/1954",
-			"last_obs": "09/07/2024",
-			"n_obs_used": 3135,
-			"condition_code": 3.0,
-			"rms": 0.37354
-		},
+    },
+    "Eris": {
+        "orbitParams": {
+            "epoch": 2460600.5,
+            "a": 68.1,
+            "e": 0.4343,
+            "inc": 43.78,
+            "node": 36.06,
+            "peri": 150.72,
+            "ma": 210.55
+        },
         "renderParams": {
             "is_dwarf": true,
             "radius": 0.01,
             "color": "#B7B8B9",
             "texture": "4k_eris_fictional.jpg"
+        },
+        "extraParams": {
+            "diameter_km": 2326,
+            "average_temperature_C": -243,
+            "surface_gravity_m_s2": 0.82,
+            "mass_kg": 1.6466e+22,
+            "obliquity": 0
         }
-	},
-	"Makemake": {
-		"orbitParams": {
-			"epoch": 2460600.5,
-			"a": 45.38,
-			"e": 0.1635,
-			"inc": 29.03,
-			"node": 79.26,
-			"peri": 296.75,
-			"ma": 168.42
-		},
-		"ExtraParams": {
-			"spkid": 20136472,
-			"full_name": "136472 Makemake (2005 FY9)",
-			"pdes": 136472,
-			"name": "Makemake",
-			"neo": "N",
-			"pha": "N",
-			"sats": 1,
-			"H": -0.22,
-			"rot_per": 22.8266,
-			"orbit_id": "JPL 120",
-			"epoch_mjd": 60600,
-			"epoch_cal": "2024-10-17.0",
-			"equinox": "J2000",
-			"q": 37.962,
-			"ad": 52.81,
-			"n": 0.003224,
-			"tp": 2408356.76,
-			"tp_cal": "1881-10-03.2",
-			"per": 112000.0,
-			"per_y": 306.0,
-			"moid": 37.1,
-			"moid_ld": 14400.0,
-			"moid_jup": 33.5,
-			"t_jup": 5.21,
-			"sigma_e": 1.4e-06,
-			"sigma_a": 5.4e-05,
-			"sigma_q": 9.5e-05,
-			"sigma_i": 1.5e-06,
-			"sigma_om": 1.5e-05,
-			"sigma_w": 0.0012,
-			"sigma_ma": 0.0017,
-			"sigma_ad": 6.3e-05,
-			"sigma_n": 5.7e-09,
-			"sigma_tp": 0.51,
-			"sigma_per": 0.2,
-			"class": "TNO",
-			"producer": "Otto Matic",
-			"data_arc": 25368,
-			"first_obs": "29/01/1955",
-			"last_obs": "13/07/2024",
-			"n_obs_used": 5169,
-			"condition_code": 1.0,
-			"rms": 0.23977
-		},
+    },
+    "Makemake": {
+        "orbitParams": {
+            "epoch": 2460600.5,
+            "a": 45.38,
+            "e": 0.1635,
+            "inc": 29.03,
+            "node": 79.26,
+            "peri": 296.75,
+            "ma": 168.42
+        },
         "renderParams": {
             "is_dwarf": true,
             "radius": 0.01,
             "color": "#B7B8B9",
             "texture": "4k_makemake_fictional.jpg"
+        },
+        "extraParams": {
+            "diameter_km": 1430,
+            "average_temperature_C": -239,
+            "surface_gravity_m_s2": 0.5,
+            "mass_kg": 3.1e+21,
+            "obliquity": 0
         }
-	}
+    }
 }

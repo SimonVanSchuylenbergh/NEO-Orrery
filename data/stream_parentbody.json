@@ -1,6 +1,6 @@
 {
     "C/1917 F1 (Mellish)": {
-        "OrbitParams": {
+        "orbitParams": {
             "epoch": 2421318.5,
             "a": 27.4,
             "e": 0.9931,
@@ -57,7 +57,7 @@
         }
     },
     "C/1911 N1 (Kiess)": {
-        "OrbitParams": {
+        "orbitParams": {
             "epoch": 2419247.5,
             "a": 183.7,
             "e": 0.9963,
@@ -114,7 +114,7 @@
         }
     },
     "P/2008 Y12 (SOHO)": {
-        "OrbitParams": {
+        "orbitParams": {
             "epoch": 2455493.5,
             "a": 3.078,
             "e": 0.9788,
@@ -171,7 +171,7 @@
         }
     },
     "C/1983 H1 (IRAS-Araki-Alcock)": {
-        "OrbitParams": {
+        "orbitParams": {
             "epoch": 2445467.5,
             "a": 98.03,
             "e": 0.9899,
@@ -228,7 +228,7 @@
         }
     },
     "C/1979 Y1 (Bradfield)": {
-        "OrbitParams": {
+        "orbitParams": {
             "epoch": 2444263.5,
             "a": 45.59,
             "e": 0.988,
@@ -285,7 +285,7 @@
         }
     },
     "C/1861 G1 (Thatcher)": {
-        "OrbitParams": {
+        "orbitParams": {
             "epoch": 2401000.5,
             "a": 55.8,
             "e": 0.9835,
@@ -342,7 +342,7 @@
         }
     },
     "169P/NEAT": {
-        "OrbitParams": {
+        "orbitParams": {
             "epoch": 2455087.5,
             "a": 2.606,
             "e": 0.7668,
@@ -399,7 +399,7 @@
         }
     },
     "109P/Swift-Tuttle": {
-        "OrbitParams": {
+        "orbitParams": {
             "epoch": 2450000.5,
             "a": 26.09,
             "e": 0.9632,
@@ -456,7 +456,7 @@
         }
     },
     "55P/Tempel-Tuttle": {
-        "OrbitParams": {
+        "orbitParams": {
             "epoch": 2451040.5,
             "a": 10.34,
             "e": 0.9056,
@@ -513,7 +513,7 @@
         }
     },
     "26P/Grigg-Skjellerup": {
-        "OrbitParams": {
+        "orbitParams": {
             "epoch": 2455951.5,
             "a": 3.027,
             "e": 0.6391,
@@ -570,7 +570,7 @@
         }
     },
     "21P/Giacobini-Zinner": {
-        "OrbitParams": {
+        "orbitParams": {
             "epoch": 2458065.5,
             "a": 3.5,
             "e": 0.7105,
@@ -627,7 +627,7 @@
         }
     },
     "8P/Tuttle": {
-        "OrbitParams": {
+        "orbitParams": {
             "epoch": 2454701.5,
             "a": 5.7,
             "e": 0.8198,
@@ -684,7 +684,7 @@
         }
     },
     "7P/Pons-Winnecke": {
-        "OrbitParams": {
+        "orbitParams": {
             "epoch": 2457137.5,
             "a": 3.419,
             "e": 0.6376,
@@ -741,7 +741,7 @@
         }
     },
     "2P/Encke": {
-        "OrbitParams": {
+        "orbitParams": {
             "epoch": 2459766.5,
             "a": 2.22,
             "e": 0.8484,
@@ -798,7 +798,7 @@
         }
     },
     "1P/Halley": {
-        "OrbitParams": {
+        "orbitParams": {
             "epoch": 2439907.5,
             "a": 17.93,
             "e": 0.9679,
@@ -855,7 +855,7 @@
         }
     },
 	"1P/Halley": {
-        "OrbitParams": {
+        "orbitParams": {
             "epoch": 2439907.5,
             "a": 17.93,
             "e": 0.9679,
@@ -912,7 +912,7 @@
         }
     },
     "(2004 TG10)": {
-        "OrbitParams": {
+        "orbitParams": {
             "epoch": 2460600.5,
             "a": 2.236,
             "e": 0.861,
@@ -969,7 +969,7 @@
         }
     },
     "196256 (2003 EH1)": {
-        "OrbitParams": {
+        "orbitParams": {
             "epoch": 2460600.5,
             "a": 3.122,
             "e": 0.6187,
@@ -1026,7 +1026,7 @@
         }
     },
     "3200 Phaethon": {
-        "OrbitParams": {
+        "orbitParams": {
             "epoch": 2460600.5,
             "a": 1.271,
             "e": 0.8898,
