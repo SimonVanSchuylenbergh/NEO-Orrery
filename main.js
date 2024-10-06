@@ -107,12 +107,20 @@ window.addEventListener("keydown", (event) => {
         console.log('4 is pressed down!');
         
     }
-    else if (event.code === 'KeyQ') { //decrease clicking threshold (logarithmically)
-        console.log('Q key is pressed down!');
-        
+    else if (event.code === 'KeyQ') { //decrease clicking percision --> increase threshold
+        const newThreshold = Math.exp(0.05)*raycaster.params.Line.threshold;
+        if (newThreshold <= Math.exp(4)) {
+            raycaster.params.Line.threshold = newThreshold;
+        }
+        console.log(raycaster.params.Line.threshold);
+
     }
-    else if (event.code === 'KeyE') { //increase clicking threshold (logarithmically)
-        console.log('E key is pressed down!');
+    else if (event.code === 'KeyE') { //increase clicking percision --> decrease threshold
+        const newThreshold = Math.exp(-0.05)*raycaster.params.Line.threshold;
+        if (newThreshold >= Math.exp(-4)) {
+            raycaster.params.Line.threshold = newThreshold;
+        }
+        console.log(raycaster.params.Line.threshold);
         
     }
     else if (event.code === 'KeyA') { //cycle parameter in descending order (e.g. eccentricity)
