@@ -967,13 +967,6 @@ function animate(time) {
         {daytext = 'day'};
     document.getElementById("timespeed").textContent = `Speed: ${TIMESPEEDS[timeSpeedIndex].toPrecision(3)} ${daytext}/second`;
 
-    // if (TIMESPEEDS[timeSpeedIndex] < 1.00){
-    //     document.getElementById("timespeed").textContent = `Speed: ${TIMESPEEDS[timeSpeedIndex].toPrecision(3)}\u00D7 10\u207B\u2074`;
-
-    //     const speed = TIMESPEEDS[timeSpeedIndex] * 1e3.toPrecision(3)
-    // }
-    // const speed = 
-
     controls.update();
     renderer.render(scene, camera);
 }
