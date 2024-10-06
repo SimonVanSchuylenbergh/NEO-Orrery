@@ -107,6 +107,25 @@
             "texture": "8k_saturn.jpg"
         }
     },
+    "rings": {
+        "orbitParams": {
+            
+            "epoch": 2451545,
+            "a": 9.53707032,
+            "e": 0.05415060,
+            "inc": 2.48446,
+            "node": 113.71504,
+            "peri": -21.2831,
+            "ma": -42.48762
+        },
+        "renderParams": {
+            "is_dwarf": false,
+            "innerRadius": 0.022,
+            "outerRadius": 0.042,
+            "color": "#ead6b8",
+            "texture": "2k_saturn_rings.png"
+        }
+    },
     "Uranus": {
         "orbitParams": {
             
