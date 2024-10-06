@@ -5,168 +5,263 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NEO Page</title>
     <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.0/nouislider.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.0/nouislider.min.js"></script>
 </head>
-<body>
-  <div class="selection-panel">
-    <div>
-      Selection order: 
-      <nav class="selection-order-dropdown">
-        <button class="selection-order-dropdown-button">Risk</button>
-        <div class="selection-order-dropdown-content">
-          <a href="#" data-value="Risk">Risk</a>
-          <a href="#" data-value="Size">Size</a>
-          <a href="#" data-value="First possible impact">First possible impact</a>
-          <a href="#" data-value="Semi-major axis">Semi-major axis</a>
-          <a href="#" data-value="Eccentricity">Eccentricity</a>
+<body style="background-color: black; pointer-events: auto;">
+    <div class="selection-panel">
+        <div>
+            Selection order: 
+            <nav class="selection-order-dropdown">
+                <button class="selection-order-dropdown-button">Risk</button>
+                <div class="selection-order-dropdown-content">
+                    <a href="#" data-value="Risk">Risk</a>
+                    <a href="#" data-value="Size">Size</a>
+                    <a href="#" data-value="First possible impact">First possible impact</a>
+                    <a href="#" data-value="Semi-major axis">Semi-major axis</a>
+                    <a href="#" data-value="Eccentricity">Eccentricity</a>
+                </div>
+            </nav>
         </div>
-      </nav>
+        <div class="selection-panel-button-container">
+            <button class="selection-panel-button" id="prev-btn">Previous</button>
+            <button class="selection-panel-button" id="next-btn">Next</button>
+        </div>
     </div>
-    <div class="selection-panel-button-container">
-      <button class="selection-panel-button" id="prev-btn">Previous</button>
-      <button class="selection-panel-button" id="next-btn">Next</button>
+
+    <div class="info-panel">
+        <h1 id="info-name"></h1>
+        <p id="info-diameter"></p>
+        <p id="info-first-impact"></p>
+        <p id="info-impact-period"></p>
+        <p id="info-risk"></p>
+        <p id="info-vel"></p>
+        <h2>Orbital parameters:</h2>
+        <p id="info-a" style="padding-left: 20px;"></p>
+        <p id="info-e" style="padding-left: 20px;"></p>
+        <p id="info-inc" style="padding-left: 20px;"></p>
+        <p id="info-node" style="padding-left: 20px;"></p>
+        <p id="info-peri" style="padding-left: 20px;"></p>
+        <p id="info-ma" style="padding-left: 20px;"></p>
+        <p id="info-epoch" style="padding-left: 20px;"></p>
     </div>
-  </div>
 
-  <div class="info-panel">
-    <h1 id="info-name"></h1>
-    <p id="info-diameter"></p>
-    <p id="info-first-impact"></p>
-    <p id="info-impact-period"></p>
-    <p id="info-risk"></p>
-    <p id="info-vel"></p>
-    <h2>Orbital parameters:</h2>
-    <p id="info-a" style="padding-left: 20px;"></p>
-    <p id="info-e" style="padding-left: 20px;"></p>
-    <p id="info-inc" style="padding-left: 20px;"></p>
-    <p id="info-node" style="padding-left: 20px;"></p>
-    <p id="info-peri" style="padding-left: 20px;"></p>
-    <p id="info-ma" style="padding-left: 20px;"></p>
-    <p id="info-epoch" style="padding-left: 20px;"></p>
-  </div>
+    <div class="time-control-panel">
+        <button class="time-control-button" onmouseover="swapImage(this, 'assets/icon-time-fastbackward-hover.png')" onmouseout="swapImage(this, 'assets/icon-time-fastbackward.png')">
+            <img src="assets/icon-time-fastbackward.png" alt="" width="198" height="128" class="time-control-icon">
+        </button>
+        <button class="time-control-button" onmouseover="swapImage(this, 'assets/icon-time-backward-hover.png')" onmouseout="swapImage(this, 'assets/icon-time-backward.png')">
+            <img src="assets/icon-time-backward.png" alt="" width="128" height="128" class="time-control-icon">
+        </button>
+        <button class="time-control-button" onmouseover="swapImage(this, 'assets/icon-time-now-hover.png')" onmouseout="swapImage(this, 'assets/icon-time-now.png')">
+            <img src="assets/icon-time-now.png" alt="" width="128" height="128" class="time-control-icon">
+        </button>
+        <button class="time-control-button" onmouseover="swapImage(this, 'assets/icon-time-forward-hover.png')" onmouseout="swapImage(this, 'assets/icon-time-forward.png')">
+            <img src="assets/icon-time-forward.png" alt="" width="128" height="128" class="time-control-icon">
+        </button>
+        <button class="time-control-button" onmouseover="swapImage(this, 'assets/icon-time-fastforward-hover.png')" onmouseout="swapImage(this, 'assets/icon-time-fastforward.png')">
+            <img src="assets/icon-time-fastforward.png" alt="" width="198" height="128" class="time-control-icon">
+        </button>
+    </div>
 
-  <div class="time-control-panel">
-    <button class="time-control-button" onmouseover="swapImage(this, 'assets/icon-time-fastbackward-hover.png')" onmouseout="swapImage(this, 'assets/icon-time-fastbackward.png')">
-      <img src="assets/icon-time-fastbackward.png" alt="" width="198" height="128" class="time-control-icon">
-    </button>
-    <button class="time-control-button" onmouseover="swapImage(this, 'assets/icon-time-backward-hover.png')" onmouseout="swapImage(this, 'assets/icon-time-backward.png')">
-      <img src="assets/icon-time-backward.png" alt="" width="128" height="128" class="time-control-icon">
-    </button>
-    <button class="time-control-button" onmouseover="swapImage(this, 'assets/icon-time-now-hover.png')" onmouseout="swapImage(this, 'assets/icon-time-now.png')">
-      <img src="assets/icon-time-now.png" alt="" width="128" height="128" class="time-control-icon">
-    </button>
-    <button class="time-control-button" onmouseover="swapImage(this, 'assets/icon-time-forward-hover.png')" onmouseout="swapImage(this, 'assets/icon-time-forward.png')">
-      <img src="assets/icon-time-forward.png" alt="" width="128" height="128" class="time-control-icon">
-    </button>
-    <button class="time-control-button" onmouseover="swapImage(this, 'assets/icon-time-fastforward-hover.png')" onmouseout="swapImage(this, 'assets/icon-time-fastforward.png')">
-      <img src="assets/icon-time-fastforward.png" alt="" width="198" height="128" class="time-control-icon">
-    </button>
-  </div>
+    <div class="filter-panel">
+        <form>
+            <label>
+                <input type="checkbox" name="planets" value="Planets">
+                Planets
+            </label><br>
 
-  <div class="filter-panel">
-    <form>
-      <label>
-        <input type="checkbox" name="planets" value="Planets">
-        Planets
-      </label><br>
-      
-      <label>
-        <input type="checkbox" name="neos" value="NEOs">
-        Near-Earth Objects
-      </label><br>
-    
-      <label>
-        <input type="checkbox" name="dwarf planets" value="Dwarf planets">
-        Dwarf planets
-      </label><br>
+            <label>
+                <input type="checkbox" name="dwarf planets" value="Dwarf planets">
+                Dwarf planets
+            </label><br>
+            
+            <label>
+                <input type="checkbox" name="neos" value="NEOs">
+                Near-Earth Objects
+            </label><br>
+            <dev>
+                <div class="slider-container">
+                    <div class="output" id="risk-lower-value">0</div>
+                    <div class="slider" id="risk-slider"></div>
+                    <div class="output" id="risk-upper-value">100</div>
+                </div>
+                <div class="slider-container">
+                    <div class="output" id="size-lower-value">0</div>
+                    <div class="slider" id="size-slider"></div>
+                    <div class="output" id="size-upper-value">100</div>
+                </div>
+                <div class="slider-container">
+                    <div class="output" id="a-lower-value">0</div>
+                    <div class="slider" id="a-slider"></div>
+                    <div class="output" id="a-upper-value">100</div>
+                </div>
+                <div class="slider-container">
+                    <div class="output" id="e-lower-value">0</div>
+                    <div class="slider" id="e-slider"></div>
+                    <div class="output" id="e-upper-value">100</div>
+                </div>
+            </dev><br>
 
-      <label>
-        <input type="checkbox" name="showers" value="Showers">
-        Showers
-      </label>
-    </form>
-  </div>
+            <label>
+                <input type="checkbox" name="showers" value="Showers">
+                Showers
+            </label>
+        </form>
+    </div>
 
-  <script>
-    // Global variable to store JSON data
-    let jsonData = [];
-    let currentIndex = 0;
+    <script>
 
-    const dropdownButton = document.querySelector('.selection-order-dropdown-button');
-    const dropdownContent = document.querySelector('.selection-order-dropdown-content');
-    const dropdownLinks = document.querySelectorAll('.selection-order-dropdown-content a');
+        noUiSlider.create(document.getElementById('risk-slider'), {
+            start: [0, 100],
+            connect: true,
+            range: {
+                'min': 0,
+                'max': 100
+            },
+            step: 1
+        });
+        noUiSlider.create(document.getElementById('size-slider'), {
+            start: [0, 100],
+            connect: true,
+            range: {
+                'min': 0,
+                'max': 100
+            },
+            step: 1
+        });
+        noUiSlider.create(document.getElementById('a-slider'), {
+            start: [0, 100],
+            connect: true,
+            range: {
+                'min': 0,
+                'max': 100
+            },
+            step: 1
+        });
+        noUiSlider.create(document.getElementById('e-slider'), {
+            start: [0, 100],
+            connect: true,
+            range: {
+                'min': 0,
+                'max': 100
+            },
+            step: 1
+        });
 
-    function sortByImpact(data) {
-      return data.slice().sort((a, b) => new Date(a.impact) - new Date(b.impact));
-    }
+        // Update the displayed values when the slider values change
+        document.getElementById('risk-slider').noUiSlider.on('update', function(values, handle) {
+            if (handle === 0) {
+                document.getElementById('risk-lower-value').textContent = `Risk: ${Math.round(values[0])}`;
+            } else {
+                document.getElementById('risk-upper-value').textContent = Math.round(values[1]);
+            }
+        });
+        document.getElementById('size-slider').noUiSlider.on('update', function(values, handle) {
+            if (handle === 0) {
+                document.getElementById('size-lower-value').textContent = `Size: ${Math.round(values[0])}`;
+            } else {
+                document.getElementById('size-upper-value').textContent = Math.round(values[1]);
+            }
+        });
+        document.getElementById('a-slider').noUiSlider.on('update', function(values, handle) {
+            if (handle === 0) {
+                document.getElementById('a-lower-value').textContent = `a: ${Math.round(values[0])}`;
+            } else {
+                document.getElementById('a-upper-value').textContent = Math.round(values[1]);
+            }
+        });
+        document.getElementById('e-slider').noUiSlider.on('update', function(values, handle) {
+            if (handle === 0) {
+                document.getElementById('e-lower-value').textContent = `e: ${Math.round(values[0])}`;
+            } else {
+                document.getElementById('e-upper-value').textContent = Math.round(values[1]);
+            }
+        });
 
-    function sortBySemiMajorAxis(data) {
-      return data.slice().sort((a, b) => a.a - b.a);
-    }
 
-    function sortByEccentricity(data) {
-      return data.slice().sort((a, b) => a.e - b.e);
-    }
 
-    function sortByRisk(data) {
-      return data.slice().sort((a, b) => b['PS max'] - a['PS max']);
-    }
 
-    function sortByInclination(data) {
-      return data.slice().sort((a, b) => a.inc - b.inc);
-    }
+        // Global variable to store JSON data
+        let jsonData = [];
+        let currentIndex = 0;
 
-    function sortBySize(data) {
-      return data.slice().sort((a, b) => b.diameter - a.diameter);
-    }
+        const dropdownButton = document.querySelector('.selection-order-dropdown-button');
+        const dropdownContent = document.querySelector('.selection-order-dropdown-content');
+        const dropdownLinks = document.querySelectorAll('.selection-order-dropdown-content a');
 
-    // Function to handle the "Next" button click
-    document.getElementById('next-btn').addEventListener('click', function() {
-      currentIndex += 1;
-      displayObjects();
-    });
-
-    // Animations for time controls
-    function swapImage(button, newimage) {
-      const img = button.querySelector('.time-control-icon');
-      img.src = newimage;
-    }
-
-    // Toggle dropdown visibility on button click
-    dropdownButton.addEventListener('click', function() {
-      dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
-    });
-
-    // Selection order controls
-    dropdownLinks.forEach(link => {
-      link.addEventListener('click', function(event) {
-        event.preventDefault();
-        const selectedValue = this.getAttribute('data-value');
-        dropdownButton.textContent = selectedValue
-        dropdownContent.style.display = 'none';
-      });
-    });
-
-    // Close dropdown if clicked outside
-    window.addEventListener('click', function(event) {
-      if (!event.target.matches('.selection-order-dropdown-button')) {
-        dropdownContent.style.display = 'none';
-      }
-    });
-
-    document.querySelector('input[name="planets"]').checked = true;
-    document.querySelector('input[name="neos"]').checked = true;
-    document.querySelector('input[name="dwarf planets"]').checked = true;
-
-    // Add event listener to each checkbox
-    document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
-      checkbox.addEventListener('change', (event) => {
-        if (event.target.checked) {
-          console.log(`${event.target.value} is checked`);
-        } else {
-          console.log(`${event.target.value} is unchecked`);
+        function sortByImpact(data) {
+            return data.slice().sort((a, b) => new Date(a.impact) - new Date(b.impact));
         }
-      });
-    });
-  </script>
+
+        function sortBySemiMajorAxis(data) {
+            return data.slice().sort((a, b) => a.a - b.a);
+        }
+
+        function sortByEccentricity(data) {
+            return data.slice().sort((a, b) => a.e - b.e);
+        }
+
+        function sortByRisk(data) {
+            return data.slice().sort((a, b) => b['PS max'] - a['PS max']);
+        }
+
+        function sortByInclination(data) {
+            return data.slice().sort((a, b) => a.inc - b.inc);
+        }
+
+        function sortBySize(data) {
+            return data.slice().sort((a, b) => b.diameter - a.diameter);
+        }
+
+        // Function to handle the "Next" button click
+        document.getElementById('next-btn').addEventListener('click', function() {
+            currentIndex += 1;
+            displayObjects();
+        });
+
+        // Animations for time controls
+        function swapImage(button, newimage) {
+            const img = button.querySelector('.time-control-icon');
+            img.src = newimage;
+        }
+
+        // Toggle dropdown visibility on button click
+        dropdownButton.addEventListener('click', function() {
+            dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+        });
+
+        // Selection order controls
+        dropdownLinks.forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+                const selectedValue = this.getAttribute('data-value');
+                dropdownButton.textContent = selectedValue
+                dropdownContent.style.display = 'none';
+            });
+        });
+
+        // Close dropdown if clicked outside
+        window.addEventListener('click', function(event) {
+            if (!event.target.matches('.selection-order-dropdown-button')) {
+                dropdownContent.style.display = 'none';
+            }
+        });
+
+        document.querySelector('input[name="planets"]').checked = true;
+        document.querySelector('input[name="neos"]').checked = true;
+        document.querySelector('input[name="dwarf planets"]').checked = true;
+
+        // Add event listener to each checkbox
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', (event) => {
+                if (event.target.checked) {
+                    console.log(`${event.target.value} is checked`);
+                } else {
+                    console.log(`${event.target.value} is unchecked`);
+                }
+            });
+        });
+    </script>
 </body>
 </html>

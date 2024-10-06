@@ -3,7 +3,7 @@ import * as THREE from 'https://cdn.skypack.dev/three@0.124.0/build/three.module
 // import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.114/examples/jsm/loaders/GLTFLoader.js';
 import { OrbitControls } from 'https://cdn.skypack.dev/three@0.128.0/examples/jsm/controls/OrbitControls.js';
 import { createOrbit, getOrbitPosition, JulianDateToTrueAnomaly } from './orbits.js'
-import { JDToMJD, MJDToJD } from './TimeUtils.js'
+import { JDToMJD, MJDToDatetime, MJDToJD } from './TimeUtils.js'
 
 // Constants
 const DEG_TO_RAD = Math.PI / 180;
@@ -19,10 +19,13 @@ const PARENT_ORBIT_COLOR = 0xFF0000;
 
 const NEO_COLOR = 0xFFFFFF;
 const NEO_RADIUS = 0.01;
-const MAX_VISIBLE_NEOS = 2;
-const MAX_VISIBLE_SHOWERS = 2;
+const MAX_VISIBLE_NEOS = 9999;
+const MAX_VISIBLE_SHOWERS = 9999;
 
 const MOUSE_MIN_MOVE_CLICK = 0.005;
+
+const SUNOBLIQUITY = 7.25; // degrees
+const SUNROTPER = 25.05;  // days
 
 const TIMESPEEDS = [-365, -30, -7, -1, -3600 / 86400, -60 / 86400, -1 / 86400, 1 / 86400, 60 / 86400, 3600 / 86400, 1, 7, 30, 365]
 
@@ -30,6 +33,48 @@ const TIMESPEEDS = [-365, -30, -7, -1, -3600 / 86400, -60 / 86400, -1 / 86400, 1
 let JD = (Date.now() / 86400000) + 2440587.5;
 let MJD = JDToMJD(JD);
 let timeSpeedIndex = 10;
+
+// Filter conditions for objects
+class FilterConditions{
+    constructor(){
+        this.riskRange = [-99, 99]
+        this.sizeRange = [0, 9999]
+        //this.firstImpactRange((Date.now() / 86400000) + 2440587.5, (Date.now() / 86400000) + 2440587.5 + 365 * 100)
+        this.aRange = [0, 100]
+        this.eRange = [0, 1]
+        //this.shownNEOClasses = []
+        this.shownTypes = ['Planet', 'Dwarf planet', 'NEO']
+    }
+
+    checkPassesFilters(object) {
+        if (('renderParams' in object.data) && ('is_dwarf' in object.data.renderParams) && (object.data.renderParams.is_dwarf)){
+            for (let t of this.shownTypes){
+                if (t == 'Dwarf planet') return true;
+            }
+            return false;
+        }
+        else if (('renderParams' in object.data) && ('is_dwarf' in object.data.renderParams)){
+            for (let t of this.shownTypes){
+                if (t == 'Planet') return true;
+            }
+            return false;
+        }
+        if ((object.data.extraParams['PS max'] < this.riskRange[0]) || (object.data.extraParams['PS max'] > this.riskRange[1]))
+            return false;
+        if ((object.data.extraParams.diameter < this.sizeRange[0]) || (object.data.extraParams.diameter > this.sizeRange[1]))
+            return false;
+        if ((object.data.orbitParams.a < this.aRange[0]) || (object.data.orbitParams.a > this.aRange[1]))
+            return false;
+        if ((object.data.orbitParams.e < this.eRange[0]) || (object.data.orbitParams.e > this.eRange[1]))
+            return false;
+        for (let t of this.shownTypes){
+            if (t == 'NEO') return true;
+        }
+        return false;
+    }
+}
+
+let filterConditions = new FilterConditions()
 
 // FPS control
 const targetFPS = 60; // Target frames per second
@@ -325,7 +370,7 @@ document.addEventListener('pointerup', (event) => {
             updateSpriteTexture(sprite, highlightedObj.userData.parent.name);
             // Make visible
             sprite.scale.set(0.1, 0.1, 0.1);  // Adjust the size of the label
-            sprite.position.set(0.03, -0.015, 0.03);  // Move it above the object
+            sprite.position.set(0, -0.015, 0);  // Move it above the object
             highlightedObj.userData.parent.bodyMesh.add(sprite); // add to object
         }
     }
@@ -341,28 +386,57 @@ document.addEventListener('pointerup', (event) => {
 
 
 // Event listeners for time controls
-document.getElementById('fastbackward-button').addEventListener('click', function() {
+document.getElementById('fastbackward-button').addEventListener('pointerup', function(event) { event.stopPropagation(); });
+document.getElementById('fastbackward-button').addEventListener('pointerdown', function(event) { event.stopPropagation(); });
+document.getElementById('fastbackward-button').addEventListener('click', function(event) {
     if (timeSpeedIndex > 0) timeSpeedIndex -= 1;
-    console.log('Timespeed: ', TIMESPEEDS[timeSpeedIndex]);
+    event.stopPropagation();
+    //console.log('Timespeed: ', TIMESPEEDS[timeSpeedIndex]);
 });
-document.getElementById('backward-button').addEventListener('click', function() {
+document.getElementById('backward-button').addEventListener('pointerup', function(event) { event.stopPropagation(); });
+document.getElementById('backward-button').addEventListener('pointerdown', function(event) { event.stopPropagation(); });
+document.getElementById('backward-button').addEventListener('click', function(event) {
     timeSpeedIndex = 6;
-    console.log('Timespeed: ', TIMESPEEDS[timeSpeedIndex]);
+    event.stopPropagation();
+    //console.log('Timespeed: ', TIMESPEEDS[timeSpeedIndex]);
 });
-document.getElementById('now-button').addEventListener('click', function() {
+document.getElementById('now-button').addEventListener('pointerup', function(event) { event.stopPropagation(); });
+document.getElementById('now-button').addEventListener('pointerdown', function(event) { event.stopPropagation(); });
+document.getElementById('now-button').addEventListener('click', function(event) {
     timeSpeedIndex = 7;
     JD = (Date.now() / 86400000) + 2440587.5;
     MJD = JDToMJD(JD);
-    console.log('Timespeed: ', TIMESPEEDS[timeSpeedIndex]);
+    event.stopPropagation();
+    //console.log('Timespeed: ', TIMESPEEDS[timeSpeedIndex]);
 });
-document.getElementById('forward-button').addEventListener('click', function() {
+document.getElementById('forward-button').addEventListener('pointerup', function(event) { event.stopPropagation(); });
+document.getElementById('forward-button').addEventListener('pointerdown', function(event) { event.stopPropagation(); });
+document.getElementById('forward-button').addEventListener('click', function(event) {
     timeSpeedIndex = 7;
-    console.log('Timespeed: ', TIMESPEEDS[timeSpeedIndex]);
+    event.stopPropagation();
+    //console.log('Timespeed: ', TIMESPEEDS[timeSpeedIndex]);
 });
-document.getElementById('fastforward-button').addEventListener('click', function() {
+document.getElementById('fastforward-button').addEventListener('pointerup', function(event) { event.stopPropagation(); });
+document.getElementById('fastforward-button').addEventListener('pointerdown', function(event) { event.stopPropagation(); });
+document.getElementById('fastforward-button').addEventListener('click', function(event) {
     if (timeSpeedIndex < TIMESPEEDS.length-1) timeSpeedIndex += 1;
-    console.log('Timespeed: ', TIMESPEEDS[timeSpeedIndex]);
+    event.stopPropagation();
+    //console.log('Timespeed: ', TIMESPEEDS[timeSpeedIndex]);
 });
+
+// Listeners for clicking overlay
+document.getElementById('open-overlay').addEventListener('pointerup', function(event) { event.stopPropagation(); });
+document.getElementById('open-overlay').addEventListener('pointerdown', function(event) { event.stopPropagation(); });
+document.getElementById('open-overlay').addEventListener('click', function(event){
+    document.getElementById('keyboardOverlay').classList.add('show');
+    event.stopPropagation();
+})
+document.getElementById('close-overlay').addEventListener('pointerup', function(event) { event.stopPropagation(); });
+document.getElementById('close-overlay').addEventListener('pointerdown', function(event) { event.stopPropagation(); });
+document.getElementById('close-overlay').addEventListener('click', function(event){
+    document.getElementById('keyboardOverlay').classList.remove('show');
+    event.stopPropagation();
+})
 
 // Functions
 
@@ -382,8 +456,10 @@ function addSun() {
 
     const geometry = new THREE.SphereGeometry(0.02, DEFAULT_MESH_N, DEFAULT_MESH_N);
     const material = new THREE.MeshBasicMaterial({map: sunTexture});
-    const sunMesh = new THREE.Mesh(geometry, material);
+    var sunMesh = new THREE.Mesh(geometry, material);
     scene.add(sunMesh);
+
+    return sunMesh;
 }
 
 async function initializePlanets() {
@@ -432,10 +508,6 @@ async function initializePlanets() {
         orbit.userData.parent = body;
         mesh.userData.parent = body;
         planets.push(body);
-
-        // Add to scene
-        scene.add(orbit);
-        scene.add(mesh);
     }
 }
 
@@ -461,10 +533,7 @@ async function initializeNeos() {
 
         orbit.userData.parent = body;
         neoMesh.userData.parent = body;
-        planets.push(body);
-
-        scene.add(orbit);
-        scene.add(neoMesh);
+        neos.push(body);
 
         i += 1;
         if (i == MAX_VISIBLE_NEOS) { break };
@@ -644,7 +713,7 @@ const radialGradientPlane = createRadialGradientPlane(planeWidth, planeWidth);
 
 
 // Data
-let sunMesh;
+// let sunMesh;
 const planets = [];
 const stream = [];
 const neos = [];
@@ -657,18 +726,6 @@ class Body {
         this.data = data;
         this.orbitMesh = orbitMesh;
         this.bodyMesh = bodyMesh;
-
-        // These will be pointers used for cycling through objects
-        this.nextLargerSize;
-        this.nextSmallerSize;
-        this.nextLargerRisk;
-        this.nextSmallerRisk;
-        this.nextLargerImpactTime;
-        this.nextSmallerImpactTime;
-        this.nextLargerA;
-        this.nextSmallerA;
-        this.nextLargerE;
-        this.nextSmallerE;
     }
 
     setPosition(pos) {
@@ -704,11 +761,141 @@ function updateParentBodyPosition(parentBody, JD) {
     parentBody.mesh.position.set(pos.x, pos.y, pos.z);
 }
 
+function updateParentBodyPosition(parentBody, JD) {
+    const orbitParams = parentBody.orbitParams;
+    const trueAnomaly = JulianDateToTrueAnomaly(orbitParams, JD);
 
-addSun();
+    const pos = getOrbitPosition(orbitParams.a, orbitParams.e, trueAnomaly, orbitParams.transformMatrix);
+    parentBody.mesh.position.set(pos.x, pos.y, pos.z);
+}
+
+
+let sunMesh = addSun(); // Generate sunMesh and also return it so can be rotated
 await initializePlanets(); // Initialize planets once
 await initializeNeos(); // Initialize NEOs once
 await initializeShower();
+
+
+// Event listeners for filter toggles
+document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+    checkbox.addEventListener('change', (event) => {
+        if (event.target.checked) {
+            filterConditions.shownTypes.push(event.target.value);
+            updateOrbits(filterConditions);
+        } else {
+            filterConditions.shownTypes.pop(filterConditions.shownTypes.indexOf(event.target.value));
+            updateOrbits(filterConditions);
+        }
+    });
+});
+
+// Create quantiles of parameter values used for filtering
+function getQuantiles(objects, attribute) {
+    // Step 1: Extract the attribute values
+    const values = objects.map(obj => obj[attribute]);
+
+    // Step 2: Sort the values
+    values.sort((a, b) => a - b);
+
+    // Step 3: Calculate the quantiles
+    let quantiles = [];
+    for (let i = 0; i <= 100; i++) {
+        let index = Math.round(i * (values.length - 1) / 100);
+        quantiles.push(values[index]);
+    }
+
+    return quantiles;
+}
+
+const RISK_QUANTILES = getQuantiles(neos.map(obj => obj.data.extraParams), 'PS max');
+const SIZE_QUANTILES = getQuantiles(neos.map(obj => obj.data.extraParams), 'diameter');
+const A_QUANTILES = getQuantiles(neos.map(obj => obj.data.orbitParams), 'a');
+const E_QUANTILES = getQuantiles(neos.map(obj => obj.data.orbitParams), 'e');
+
+// Sliders for filter panel
+// ==============================================================
+noUiSlider.create(document.getElementById('risk-slider'), {
+    start: [0, 100],
+    connect: true,
+    range: {
+        'min': 0,
+        'max': 100
+    },
+    step: 1
+});
+noUiSlider.create(document.getElementById('size-slider'), {
+    start: [0, 100],
+    connect: true,
+    range: {
+        'min': 0,
+        'max': 100
+    },
+    step: 1
+});
+noUiSlider.create(document.getElementById('a-slider'), {
+    start: [0, 100],
+    connect: true,
+    range: {
+        'min': 0,
+        'max': 100
+    },
+    step: 1
+});
+noUiSlider.create(document.getElementById('e-slider'), {
+    start: [0, 100],
+    connect: true,
+    range: {
+        'min': 0,
+        'max': 100
+    },
+    step: 1
+});
+
+// Update the displayed values when the slider values change
+document.getElementById('risk-slider').noUiSlider.on('update', function(values, handle) {
+    if (handle === 0) {
+        document.getElementById('risk-lower-value').textContent = `Risk: ${RISK_QUANTILES[Math.round(values[0])].toFixed(2)}`;
+    } else {
+        document.getElementById('risk-upper-value').textContent = RISK_QUANTILES[Math.round(values[1])].toFixed(2);
+    }
+    filterConditions.riskRange[0] = RISK_QUANTILES[Math.round(values[0])];
+    filterConditions.riskRange[1] = RISK_QUANTILES[Math.round(values[1])];
+    updateOrbits(filterConditions);
+});
+document.getElementById('size-slider').noUiSlider.on('update', function(values, handle) {
+    if (handle === 0) {
+        document.getElementById('size-lower-value').textContent = `Size (m): ${SIZE_QUANTILES[Math.round(values[0])].toFixed(2)}`;
+    } else {
+        document.getElementById('size-upper-value').textContent = SIZE_QUANTILES[Math.round(values[1])].toFixed(2);
+    }
+    filterConditions.sizeRange[0] = SIZE_QUANTILES[Math.round(values[0])];
+    filterConditions.sizeRange[1] = SIZE_QUANTILES[Math.round(values[1])];
+    updateOrbits(filterConditions);
+});
+document.getElementById('a-slider').noUiSlider.on('update', function(values, handle) {
+    if (handle === 0) {
+        document.getElementById('a-lower-value').textContent = `a (AU): ${A_QUANTILES[Math.round(values[0])].toFixed(2)}`;
+    } else {
+        document.getElementById('a-upper-value').textContent = A_QUANTILES[Math.round(values[1])].toFixed(2);
+    }
+    filterConditions.aRange[0] = A_QUANTILES[Math.round(values[0])];
+    filterConditions.aRange[1] = A_QUANTILES[Math.round(values[1])];
+    updateOrbits(filterConditions);
+});
+document.getElementById('e-slider').noUiSlider.on('update', function(values, handle) {
+    if (handle === 0) {
+        document.getElementById('e-lower-value').textContent = `e: ${E_QUANTILES[Math.round(values[0])].toFixed(2)}`;
+    } else {
+        document.getElementById('e-upper-value').textContent = E_QUANTILES[Math.round(values[1])].toFixed(2);
+    }
+    filterConditions.eRange[0] = E_QUANTILES[Math.round(values[0])];
+    filterConditions.eRange[1] = E_QUANTILES[Math.round(values[1])];
+    updateOrbits(filterConditions);
+});
+// ==============================================================
+
+updateOrbits(filterConditions);
+
 // console.log(planets.Saturn);
 
 
@@ -772,6 +959,16 @@ function animate(time) {
 
     JD += deltaJulian;
     MJD += deltaJulian;
+
+    // Rotate the Sun
+    // Compute axis of rotation
+    const sunAxis = new THREE.Vector3(
+        Math.sin(SUNOBLIQUITY * DEG_TO_RAD), 
+        Math.cos(SUNOBLIQUITY * DEG_TO_RAD),
+        0).normalize();
+    // Set rotation speed of the Sun
+    sunMesh.rotateOnAxis(sunAxis, 
+        (2 * Math.PI/(60 * SUNROTPER)) * 1 * TIMESPEEDS[timeSpeedIndex]);
 
     // Update planet positions and rotation
     for (let i = 0; i < planets.length; i++) {
@@ -854,6 +1051,13 @@ function animate(time) {
 
     // Update the billboard plane to face the camera
     updateBillboard(billboardPlane, camera);
+
+    // Update the current time and time speed displays
+    document.getElementById("current-time").textContent = MJDToDatetime(MJD);
+    let daytext = 'days';
+    if (timeSpeedIndex == 10)
+        {daytext = 'day'};
+    document.getElementById("timespeed").textContent = `Speed: ${TIMESPEEDS[timeSpeedIndex].toPrecision(3)} ${daytext}/second`;
 
     controls.update();
     renderer.render(scene, camera);

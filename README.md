@@ -23,7 +23,8 @@
 - [x] Make planets rotate
 - [ ] UI Filters
 - [x] Keyboard controls
-- [ ] DEMO ppt submit by 7pm with title explain what the screen capture is showing
+- [ ] Overlay showing keyboard controls
+- [ ] DEMO ppt submit by 6pm with title explain what the screen capture is showing
 
 **if time allows**
 - [x] Skybox milkyway
