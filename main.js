@@ -16,7 +16,7 @@ const NEO_COLOR = 0xFFFFFF;
 const NEO_RADIUS = 0.01;
 const MAX_VISIBLE_NEOS = 50;
 
-const MOUSE_MIN_MOVE_CLICK = 0.01;
+const MOUSE_MIN_MOVE_CLICK = 0.005;
 
 // FPS control
 const targetFPS = 60; // Target frames per second
@@ -25,7 +25,7 @@ let lastFrameTime = 0; // Tracks the last frame's timestamp
 
 // Setup Scene
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.01, 1000);
 const renderer = new THREE.WebGLRenderer({antialias:true, canvas: document.getElementById("orreryCanvas")});
 renderer.setSize(window.innerWidth, window.innerHeight);
 
@@ -40,8 +40,6 @@ scene.background = new THREE.CubeTextureLoader().load([
 ]);
 
 // Set camera position
-camera.position.z = 1;
-
 camera.position.set(2, 2, 2);
 camera.lookAt(0, 0, 0);
 
@@ -61,46 +59,73 @@ window.addEventListener("resize", () => {
     renderer.setSize(window.innerWidth, window.innerHeight);
 });
 
-const mouseDownXY = new THREE.Vector2();
-const mouseUpXY = new THREE.Vector2();
-const raycaster = new THREE.Raycaster();
+const mouseDownXY = new THREE.Vector2(-10, -10);
+const mouseUpXY = new THREE.Vector2(-10, -10);
+const raycaster = new THREE.Raycaster(); //ray through the screen at the location of the mouse pointer (when the mouse is released)
+raycaster.params.line = {threshold: 0}; //needs to depend on zoom level
+let highlightedObj = null;
+let prevColor = 0;
+let moved = false;
+let stackedObjIndex = 0; //the index of the array of all the uniquely selected objects that the casted ray intersected
 
-document.addEventListener('mousedown', (event) => {
+//activates when the mouse is pressed down
+document.addEventListener('pointerdown', (event) => {
     mouseDownXY.x = (event.clientX / window.innerWidth) * 2 - 1;
     mouseDownXY.y = -(event.clientY / window.innerHeight) * 2 + 1;
 
-    console.log(mouseUpXY.x, mouseUpXY.y, "DOWN");
-});
-
-document.addEventListener('mouseup', (event) => {
-    mouseUpXY.x = (event.clientX / window.innerWidth) * 2 - 1;
-    mouseUpXY.y = -(event.clientY / window.innerHeight) * 2 + 1;
-
-    console.log(mouseUpXY.x, mouseUpXY.y, "UP");
-
-    //if (mouseDownXY.sub(mouseUpXY)) {
-
-    //}
-
-    //update the picking ray with the camera and pointer position
-    raycaster.setFromCamera(mouseUpXY, camera);
-
-    // alculate objects intersecting the picking ray
-    const intersects = raycaster.intersectObjects(scene.children);
-
-    for (let i = 0; i < intersects.length; i ++ ) {
-        intersects[i].object.material.color.set(0x00ff00); 
+    if (Math.abs(mouseDownXY.x - mouseUpXY.x) < MOUSE_MIN_MOVE_CLICK && Math.abs(mouseDownXY.y - mouseUpXY.y) < MOUSE_MIN_MOVE_CLICK) {
+        moved = false; //mouse movement was small enough to not count as a move
+    }
+    else {
+        moved = true;
+        stackedObjIndex = 0;
     }
 });
 
+//activates when the mouse is released
+document.addEventListener('pointerup', (event) => {
+    mouseUpXY.x = (event.clientX / window.innerWidth) * 2 - 1;
+    mouseUpXY.y = -(event.clientY / window.innerHeight) * 2 + 1;
 
-document.addEventListener("click", (event) => {
-    mouseDownXY.x = (event.clientX / window.innerWidth) * 2 - 1;
-    mouseDownXY.y = -(event.clientY / window.innerHeight) * 2 + 1;
+    if (Math.abs(mouseDownXY.x - mouseUpXY.x) < MOUSE_MIN_MOVE_CLICK && Math.abs(mouseDownXY.y - mouseUpXY.y) < MOUSE_MIN_MOVE_CLICK) { //didn't move mouse
+        //update the picking ray with the camera and pointer position
+        raycaster.setFromCamera(mouseUpXY, camera);
 
-    console.log(mouseDownXY.x, mouseDownXY.y, "CLICK");
+        // calculate objects intersecting the picking ray
+        const allSelectedObjs = raycaster.intersectObjects(scene.children);
+
+        console.log(allSelectedObjs);
+
+        //remove duplicate intersections of the same orbit
+        const seen = new Set();
+        const selectedObjs = allSelectedObjs.filter(item => {
+            if (!seen.has(item.object.uuid)) {
+                seen.add(item.object.uuid);
+                return true; // unique uuid
+            }
+            return false; // same uuid
+        });
+
+        if (highlightedObj != null){ //clicking on the background deselects the current object (if there is one)
+            highlightedObj.material.color.set(prevColor);
+            highlightedObj = null;
+        }
+        
+        if (selectedObjs.length != 0){
+            if (!moved) { stackedObjIndex = (stackedObjIndex + 1) % selectedObjs.length; }
+            
+            if (selectedObjs[stackedObjIndex].object.type == 'Line') { 
+                highlightedObj = selectedObjs[stackedObjIndex].object; //save the highlighted object
+                prevColor = highlightedObj.material.color.getHex(); //save the highlighted object's previous color
+                highlightedObj.material.color.set(0x00ff00); //highlight the select object if it is an orbit
+            }
+        }
+    }
+    else { //moved mouse
+        moved = true;
+        stackedObjIndex = 0;
+    }
 });
-
 
 // Functions
 async function readJSON(filePath) {
