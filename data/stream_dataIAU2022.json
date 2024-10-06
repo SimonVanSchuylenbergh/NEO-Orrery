@@ -5,7 +5,8 @@
             "e": 0.77,
             "inc": 7.0,
             "node": 127.66,
-            "peri": 269.0
+            "peri": 269.0,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "CAP",
@@ -46,7 +47,8 @@
             "e": 0.75,
             "inc": 7.3,
             "node": 123.3,
-            "peri": 269.2
+            "peri": 269.2,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "CAP",
@@ -87,7 +89,8 @@
             "e": 0.774,
             "inc": 7.5,
             "node": 125.4,
-            "peri": 268.9
+            "peri": 268.9,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "CAP",
@@ -128,7 +131,8 @@
             "e": 0.793,
             "inc": 7.6,
             "node": 115.2,
-            "peri": 279.1
+            "peri": 279.1,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "CAP",
@@ -169,7 +173,8 @@
             "e": 0.78,
             "inc": 7.5,
             "node": 124.1,
-            "peri": 270.2
+            "peri": 270.2,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "CAP",
@@ -210,7 +215,8 @@
             "e": 0.763,
             "inc": 7.4,
             "node": 130.4,
-            "peri": 265.2
+            "peri": 265.2,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "CAP",
@@ -251,7 +257,8 @@
             "e": 0.825,
             "inc": 5.4,
             "node": 37.3,
-            "peri": 115.4
+            "peri": 115.4,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "STA",
@@ -292,7 +299,8 @@
             "e": 0.8144,
             "inc": 3.0,
             "node": 16.0,
-            "peri": 122.5
+            "peri": 122.5,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "STA",
@@ -333,7 +341,8 @@
             "e": 0.82,
             "inc": 5.3,
             "node": 16.0,
-            "peri": 122.26
+            "peri": 122.26,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "STA",
@@ -374,7 +383,8 @@
             "e": 0.798,
             "inc": 5.3,
             "node": 34.4,
-            "peri": 116.6
+            "peri": 116.6,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "STA",
@@ -415,7 +425,8 @@
             "e": 0.827,
             "inc": 5.4,
             "node": 44.5,
-            "peri": 113.1
+            "peri": 113.1,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "STA",
@@ -456,7 +467,8 @@
             "e": 0.828,
             "inc": 5.7,
             "node": 22.4,
-            "peri": 121.3
+            "peri": 121.3,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "STA",
@@ -497,7 +509,8 @@
             "e": 0.816,
             "inc": 5.4,
             "node": 41.6,
-            "peri": 112.7
+            "peri": 112.7,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "STA",
@@ -538,7 +551,8 @@
             "e": 0.756,
             "inc": 5.2,
             "node": 62.1,
-            "peri": 96.4
+            "peri": 96.4,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "STA",
@@ -579,7 +593,8 @@
             "e": 0.711,
             "inc": 5.4,
             "node": 85.1,
-            "peri": 84.0
+            "peri": 84.0,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "STA",
@@ -620,7 +635,8 @@
             "e": 0.912,
             "inc": 6.9,
             "node": 311.74,
-            "peri": 131.8
+            "peri": 131.8,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "SIA",
@@ -661,7 +677,8 @@
             "e": 0.8587,
             "inc": 5.3,
             "node": 309.1,
-            "peri": 134.3
+            "peri": 134.3,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "SIA",
@@ -702,7 +719,8 @@
             "e": 0.904,
             "inc": 24.0,
             "node": 261.3,
-            "peri": 324.6
+            "peri": 324.6,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "GEM",
@@ -743,7 +761,8 @@
             "e": 0.898,
             "inc": 23.2,
             "node": 261.0,
-            "peri": 324.95
+            "peri": 324.95,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "GEM",
@@ -784,7 +803,8 @@
             "e": 0.889,
             "inc": 22.9,
             "node": 261.7,
-            "peri": 324.3
+            "peri": 324.3,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "GEM",
@@ -825,7 +845,8 @@
             "e": 0.972,
             "inc": 25.5,
             "node": 306.71,
-            "peri": 150.59
+            "peri": 150.59,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "SDA",
@@ -866,7 +887,8 @@
             "e": 0.976,
             "inc": 27.2,
             "node": 305.71,
-            "peri": 152.79
+            "peri": 152.79,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "SDA",
@@ -907,7 +929,8 @@
             "e": 0.97,
             "inc": 32.5,
             "node": 306.51,
-            "peri": 152.39
+            "peri": 152.39,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "SDA",
@@ -948,7 +971,8 @@
             "e": 0.9726,
             "inc": 30.9,
             "node": 306.2,
-            "peri": 153.9
+            "peri": 153.9,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "SDA",
@@ -989,7 +1013,8 @@
             "e": 0.975,
             "inc": 29.0,
             "node": 306.6,
-            "peri": 152.9
+            "peri": 152.9,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "SDA",
@@ -1030,7 +1055,8 @@
             "e": 0.965,
             "inc": 26.6,
             "node": 309.6,
-            "peri": 149.7
+            "peri": 149.7,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "SDA",
@@ -1071,7 +1097,8 @@
             "e": 0.984,
             "inc": 79.51,
             "node": 32.2,
-            "peri": 214.52
+            "peri": 214.52,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "LYR",
@@ -1112,7 +1139,8 @@
             "e": 0.968,
             "inc": 79.01,
             "node": 33.2,
-            "peri": 214.32
+            "peri": 214.32,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "LYR",
@@ -1153,7 +1181,8 @@
             "e": 0.9589,
             "inc": 80.7,
             "node": 32.3,
-            "peri": 215.8
+            "peri": 215.8,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "LYR",
@@ -1194,7 +1223,8 @@
             "e": 0.916,
             "inc": 80.0,
             "node": 32.0,
-            "peri": 215.71
+            "peri": 215.71,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "LYR",
@@ -1235,7 +1265,8 @@
             "e": 0.956,
             "inc": 79.4,
             "node": 32.3,
-            "peri": 214.0
+            "peri": 214.0,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "LYR",
@@ -1276,7 +1307,8 @@
             "e": 0.963,
             "inc": 79.7,
             "node": 32.2,
-            "peri": 214.0
+            "peri": 214.0,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "LYR",
@@ -1317,7 +1349,8 @@
             "e": 0.96,
             "inc": 112.99,
             "node": 139.7,
-            "peri": 150.39
+            "peri": 150.39,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "PER",
@@ -1358,7 +1391,8 @@
             "e": 1.15,
             "inc": 116.2,
             "node": 139.8,
-            "peri": 155.1
+            "peri": 155.1,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "PER",
@@ -1399,7 +1433,8 @@
             "e": 1.096,
             "inc": 115.6,
             "node": 140.0,
-            "peri": 153.12
+            "peri": 153.12,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "PER",
@@ -1440,7 +1475,8 @@
             "e": 0.95,
             "inc": 113.1,
             "node": 139.3,
-            "peri": 150.4
+            "peri": 150.4,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "PER",
@@ -1481,7 +1517,8 @@
             "e": 0.951,
             "inc": 112.9,
             "node": 138.1,
-            "peri": 150.6
+            "peri": 150.6,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "PER",
@@ -1522,7 +1559,8 @@
             "e": 0.968,
             "inc": 164.31,
             "node": 28.71,
-            "peri": 81.5
+            "peri": 81.5,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "ORI",
@@ -1563,7 +1601,8 @@
             "e": 0.9385,
             "inc": 163.6,
             "node": 27.0,
-            "peri": 80.1
+            "peri": 80.1,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "ORI",
@@ -1604,7 +1643,8 @@
             "e": 0.895,
             "inc": 162.8,
             "node": 28.0,
-            "peri": 83.98
+            "peri": 83.98,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "ORI",
@@ -1645,7 +1685,8 @@
             "e": 0.944,
             "inc": 163.9,
             "node": 28.3,
-            "peri": 82.2
+            "peri": 82.2,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "ORI",
@@ -1686,7 +1727,8 @@
             "e": 0.953,
             "inc": 164.0,
             "node": 30.2,
-            "peri": 82.7
+            "peri": 82.7,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "ORI",
@@ -1727,7 +1769,8 @@
             "e": 0.584,
             "inc": 25.5,
             "node": 203.9,
-            "peri": 178.2
+            "peri": 178.2,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "DRA",
@@ -1768,7 +1811,8 @@
             "e": 0.6561,
             "inc": 30.3,
             "node": 196.6,
-            "peri": 171.9
+            "peri": 171.9,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "DRA",
@@ -1809,7 +1853,8 @@
             "e": 0.706,
             "inc": 31.4,
             "node": 195.0,
-            "peri": 173.2
+            "peri": 173.2,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "DRA",
@@ -1850,7 +1895,8 @@
             "e": 0.654,
             "inc": 30.0,
             "node": 194.1,
-            "peri": 173.0
+            "peri": 173.0,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "DRA",
@@ -1891,7 +1937,8 @@
             "e": 0.7367,
             "inc": 72.5,
             "node": 283.2,
-            "peri": 168.5
+            "peri": 168.5,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "QUA",
@@ -1932,7 +1979,8 @@
             "e": 0.709,
             "inc": 72.4,
             "node": 283.0,
-            "peri": 168.14
+            "peri": 168.14,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "QUA",
@@ -1973,7 +2021,8 @@
             "e": 0.657,
             "inc": 71.2,
             "node": 283.3,
-            "peri": 171.4
+            "peri": 171.4,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "QUA",
@@ -2014,7 +2063,8 @@
             "e": 0.659,
             "inc": 71.2,
             "node": 283.4,
-            "peri": 172.4
+            "peri": 172.4,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "QUA",
@@ -2055,7 +2105,8 @@
             "e": 0.912,
             "inc": 3.51,
             "node": 334.54,
-            "peri": 308.0
+            "peri": 308.0,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "EVI",
@@ -2096,7 +2147,8 @@
             "e": 0.812,
             "inc": 5.4,
             "node": 355.7,
-            "peri": 281.0
+            "peri": 281.0,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "EVI",
@@ -2137,7 +2189,8 @@
             "e": 0.822,
             "inc": 5.5,
             "node": 357.2,
-            "peri": 283.3
+            "peri": 283.3,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "EVI",
@@ -2178,7 +2231,8 @@
             "e": 0.68,
             "inc": 37.99,
             "node": 145.69,
-            "peri": 194.0
+            "peri": 194.0,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "KCG",
@@ -2219,7 +2273,8 @@
             "e": 0.662,
             "inc": 32.5,
             "node": 140.0,
-            "peri": 196.9
+            "peri": 196.9,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "KCG",
@@ -2260,7 +2315,8 @@
             "e": 0.725,
             "inc": 34.0,
             "node": 140.4,
-            "peri": 206.2
+            "peri": 206.2,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "KCG",
@@ -2301,7 +2357,8 @@
             "e": 0.915,
             "inc": 162.6,
             "node": 235.18,
-            "peri": 172.51
+            "peri": 172.51,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "LEO",
@@ -2342,7 +2399,8 @@
             "e": 0.904,
             "inc": 162.1,
             "node": 235.08,
-            "peri": 172.41
+            "peri": 172.41,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "LEO",
@@ -2383,7 +2441,8 @@
             "e": 0.7674,
             "inc": 161.5,
             "node": 236.2,
-            "peri": 170.3
+            "peri": 170.3,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "LEO",
@@ -2424,7 +2483,8 @@
             "e": 0.61,
             "inc": 162.0,
             "node": 237.0,
-            "peri": 171.11
+            "peri": 171.11,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "LEO",
@@ -2465,7 +2525,8 @@
             "e": 0.867,
             "inc": 162.2,
             "node": 234.5,
-            "peri": 170.8
+            "peri": 170.8,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "LEO",
@@ -2506,7 +2567,8 @@
             "e": 0.897,
             "inc": 162.4,
             "node": 236.6,
-            "peri": 173.5
+            "peri": 173.5,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "LEO",
@@ -2547,7 +2609,8 @@
             "e": 1.09,
             "inc": 57.3,
             "node": 270.8,
-            "peri": 201.6
+            "peri": 201.6,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "URS",
@@ -2588,7 +2651,8 @@
             "e": 0.961,
             "inc": 55.5,
             "node": 270.0,
-            "peri": 202.53
+            "peri": 202.53,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "URS",
@@ -2629,7 +2693,8 @@
             "e": 0.807,
             "inc": 52.6,
             "node": 270.1,
-            "peri": 205.6
+            "peri": 205.6,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "URS",
@@ -2670,7 +2735,8 @@
             "e": 0.838,
             "inc": 52.5,
             "node": 269.9,
-            "peri": 206.8
+            "peri": 206.8,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "URS",
@@ -2711,7 +2777,8 @@
             "e": 0.985,
             "inc": 128.7,
             "node": 76.5,
-            "peri": 119.5
+            "peri": 119.5,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "HYD",
@@ -2752,7 +2819,8 @@
             "e": 0.99,
             "inc": 129.2,
             "node": 76.7,
-            "peri": 119.0
+            "peri": 119.0,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "HYD",
@@ -2793,7 +2861,8 @@
             "e": 0.832,
             "inc": 3.1,
             "node": 226.2,
-            "peri": 294.9
+            "peri": 294.9,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "NTA",
@@ -2834,7 +2903,8 @@
             "e": 0.871,
             "inc": 2.89,
             "node": 212.78,
-            "peri": 302.3
+            "peri": 302.3,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "NTA",
@@ -2875,7 +2945,8 @@
             "e": 0.8283,
             "inc": 2.3,
             "node": 223.8,
-            "peri": 294.8
+            "peri": 294.8,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "NTA",
@@ -2916,7 +2987,8 @@
             "e": 0.83,
             "inc": 0.4,
             "node": 39.1,
-            "peri": 115.09
+            "peri": 115.09,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "NTA",
@@ -2957,7 +3029,8 @@
             "e": 0.829,
             "inc": 3.0,
             "node": 220.6,
-            "peri": 294.6
+            "peri": 294.6,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "NTA",
@@ -2998,7 +3071,8 @@
             "e": 0.844,
             "inc": 3.0,
             "node": 218.8,
-            "peri": 298.6
+            "peri": 298.6,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "NTA",
@@ -3039,7 +3113,8 @@
             "e": 0.815,
             "inc": 2.7,
             "node": 236.2,
-            "peri": 289.6
+            "peri": 289.6,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "NTA",
@@ -3080,7 +3155,8 @@
             "e": 0.767,
             "inc": 2.5,
             "node": 263.9,
-            "peri": 276.3
+            "peri": 276.3,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "NTA",
@@ -3121,7 +3197,8 @@
             "e": 0.9913,
             "inc": 34.4,
             "node": 81.3,
-            "peri": 127.9
+            "peri": 127.9,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "MON",
@@ -3162,7 +3239,8 @@
             "e": 0.978,
             "inc": 32.4,
             "node": 81.0,
-            "peri": 128.65
+            "peri": 128.65,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "MON",
@@ -3203,7 +3281,8 @@
             "e": 0.983,
             "inc": 35.2,
             "node": 78.5,
-            "peri": 128.7
+            "peri": 128.7,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "MON",
@@ -3244,7 +3323,8 @@
             "e": 0.984,
             "inc": 35.3,
             "node": 79.0,
-            "peri": 129.1
+            "peri": 129.1,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "MON",
@@ -3285,7 +3365,8 @@
             "e": 0.81,
             "inc": 138.0,
             "node": 261.69,
-            "peri": 249.01
+            "peri": 249.01,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "COM",
@@ -3326,7 +3407,8 @@
             "e": 0.962,
             "inc": 135.3,
             "node": 272.2,
-            "peri": 263.5
+            "peri": 263.5,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "COM",
@@ -3367,7 +3449,8 @@
             "e": 0.972,
             "inc": 135.1,
             "node": 273.2,
-            "peri": 263.1
+            "peri": 263.1,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "COM",
@@ -3408,7 +3491,8 @@
             "e": 0.663,
             "inc": 0.71,
             "node": 28.6,
-            "peri": 247.5
+            "peri": 247.5,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "AVB",
@@ -3449,7 +3533,8 @@
             "e": 0.716,
             "inc": 7.0,
             "node": 30.0,
-            "peri": 247.9
+            "peri": 247.9,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "AVB",
@@ -3490,7 +3575,8 @@
             "e": 0.735,
             "inc": 7.1,
             "node": 27.6,
-            "peri": 250.9
+            "peri": 250.9,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "AVB",
@@ -3531,7 +3617,8 @@
             "e": 0.985,
             "inc": 124.5,
             "node": 209.9,
-            "peri": 106.3
+            "peri": 106.3,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "LMI",
@@ -3572,7 +3659,8 @@
             "e": 0.989,
             "inc": 125.2,
             "node": 208.2,
-            "peri": 104.3
+            "peri": 104.3,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "LMI",
@@ -3613,7 +3701,8 @@
             "e": 0.973,
             "inc": 124.8,
             "node": 210.0,
-            "peri": 104.0
+            "peri": 104.0,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "LMI",
@@ -3654,7 +3743,8 @@
             "e": 0.97,
             "inc": 172.99,
             "node": 209.67,
-            "peri": 237.0
+            "peri": 237.0,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "EGE",
@@ -3695,7 +3785,8 @@
             "e": 0.957,
             "inc": 171.2,
             "node": 198.4,
-            "peri": 230.9
+            "peri": 230.9,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "EGE",
@@ -3736,7 +3827,8 @@
             "e": 0.969,
             "inc": 171.0,
             "node": 207.1,
-            "peri": 235.1
+            "peri": 235.1,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "EGE",
@@ -3777,7 +3869,8 @@
             "e": 0.966,
             "inc": 19.79,
             "node": 140.69,
-            "peri": 327.4
+            "peri": 327.4,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "NDA",
@@ -3818,7 +3911,8 @@
             "e": 0.973,
             "inc": 20.39,
             "node": 139.59,
-            "peri": 332.6
+            "peri": 332.6,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "NDA",
@@ -3859,7 +3953,8 @@
             "e": 0.9464,
             "inc": 24.1,
             "node": 138.6,
-            "peri": 329.3
+            "peri": 329.3,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "NDA",
@@ -3900,7 +3995,8 @@
             "e": 0.944,
             "inc": 23.4,
             "node": 139.0,
-            "peri": 329.94
+            "peri": 329.94,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "NDA",
@@ -3941,7 +4037,8 @@
             "e": 0.955,
             "inc": 22.3,
             "node": 140.8,
-            "peri": 330.7
+            "peri": 330.7,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "NDA",
@@ -3982,7 +4079,8 @@
             "e": 0.957,
             "inc": 21.1,
             "node": 144.8,
-            "peri": 328.3
+            "peri": 328.3,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "NDA",
@@ -4023,7 +4121,8 @@
             "e": 0.924,
             "inc": 162.9,
             "node": 45.1,
-            "peri": 91.6
+            "peri": 91.6,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "ETA",
@@ -4064,7 +4163,8 @@
             "e": 0.968,
             "inc": 166.1,
             "node": 58.1,
-            "peri": 107.9
+            "peri": 107.9,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "ETA",
@@ -4105,7 +4205,8 @@
             "e": 0.955,
             "inc": 163.6,
             "node": 46.2,
-            "peri": 98.4
+            "peri": 98.4,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "ETA",
@@ -4146,7 +4247,8 @@
             "e": 0.96,
             "inc": 163.6,
             "node": 46.5,
-            "peri": 98.4
+            "peri": 98.4,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "ETA",
@@ -4187,7 +4289,8 @@
             "e": 0.81,
             "inc": 138.0,
             "node": 261.69,
-            "peri": 249.01
+            "peri": 249.01,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "DLM",
@@ -4228,7 +4331,8 @@
             "e": 0.84,
             "inc": 4.99,
             "node": 147.66,
-            "peri": 308.0
+            "peri": 308.0,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "NIA",
@@ -4269,7 +4373,8 @@
             "e": 0.825,
             "inc": 5.7,
             "node": 158.8,
-            "peri": 309.0
+            "peri": 309.0,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "NIA",
@@ -4310,7 +4415,8 @@
             "e": 0.827,
             "inc": 6.9,
             "node": 159.0,
-            "peri": 308.07
+            "peri": 308.07,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "NIA",
@@ -4351,7 +4457,8 @@
             "e": 0.874,
             "inc": 5.9,
             "node": 147.8,
-            "peri": 310.5
+            "peri": 310.5,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "NIA",
@@ -4392,7 +4499,8 @@
             "e": 0.848,
             "inc": 5.1,
             "node": 166.9,
-            "peri": 306.2
+            "peri": 306.2,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "NIA",
@@ -4433,7 +4541,8 @@
             "e": 0.836,
             "inc": 9.1,
             "node": 38.97,
-            "peri": 286.5
+            "peri": 286.5,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "DLI",
@@ -4474,7 +4583,8 @@
             "e": 0.848,
             "inc": 6.6,
             "node": 37.3,
-            "peri": 292.2
+            "peri": 292.2,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "DLI",
@@ -4515,7 +4625,8 @@
             "e": 0.87,
             "inc": 2.01,
             "node": 20.12,
-            "peri": 295.0
+            "peri": 295.0,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "LVI",
@@ -4556,7 +4667,8 @@
             "e": 0.875,
             "inc": 9.8,
             "node": 237.53,
-            "peri": 116.49
+            "peri": 116.49,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "ASC",
@@ -4597,7 +4709,8 @@
             "e": 0.9,
             "inc": 3.0,
             "node": 222.0,
-            "peri": 134.0
+            "peri": 134.0,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "ASC",
@@ -4638,7 +4751,8 @@
             "e": 0.633,
             "inc": 18.6,
             "node": 72.58,
-            "peri": 204.21
+            "peri": 204.21,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "TAH",
@@ -4679,7 +4793,8 @@
             "e": 0.623,
             "inc": 19.1,
             "node": 84.4,
-            "peri": 194.1
+            "peri": 194.1,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "TAH",
@@ -4720,7 +4835,8 @@
             "e": 0.571,
             "inc": 2.6,
             "node": 91.8,
-            "peri": 193.7
+            "peri": 193.7,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "COR",
@@ -4761,7 +4877,8 @@
             "e": 0.764,
             "inc": 4.5,
             "node": 92.32,
-            "peri": 271.21
+            "peri": 271.21,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "NSA",
@@ -4802,7 +4919,8 @@
             "e": 0.693,
             "inc": 2.6,
             "node": 280.24,
-            "peri": 84.29
+            "peri": 84.29,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "SSG",
@@ -4843,7 +4961,8 @@
             "e": 0.769,
             "inc": 6.0,
             "node": 266.4,
-            "peri": 104.5
+            "peri": 104.5,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "SSG",
@@ -4884,7 +5003,8 @@
             "e": 0.82,
             "inc": 4.7,
             "node": 265.9,
-            "peri": 101.5
+            "peri": 101.5,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "SSG",
@@ -4925,7 +5045,8 @@
             "e": 0.988,
             "inc": 159.7,
             "node": 290.2,
-            "peri": 270.2
+            "peri": 270.2,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "PVI",
@@ -4966,7 +5087,8 @@
             "e": 0.673,
             "inc": 5.0,
             "node": 298.46,
-            "peri": 252.29
+            "peri": 252.29,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "RGE",
@@ -5007,7 +5129,8 @@
             "e": 0.78,
             "inc": 4.3,
             "node": 296.07,
-            "peri": 66.59
+            "peri": 66.59,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "XSA",
@@ -5048,7 +5171,8 @@
             "e": 0.736,
             "inc": 1.1,
             "node": 305.86,
-            "peri": 46.9
+            "peri": 46.9,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "XSA",
@@ -5089,7 +5213,8 @@
             "e": 0.949,
             "inc": 161.9,
             "node": 135.9,
-            "peri": 29.4
+            "peri": 29.4,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "PIH",
@@ -5130,7 +5255,8 @@
             "e": 0.687,
             "inc": 4.81,
             "node": 331.43,
-            "peri": 266.4
+            "peri": 266.4,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "NDL",
@@ -5171,7 +5297,8 @@
             "e": 0.747,
             "inc": 6.21,
             "node": 338.82,
-            "peri": 259.0
+            "peri": 259.0,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "NDL",
@@ -5212,7 +5339,8 @@
             "e": 0.664,
             "inc": 4.29,
             "node": 146.36,
-            "peri": 69.0
+            "peri": 69.0,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "SDL",
@@ -5253,7 +5381,8 @@
             "e": 0.676,
             "inc": 6.4,
             "node": 134.46,
-            "peri": 91.3
+            "peri": 91.3,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "SDL",
@@ -5294,7 +5423,8 @@
             "e": 0.755,
             "inc": 10.5,
             "node": 312.02,
-            "peri": 118.2
+            "peri": 118.2,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "DXC",
@@ -5335,7 +5465,8 @@
             "e": 0.741,
             "inc": 8.81,
             "node": 315.83,
-            "peri": 84.8
+            "peri": 84.8,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "DEQ",
@@ -5376,7 +5507,8 @@
             "e": 0.714,
             "inc": 9.59,
             "node": 184.6,
-            "peri": 70.8
+            "peri": 70.8,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "NHY",
@@ -5417,7 +5549,8 @@
             "e": 0.711,
             "inc": 0.49,
             "node": 162.84,
-            "peri": 84.7
+            "peri": 84.7,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "NHY",
@@ -5458,7 +5591,8 @@
             "e": 0.707,
             "inc": 3.71,
             "node": 357.99,
-            "peri": 282.4
+            "peri": 282.4,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "NVI",
@@ -5499,7 +5633,8 @@
             "e": 0.738,
             "inc": 6.09,
             "node": 182.01,
-            "peri": 91.2
+            "peri": 91.2,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "SVI",
@@ -5540,7 +5675,8 @@
             "e": 0.67,
             "inc": 0.09,
             "node": 175.74,
-            "peri": 83.0
+            "peri": 83.0,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "SVI",
@@ -5581,7 +5717,8 @@
             "e": 0.86,
             "inc": 2.51,
             "node": 354.4,
-            "peri": 59.7
+            "peri": 59.7,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "MKA",
@@ -5622,7 +5759,8 @@
             "e": 0.739,
             "inc": 6.21,
             "node": 9.38,
-            "peri": 271.9
+            "peri": 271.9,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "SLE",
@@ -5663,7 +5801,8 @@
             "e": 0.578,
             "inc": 48.11,
             "node": 20.6,
-            "peri": 172.6
+            "peri": 172.6,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "MDR",
@@ -5704,7 +5843,8 @@
             "e": 0.954,
             "inc": 74.1,
             "node": 50.1,
-            "peri": 192.3
+            "peri": 192.3,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "ELY",
@@ -5745,7 +5885,8 @@
             "e": 0.959,
             "inc": 74.7,
             "node": 49.3,
-            "peri": 190.8
+            "peri": 190.8,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "ELY",
@@ -5786,7 +5927,8 @@
             "e": 0.8,
             "inc": 174.1,
             "node": 239.64,
-            "peri": 270.41
+            "peri": 270.41,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "PAQ",
@@ -5827,7 +5969,8 @@
             "e": 0.831,
             "inc": 13.3,
             "node": 223.42,
-            "peri": 90.49
+            "peri": 90.49,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "MLV",
@@ -5868,7 +6011,8 @@
             "e": 0.763,
             "inc": 3.4,
             "node": 54.9,
-            "peri": 60.81
+            "peri": 60.81,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "NMA",
@@ -5909,7 +6053,8 @@
             "e": 0.75,
             "inc": 2.9,
             "node": 62.68,
-            "peri": 64.81
+            "peri": 64.81,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "NMA",
@@ -5950,7 +6095,8 @@
             "e": 0.84,
             "inc": 5.0,
             "node": 232.76,
-            "peri": 232.99
+            "peri": 232.99,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "SMA",
@@ -5991,7 +6137,8 @@
             "e": 0.89,
             "inc": 12.5,
             "node": 242.63,
-            "peri": 243.69
+            "peri": 243.69,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "SMA",
@@ -6032,7 +6179,8 @@
             "e": 0.8204,
             "inc": 5.1,
             "node": 227.1,
-            "peri": 231.7
+            "peri": 231.7,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "SMA",
@@ -6073,7 +6221,8 @@
             "e": 0.757,
             "inc": 1.7,
             "node": 250.21,
-            "peri": 74.69
+            "peri": 74.69,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "SSC",
@@ -6114,7 +6263,8 @@
             "e": 0.916,
             "inc": 39.3,
             "node": 86.49,
-            "peri": 329.51
+            "peri": 329.51,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "NZC",
@@ -6155,7 +6305,8 @@
             "e": 0.9356,
             "inc": 39.4,
             "node": 101.3,
-            "peri": 327.7
+            "peri": 327.7,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "NZC",
@@ -6196,7 +6347,8 @@
             "e": 0.937,
             "inc": 38.8,
             "node": 101.7,
-            "peri": 326.9
+            "peri": 326.9,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "NZC",
@@ -6237,7 +6389,8 @@
             "e": 0.941,
             "inc": 37.8,
             "node": 108.0,
-            "peri": 325.0
+            "peri": 325.0,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "NZC",
@@ -6278,7 +6431,8 @@
             "e": 0.9433,
             "inc": 56.0,
             "node": 260.4,
-            "peri": 158.6
+            "peri": 158.6,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "SZC",
@@ -6319,7 +6473,8 @@
             "e": 0.952,
             "inc": 36.1,
             "node": 282.8,
-            "peri": 148.2
+            "peri": 148.2,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "SZC",
@@ -6360,7 +6515,8 @@
             "e": 0.957,
             "inc": 34.0,
             "node": 286.5,
-            "peri": 146.9
+            "peri": 146.9,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "SZC",
@@ -6401,7 +6557,8 @@
             "e": 0.707,
             "inc": 8.2,
             "node": 92.95,
-            "peri": 309.41
+            "peri": 309.41,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "NSS",
@@ -6442,7 +6599,8 @@
             "e": 0.78,
             "inc": 4.5,
             "node": 85.9,
-            "peri": 296.6
+            "peri": 296.6,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "NSS",
@@ -6483,7 +6641,8 @@
             "e": 0.861,
             "inc": 2.8,
             "node": 267.53,
-            "peri": 113.59
+            "peri": 113.59,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "SSS",
@@ -6524,7 +6683,8 @@
             "e": 0.596,
             "inc": 21.7,
             "node": 91.18,
-            "peri": 168.01
+            "peri": 168.01,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "JBO",
@@ -6565,7 +6725,8 @@
             "e": 0.663,
             "inc": 18.9,
             "node": 90.1,
-            "peri": 187.6
+            "peri": 187.6,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "JBO",
@@ -6606,7 +6767,8 @@
             "e": 0.6739,
             "inc": 18.5,
             "node": 92.27,
-            "peri": 185.56
+            "peri": 185.56,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "JBO",
@@ -6647,7 +6809,8 @@
             "e": 0.6673,
             "inc": 17.9,
             "node": 91.02,
-            "peri": 183.84
+            "peri": 183.84,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "JBO",
@@ -6688,7 +6851,8 @@
             "e": 0.6739,
             "inc": 18.2,
             "node": 89.48,
-            "peri": 185.59
+            "peri": 185.59,
+            "ma": 0
         },
         "ExtraParams": {
             "Code": "JBO",
