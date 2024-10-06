@@ -633,7 +633,7 @@ function createRadialGradientPlane(width, height) {
                 if (alpha < 0.01) {
                     discard;
                 }
-                gl_FragColor = vec4(1.0, 0.0, 0.0, alpha);
+                gl_FragColor = vec4(0.0, 1.0, 0.0, alpha);
             }
         `,
         transparent: true,
@@ -717,7 +717,7 @@ function updateBillboard(plane, camera) {
 
 const planeWidth = 5.204 * 2;
 const radialGradientPlane = createRadialGradientPlane(planeWidth, planeWidth);
-// scene.add(radialGradientPlane);
+scene.add(radialGradientPlane);
 
 
 // Data
