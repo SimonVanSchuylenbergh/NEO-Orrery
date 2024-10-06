@@ -20,7 +20,7 @@
 - [x] Make info panel for planets work
 - [x] Make time controls work
 - [ ] Make filter controls work
-- [ ] Make planets rotate
+- [x] Make planets rotate
 - [ ] UI Filters
 - [x] Keyboard controls
 - [ ] DEMO ppt submit by 7pm with title explain what the screen capture is showing
