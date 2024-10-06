@@ -43,7 +43,7 @@ class FilterConditions{
         this.aRange = [0, 100]
         this.eRange = [0, 1]
         //this.shownNEOClasses = []
-        this.shownTypes = ['Planet', 'Dwarf planet', 'NEO', 'Shower']
+        this.shownTypes = ['Planet', 'Dwarf planet', 'NEO', 'Sporadic']
     }
 
     checkPassesFilters(object) {
@@ -717,7 +717,6 @@ function updateBillboard(plane, camera) {
 
 const planeWidth = 5.204 * 2;
 const radialGradientPlane = createRadialGradientPlane(planeWidth, planeWidth);
-scene.add(radialGradientPlane);
 
 
 // Data
@@ -830,6 +829,7 @@ function updateOrbits(filterConditions) {
         scene.remove(scene.getObjectByProperty('uuid', neos[i].orbitMesh.uuid));
         scene.remove(scene.getObjectByProperty('uuid', neos[i].bodyMesh.uuid));
     }
+    scene.remove(scene.getObjectByProperty('uuid', radialGradientPlane.uuid));
     /*for (let i = 0; i < showers.length; i++) {
         if (showers[i].parentBodyMesh != null)
             scene.remove(scene.getObjectByProperty('uuid', showers[i].parentBodyMesh.uuid));
@@ -850,6 +850,10 @@ function updateOrbits(filterConditions) {
             scene.add(neos[i].bodyMesh)
         }
     }
+
+    // Sporadics
+    if (filterConditions.shownTypes.includes('Sporadic'))
+        scene.add(radialGradientPlane);
 
     // Showers
     /*for (let i = 0; i < showers.length; i++) {
