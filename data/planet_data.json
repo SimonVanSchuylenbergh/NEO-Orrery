@@ -156,7 +156,7 @@
             "outerRadius": 0.042,
             "color": "#ead6b8",
             "texture": "2k_saturn_rings.png"
-        }
+        },
         "extraParams": {
             "diameter_km": 116460,
             "average_temperature_C": -178,
