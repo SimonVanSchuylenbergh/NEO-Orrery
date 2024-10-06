@@ -43,21 +43,15 @@ class FilterConditions{
         this.aRange = [0, 100]
         this.eRange = [0, 1]
         //this.shownNEOClasses = []
-        this.shownTypes = ['Planet', 'Dwarf planet', 'NEO', 'Sporadic']
+        this.shownTypes = {'Planet': true, 'Dwarf planet':true, 'NEO':true, 'Shower':true, 'Sporadic':false}
     }
 
     checkPassesFilters(object) {
         if (('renderParams' in object.data) && ('is_dwarf' in object.data.renderParams) && (object.data.renderParams.is_dwarf)){
-            for (let t of this.shownTypes){
-                if (t == 'Dwarf planet') return true;
-            }
-            return false;
+            return this.shownTypes['Dwarf planet'];
         }
         else if (('renderParams' in object.data) && ('is_dwarf' in object.data.renderParams)){
-            for (let t of this.shownTypes){
-                if (t == 'Planet') return true;
-            }
-            return false;
+            return this.shownTypes['Planet'];
         }
         if ((object.data.extraParams['PS max'] < this.riskRange[0]) || (object.data.extraParams['PS max'] > this.riskRange[1]))
             return false;
@@ -67,10 +61,7 @@ class FilterConditions{
             return false;
         if ((object.data.orbitParams.e < this.eRange[0]) || (object.data.orbitParams.e > this.eRange[1]))
             return false;
-        for (let t of this.shownTypes){
-            if (t == 'NEO') return true;
-        }
-        return false;
+        return filterConditions.shownTypes['NEO'];
     }
 }
 
@@ -605,11 +596,11 @@ async function initializeShowers() {
                 currentShower.parentBodyName = parentBodyName;
                 currentShower.orbitMeshes = [parentOrbit].concat(currentShower.orbitMeshes); //parent orbit always first
 
-                scene.add(parentOrbit);
-                scene.add(parentMesh);
+                //scene.add(parentOrbit);
+                //scene.add(parentMesh);
             }
         }
-        scene.add(orbitMesh); // Add stream orbit mesh to the scene
+        //scene.add(orbitMesh); // Add stream orbit mesh to the scene
     }
 }
 
@@ -810,10 +801,10 @@ await initializeShowers();
 document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
     checkbox.addEventListener('change', (event) => {
         if (event.target.checked) {
-            filterConditions.shownTypes.push(event.target.value);
+            filterConditions.shownTypes[event.target.value] = true;
             updateOrbits(filterConditions);
         } else {
-            filterConditions.shownTypes.pop(filterConditions.shownTypes.indexOf(event.target.value));
+            filterConditions.shownTypes[event.target.value] = false;
             updateOrbits(filterConditions);
         }
     });
@@ -830,10 +821,14 @@ function updateOrbits(filterConditions) {
         scene.remove(scene.getObjectByProperty('uuid', neos[i].bodyMesh.uuid));
     }
     scene.remove(scene.getObjectByProperty('uuid', radialGradientPlane.uuid));
-    /*for (let i = 0; i < showers.length; i++) {
+    for (let i = 0; i < showers.length; i++) {
         if (showers[i].parentBodyMesh != null)
             scene.remove(scene.getObjectByProperty('uuid', showers[i].parentBodyMesh.uuid));
-    }*/
+        for (let mesh of showers[i].orbitMeshes) {
+            if (mesh != undefined)
+                scene.remove(scene.getObjectByProperty('uuid', mesh.uuid));
+        }
+    }
 
     // Planets and dwarf planets
     for (let i = 0; i < planets.length; i++) {
@@ -852,15 +847,21 @@ function updateOrbits(filterConditions) {
     }
 
     // Sporadics
-    if (filterConditions.shownTypes.includes('Sporadic'))
+    if (filterConditions.shownTypes['Sporadic'])
         scene.add(radialGradientPlane);
 
     // Showers
-    /*for (let i = 0; i < showers.length; i++) {
-        if (filterConditions.shownTypes.includes('Shower') && (showers[i].parentBodyMesh != null)) {
+    for (let i = 0; i < showers.length; i++) {
+        if ((filterConditions.shownTypes['Shower']) && (showers[i].parentBodyMesh != null) && (showers[i].parentBodyMesh != undefined))
             scene.add(showers[i].parentBodyMesh);
+        if ((filterConditions.shownTypes['Shower']) && (showers[i].parentOrbitMesh != null) && (showers[i].parentOrbitMesh != undefined))
+            scene.add(showers[i].parentOrbitMesh);
+        if (filterConditions.shownTypes['Shower']){
+            for (let mesh of showers[i].orbitMeshes) {
+                scene.add(mesh)
+            }
         }
-    }*/
+    }
 }
 
 // Create quantiles of parameter values used for filtering
@@ -1083,43 +1084,40 @@ function animate(time) {
 
     // Update parent body positions for showers if they exist
     for (let i = 0; i < showers.length; i++) {
-        if (showers[i].parentBodyMesh) { // Only update position if parent body exists
+        if (filterConditions.shownTypes['Shower']) {
+            if (showers[i].parentBodyMesh) { // Only update position if parent body exists
 
-            const parentOrbitParams = showers[i].orbitMeshes[0].userData.parent.data.orbitParams;
-            if (parentOrbitParams) {
-                const parentTrueAnomaly = JulianDateToTrueAnomaly(parentOrbitParams, JD);
-                const parentPos = getOrbitPosition(parentOrbitParams.a, parentOrbitParams.e, parentTrueAnomaly, parentOrbitParams.transformMatrix);
-                showers[i].setPosition(parentPos); // Correctly update the parent body position
-            } else {
-                console.warn(`No orbit parameters found for parent body ${showers[i].parentBodyName}`);
+                const parentOrbitParams = showers[i].orbitMeshes[0].userData.parent.data.orbitParams;
+                if (parentOrbitParams) {
+                    const parentTrueAnomaly = JulianDateToTrueAnomaly(parentOrbitParams, JD);
+                    const parentPos = getOrbitPosition(parentOrbitParams.a, parentOrbitParams.e, parentTrueAnomaly, parentOrbitParams.transformMatrix);
+                    showers[i].setPosition(parentPos); // Correctly update the parent body position
+                } else {
+                    console.warn(`No orbit parameters found for parent body ${showers[i].parentBodyName}`);
+                }
             }
-        }
 
-        for (let j = 0; j < showers[i].orbitMeshes.length; j++) {
-            const orbMesh = showers[i].orbitMeshes[j];
-            const streamAnomalyBegin = orbMesh.userData.parent.data.extraParams.true_anomaly_begin;
-            const streamAnomalyEnd = orbMesh.userData.parent.data.extraParams.true_anomaly_end;
+            for (let j = 0; j < showers[i].orbitMeshes.length; j++) {
+                const orbMesh = showers[i].orbitMeshes[j];
+                const streamAnomalyBegin = orbMesh.userData.parent.data.extraParams.true_anomaly_begin;
+                const streamAnomalyEnd = orbMesh.userData.parent.data.extraParams.true_anomaly_end;
 
-            const streamName = showers[i].name;
-            //console.log(streamName, 'the stream name', streamAnomalyBegin, streamAnomalyEnd, 'the stream anomaly begin and end', earthTrueAnomaly);
+                const streamName = showers[i].name;
+                //console.log(streamName, 'the stream name', streamAnomalyBegin, streamAnomalyEnd, 'the stream anomaly begin and end', earthTrueAnomaly);
 
-            //if (filterConditions.shownTypes.includes('Shower')){
-            if (isEarthInStreamRange(earthTrueAnomaly * 180 / Math.PI, streamAnomalyBegin, streamAnomalyEnd)) {
-                orbMesh.material.color.set(SHOWER_ORBIT_COLOR);
-                orbMesh.material.transparent = false;
-                orbMesh.material.opacity = 1;
-                orbMesh.raycast = THREE.Mesh.prototype.raycast;
-            } else if (orbMesh.material.color.getHex() === SHOWER_ORBIT_COLOR) {
-                orbMesh.material.color.set(SHOWER_ORBIT_COLOR_NOTVIS);
-                orbMesh.material.transparent = true;
-                orbMesh.material.opacity = 0.05;
-                orbMesh.raycast = function() {};
+            
+                if (isEarthInStreamRange(earthTrueAnomaly * 180 / Math.PI, streamAnomalyBegin, streamAnomalyEnd)) {
+                    orbMesh.material.color.set(SHOWER_ORBIT_COLOR);
+                    orbMesh.material.transparent = false;
+                    orbMesh.material.opacity = 1;
+                    orbMesh.raycast = THREE.Mesh.prototype.raycast;
+                } else if (orbMesh.material.color.getHex() === SHOWER_ORBIT_COLOR) {
+                    orbMesh.material.color.set(SHOWER_ORBIT_COLOR_NOTVIS);
+                    orbMesh.material.transparent = true;
+                    orbMesh.material.opacity = 0.05;
+                    orbMesh.raycast = function() {};
+                }
             }
-            /*}
-            else {
-                orbMesh.material.transparent = true;
-                orbMesh.material.opacity = 0;
-            }*/
         }
     }
 
