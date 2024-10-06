@@ -16,6 +16,10 @@
 - [ ] Add key for resetting the camera entirely
 - [ ] Add key to center camera on currently selected object
 - [x] True anomaly fix
+- [ ] Add planet labels
+- [ ] Make info panel for planets work
+- [ ] Make time controls work
+- [ ] Make filter controls work
 - [ ] Make planets rotate
 - [ ] UI Filters
 - [ ] Keyboard controls
