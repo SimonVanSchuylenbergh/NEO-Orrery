@@ -3,7 +3,7 @@ import * as THREE from 'https://cdn.skypack.dev/three@0.124.0/build/three.module
 // import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.114/examples/jsm/loaders/GLTFLoader.js';
 import { OrbitControls } from 'https://cdn.skypack.dev/three@0.128.0/examples/jsm/controls/OrbitControls.js';
 import { createOrbit, getOrbitPosition, JulianDateToTrueAnomaly } from './orbits.js'
-import { JDToMJD, MJDToJD } from './TimeUtils.js'
+import { JDToMJD, MJDToDatetime, MJDToJD } from './TimeUtils.js'
 
 // Constants
 const DEG_TO_RAD = Math.PI / 180;
@@ -341,25 +341,25 @@ document.addEventListener('pointerup', (event) => {
 // Event listeners for time controls
 document.getElementById('fastbackward-button').addEventListener('click', function() {
     if (timeSpeedIndex > 0) timeSpeedIndex -= 1;
-    console.log('Timespeed: ', TIMESPEEDS[timeSpeedIndex]);
+    //console.log('Timespeed: ', TIMESPEEDS[timeSpeedIndex]);
 });
 document.getElementById('backward-button').addEventListener('click', function() {
     timeSpeedIndex = 6;
-    console.log('Timespeed: ', TIMESPEEDS[timeSpeedIndex]);
+    //console.log('Timespeed: ', TIMESPEEDS[timeSpeedIndex]);
 });
 document.getElementById('now-button').addEventListener('click', function() {
     timeSpeedIndex = 7;
     JD = (Date.now() / 86400000) + 2440587.5;
     MJD = JDToMJD(JD);
-    console.log('Timespeed: ', TIMESPEEDS[timeSpeedIndex]);
+    //console.log('Timespeed: ', TIMESPEEDS[timeSpeedIndex]);
 });
 document.getElementById('forward-button').addEventListener('click', function() {
     timeSpeedIndex = 7;
-    console.log('Timespeed: ', TIMESPEEDS[timeSpeedIndex]);
+    //console.log('Timespeed: ', TIMESPEEDS[timeSpeedIndex]);
 });
 document.getElementById('fastforward-button').addEventListener('click', function() {
     if (timeSpeedIndex < TIMESPEEDS.length-1) timeSpeedIndex += 1;
-    console.log('Timespeed: ', TIMESPEEDS[timeSpeedIndex]);
+    //console.log('Timespeed: ', TIMESPEEDS[timeSpeedIndex]);
 });
 
 // Functions
@@ -798,6 +798,10 @@ function animate(time) {
 
     // Update the billboard plane to face the camera
     updateBillboard(billboardPlane, camera);
+
+    // Update the current time and time speed displays
+    document.getElementById("current-time").textContent = MJDToDatetime(MJD);
+    document.getElementById("timespeed").textContent = 'Timespeed: ' + TIMESPEEDS[timeSpeedIndex]
 
     controls.update();
     renderer.render(scene, camera);

@@ -134,6 +134,7 @@ canvas {
 
 .time-control-panel {
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     position: fixed;
@@ -142,6 +143,28 @@ canvas {
     transform: translateX(-50%);
     gap: 4px;
     flex: 2;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.time-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    padding: 35px;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    gap: 4px;
+    flex: 2;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.time-item {
+    color: white;
+    padding: 10px;
+    margin-bottom: 5px; /* Space between stacked items */
 }
 
 .time-control-button {
@@ -149,6 +172,7 @@ canvas {
     background: none;
     border: none;
     margin: 0px;
+    text-align: center;
     cursor: pointer;
     pointer-events: auto;
 }
