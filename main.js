@@ -322,8 +322,8 @@ document.addEventListener('pointerup', (event) => {
             // Update sprite texture
             updateSpriteTexture(sprite, highlightedObj.userData.parent.name);
             // Make visible
-            sprite.scale.set(0.05, 0.05, 0.05);  // Adjust the size of the label
-            sprite.position.set(0.01, 0.01, 0);  // Move it above the object
+            sprite.scale.set(0.1, 0.1, 0.1);  // Adjust the size of the label
+            sprite.position.set(0.03, -0.015, 0.03);  // Move it above the object
             highlightedObj.userData.parent.bodyMesh.add(sprite); // add to object
         }
     }
@@ -724,7 +724,7 @@ function createTextTexture(message) {
     canvas.width = 256;
     canvas.height = 256;
 
-    context.font = `${fontSize}px helvetiker`;
+    context.font = `${fontSize}px Verdana`;
     context.fillStyle = 'white';
     context.fillText(message, 10, fontSize);
 
