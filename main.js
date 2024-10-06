@@ -201,12 +201,6 @@ function updateSpriteTexture(sprite, string) {
     sprite.material.map.needsUpdate = true;
 }
 
-// console.log(sprite_name);
-// if (scene.getObjectByName(sprite_name)){
-//         console.log(sprite_name)
-//         scene.getObjectByName(sprite_name).scale.set(0, 0, 0);
-// }
-
 //activates when the mouse is released
 document.addEventListener('pointerup', (event) => {
     mouseUpXY.x = (event.clientX / window.innerWidth) * 2 - 1;
@@ -334,7 +328,6 @@ document.addEventListener('pointerup', (event) => {
         moved = true;
         stackedObjIndex = 0;
         // make invisible
-        // console.log('test')
         sprite.scale.set(0, 0, 0);
         }
     }
