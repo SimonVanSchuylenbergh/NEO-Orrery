@@ -12,6 +12,9 @@ const DEFAULT_MESH_N = 32;
 const ORBIT_MESH_POINTS = 128;
 
 const NEO_ORBIT_COLOR = 0x1e90FF;
+const SHOWER_ORBIT_COLOR = 0x8B0000;
+const PARENT_ORBIT_COLOR = 0xFF0000;
+
 const NEO_COLOR = 0xFFFFFF;
 const NEO_RADIUS = 0.01;
 const MAX_VISIBLE_NEOS = 50;
@@ -225,6 +228,112 @@ function initializeNeos() {
     }
 }
 
+const animatedParentBodies = {}; // Store parent body positions and orbits
+
+function initializeShower() {
+    let j = 0;
+    let i = 0;
+    const showerEntries = Object.entries(showers);
+    for (const [showerName, showerData] of showerEntries) {
+        const orbitParams = { ...showerData.OrbitParams };
+        const ExtraParams = showerData.ExtraParams;
+
+        orbitParams.inc *= DEG_TO_RAD;
+        orbitParams.node *= DEG_TO_RAD;
+        orbitParams.peri *= DEG_TO_RAD;
+
+        const orbit = createOrbit(orbitParams, SHOWER_ORBIT_COLOR, ORBIT_MESH_POINTS);
+        scene.add(orbit);
+        if (i + 1 < showerEntries.length) {
+            const nextShowerData = showerEntries[i + 1][1];
+            if (showerData.ExtraParams.Code !== nextShowerData.ExtraParams.Code) {
+                j += 1;
+                for (const [parentBodyName, parentBodyData] of Object.entries(parentBodies)) {
+                    if (parentBodyData.ExtraParams.Code === ExtraParams.Code) {
+                        const orbitParams_parent = { ...parentBodyData.OrbitParams };
+                        orbitParams_parent.inc *= DEG_TO_RAD;
+                        orbitParams_parent.node *= DEG_TO_RAD;
+                        orbitParams_parent.peri *= DEG_TO_RAD;
+                        orbitParams_parent.ma *= DEG_TO_RAD;
+
+                        const geometry = new THREE.SphereGeometry(NEO_RADIUS, DEFAULT_MESH_N / 2, DEFAULT_MESH_N / 2);
+                        const material = new THREE.MeshBasicMaterial({ color: PARENT_ORBIT_COLOR });
+                        const parentMesh = new THREE.Mesh(geometry, material);
+                        neoMeshes[parentBodyName] = parentMesh;
+
+                        const orbit = createOrbit(orbitParams_parent, PARENT_ORBIT_COLOR, ORBIT_MESH_POINTS);
+                        const pos = getOrbitPosition(orbitParams_parent.a, orbitParams_parent.e, 0, orbitParams_parent.transformMatrix);
+                        parentMesh.position.set(pos.x, pos.y, pos.z);
+
+                        scene.add(orbit);
+                        scene.add(parentMesh);
+
+                        animatedParentBodies[parentBodyName] = {
+                            mesh: parentMesh,
+                            orbitParams: orbitParams_parent,
+                            currentAnomaly: orbitParams_parent.ma
+                        };
+
+                        break;
+                    }
+                }
+            }
+        }
+        i += 1;
+        if (j === MAX_VISIBLE_NEOS) {
+            break;
+        }
+    }
+}
+
+function updateParentBodyPosition(parentBody) {
+    const orbitParams = parentBody.orbitParams;
+    const deltaT = 0.01;
+    parentBody.currentAnomaly += deltaT;
+
+    const pos = getOrbitPosition(orbitParams.a, orbitParams.e, parentBody.currentAnomaly, orbitParams.transformMatrix);
+    parentBody.mesh.position.set(pos.x, pos.y, pos.z);
+}
+
+// Add radial gradient plane
+function createRadialGradientPlane(width, height) {
+    const geometry = new THREE.PlaneGeometry(width, height, 1, 1);
+    const material = new THREE.ShaderMaterial({
+        vertexShader: `
+            varying vec2 vUv;
+            void main() {
+                vUv = uv;
+                gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+            }
+        `,
+        fragmentShader: `
+            varying vec2 vUv;
+            void main() {
+                float distanceFromCenter = length(vUv - vec2(0.5, 0.5));
+                float alpha = (1.0 - distanceFromCenter * 2.0)*0.5;
+                alpha = clamp(alpha, 0.0, 1.0);
+                if (alpha < 0.01) {
+                    discard;
+                }
+                gl_FragColor = vec4(1.0, 0.0, 0.0, alpha);
+            }
+        `,
+        transparent: true,
+        side: THREE.DoubleSide,
+        depthWrite: false,
+        depthTest: false,
+    });
+
+    const plane = new THREE.Mesh(geometry, material);
+    plane.rotation.x = Math.PI / 2;
+    plane.renderOrder = 0;
+    return plane;
+}
+
+const planeWidth = 5.204 * 2;
+const radialGradientPlane = createRadialGradientPlane(planeWidth, planeWidth);
+scene.add(radialGradientPlane);
+
 // Data
 let sunMesh;
 const planetMeshes = {};
@@ -233,10 +342,13 @@ const neoMeshes = {};
 // read in planets and NEOs from jsons
 const planets = await readJSON('data/planet_data.json');
 const neos = await readJSON('data/risk_list_neo_data.json');
+const showers = await readJSON('data/stream_dataIAU2022.json');
+const parentBodies = await readJSON('data/stream_parentbody.json');
 
 addSun(); // add Sun
 initializePlanets(); // Initialize planets once
 initializeNeos(); // Initialize NEOs once
+initializeShower(); // Initialize showers once
 // console.log(planets.Saturn);
 
 // Animation loop with FPS control
@@ -270,6 +382,10 @@ function animate(time) {
 
         i += 1;
         if (i == MAX_VISIBLE_NEOS) { break };
+    }
+
+    for (const parentBodyName in animatedParentBodies) {
+        updateParentBodyPosition(animatedParentBodies[parentBodyName]);
     }
 
     // Rotate Saturn's rings:
