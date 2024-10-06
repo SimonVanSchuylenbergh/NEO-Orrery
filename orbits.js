@@ -57,7 +57,7 @@ function JulianDateToTrueAnomaly(orbitParams, JD) {
     return computeTrueAnomaly(E, orbitParams.e);
 }
 
-function getCurrentMeanAnomaly(a, ma, JD, epoch) {
+function getCurrentMeanAnomaly(a, ma, JD, epoch) { //JD and epoch need to use the same reference system (either MJD or JD) 
     const mu = 0.0002959122082855911025;
     return (JD - epoch) * Math.sqrt(mu / Math.abs(a**3)) + ma;
 }
