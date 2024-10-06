@@ -164,9 +164,8 @@ function initializePlanets() {
             'assets/body_textures/' + planetTextureName
         );
         // check if planet is saturn's rings
-        // if so, make it a ring geometry -- otherwise, make it a spher egeometry
-
-        console.log(planetName)
+        // if so, make it a ring geometry with specified parameters -- otherwise, make it a spher egeometry
+        // console.log(planetName)
         if (planetName == 'rings'){
             const geometry = new THREE.RingGeometry(planetData.renderParams.innerRadius, 
                 planetData.renderParams.outerRadius, 64);
@@ -181,6 +180,7 @@ function initializePlanets() {
             var mesh = new THREE.Mesh(geometry, material);
             mesh.rotation.x = Math.PI / 2; //Rotate the rings to be flat
         }
+        // if not ring do sphere
         else {
             const geometry = new THREE.SphereGeometry(planetData.renderParams.radius, DEFAULT_MESH_N, DEFAULT_MESH_N);
             const material = new THREE.MeshBasicMaterial({map: planetTexture}); // add texture
@@ -190,11 +190,11 @@ function initializePlanets() {
         };
         // add mesh to planet meshes
         planetMeshes[planetName] = mesh;
-        // orbit
+        // Create and set orbit
         const orbit = createOrbit(orbitParams, planetData.renderParams.color, ORBIT_MESH_POINTS);
         const pos = getOrbitPosition(orbitParams.a, orbitParams.e, 0, orbitParams.transformMatrix);
         mesh.position.set(pos.x, pos.y, pos.z);
-
+        // Add to scene
         scene.add(orbit);
         scene.add(mesh);
     }
