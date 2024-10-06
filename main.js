@@ -43,7 +43,7 @@ class FilterConditions{
         this.aRange = [0, 100]
         this.eRange = [0, 1]
         //this.shownNEOClasses = []
-        this.shownTypes = ['Planet', 'Dwarf planet', 'NEO']
+        this.shownTypes = ['Planet', 'Dwarf planet', 'NEO', 'Shower']
     }
 
     checkPassesFilters(object) {
@@ -830,6 +830,10 @@ function updateOrbits(filterConditions) {
         scene.remove(scene.getObjectByProperty('uuid', neos[i].orbitMesh.uuid));
         scene.remove(scene.getObjectByProperty('uuid', neos[i].bodyMesh.uuid));
     }
+    /*for (let i = 0; i < showers.length; i++) {
+        if (showers[i].parentBodyMesh != null)
+            scene.remove(scene.getObjectByProperty('uuid', showers[i].parentBodyMesh.uuid));
+    }*/
 
     // Planets and dwarf planets
     for (let i = 0; i < planets.length; i++) {
@@ -846,6 +850,13 @@ function updateOrbits(filterConditions) {
             scene.add(neos[i].bodyMesh)
         }
     }
+
+    // Showers
+    /*for (let i = 0; i < showers.length; i++) {
+        if (filterConditions.shownTypes.includes('Shower') && (showers[i].parentBodyMesh != null)) {
+            scene.add(showers[i].parentBodyMesh);
+        }
+    }*/
 }
 
 // Create quantiles of parameter values used for filtering
@@ -1088,17 +1099,23 @@ function animate(time) {
             const streamName = showers[i].name;
             //console.log(streamName, 'the stream name', streamAnomalyBegin, streamAnomalyEnd, 'the stream anomaly begin and end', earthTrueAnomaly);
 
+            //if (filterConditions.shownTypes.includes('Shower')){
             if (isEarthInStreamRange(earthTrueAnomaly * 180 / Math.PI, streamAnomalyBegin, streamAnomalyEnd)) {
-                orbMesh.material.color.set(SHOWER_ORBIT_COLOR); // Set to green
-                orbMesh.material.transparent = false; // Make it opaque
-                orbMesh.material.opacity = 1; // Full opacity
-                orbMesh.raycast = THREE.Mesh.prototype.raycast; // Enable clickability
+                orbMesh.material.color.set(SHOWER_ORBIT_COLOR);
+                orbMesh.material.transparent = false;
+                orbMesh.material.opacity = 1;
+                orbMesh.raycast = THREE.Mesh.prototype.raycast;
             } else if (orbMesh.material.color.getHex() === SHOWER_ORBIT_COLOR) {
-                orbMesh.material.color.set(SHOWER_ORBIT_COLOR_NOTVIS); // Reset color
-                orbMesh.material.transparent = true; // Make it transparent
-                orbMesh.material.opacity = 0.05; // Half opacity
-                orbMesh.raycast = function() {}; // Disable clickability
+                orbMesh.material.color.set(SHOWER_ORBIT_COLOR_NOTVIS);
+                orbMesh.material.transparent = true;
+                orbMesh.material.opacity = 0.05;
+                orbMesh.raycast = function() {};
             }
+            /*}
+            else {
+                orbMesh.material.transparent = true;
+                orbMesh.material.opacity = 0;
+            }*/
         }
     }
 
