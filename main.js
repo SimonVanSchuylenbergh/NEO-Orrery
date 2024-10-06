@@ -70,11 +70,58 @@ window.addEventListener("resize", () => {
     */
 });
 
+// all keyboard events are handled here
+window.addEventListener("keydown", (event) => {
+
+    if (event.code === 'Digit1') { //press to show a certain subset of the solar sytem bodies (e.g only planets or only high risk NEOs)
+        console.log('1 is pressed down!');
+        
+    }
+    else if (event.code === 'Digit2') { //press to show a certain subset of the solar sytem bodies
+        console.log('2 is pressed down!');
+        
+    }
+    else if (event.code === 'Digit3') { //press to show a certain subset of the solar sytem bodies
+        console.log('3 is pressed down!');
+        
+    }
+    else if (event.code === 'Digit4') { //press to show a certain subset of the solar sytem bodies
+        console.log('4 is pressed down!');
+        
+    }
+    else if (event.code === 'KeyQ') { //decrease clicking threshold (logarithmically)
+        console.log('Q key is pressed down!');
+        
+    }
+    else if (event.code === 'KeyE') { //increase clicking threshold (logarithmically)
+        console.log('E key is pressed down!');
+        
+    }
+    else if (event.code === 'KeyA') { //cycle parameter in descending order (e.g. eccentricity)
+        console.log('A key is pressed down!');
+        
+    }
+    else if (event.code === 'KeyD') { //cycle parameter in ascending order
+        console.log('D key is pressed down!');
+        
+    }
+    else if (event.code === 'KeyW') { //reserved for whatever
+        console.log('W key is pressed down!'); 
+        
+    }
+    else if (event.code === 'KeyS') { //reserved for whatever
+        console.log('S key is pressed down!');
+    }
+    else if (event.code === 'Space') { //recenter on Sun
+        console.log('Space key is pressed down!');
+    }
+
+});
+
 const mouseDownXY = new THREE.Vector2(-10, -10);
 const mouseUpXY = new THREE.Vector2(-10, -10);
 const raycaster = new THREE.Raycaster(); //ray through the screen at the location of the mouse pointer (when the mouse is released)
-raycaster.params.Line = {threshold: 0.1}; //needs to depend on zoom level
-raycaster.params.Points = {threshold: 0.1}
+raycaster.params.Line = {threshold: 0.01}; //this will just be a user interactive slider
 let highlightedObj = null;
 let prevColor = 0;
 let moved = false;
@@ -104,12 +151,12 @@ document.addEventListener('pointerup', (event) => {
         raycaster.setFromCamera(mouseUpXY, camera);
 
         // calculate objects intersecting the picking ray
-        const allSelectedObjs = raycaster.intersectObjects(scene.children);
+        const allselectedObjects = raycaster.intersectObjects(scene.children);
 
         //remove duplicate intersections of the same orbit
         const seen = new Set();
-        const selectedObjs = allSelectedObjs.filter(item => {
-            if (!seen.has(item.object.uuid)) {
+        const selectedOrbits = allselectedObjects.filter(item => {
+            if (!seen.has(item.object.uuid) && item.object.type === 'Line') {
                 seen.add(item.object.uuid);
                 return true; // unique uuid
             }
@@ -121,31 +168,31 @@ document.addEventListener('pointerup', (event) => {
             highlightedObj = null;
             document.querySelector('.info-panel').style.display = "none";
         }
+
+        console.log(selectedOrbits);
         
-        if (selectedObjs.length != 0){
-            if (!moved) { stackedObjIndex = (stackedObjIndex + 1) % selectedObjs.length; }
+        if (selectedOrbits.length != 0){
+            if (!moved) { stackedObjIndex = (stackedObjIndex + 1) % selectedOrbits.length; }
             
-            if (selectedObjs[stackedObjIndex].object.type == 'Line') { 
-                highlightedObj = selectedObjs[stackedObjIndex].object; //save the highlighted object
-                prevColor = highlightedObj.material.color.getHex(); //save the highlighted object's previous color
-                highlightedObj.material.color.set(0x00ff00); //highlight the select object if it is an orbit
-                document.querySelector('.info-panel').style.display = "block";
-                // Update info in the info panel
-                const obj_data = selectedObjs[stackedObjIndex].object.userData.parent.data;
-                document.getElementById('info-name').textContent = selectedObjs[stackedObjIndex].object.userData.parent.name;
-                document.getElementById('info-diameter').textContent = `Diameter: ${obj_data.ExtraParams.diameter} m`;
-                document.getElementById('info-first-impact').textContent = `First possible impact: ${obj_data.ExtraParams.impact}`;
-                document.getElementById('info-impact-period').textContent = `Possible impacts between ${obj_data.ExtraParams.years.split('-')[0]} and ${obj_data.ExtraParams.years.split('-')[1]}`;
-                document.getElementById('info-risk').textContent = `Risk: ${obj_data.ExtraParams['PS max']}`;
-                document.getElementById('info-vel').textContent = `Velocity: ${obj_data.ExtraParams.vel} km/s`;
-                document.getElementById('info-a').textContent = `Semi-major axis: ${obj_data.orbitParams.a.toFixed(3)} AU`;
-                document.getElementById('info-e').textContent = `Eccentricity: ${obj_data.orbitParams.e.toFixed(3)}`;
-                document.getElementById('info-inc').textContent = `Inclination: ${(obj_data.orbitParams.inc / Math.PI * 180).toFixed(3)}\u00B0`;
-                document.getElementById('info-node').textContent = `Longitude of ascending node: ${(obj_data.orbitParams.node / Math.PI * 180).toFixed(3)}\u00B0`;
-                document.getElementById('info-peri').textContent = `Argument of perihelion: ${(obj_data.orbitParams.peri / Math.PI * 180).toFixed(3)}\u00B0`;
-                document.getElementById('info-ma').textContent = `Mean anomaly: ${(obj_data.orbitParams.ma / Math.PI * 180).toFixed(3)}\u00B0`;
-                document.getElementById('info-epoch').textContent = `Epoch: ${obj_data.orbitParams.epoch} (MJD)`;
-            }
+            highlightedObj = selectedOrbits[stackedObjIndex].object; //save the highlighted object
+            prevColor = highlightedObj.material.color.getHex(); //save the highlighted object's previous color
+            highlightedObj.material.color.set(0x00ff00); //highlight the select object if it is an orbit
+            document.querySelector('.info-panel').style.display = "block";
+            // Update info in the info panel
+            const obj_data = selectedOrbits[stackedObjIndex].object.userData.parent.data;
+            document.getElementById('info-name').textContent = selectedOrbits[stackedObjIndex].object.userData.parent.name;
+            document.getElementById('info-diameter').textContent = `Diameter: ${obj_data.extraParams.diameter} m`;
+            document.getElementById('info-first-impact').textContent = `First possible impact: ${obj_data.extraParams.impact}`;
+            document.getElementById('info-impact-period').textContent = `Possible impacts between ${obj_data.extraParams.years.split('-')[0]} and ${obj_data.extraParams.years.split('-')[1]}`;
+            document.getElementById('info-risk').textContent = `Risk: ${obj_data.extraParams['PS max']}`;
+            document.getElementById('info-vel').textContent = `Velocity: ${obj_data.extraParams.vel} km/s`;
+            document.getElementById('info-a').textContent = `Semi-major axis: ${obj_data.orbitParams.a.toFixed(3)} AU`;
+            document.getElementById('info-e').textContent = `Eccentricity: ${obj_data.orbitParams.e.toFixed(3)}`;
+            document.getElementById('info-inc').textContent = `Inclination: ${(obj_data.orbitParams.inc / Math.PI * 180).toFixed(3)}\u00B0`;
+            document.getElementById('info-node').textContent = `Longitude of ascending node: ${(obj_data.orbitParams.node / Math.PI * 180).toFixed(3)}\u00B0`;
+            document.getElementById('info-peri').textContent = `Argument of perihelion: ${(obj_data.orbitParams.peri / Math.PI * 180).toFixed(3)}\u00B0`;
+            document.getElementById('info-ma').textContent = `Mean anomaly: ${(obj_data.orbitParams.ma / Math.PI * 180).toFixed(3)}\u00B0`;
+            document.getElementById('info-epoch').textContent = `Epoch: ${obj_data.orbitParams.epoch} (MJD)`;
         }
     }
     else { //moved mouse
@@ -167,9 +214,7 @@ async function readJSON(filePath) {
 function addSun() {
     // add Sun Texture
     const sunTextureLoader = new THREE.TextureLoader();
-    const sunTexture = sunTextureLoader.load(
-        'assets/body_textures/8k_sun.jpg'
-    );
+    const sunTexture = sunTextureLoader.load('assets/body_textures/8k_sun.jpg');
 
     const geometry = new THREE.SphereGeometry(0.02, DEFAULT_MESH_N, DEFAULT_MESH_N);
     const material = new THREE.MeshBasicMaterial({map: sunTexture});
@@ -188,15 +233,12 @@ async function initializePlanets() {
         // get planet texture
         const planetTextureName = planetData.renderParams.texture;
         const planetTextureLoader = new THREE.TextureLoader();
-        const planetTexture = planetTextureLoader.load(
-            'assets/body_textures/' + planetTextureName
-        );
+        const planetTexture = planetTextureLoader.load('assets/body_textures/' + planetTextureName);
         // check if planet is saturn's rings
         // if so, make it a ring geometry with specified parameters -- otherwise, make it a sphere egeometry
         // console.log(planetName)
         if (planetName == 'rings'){
-            const geometry = new THREE.RingGeometry(planetData.renderParams.innerRadius, 
-                planetData.renderParams.outerRadius, 64);
+            const geometry = new THREE.RingGeometry(planetData.renderParams.innerRadius, planetData.renderParams.outerRadius, 64);
             const material = new THREE.MeshBasicMaterial({
                 map: planetTexture,
                 side: THREE.DoubleSide,
@@ -275,7 +317,7 @@ async function initializeShower() {
     const showerEntries = Object.entries(showers_json);
     for (const [showerName, showerData] of showerEntries) {
         const orbitParams = { ...showerData.orbitParams };
-        const ExtraParams = showerData.ExtraParams;
+        const extraParams = showerData.extraParams;
 
         orbitParams.inc *= DEG_TO_RAD;
         orbitParams.node *= DEG_TO_RAD;
@@ -285,10 +327,10 @@ async function initializeShower() {
         scene.add(orbit);
         if (i + 1 < showerEntries.length) {
             const nextShowerData = showerEntries[i + 1][1];
-            if (showerData.ExtraParams.Code !== nextShowerData.ExtraParams.Code) {
+            if (showerData.extraParams.Code !== nextShowerData.extraParams.Code) {
                 j += 1;
                 for (const [parentBodyName, parentBodyData] of Object.entries(parentBodies)) {
-                    if (parentBodyData.ExtraParams.Code === ExtraParams.Code) {
+                    if (parentBodyData.extraParams.Code === extraParams.Code) {
                         const orbitParams_parent = parentBodyData.orbitParams;
                         orbitParams_parent.inc *= DEG_TO_RAD;
                         orbitParams_parent.node *= DEG_TO_RAD;
@@ -440,12 +482,9 @@ function updateBillboard(plane, camera) {
 }
 
 
-
-
 const planeWidth = 5.204 * 2;
 const radialGradientPlane = createRadialGradientPlane(planeWidth, planeWidth);
 // scene.add(radialGradientPlane);
-
 
 
 // Data
@@ -532,7 +571,7 @@ function animate(time) {
     // Update planet positions and rotation
     for (let i = 0; i < planets.length; i++) {
         const orbitParams = planets[i].data.orbitParams;
-        const ExtraParams = planets[i].data.ExtraParams;
+        const extraParams = planets[i].data.extraParams;
         const trueAnomaly = currentTime;
         // Update Position
         const pos = getOrbitPosition(orbitParams.a, orbitParams.e, trueAnomaly, orbitParams.transformMatrix);

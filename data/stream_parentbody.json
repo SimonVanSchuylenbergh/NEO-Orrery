@@ -9,7 +9,7 @@
             "peri": 121.31,
             "ma": 359.92
         },
-        "ExtraParams": {
+        "extraParams": {
             "Code": "MON",
             "Meteor Stream": "December Monocerotids",
             "Peak Activity": "early December",
@@ -66,7 +66,7 @@
             "peri": 110.37,
             "ma": 0.01
         },
-        "ExtraParams": {
+        "extraParams": {
             "Code": "AUR",
             "Meteor Stream": "Aurigids",
             "Peak Activity": "late August",
@@ -123,7 +123,7 @@
             "peri": 146.62,
             "ma": 122.37
         },
-        "ExtraParams": {
+        "extraParams": {
             "Code": "SDA",
             "Meteor Stream": "Southern delta Aquariids",
             "Peak Activity": "late July",
@@ -180,7 +180,7 @@
             "peri": 192.85,
             "ma": 359.99
         },
-        "ExtraParams": {
+        "extraParams": {
             "Code": "ELY",
             "Meteor Stream": "eta Lyrids",
             "Peak Activity": "mid-May",
@@ -237,7 +237,7 @@
             "peri": 257.61,
             "ma": 0.11
         },
-        "ExtraParams": {
+        "extraParams": {
             "Code": "JPE",
             "Meteor Stream": "July Pegasids",
             "Peak Activity": "early July",
@@ -294,7 +294,7 @@
             "peri": 302.84,
             "ma": 0.17
         },
-        "ExtraParams": {
+        "extraParams": {
             "Code": "LYR",
             "Meteor Stream": "April Lyrids",
             "Peak Activity": "late April",
@@ -351,7 +351,7 @@
             "peri": 217.96,
             "ma": 341.65
         },
-        "ExtraParams": {
+        "extraParams": {
             "Code": "CAP",
             "Meteor Stream": "alpha Capricornids",
             "Peak Activity": "late July",
@@ -408,7 +408,7 @@
             "peri": 152.98,
             "ma": 7.63
         },
-        "ExtraParams": {
+        "extraParams": {
             "Code": "PER",
             "Meteor Stream": "Perseids",
             "Peak Activity": "mid-August",
@@ -465,7 +465,7 @@
             "peri": 172.5,
             "ma": 4.98
         },
-        "ExtraParams": {
+        "extraParams": {
             "Code": "LEO",
             "Meteor Stream": "Leonids",
             "Peak Activity": "mid-November",
@@ -522,7 +522,7 @@
             "peri": 1.8,
             "ma": 261.15
         },
-        "ExtraParams": {
+        "extraParams": {
             "Code": "PPU",
             "Meteor Stream": "pi Puppids",
             "Peak Activity": "late April",
@@ -579,7 +579,7 @@
             "peri": 172.81,
             "ma": 313.91
         },
-        "ExtraParams": {
+        "extraParams": {
             "Code": "DRA",
             "Meteor Stream": "October Draconids",
             "Peak Activity": "early October",
@@ -636,7 +636,7 @@
             "peri": 207.51,
             "ma": 15.13
         },
-        "ExtraParams": {
+        "extraParams": {
             "Code": "URS",
             "Meteor Stream": "Ursids",
             "Peak Activity": "late December",
@@ -693,7 +693,7 @@
             "peri": 172.51,
             "ma": 13.17
         },
-        "ExtraParams": {
+        "extraParams": {
             "Code": "JBO",
             "Meteor Stream": "June Bootids",
             "Peak Activity": "late June",
@@ -750,7 +750,7 @@
             "peri": 187.03,
             "ma": 219.12
         },
-        "ExtraParams": {
+        "extraParams": {
             "Code": "STA",
             "Meteor Stream": "Southern Taurids",
             "Peak Activity": "mid-October",
@@ -807,7 +807,7 @@
             "peri": 112.21,
             "ma": 274.81
         },
-        "ExtraParams": {
+        "extraParams": {
             "Code": "ORI",
             "Meteor Stream": "Orionids",
             "Peak Activity": "mid-October",
@@ -864,7 +864,7 @@
             "peri": 112.21,
             "ma": 274.81
         },
-        "ExtraParams": {
+        "extraParams": {
             "Code": "ETA",
             "Meteor Stream": "Orionids",
             "Peak Activity": "mid-October",
@@ -921,7 +921,7 @@
             "peri": 317.63,
             "ma": 325.58
         },
-        "ExtraParams": {
+        "extraParams": {
             "Code": "NTA",
             "Meteor Stream": "Northern Taurids",
             "Peak Activity": "mid-November",
@@ -978,7 +978,7 @@
             "peri": 171.32,
             "ma": 331.55
         },
-        "ExtraParams": {
+        "extraParams": {
             "Code": "QUA",
             "Meteor Stream": "Quadrantids",
             "Peak Activity": "early January",
@@ -1035,7 +1035,7 @@
             "peri": 322.31,
             "ma": 248.98
         },
-        "ExtraParams": {
+        "extraParams": {
             "Code": "GEM",
             "Meteor Stream": "Geminids",
             "Peak Activity": "mid-December",
