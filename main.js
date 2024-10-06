@@ -265,8 +265,15 @@ document.addEventListener('pointerup', (event) => {
                 document.getElementById('info-temp').textContent = `Average temperature: ${obj_data.extraParams.average_temperature_C}\u00B0C`;
             if (('surface_gravity_m_s2' in obj_data.extraParams) && (obj_data.extraParams.surface_gravity_m_s2 !== undefined))
                 document.getElementById('info-grav').textContent = `Surface gravity: ${obj_data.extraParams.surface_gravity_m_s2} m/s\u00B2`;
-            if (('mass_kg' in obj_data.extraParams) && (obj_data.extraParams.mass_kg !== undefined))
-                document.getElementById('info-mass').textContent = `Mass: ${(obj_data.extraParams.mass_kg / 5.97237e+24).toFixed(3)} M\u{1F728}`;
+            if (('mass_kg' in obj_data.extraParams) && (obj_data.extraParams.mass_kg !== undefined)){
+                const mass = obj_data.extraParams.mass_kg / 5.97237e+24
+                if (mass < 1e-3)
+                    document.getElementById('info-mass').textContent = `Mass: ${(mass * 1e4).toFixed(3)} \u00B7 10\u207B\u2074 M\u{1F728}`;
+                else if (mass < 1e-2)
+                    document.getElementById('info-mass').textContent = `Mass: ${(mass * 1e3).toFixed(3)} \u00B7 10\u207B\u00B3 M\u{1F728}`;
+                else
+                    document.getElementById('info-mass').textContent = `Mass: ${mass.toFixed(3)} M\u{1F728}`;
+            }
             if (('obliquity' in obj_data.extraParams) && (obj_data.extraParams.obliquity !== undefined))
                 document.getElementById('info-obl').textContent = `Obliquity: ${obj_data.extraParams.obliquity.toFixed(1)}\u00B0`;
 
