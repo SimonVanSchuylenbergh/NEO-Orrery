@@ -180,6 +180,27 @@ document.addEventListener('pointerdown', (event) => {
     }
 });
 
+// Create and label sprite with some initial text texture
+const spriteMaterial = new THREE.SpriteMaterial({ 
+    map: createTextTexture('Initial'),  // Create texture from canvas text
+    transparent: true 
+});
+var sprite = new THREE.Sprite(spriteMaterial);
+// Make it invisible to start
+sprite.scale.set(0, 0, 0);
+
+// Function to update the texture of the sprite with a given string
+function updateSpriteTexture(sprite, string) {
+    // Load the new texture
+    const newTexture = createTextTexture(string);
+
+    // Update the sprite's material map with the new texture
+    sprite.material.map = newTexture;
+
+    // Ensure the texture is updated
+    sprite.material.map.needsUpdate = true;
+}
+
 //activates when the mouse is released
 document.addEventListener('pointerup', (event) => {
     mouseUpXY.x = (event.clientX / window.innerWidth) * 2 - 1;
@@ -287,21 +308,32 @@ document.addEventListener('pointerup', (event) => {
                 if (('obliquity' in obj_data.extraParams) && (obj_data.extraParams.obliquity !== undefined))
                     document.getElementById('info-obl').textContent = `Obliquity: ${obj_data.extraParams.obliquity.toFixed(1)}\u00B0`;
 
-                document.getElementById('info-a').textContent = `Semi-major axis: ${obj_data.orbitParams.a.toFixed(3)} AU`;
-                document.getElementById('info-e').textContent = `Eccentricity: ${obj_data.orbitParams.e.toFixed(3)}`;
-                document.getElementById('info-inc').textContent = `Inclination: ${(obj_data.orbitParams.inc / Math.PI * 180).toFixed(3)}\u00B0`;
-                document.getElementById('info-node').textContent = `Longitude of ascending node: ${(obj_data.orbitParams.node / Math.PI * 180).toFixed(3)}\u00B0`;
-                document.getElementById('info-peri').textContent = `Argument of perihelion: ${(obj_data.orbitParams.peri / Math.PI * 180).toFixed(3)}\u00B0`;
-                document.getElementById('info-ma').textContent = `Mean anomaly: ${(obj_data.orbitParams.ma / Math.PI * 180).toFixed(3)}\u00B0`;
-                document.getElementById('info-epoch').textContent = `Epoch: ${obj_data.orbitParams.epoch} (MJD)`;
-            }
+            document.getElementById('info-a').textContent = `Semi-major axis: ${obj_data.orbitParams.a.toFixed(3)} AU`;
+            document.getElementById('info-e').textContent = `Eccentricity: ${obj_data.orbitParams.e.toFixed(3)}`;
+            document.getElementById('info-inc').textContent = `Inclination: ${(obj_data.orbitParams.inc / Math.PI * 180).toFixed(3)}\u00B0`;
+            document.getElementById('info-node').textContent = `Longitude of ascending node: ${(obj_data.orbitParams.node / Math.PI * 180).toFixed(3)}\u00B0`;
+            document.getElementById('info-peri').textContent = `Argument of perihelion: ${(obj_data.orbitParams.peri / Math.PI * 180).toFixed(3)}\u00B0`;
+            document.getElementById('info-ma').textContent = `Mean anomaly: ${(obj_data.orbitParams.ma / Math.PI * 180).toFixed(3)}\u00B0`;
+            document.getElementById('info-epoch').textContent = `Epoch: ${obj_data.orbitParams.epoch} (MJD)`;
+            
+            // Update sprite texture
+            updateSpriteTexture(sprite, highlightedObj.userData.parent.name);
+            // Make visible
+            sprite.scale.set(0.05, 0.05, 0.05);  // Adjust the size of the label
+            sprite.position.set(0.01, 0.01, 0);  // Move it above the object
+            highlightedObj.userData.parent.bodyMesh.add(sprite); // add to object
         }
     }
     else { //moved mouse
         moved = true;
         stackedObjIndex = 0;
+        // make invisible
+        sprite.scale.set(0, 0, 0);
+        }
     }
-});
+    }
+);
+
 
 // Event listeners for time controls
 document.getElementById('fastbackward-button').addEventListener('click', function() {
@@ -364,7 +396,7 @@ async function initializePlanets() {
         // check if planet is saturn's rings
         // if so, make it a ring geometry with specified parameters -- otherwise, make it a sphere egeometry
         // console.log(planetName)
-        if (planetName == 'rings'){
+        if (planetName === 'rings'){
             const geometry = new THREE.RingGeometry(planetData.renderParams.innerRadius, planetData.renderParams.outerRadius, 64);
             const material = new THREE.MeshBasicMaterial({
                 map: planetTexture,
@@ -722,8 +754,16 @@ function animate(time) {
         // Update Position
         const pos = getOrbitPosition(orbitParams.a, orbitParams.e, trueAnomaly, orbitParams.transformMatrix);
         planets[i].setPosition(pos);
+        // Compute normalized axis of rotation
+        const axis = new THREE.Vector3(
+            Math.sin(extraParams.obliquity * DEG_TO_RAD), 
+            Math.cos(extraParams.obliquity * DEG_TO_RAD), 
+            0).normalize();
+        // Set rotation speed
+        // console.log(planets[i], axis, 2 * Math.PI/(60 * extraParams.rotation_period) * TIMESPEEDS[timeSpeedIndex])
+        planets[i].bodyMesh.rotateOnAxis(axis, 
+            (2 * Math.PI/(60 * extraParams.rotation_period)) * 1 * TIMESPEEDS[timeSpeedIndex]);
 
-        // .project(camera);
         // Rotate
         //planets[i].bodyMesh.rotation.x += orbitParams.rotateX;
         //planets[i].bodyMesh.rotation.y += orbitParams.rotateY;
@@ -751,16 +791,6 @@ function animate(time) {
         const highlightedObjTrueAnomaly = JulianDateToTrueAnomaly(highlightedObjOrbitParams, MJD + deltaJulian);
         const highlightedObjPos = getOrbitPosition(highlightedObjOrbitParams.a, highlightedObjOrbitParams.e, highlightedObjTrueAnomaly, highlightedObjOrbitParams.transformMatrix);
         
-        // Create a 3D Sprite Label for the selected object
-        const spriteMaterial = new THREE.SpriteMaterial({ 
-            map: createTextTexture(highlightedObj.userData.parent.name),  // Create texture from canvas text
-            transparent: true 
-        });
-        var sprite = new THREE.Sprite(spriteMaterial);
-        sprite.name = 'label_sprite';
-        sprite.scale.set(0.05, 0.05, 0.05);  // Adjust the size of the label
-        sprite.position.set(0.01, 0.01, 0);  // Move it above the object
-        highlightedObj.userData.parent.bodyMesh.add(sprite);
     }
 
     // Update the billboard plane to face the camera
