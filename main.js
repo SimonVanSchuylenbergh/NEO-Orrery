@@ -23,6 +23,9 @@ const MAX_VISIBLE_SHOWERS = 2;
 
 const MOUSE_MIN_MOVE_CLICK = 0.005;
 
+const SUNOBLIQUITY = 7.25; // degrees
+const SUNROTPER = 25.05;  // days
+
 const TIMESPEEDS = [-365, -30, -7, -1, -3600 / 86400, -60 / 86400, -1 / 86400, 1 / 86400, 60 / 86400, 3600 / 86400, 1, 7, 30, 365]
 
 //starting time
@@ -392,7 +395,7 @@ document.getElementById('fastforward-button').addEventListener('click', function
 
 // Listeners for clicking overlay
 document.getElementById('open-overlay').addEventListener('click', function(){
-    console.log('test')
+    // console.log('test')
     document.getElementById('keyboardOverlay').classList.add('show');
 })
 
@@ -418,8 +421,10 @@ function addSun() {
 
     const geometry = new THREE.SphereGeometry(0.02, DEFAULT_MESH_N, DEFAULT_MESH_N);
     const material = new THREE.MeshBasicMaterial({map: sunTexture});
-    const sunMesh = new THREE.Mesh(geometry, material);
+    var sunMesh = new THREE.Mesh(geometry, material);
     scene.add(sunMesh);
+
+    return sunMesh;
 }
 
 async function initializePlanets() {
@@ -710,7 +715,7 @@ const radialGradientPlane = createRadialGradientPlane(planeWidth, planeWidth);
 
 
 // Data
-let sunMesh;
+// let sunMesh;
 const planets = [];
 const neos = [];
 const showers = [];
@@ -807,7 +812,7 @@ function isEarthInStreamRange(earthAnomaly, streamAnomalyBegin, streamAnomalyEnd
 }
 
 
-addSun();
+let sunMesh = addSun(); // Generate sunMesh and also return it so can be rotated
 await initializePlanets(); // Initialize planets once
 await initializeNeos(); // Initialize NEOs once
 await initializeShowers();
@@ -876,6 +881,16 @@ function animate(time) {
 
     JD += deltaJulian;
     MJD += deltaJulian;
+
+    // Rotate the Sun
+    // Compute axis of rotation
+    const sunAxis = new THREE.Vector3(
+        Math.sin(SUNOBLIQUITY * DEG_TO_RAD), 
+        Math.cos(SUNOBLIQUITY * DEG_TO_RAD),
+        0).normalize();
+    // Set rotation speed of the Sun
+    sunMesh.rotateOnAxis(sunAxis, 
+        (2 * Math.PI/(60 * SUNROTPER)) * 1 * TIMESPEEDS[timeSpeedIndex]);
 
     // Update planet positions and rotation
     for (let i = 0; i < planets.length; i++) {
