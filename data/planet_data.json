@@ -7,8 +7,7 @@
             "inc": 7.00487,
             "node": 48.33167,
             "peri": 29.12478,
-            "ma": 174.79439,
-            "obliquity": 0.01
+            "ma": 174.79439
         },
         "renderParams": {
             "is_dwarf": false,
@@ -20,7 +19,8 @@
             "diameter_km": 4880,
             "average_temperature_C": 167,
             "surface_gravity_m_s2": 3.7,
-            "mass_kg": 3.3011e+23
+            "mass_kg": 3.3011e+23,
+            "obliquity": 0.01
         }
     },
     "Venus": {
@@ -31,8 +31,7 @@
             "inc": 3.39471,
             "node": 76.68069,
             "peri": 54.85229,
-            "ma": 50.44675,
-            "obliquity": 177.36
+            "ma": 50.44675
         },
         "renderParams": {
             "is_dwarf": false,
@@ -44,7 +43,8 @@
             "diameter_km": 12104,
             "average_temperature_C": 464,
             "surface_gravity_m_s2": 8.87,
-            "mass_kg": 4.8675e+24
+            "mass_kg": 4.8675e+24,
+            "obliquity": 177.36
         }
     },
     "Earth": {
@@ -55,8 +55,7 @@
             "inc": 5e-05,
             "node": -11.26064,
             "peri": 114.20783,
-            "ma": 357.51716,
-            "obliquity": 23.45
+            "ma": 357.51716
         },
         "renderParams": {
             "is_dwarf": false,
@@ -68,7 +67,8 @@
             "diameter_km": 12742,
             "average_temperature_C": 15,
             "surface_gravity_m_s2": 9.81,
-            "mass_kg": 5.97237e+24
+            "mass_kg": 5.97237e+24,
+            "obliquity": 23.45
         }
     },
     "Mars": {
@@ -91,7 +91,8 @@
             "diameter_km": 6779,
             "average_temperature_C": -60,
             "surface_gravity_m_s2": 3.71,
-            "mass_kg": 6.4171e+23
+            "mass_kg": 6.4171e+23,
+            "obliquity": 25.19
         }
     },
     "Jupiter": {
@@ -114,7 +115,8 @@
             "diameter_km": 139820,
             "average_temperature_C": -145,
             "surface_gravity_m_s2": 24.79,
-            "mass_kg": 1.8982e+27
+            "mass_kg": 1.8982e+27,
+            "obliquity": 3.13
         }
     },
     "Saturn": {
@@ -137,7 +139,8 @@
             "diameter_km": 116460,
             "average_temperature_C": -178,
             "surface_gravity_m_s2": 10.44,
-            "mass_kg": 5.6834e+26
+            "mass_kg": 5.6834e+26,
+            "obliquity": 26.73
         }
     },
     "rings": {
@@ -161,7 +164,8 @@
             "diameter_km": 116460,
             "average_temperature_C": -178,
             "surface_gravity_m_s2": 10.44,
-            "mass_kg": 5.6834e+26
+            "mass_kg": 5.6834e+26,
+            "obliquity": 26.73
         }
     },
     "Uranus": {
@@ -184,7 +188,8 @@
             "diameter_km": 50724,
             "average_temperature_C": -224,
             "surface_gravity_m_s2": 8.69,
-            "mass_kg": 8.681e+25
+            "mass_kg": 8.681e+25,
+            "obliquity": 97.77
         }
     },
     "Neptune": {
@@ -207,7 +212,8 @@
             "diameter_km": 49244,
             "average_temperature_C": -214,
             "surface_gravity_m_s2": 11.15,
-            "mass_kg": 1.02413e+26
+            "mass_kg": 1.02413e+26,
+            "obliquity": 28.32
         }
     },
     "Ceres": {
@@ -230,7 +236,8 @@
             "diameter_km": 939.4,
             "average_temperature_C": -105,
             "surface_gravity_m_s2": 0.27,
-            "mass_kg": 9.3835e+20
+            "mass_kg": 9.3835e+20,
+            "obliquity": 4
         }
     },
     "Pluto": {
@@ -253,7 +260,8 @@
             "diameter_km": 2376.6,
             "average_temperature_C": -229,
             "surface_gravity_m_s2": 0.62,
-            "mass_kg": 1.303e+22
+            "mass_kg": 1.303e+22,
+            "obliquity": 122.53
         }
     },
     "Haumea": {
@@ -276,7 +284,8 @@
             "diameter_km": 1632,
             "average_temperature_C": -241,
             "surface_gravity_m_s2": 0.44,
-            "mass_kg": 4.006e+21
+            "mass_kg": 4.006e+21,
+            "obliquity": 0
         }
     },
     "Eris": {
@@ -299,7 +308,8 @@
             "diameter_km": 2326,
             "average_temperature_C": -243,
             "surface_gravity_m_s2": 0.82,
-            "mass_kg": 1.6466e+22
+            "mass_kg": 1.6466e+22,
+            "obliquity": 0
         }
     },
     "Makemake": {
@@ -322,7 +332,8 @@
             "diameter_km": 1430,
             "average_temperature_C": -239,
             "surface_gravity_m_s2": 0.5,
-            "mass_kg": 3.1e+21
+            "mass_kg": 3.1e+21,
+            "obliquity": 0
         }
     }
 }
