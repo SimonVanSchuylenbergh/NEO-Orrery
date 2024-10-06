@@ -111,6 +111,7 @@ document.addEventListener('pointerup', (event) => {
         if (highlightedObj != null){ //clicking on the background deselects the current object (if there is one)
             highlightedObj.material.color.set(prevColor);
             highlightedObj = null;
+            document.querySelector('.info-panel').style.display = "none";
         }
         
         if (selectedObjs.length != 0){
@@ -120,6 +121,22 @@ document.addEventListener('pointerup', (event) => {
                 highlightedObj = selectedObjs[stackedObjIndex].object; //save the highlighted object
                 prevColor = highlightedObj.material.color.getHex(); //save the highlighted object's previous color
                 highlightedObj.material.color.set(0x00ff00); //highlight the select object if it is an orbit
+                document.querySelector('.info-panel').style.display = "block";
+                // Update info in the info panel
+                const obj_data = selectedObjs[stackedObjIndex].object.userData.parent.data;
+                document.getElementById('info-name').textContent = selectedObjs[stackedObjIndex].object.userData.parent.name;
+                document.getElementById('info-diameter').textContent = `Diameter: ${obj_data.ExtraParams.diameter} m`;
+                document.getElementById('info-first-impact').textContent = `First possible impact: ${obj_data.ExtraParams.impact}`;
+                document.getElementById('info-impact-period').textContent = `Possible impacts between ${obj_data.ExtraParams.years.split('-')[0]} and ${obj_data.ExtraParams.years.split('-')[1]}`;
+                document.getElementById('info-risk').textContent = `Risk: ${obj_data.ExtraParams['PS max']}`;
+                document.getElementById('info-vel').textContent = `Velocity: ${obj_data.ExtraParams.vel} km/s`;
+                document.getElementById('info-a').textContent = `Semi-major axis: ${obj_data.orbitParams.a.toFixed(3)} AU`;
+                document.getElementById('info-e').textContent = `Eccentricity: ${obj_data.orbitParams.e.toFixed(3)}`;
+                document.getElementById('info-inc').textContent = `Inclination: ${(obj_data.orbitParams.inc / Math.PI * 180).toFixed(3)}\u00B0`;
+                document.getElementById('info-node').textContent = `Longitude of ascending node: ${(obj_data.orbitParams.node / Math.PI * 180).toFixed(3)}\u00B0`;
+                document.getElementById('info-peri').textContent = `Argument of perihelion: ${(obj_data.orbitParams.peri / Math.PI * 180).toFixed(3)}\u00B0`;
+                document.getElementById('info-ma').textContent = `Mean anomaly: ${(obj_data.orbitParams.ma / Math.PI * 180).toFixed(3)}\u00B0`;
+                document.getElementById('info-epoch').textContent = `Epoch: ${obj_data.orbitParams.epoch}`;
             }
         }
     }
@@ -152,8 +169,9 @@ function addSun() {
     scene.add(sunMesh);
 }
 
-function initializePlanets() {
-    for (const [planetName, planetData] of Object.entries(planets)) {
+async function initializePlanets() {
+    const planets_json = await readJSON('data/planet_data.json');
+    for (const [planetName, planetData] of Object.entries(planets_json)) {
         const orbitParams = planetData.orbitParams;
         orbitParams.inc *= DEG_TO_RAD;
         orbitParams.node *= DEG_TO_RAD;
@@ -166,7 +184,7 @@ function initializePlanets() {
             'assets/body_textures/' + planetTextureName
         );
         // check if planet is saturn's rings
-        // if so, make it a ring geometry with specified parameters -- otherwise, make it a spher egeometry
+        // if so, make it a ring geometry with specified parameters -- otherwise, make it a sphere egeometry
         // console.log(planetName)
         if (planetName == 'rings'){
             const geometry = new THREE.RingGeometry(planetData.renderParams.innerRadius, 
@@ -190,21 +208,27 @@ function initializePlanets() {
             // Create the mesh
             var mesh = new THREE.Mesh(geometry, material);
         };
-        // add mesh to planet meshes
-        planetMeshes[planetName] = mesh;
         // Create and set orbit
         const orbit = createOrbit(orbitParams, planetData.renderParams.color, ORBIT_MESH_POINTS);
         const pos = getOrbitPosition(orbitParams.a, orbitParams.e, 0, orbitParams.transformMatrix);
         mesh.position.set(pos.x, pos.y, pos.z);
+
+        const body = new Body(planetName, planetData, orbit, mesh);
+
+        orbit.userData.parent = body;
+        mesh.userData.parent = body;
+        planets.push(body);
+
         // Add to scene
         scene.add(orbit);
         scene.add(mesh);
     }
 }
 
-function initializeNeos() {
+async function initializeNeos() {
+    const neos_json = await readJSON('data/risk_list_neo_data.json');
     let i = 0;
-    for (const [neoName, neoData] of Object.entries(neos)) {
+    for (const [neoName, neoData] of Object.entries(neos_json)) {
         const orbitParams = neoData.orbitParams;
         orbitParams.inc *= DEG_TO_RAD;
         orbitParams.node *= DEG_TO_RAD;
@@ -214,11 +238,16 @@ function initializeNeos() {
         const geometry = new THREE.SphereGeometry(NEO_RADIUS, DEFAULT_MESH_N / 2, DEFAULT_MESH_N / 2);
         const material = new THREE.MeshBasicMaterial({ color: NEO_COLOR });
         const neoMesh = new THREE.Mesh(geometry, material);
-        neoMeshes[neoName] = neoMesh;
 
         const orbit = createOrbit(orbitParams, NEO_ORBIT_COLOR, ORBIT_MESH_POINTS);
         const pos = getOrbitPosition(orbitParams.a, orbitParams.e, 0, orbitParams.transformMatrix);
         neoMesh.position.set(pos.x, pos.y, pos.z);
+
+        const body = new Body(neoName, neoData, orbit, neoMesh);
+
+        orbit.userData.parent = body;
+        neoMesh.userData.parent = body;
+        planets.push(body);
 
         scene.add(orbit);
         scene.add(neoMesh);
@@ -230,10 +259,12 @@ function initializeNeos() {
 
 const animatedParentBodies = {}; // Store parent body positions and orbits
 
-function initializeShower() {
+async function initializeShower() {
     let j = 0;
     let i = 0;
-    const showerEntries = Object.entries(showers);
+    const showers_json = await readJSON('data/stream_dataIAU2022.json');
+    const parentBodies = await readJSON('data/stream_parentbody.json');
+    const showerEntries = Object.entries(showers_json);
     for (const [showerName, showerData] of showerEntries) {
         const orbitParams = { ...showerData.orbitParams };
         const ExtraParams = showerData.ExtraParams;
@@ -259,11 +290,15 @@ function initializeShower() {
                         const geometry = new THREE.SphereGeometry(NEO_RADIUS, DEFAULT_MESH_N / 2, DEFAULT_MESH_N / 2);
                         const material = new THREE.MeshBasicMaterial({ color: PARENT_ORBIT_COLOR });
                         const parentMesh = new THREE.Mesh(geometry, material);
-                        neoMeshes[parentBodyName] = parentMesh;
 
                         const orbit = createOrbit(orbitParams_parent, PARENT_ORBIT_COLOR, ORBIT_MESH_POINTS);
                         const pos = getOrbitPosition(orbitParams_parent.a, orbitParams_parent.e, 0, orbitParams_parent.transformMatrix);
                         parentMesh.position.set(pos.x, pos.y, pos.z);
+
+                        const body = new Body(parentBodyName, parentBodyData, orbit, parentMesh)
+                        parentMesh.userData.parent = body;
+                        orbit.userData.parent = body;
+                        neos.push(body)
 
                         scene.add(orbit);
                         scene.add(parentMesh);
@@ -407,19 +442,41 @@ const radialGradientPlane = createRadialGradientPlane(planeWidth, planeWidth);
 
 // Data
 let sunMesh;
-const planetMeshes = {};
-const neoMeshes = {};
+const planets = [];
+const neos = [];
 
-// read in planets and NEOs from jsons
-const planets = await readJSON('data/planet_data.json');
-const neos = await readJSON('data/risk_list_neo_data.json');
-const showers = await readJSON('data/stream_dataIAU2022.json');
-const parentBodies = await readJSON('data/stream_parentbody.json');
 
-addSun(); // add Sun
-initializePlanets(); // Initialize planets once
-initializeNeos(); // Initialize NEOs once
-initializeShower(); // Initialize showers once
+class Body {
+    constructor(name, data, orbitMesh, bodyMesh) {
+        this.name = name;
+        this.data = data;
+        this.orbitMesh = orbitMesh;
+        this.bodyMesh = bodyMesh;
+
+        // These will be pointers used for cycling through objects
+        this.nextLargerSize;
+        this.nextSmallerSize;
+        this.nextLargerRisk;
+        this.nextSmallerRisk;
+        this.nextLargerImpactTime;
+        this.nextSmallerImpactTime;
+        this.nextLargerA;
+        this.nextSmallerA;
+        this.nextLargerE;
+        this.nextSmallerE;
+    }
+
+    setPosition(pos) {
+        this.bodyMesh.position.set(pos.x, pos.y, pos.z)
+    }
+}
+
+
+
+addSun();
+await initializePlanets(); // Initialize planets once
+await initializeNeos(); // Initialize NEOs once
+await initializeShower()
 // console.log(planets.Saturn);
 
 // Animation loop with FPS control
@@ -435,13 +492,13 @@ function animate(time) {
 
     let currentTime = Date.now() * TA_TIME_SCALE_FACTOR;
 
-    // Update planet positions and rotate
-    for (const [planetName, planetData] of Object.entries(planets)) {
-        const orbitParams = planetData.orbitParams;
+    // Update planet positions and rotation
+    for (let i = 0; i < planets.length; i++) {
+        const orbitParams = planets[i].data.orbitParams;
         const trueAnomaly = currentTime;
         // Update Position
         const pos = getOrbitPosition(orbitParams.a, orbitParams.e, trueAnomaly, orbitParams.transformMatrix);
-        planetMeshes[planetName].position.set(pos.x, pos.y, pos.z);
+        planets[i].setPosition(pos);
         // Rotate
         planetMeshes[planetName].rotation.x += orbitParams.rotateX;
         planetMeshes[planetName].rotation.y += orbitParams.rotateY;
@@ -449,15 +506,11 @@ function animate(time) {
     }
 
     // Update NEO positions
-    let i = 0;
-    for (const [neoName, neoData] of Object.entries(neos)) {
-        const orbitParams = neoData.orbitParams;
+    for (let i = 0; i < neos.length; i++) {
+        const orbitParams = neos[i].data.orbitParams;
         const trueAnomaly = currentTime;
         const pos = getOrbitPosition(orbitParams.a, orbitParams.e, trueAnomaly, orbitParams.transformMatrix);
-        neoMeshes[neoName].position.set(pos.x, pos.y, pos.z);
-
-        i += 1;
-        if (i == MAX_VISIBLE_NEOS) { break };
+        neos[i].setPosition(pos);
     }
 
     for (const parentBodyName in animatedParentBodies) {
@@ -466,9 +519,6 @@ function animate(time) {
 
     // Update the billboard plane to face the camera
     updateBillboard(billboardPlane, camera);
-
-    // Rotate Saturn's rings:
-    // rings.rotation.z += 0.002; //rotate rings slightly
 
     controls.update();
     renderer.render(scene, camera);
