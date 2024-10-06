@@ -42,18 +42,25 @@ scene.background = new THREE.CubeTextureLoader().load([
     'assets/nz.png'  // Back
 ]);
 
-// Set camera position
-camera.position.set(2, 2, 2);
-camera.lookAt(0, 0, 0);
-
 // Add lighting
 const light = new THREE.AmbientLight(0x404040, 0.5); // Soft white light
 scene.add(light);
 
 // Setup Controls
-const controls = new OrbitControls(camera, renderer.domElement);
-controls.enableDamping = true;
-controls.update();
+let controls = null;
+
+function resetCamera() {
+    // resetting controls to remove damping --> https://codepen.io/boytchev/pen/qBJxdxo
+    if (controls !== null) {controls.dispose( );}
+    controls = new OrbitControls( camera, renderer.domElement );
+
+    camera.position.set(2, 2, 2);
+    camera.lookAt(0, 0, 0);
+    controls.enableDamping = true;
+}
+
+resetCamera(); // Set camera position
+controls.update(); //Is this needed?
 
 // Setup Event Listeners
 window.addEventListener("resize", () => {
@@ -112,8 +119,11 @@ window.addEventListener("keydown", (event) => {
     else if (event.code === 'KeyS') { //reserved for whatever
         console.log('S key is pressed down!');
     }
-    else if (event.code === 'Space') { //recenter on Sun
-        console.log('Space key is pressed down!');
+    else if (event.code === 'KeyT') { //recenter on Sun
+        camera.lookAt(10, -2, 0); //doesn't work
+    }
+    else if (event.code === 'Backspace') { //recenter camera to initial settings
+        resetCamera();
     }
 
 });
