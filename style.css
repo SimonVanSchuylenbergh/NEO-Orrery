@@ -295,6 +295,7 @@ canvas {
     max-width: 500px;
     margin: 0px;
     margin-left: 50px;
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 .noUi-handle {

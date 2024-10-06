@@ -364,8 +364,9 @@ document.addEventListener('pointerup', (event) => {
             document.getElementById('info-node').textContent = `Longitude of ascending node: ${(obj_data.orbitParams.node / Math.PI * 180).toFixed(3)}\u00B0`;
             document.getElementById('info-peri').textContent = `Argument of perihelion: ${(obj_data.orbitParams.peri / Math.PI * 180).toFixed(3)}\u00B0`;
             document.getElementById('info-ma').textContent = `Mean anomaly: ${(obj_data.orbitParams.ma / Math.PI * 180).toFixed(3)}\u00B0`;
-            document.getElementById('info-epoch').textContent = `Epoch: ${obj_data.orbitParams.epoch} (MJD)`;
-            
+            if (obj_data.orbitParams.epoch != undefined){
+                document.getElementById('info-epoch').textContent = `Epoch: ${obj_data.orbitParams.epoch} (MJD)`;
+            }
             // Update sprite texture
             updateSpriteTexture(sprite, highlightedObj.userData.parent.name);
             // Make visible
@@ -854,7 +855,7 @@ noUiSlider.create(document.getElementById('e-slider'), {
 // Update the displayed values when the slider values change
 document.getElementById('risk-slider').noUiSlider.on('update', function(values, handle) {
     if (handle === 0) {
-        document.getElementById('risk-lower-value').textContent = `Risk: ${RISK_QUANTILES[Math.round(values[0])].toFixed(2)}`;
+        document.getElementById('risk-lower-value').textContent = `Risk (PS): ${RISK_QUANTILES[Math.round(values[0])].toFixed(2)}`;
     } else {
         document.getElementById('risk-upper-value').textContent = RISK_QUANTILES[Math.round(values[1])].toFixed(2);
     }
