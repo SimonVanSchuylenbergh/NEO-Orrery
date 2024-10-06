@@ -25,4 +25,4 @@
 - [x] Skybox milkyway
 - [ ] Moons
 - [ ] Texture planet atmosphere
-- [ ] Texture and halo Sun
+- [x] Texture and halo Sun
