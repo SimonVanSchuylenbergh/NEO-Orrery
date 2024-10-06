@@ -17,7 +17,7 @@ const PARENT_ORBIT_COLOR = 0xFF0000;
 
 const NEO_COLOR = 0xFFFFFF;
 const NEO_RADIUS = 0.01;
-const MAX_VISIBLE_NEOS = 50;
+const MAX_VISIBLE_NEOS = 1;
 
 const MOUSE_MIN_MOVE_CLICK = 0.005;
 
@@ -330,9 +330,61 @@ function createRadialGradientPlane(width, height) {
     return plane;
 }
 
+// Add radial gradient plane
+function sunRadialGradientPlane(width, height) {
+    const geometry = new THREE.PlaneGeometry(width, height, 1, 1);
+    const material = new THREE.ShaderMaterial({
+        vertexShader: `
+            varying vec2 vUv;
+            void main() {
+                vUv = uv;
+                gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+            }
+        `,
+        fragmentShader: `
+            varying vec2 vUv;
+            void main() {
+                // Calculate distance from the center (0.5, 0.5) in UV coordinates
+                float distanceFromCenter = length(vUv - vec2(0.5, 0.5));
+
+                // Apply an r^(-1.3) drop-off for intensity and normalize the result
+                float alpha = pow(distanceFromCenter, -1.3); // Avoid division by zero with +0.01
+
+                // Further decrease intensity by scaling down alpha
+                alpha *= 0.001;  // Lower factor to further reduce intensity
+
+                // Clamp the alpha to [0, 1] range to avoid overshooting
+                alpha = clamp(alpha, 0.0, 1.0);
+
+                // Discard fragment if alpha is too low (full transparency)
+                if (alpha < 0.01) {
+                    discard;
+                }
+
+                // Set the fragment color to red with the calculated alpha
+                gl_FragColor = vec4(1.0, 0.95, 0.6, alpha);
+            }
+        `
+
+,
+        transparent: true,
+        side: THREE.DoubleSide,
+        depthWrite: false,
+        depthTest: false,
+    });
+
+    const plane = new THREE.Mesh(geometry, material);
+    plane.rotation.x = Math.PI / 2;
+    plane.renderOrder = 0;
+    return plane;
+}
+
 const planeWidth = 5.204 * 2;
 const radialGradientPlane = createRadialGradientPlane(planeWidth, planeWidth);
+const radial_sun_haze = sunRadialGradientPlane(planeWidth, planeWidth);
 scene.add(radialGradientPlane);
+scene.add(radial_sun_haze);
+
 
 // Data
 let sunMesh;
