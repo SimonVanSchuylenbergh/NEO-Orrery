@@ -385,12 +385,11 @@ async function initializeShower() {
     }
 }
 
-function updateParentBodyPosition(parentBody) {
+function updateParentBodyPosition(parentBody, JD) {
     const orbitParams = parentBody.orbitParams;
-    const deltaT = 0.01;
-    parentBody.currentAnomaly += deltaT;
+    const trueAnomaly = JulianDateToTrueAnomaly(orbitParams, JD);
 
-    const pos = getOrbitPosition(orbitParams.a, orbitParams.e, parentBody.currentAnomaly, orbitParams.transformMatrix);
+    const pos = getOrbitPosition(orbitParams.a, orbitParams.e, trueAnomaly, orbitParams.transformMatrix);
     parentBody.mesh.position.set(pos.x, pos.y, pos.z);
 }
 
@@ -601,13 +600,13 @@ function animate(time) {
     for (let i = 0; i < neos.length; i++) {
         const orbitParams = neos[i].data.orbitParams;
         // console.log(neos[i])
-        const trueAnomaly = JulianDateToTrueAnomaly(orbitParams, MJD + deltaJulian);;
+        const trueAnomaly = JulianDateToTrueAnomaly(orbitParams, MJD + deltaJulian);
         const pos = getOrbitPosition(orbitParams.a, orbitParams.e, trueAnomaly, orbitParams.transformMatrix);
         neos[i].setPosition(pos);
     }
 
     for (const parentBodyName in animatedParentBodies) {
-        updateParentBodyPosition(animatedParentBodies[parentBodyName]);
+        updateParentBodyPosition(animatedParentBodies[parentBodyName], JD + deltaJulian);
     }
 
     // Update the billboard plane to face the camera
