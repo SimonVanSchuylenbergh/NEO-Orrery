@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>Orrery with Real NEO Data</title>
     <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.0/nouislider.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.0/nouislider.min.js"></script>
 </head>
 <body>
     <canvas id="orreryCanvas"></canvas>
@@ -76,6 +78,52 @@
         </div>
     </div>
 
+    <div class="filter-panel">
+        <form>
+            <label>
+                <input type="checkbox" name="planets" value="Planet">
+                Planets
+            </label><br>
+
+            <label>
+                <input type="checkbox" name="dwarf planets" value="Dwarf planet">
+                Dwarf planets
+            </label><br>
+            
+            <label>
+                <input type="checkbox" name="neos" value="NEO">
+                Near-Earth Objects
+            </label><br>
+            <dev>
+                <div class="slider-container">
+                    <div class="output" id="risk-lower-value">0</div>
+                    <div class="slider" id="risk-slider"></div>
+                    <div class="output" id="risk-upper-value">100</div>
+                </div>
+                <div class="slider-container">
+                    <div class="output" id="size-lower-value">0</div>
+                    <div class="slider" id="size-slider"></div>
+                    <div class="output" id="size-upper-value">100</div>
+                </div>
+                <div class="slider-container">
+                    <div class="output" id="a-lower-value">0</div>
+                    <div class="slider" id="a-slider"></div>
+                    <div class="output" id="a-upper-value">100</div>
+                </div>
+                <div class="slider-container">
+                    <div class="output" id="e-lower-value">0</div>
+                    <div class="slider" id="e-slider"></div>
+                    <div class="output" id="e-upper-value">100</div>
+                </div>
+            </dev><br>
+
+            <label>
+                <input type="checkbox" name="showers" value="Showers">
+                Showers
+            </label>
+        </form>
+    </div>
+
 
     <script src="TimeUtils.js"></script>
     <script type="module" src="main.js"></script>
@@ -87,6 +135,10 @@
             img.src = newimage;
         }
 
+        // Default filters for filter panel
+        document.querySelector('input[name="planets"]').checked = true;
+        document.querySelector('input[name="neos"]').checked = true;
+        document.querySelector('input[name="dwarf planets"]').checked = true;
     </script>
 </body>
 </html>

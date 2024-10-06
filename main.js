@@ -18,8 +18,8 @@ const PARENT_ORBIT_COLOR = 0xFF0000;
 
 const NEO_COLOR = 0xFFFFFF;
 const NEO_RADIUS = 0.01;
-const MAX_VISIBLE_NEOS = 2;
-const MAX_VISIBLE_SHOWERS = 2;
+const MAX_VISIBLE_NEOS = 9999;
+const MAX_VISIBLE_SHOWERS = 9999;
 
 const MOUSE_MIN_MOVE_CLICK = 0.005;
 
@@ -33,17 +33,29 @@ let timeSpeedIndex = 10;
 // Filter conditions for objects
 class FilterConditions{
     constructor(){
-        this.riskRange = (-99, 99)
-        this.sizeRange = (0, 9999)
+        this.riskRange = [-99, 99]
+        this.sizeRange = [0, 9999]
         //this.firstImpactRange((Date.now() / 86400000) + 2440587.5, (Date.now() / 86400000) + 2440587.5 + 365 * 100)
-        this.aRange = (0, 100)
-        this.eRange = (0, 1)
+        this.aRange = [0, 100]
+        this.eRange = [0, 1]
         //this.shownNEOClasses = []
         this.shownTypes = ['Planet', 'Dwarf planet', 'NEO']
     }
 
     checkPassesFilters(object) {
-        if ((object.data.extraParams.risk < this.riskRange[0]) || (object.data.extraParams.risk > this.riskRange[1]))
+        if (('renderParams' in object.data) && ('is_dwarf' in object.data.renderParams) && (object.data.renderParams.is_dwarf)){
+            for (let t of this.shownTypes){
+                if (t == 'Dwarf planet') return true;
+            }
+            return false;
+        }
+        else if (('renderParams' in object.data) && ('is_dwarf' in object.data.renderParams)){
+            for (let t of this.shownTypes){
+                if (t == 'Planet') return true;
+            }
+            return false;
+        }
+        if ((object.data.extraParams['PS max'] < this.riskRange[0]) || (object.data.extraParams['PS max'] > this.riskRange[1]))
             return false;
         if ((object.data.extraParams.diameter < this.sizeRange[0]) || (object.data.extraParams.diameter > this.sizeRange[1]))
             return false;
@@ -51,7 +63,10 @@ class FilterConditions{
             return false;
         if ((object.data.orbitParams.e < this.eRange[0]) || (object.data.orbitParams.e > this.eRange[1]))
             return false;
-        return true;
+        for (let t of this.shownTypes){
+            if (t == 'NEO') return true;
+        }
+        return false;
     }
 }
 
@@ -367,37 +382,57 @@ document.addEventListener('pointerup', (event) => {
 
 
 // Event listeners for time controls
-document.getElementById('fastbackward-button').addEventListener('click', function() {
+document.getElementById('fastbackward-button').addEventListener('pointerup', function(event) { event.stopPropagation(); });
+document.getElementById('fastbackward-button').addEventListener('pointerdown', function(event) { event.stopPropagation(); });
+document.getElementById('fastbackward-button').addEventListener('click', function(event) {
     if (timeSpeedIndex > 0) timeSpeedIndex -= 1;
+    event.stopPropagation();
     //console.log('Timespeed: ', TIMESPEEDS[timeSpeedIndex]);
 });
-document.getElementById('backward-button').addEventListener('click', function() {
+document.getElementById('backward-button').addEventListener('pointerup', function(event) { event.stopPropagation(); });
+document.getElementById('backward-button').addEventListener('pointerdown', function(event) { event.stopPropagation(); });
+document.getElementById('backward-button').addEventListener('click', function(event) {
     timeSpeedIndex = 6;
+    event.stopPropagation();
     //console.log('Timespeed: ', TIMESPEEDS[timeSpeedIndex]);
 });
-document.getElementById('now-button').addEventListener('click', function() {
+document.getElementById('now-button').addEventListener('pointerup', function(event) { event.stopPropagation(); });
+document.getElementById('now-button').addEventListener('pointerdown', function(event) { event.stopPropagation(); });
+document.getElementById('now-button').addEventListener('click', function(event) {
     timeSpeedIndex = 7;
     JD = (Date.now() / 86400000) + 2440587.5;
     MJD = JDToMJD(JD);
+    event.stopPropagation();
     //console.log('Timespeed: ', TIMESPEEDS[timeSpeedIndex]);
 });
-document.getElementById('forward-button').addEventListener('click', function() {
+document.getElementById('forward-button').addEventListener('pointerup', function(event) { event.stopPropagation(); });
+document.getElementById('forward-button').addEventListener('pointerdown', function(event) { event.stopPropagation(); });
+document.getElementById('forward-button').addEventListener('click', function(event) {
     timeSpeedIndex = 7;
+    event.stopPropagation();
     //console.log('Timespeed: ', TIMESPEEDS[timeSpeedIndex]);
 });
-document.getElementById('fastforward-button').addEventListener('click', function() {
+document.getElementById('fastforward-button').addEventListener('pointerup', function(event) { event.stopPropagation(); });
+document.getElementById('fastforward-button').addEventListener('pointerdown', function(event) { event.stopPropagation(); });
+document.getElementById('fastforward-button').addEventListener('click', function(event) {
     if (timeSpeedIndex < TIMESPEEDS.length-1) timeSpeedIndex += 1;
+    event.stopPropagation();
     //console.log('Timespeed: ', TIMESPEEDS[timeSpeedIndex]);
 });
 
 // Listeners for clicking overlay
-document.getElementById('open-overlay').addEventListener('click', function(){
+document.getElementById('open-overlay').addEventListener('pointerup', function(event) { event.stopPropagation(); });
+document.getElementById('open-overlay').addEventListener('pointerdown', function(event) { event.stopPropagation(); });
+document.getElementById('open-overlay').addEventListener('click', function(event){
     console.log('test')
     document.getElementById('keyboardOverlay').classList.add('show');
+    event.stopPropagation();
 })
-
-document.getElementById('close-overlay').addEventListener('click', function(){
+document.getElementById('close-overlay').addEventListener('pointerup', function(event) { event.stopPropagation(); });
+document.getElementById('close-overlay').addEventListener('pointerdown', function(event) { event.stopPropagation(); });
+document.getElementById('close-overlay').addEventListener('click', function(event){
     document.getElementById('keyboardOverlay').classList.remove('show');
+    event.stopPropagation();
 })
 
 // Functions
@@ -493,7 +528,7 @@ async function initializeNeos() {
 
         orbit.userData.parent = body;
         neoMesh.userData.parent = body;
-        planets.push(body);
+        neos.push(body);
 
         i += 1;
         if (i == MAX_VISIBLE_NEOS) { break };
@@ -501,12 +536,15 @@ async function initializeNeos() {
 }
 
 function updateOrbits(filterConditions) {
-    console.log('number of objects before: ', scene.children.length)
     // Remove everything from the scene
-    for (let obj of scene.children) {
-        if (obj instanceof THREE.Mesh) scene.remove( scene.getObjectByProperty( 'uuid', obj.uuid ) );
+    for (let i = 0; i < planets.length; i++) {
+        scene.remove( scene.getObjectByProperty( 'uuid', planets[i].orbitMesh.uuid ) );
+        scene.remove( scene.getObjectByProperty( 'uuid', planets[i].bodyMesh.uuid ) );
     }
-    console.log('number of objects after: ', scene.children.length)
+    for (let i = 0; i < neos.length; i++) {
+        scene.remove( scene.getObjectByProperty( 'uuid', neos[i].orbitMesh.uuid ) );
+        scene.remove( scene.getObjectByProperty( 'uuid', neos[i].bodyMesh.uuid ) );
+    }
 
     // Planets and dwarf planets
     for (let i = 0; i < planets.length; i++) {
@@ -518,7 +556,7 @@ function updateOrbits(filterConditions) {
 
     // NEOs
     for (let i = 0; i < neos.length; i++) {
-        if (filterConditions.checkPassesFilters(planets[i])) {
+        if (filterConditions.checkPassesFilters(neos[i])) {
             scene.add(neos[i].orbitMesh)
             scene.add(neos[i].bodyMesh)
         }
@@ -722,18 +760,6 @@ class Body {
         this.data = data;
         this.orbitMesh = orbitMesh;
         this.bodyMesh = bodyMesh;
-
-        // These will be pointers used for cycling through objects
-        this.nextLargerSize;
-        this.nextSmallerSize;
-        this.nextLargerRisk;
-        this.nextSmallerRisk;
-        this.nextLargerImpactTime;
-        this.nextSmallerImpactTime;
-        this.nextLargerA;
-        this.nextSmallerA;
-        this.nextLargerE;
-        this.nextSmallerE;
     }
 
     setPosition(pos) {
@@ -811,6 +837,126 @@ addSun();
 await initializePlanets(); // Initialize planets once
 await initializeNeos(); // Initialize NEOs once
 await initializeShowers();
+
+
+// Event listeners for filter toggles
+document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+    checkbox.addEventListener('change', (event) => {
+        if (event.target.checked) {
+            filterConditions.shownTypes.push(event.target.value);
+            updateOrbits(filterConditions);
+        } else {
+            filterConditions.shownTypes.pop(filterConditions.shownTypes.indexOf(event.target.value));
+            updateOrbits(filterConditions);
+        }
+    });
+});
+
+// Create quantiles of parameter values used for filtering
+function getQuantiles(objects, attribute) {
+    // Step 1: Extract the attribute values
+    const values = objects.map(obj => obj[attribute]);
+
+    // Step 2: Sort the values
+    values.sort((a, b) => a - b);
+
+    // Step 3: Calculate the quantiles
+    let quantiles = [];
+    for (let i = 0; i <= 100; i++) {
+        let index = Math.round(i * (values.length - 1) / 100);
+        quantiles.push(values[index]);
+    }
+
+    return quantiles;
+}
+
+const RISK_QUANTILES = getQuantiles(neos.map(obj => obj.data.extraParams), 'PS max');
+const SIZE_QUANTILES = getQuantiles(neos.map(obj => obj.data.extraParams), 'diameter');
+const A_QUANTILES = getQuantiles(neos.map(obj => obj.data.orbitParams), 'a');
+const E_QUANTILES = getQuantiles(neos.map(obj => obj.data.orbitParams), 'e');
+
+// Sliders for filter panel
+// ==============================================================
+noUiSlider.create(document.getElementById('risk-slider'), {
+    start: [0, 100],
+    connect: true,
+    range: {
+        'min': 0,
+        'max': 100
+    },
+    step: 1
+});
+noUiSlider.create(document.getElementById('size-slider'), {
+    start: [0, 100],
+    connect: true,
+    range: {
+        'min': 0,
+        'max': 100
+    },
+    step: 1
+});
+noUiSlider.create(document.getElementById('a-slider'), {
+    start: [0, 100],
+    connect: true,
+    range: {
+        'min': 0,
+        'max': 100
+    },
+    step: 1
+});
+noUiSlider.create(document.getElementById('e-slider'), {
+    start: [0, 100],
+    connect: true,
+    range: {
+        'min': 0,
+        'max': 100
+    },
+    step: 1
+});
+
+// Update the displayed values when the slider values change
+document.getElementById('risk-slider').noUiSlider.on('update', function(values, handle) {
+    if (handle === 0) {
+        document.getElementById('risk-lower-value').textContent = `Risk: ${RISK_QUANTILES[Math.round(values[0])].toFixed(2)}`;
+    } else {
+        document.getElementById('risk-upper-value').textContent = RISK_QUANTILES[Math.round(values[1])].toFixed(2);
+    }
+    filterConditions.riskRange[0] = RISK_QUANTILES[Math.round(values[0])];
+    filterConditions.riskRange[1] = RISK_QUANTILES[Math.round(values[1])];
+    updateOrbits(filterConditions);
+});
+document.getElementById('size-slider').noUiSlider.on('update', function(values, handle) {
+    if (handle === 0) {
+        document.getElementById('size-lower-value').textContent = `Size: ${SIZE_QUANTILES[Math.round(values[0])].toFixed(2)}`;
+    } else {
+        document.getElementById('size-upper-value').textContent = SIZE_QUANTILES[Math.round(values[1])].toFixed(2);
+    }
+    filterConditions.sizeRange[0] = SIZE_QUANTILES[Math.round(values[0])];
+    filterConditions.sizeRange[1] = SIZE_QUANTILES[Math.round(values[1])];
+    updateOrbits(filterConditions);
+});
+document.getElementById('a-slider').noUiSlider.on('update', function(values, handle) {
+    if (handle === 0) {
+        document.getElementById('a-lower-value').textContent = `a: ${A_QUANTILES[Math.round(values[0])].toFixed(2)}`;
+    } else {
+        document.getElementById('a-upper-value').textContent = A_QUANTILES[Math.round(values[1])].toFixed(2);
+    }
+    filterConditions.aRange[0] = A_QUANTILES[Math.round(values[0])];
+    filterConditions.aRange[1] = A_QUANTILES[Math.round(values[1])];
+    updateOrbits(filterConditions);
+});
+document.getElementById('e-slider').noUiSlider.on('update', function(values, handle) {
+    if (handle === 0) {
+        document.getElementById('e-lower-value').textContent = `e: ${E_QUANTILES[Math.round(values[0])].toFixed(2)}`;
+    } else {
+        document.getElementById('e-upper-value').textContent = E_QUANTILES[Math.round(values[1])].toFixed(2);
+    }
+    filterConditions.eRange[0] = E_QUANTILES[Math.round(values[0])];
+    filterConditions.eRange[1] = E_QUANTILES[Math.round(values[1])];
+    updateOrbits(filterConditions);
+});
+// ==============================================================
+
 updateOrbits(filterConditions);
 
 // console.log(planets.Saturn);
