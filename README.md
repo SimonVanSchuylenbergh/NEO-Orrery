@@ -22,5 +22,6 @@
 
 **if time allows**
 - [x] Skybox milkyway
+- [ ] Moons
 - [ ] Texture planet atmosphere
 - [ ] Texture and halo Sun
