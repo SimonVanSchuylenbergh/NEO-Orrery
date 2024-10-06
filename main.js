@@ -230,10 +230,11 @@ let sunMesh;
 const planetMeshes = {};
 const neoMeshes = {};
 
+// read in planets and NEOs from jsons
 const planets = await readJSON('data/planet_data.json');
 const neos = await readJSON('data/risk_list_neo_data.json');
 
-addSun();
+addSun(); // add Sun
 initializePlanets(); // Initialize planets once
 initializeNeos(); // Initialize NEOs once
 // console.log(planets.Saturn);
