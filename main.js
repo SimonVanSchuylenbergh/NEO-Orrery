@@ -1128,10 +1128,15 @@ function animate(time) {
 
     // Update the current time and time speed displays
     document.getElementById("current-time").textContent = 'Date: ' + MJDToDatetime(MJD);
-    let daytext = 'days';
-    if (timeSpeedIndex == 10)
-        {daytext = 'day'};
-    document.getElementById("timespeed").textContent = `Speed: ${TIMESPEEDS[timeSpeedIndex].toPrecision(3)} ${daytext}/second`;
+    if (timeSpeedIndex == 10)  // 1 day/second
+        {document.getElementById("timespeed").textContent = `Speed: 1 day/second`}
+    else if (timeSpeedIndex == 7){ // Real-time
+        {document.getElementById("timespeed").textContent = `Real-time`}
+    }
+    else{
+        document.getElementById("timespeed").textContent = `Speed: ${TIMESPEEDS[timeSpeedIndex].toPrecision(3)} days/second`;
+    }
+
 
     controls.update();
     renderer.render(scene, camera);
