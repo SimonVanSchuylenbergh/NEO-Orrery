@@ -1,13 +1,20 @@
-function MJDToJ2000(mjd) {
+export function MJDToJ2000(mjd) {
     return mjd - 51544.5;
 }
 
-function J2000ToMJD(j2000) {
+export function J2000ToMJD(j2000) {
     return j2000 + 51544.5;
 }
 
+export function JDToMJD(JD) {
+    return JD - 2400000.5;
+}
 
-function datetimeToMJD(datetimeStr) {
+export function MJDToJD(MJD) {
+    return MJD + 2400000.5;
+}
+
+export function datetimeToMJD(datetimeStr) {
     // Split the date and time parts
     const [datePart, timePart] = datetimeStr.split(' ');
 
@@ -38,7 +45,7 @@ function datetimeToMJD(datetimeStr) {
 }
 
 
-function MJDToDatetime(mjd) {
+export function MJDToDatetime(mjd) {
     // Convert MJD to Julian Date (JD)
     const JD = mjd + 2400000.5;
 
@@ -76,11 +83,11 @@ function MJDToDatetime(mjd) {
 }
 
 
-function datetimeToJ2000(datetime) {
+export function datetimeToJ2000(datetime) {
     return MJDToJ2000(datetimeToMJD(datetime));
 }
 
-function J2000ToDatetime(j2000) {
+export function J2000ToDatetime(j2000) {
     return MJDToDatetime(J2000ToMJD(j2000))
 }
 

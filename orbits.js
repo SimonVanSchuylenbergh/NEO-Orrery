@@ -51,7 +51,7 @@ export function getOrbitPosition(a, e, trueAnomaly, matrix) {
     return new THREE.Vector3(xCamera, zCamera, -yCamera);
 }
 
-function JulianDateToTrueAnomaly(orbitParams, JD) {
+export function JulianDateToTrueAnomaly(orbitParams, JD) {
     const newMA = getCurrentMeanAnomaly(orbitParams.a, orbitParams.ma, JD, orbitParams.epoch);
     const E = solveKepler(orbitParams.e, newMA);
     return computeTrueAnomaly(E, orbitParams.e);
@@ -67,13 +67,13 @@ function computeTrueAnomaly(E, e) { return 2*Math.atan(Math.sqrt((1+e) / (1-e)) 
 
 //function for solving Kepler's equation using a binary search approach given the eccentricity and the mean anomaly
 function solveKepler(e, M) {
-    espLim = 10*Math.max(Number.EPSILON, Math.abs(M)*Number.EPSILON);
+    const espLim = 10*Math.max(Number.EPSILON, Math.abs(M)*Number.EPSILON);
 
     if (e == 0) { return M } //trivial case
 
-    const keplerFunc = (e, E) => { E - e * Math.sin(E); };
+    const keplerFunc = (e, E) => { return E - e * Math.sin(E); };
     let E = M; // starting guess
-    const EMult = np.sqrt(2);
+    const EMult = Math.sqrt(2);
         
     let minBound = 0;
     let maxBound = 0;
@@ -83,7 +83,7 @@ function solveKepler(e, M) {
 
     //initialize min and max bounds
     if (M < 0) {
-        while (True) {
+        while (true) {
             MTest = keplerFunc(e, E);
             MDiff = M - MTest;
             if (Math.abs(MDiff) < espLim) { return E; }
@@ -98,7 +98,7 @@ function solveKepler(e, M) {
         }
     }
     else {
-        while (True) {
+        while (true) {
             MTest = keplerFunc(e, E);
             MDiff = M - MTest;
             if (Math.abs(MDiff) < espLim) { return E; }
@@ -113,12 +113,18 @@ function solveKepler(e, M) {
         }
     }
 
-    while (True) { //perform a binary search to solve for E
+    //let i = 0;
+    //let maxI = 20;
+
+    while (true) { //perform a binary search to solve for E
         E = (maxBound + minBound) / 2; //take E at the midpoint
         MTest = keplerFunc(e, E);
         MDiff = M - MTest;
         if (Math.abs(MDiff) < espLim) { return E; }
         if (MDiff > 0) { minBound = E; }
         else { maxBound = E; }
+        //i++;
+        //console.log(E, MTest, M, MDiff);
+        //if (i == maxI) { break; }
     }
 }

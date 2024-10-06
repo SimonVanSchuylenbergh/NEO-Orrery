@@ -2,7 +2,8 @@
 import * as THREE from 'https://cdn.skypack.dev/three@0.124.0/build/three.module.js';
 // import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.114/examples/jsm/loaders/GLTFLoader.js';
 import { OrbitControls } from 'https://cdn.skypack.dev/three@0.128.0/examples/jsm/controls/OrbitControls.js';
-import { createOrbit, getOrbitPosition } from './orbits.js'
+import { createOrbit, getOrbitPosition, JulianDateToTrueAnomaly } from './orbits.js'
+import { JDToMJD, MJDToJD} from './TimeUtils.js'
 
 // Constants
 const DEG_TO_RAD = Math.PI / 180;
@@ -20,6 +21,10 @@ const NEO_RADIUS = 0.01;
 const MAX_VISIBLE_NEOS = 1;
 
 const MOUSE_MIN_MOVE_CLICK = 0.005;
+
+//starting time
+const JD = (Date.now() / 86400000) + 2440587.5;
+const MJD = JDToMJD(JD);
 
 // FPS control
 const targetFPS = 60; // Target frames per second
@@ -83,8 +88,7 @@ window.addEventListener("resize", () => {
 window.addEventListener("keydown", (event) => {
 
     if (event.code === 'Digit1') { //press to show a certain subset of the solar sytem bodies (e.g only planets or only high risk NEOs)
-        console.log('1 is pressed down!');
-        
+
     }
     else if (event.code === 'Digit2') { //press to show a certain subset of the solar sytem bodies
         console.log('2 is pressed down!');
@@ -578,13 +582,14 @@ function animate(time) {
     }
     lastFrameTime = time;
 
-    let currentTime = Date.now() * TA_TIME_SCALE_FACTOR;
+    let timeSpeed = 1;
+    let deltaJulian = deltaTime * timeSpeed / 1000;
 
     // Update planet positions and rotation
     for (let i = 0; i < planets.length; i++) {
         const orbitParams = planets[i].data.orbitParams;
         const extraParams = planets[i].data.extraParams;
-        const trueAnomaly = currentTime;
+        const trueAnomaly = JulianDateToTrueAnomaly(orbitParams, JD + deltaJulian);
         // Update Position
         const pos = getOrbitPosition(orbitParams.a, orbitParams.e, trueAnomaly, orbitParams.transformMatrix);
         planets[i].setPosition(pos);
@@ -598,7 +603,7 @@ function animate(time) {
     for (let i = 0; i < neos.length; i++) {
         const orbitParams = neos[i].data.orbitParams;
         // console.log(neos[i])
-        const trueAnomaly = currentTime;
+        const trueAnomaly = JulianDateToTrueAnomaly(orbitParams, MJD + deltaJulian);;
         const pos = getOrbitPosition(orbitParams.a, orbitParams.e, trueAnomaly, orbitParams.transformMatrix);
         neos[i].setPosition(pos);
     }
