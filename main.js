@@ -891,7 +891,7 @@ function animate(time) {
 
     // Update the current time and time speed displays
     document.getElementById("current-time").textContent = MJDToDatetime(MJD);
-    document.getElementById("timespeed").textContent = 'Timespeed: ' + TIMESPEEDS[timeSpeedIndex]
+    document.getElementById("timespeed").textContent = 'Timespeed: ' + TIMESPEEDS[timeSpeedIndex].toPrecision(3);
 
     controls.update();
     renderer.render(scene, camera);
