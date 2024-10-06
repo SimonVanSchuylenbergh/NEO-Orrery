@@ -798,7 +798,12 @@ await initializeNeos(); // Initialize NEOs once
 await initializeShowers();
 
 // Event listeners for filter toggles
+document.querySelector('.filter-panel').addEventListener('pointerdown', function(event) { event.stopPropagation(); });
+document.querySelector('.filter-panel').addEventListener('pointerup', function(event) { event.stopPropagation(); });
+
 document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+    checkbox.addEventListener('pointerdown', function(event) { event.stopPropagation(); });
+    checkbox.addEventListener('pointerup', function(event) { event.stopPropagation(); });
     checkbox.addEventListener('change', (event) => {
         if (event.target.checked) {
             filterConditions.shownTypes[event.target.value] = true;
