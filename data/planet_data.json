@@ -14,7 +14,7 @@
             "is_dwarf": false,
             "radius": 0.008,
             "color": "#B7B8B9",
-            "texture": "8k_mercury.jpg"
+            "texture": "2k_mercury.jpg"
         }
     },
     "Venus": {
@@ -68,7 +68,7 @@
             "is_dwarf": false,
             "radius": 0.01,
             "color": "#c1440e",
-            "texture": "8k_mars.jpg"
+            "texture": "2k_mars.jpg"
         }
     },
     "Jupiter": {
@@ -86,7 +86,7 @@
             "is_dwarf": false,
             "radius": 0.016,
             "color": "#ffcc00",
-            "texture": "8k_jupiter.jpg"
+            "texture": "2k_jupiter.jpg"
         }
     },
     "Saturn": {
@@ -104,7 +104,7 @@
             "is_dwarf": false,
             "radius": 0.012,
             "color": "#ead6b8",
-            "texture": "8k_saturn.jpg"
+            "texture": "2k_saturn.jpg"
         }
     },
     "rings": {
