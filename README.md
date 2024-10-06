@@ -16,6 +16,7 @@
 - [ ] Add key for resetting the camera entirely
 - [ ] Add key to center camera on currently selected object
 - [ ] True anomaly fix
+- [ ] Make planets rotate
 - [ ] UI Filters
 - [ ] Keyboard controls
 - [ ] DEMO ppt submit by 7pm with title explain what the screen capture is showing
