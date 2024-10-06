@@ -330,30 +330,30 @@ function createRadialGradientPlane(width, height) {
     return plane;
 }
 
-// Add radial gradient plane
-function sunRadialGradientPlane(width, height) {
-    const geometry = new THREE.PlaneGeometry(width, height, 1, 1);
+// Function to create a radial gradient sphere for the sun haze
+function sunRadialGradientSphere(radius, segments) {
+    const geometry = new THREE.SphereGeometry(radius, segments, segments);
     const material = new THREE.ShaderMaterial({
         vertexShader: `
-            varying vec2 vUv;
+            varying vec3 vPosition;
             void main() {
-                vUv = uv;
+                vPosition = position;  // Pass the vertex position to the fragment shader
                 gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
             }
         `,
         fragmentShader: `
-            varying vec2 vUv;
+            varying vec3 vPosition;
             void main() {
-                // Calculate distance from the center (0.5, 0.5) in UV coordinates
-                float distanceFromCenter = length(vUv - vec2(0.5, 0.5));
+                // Calculate distance from the center of the sphere
+                float distanceFromCenter = length(vPosition);
 
-                // Apply an r^(-1.3) drop-off for intensity and normalize the result
-                float alpha = pow(distanceFromCenter, -1.3); // Avoid division by zero with +0.01
+                // Apply an r^(-1.3) drop-off for intensity
+                float alpha = pow(distanceFromCenter / 10.0, -1.3);  // Normalize the distance and apply the power law
 
                 // Further decrease intensity by scaling down alpha
-                alpha *= 0.001;  // Lower factor to further reduce intensity
+                alpha *= 0.005;  // Adjust this factor to control the intensity
 
-                // Clamp the alpha to [0, 1] range to avoid overshooting
+                // Clamp the alpha to [0, 1] range
                 alpha = clamp(alpha, 0.0, 1.0);
 
                 // Discard fragment if alpha is too low (full transparency)
@@ -361,29 +361,29 @@ function sunRadialGradientPlane(width, height) {
                     discard;
                 }
 
-                // Set the fragment color to red with the calculated alpha
+                // Set the fragment color to a white-yellowish tone with the calculated alpha
                 gl_FragColor = vec4(1.0, 0.95, 0.6, alpha);
             }
-        `
-
-,
+        `,
         transparent: true,
         side: THREE.DoubleSide,
         depthWrite: false,
         depthTest: false,
     });
 
-    const plane = new THREE.Mesh(geometry, material);
-    plane.rotation.x = Math.PI / 2;
-    plane.renderOrder = 0;
-    return plane;
+    const sphere = new THREE.Mesh(geometry, material);
+    return sphere;
 }
+
+
 
 const planeWidth = 5.204 * 2;
 const radialGradientPlane = createRadialGradientPlane(planeWidth, planeWidth);
-const radial_sun_haze = sunRadialGradientPlane(planeWidth, planeWidth);
+const hazeRadius = 0.05;  // Set the radius for the haze
+const radialSunHaze = sunRadialGradientSphere(hazeRadius, 64);  // 64 segments for smoothness
+scene.add(radialSunHaze);
 scene.add(radialGradientPlane);
-scene.add(radial_sun_haze);
+
 
 
 // Data
