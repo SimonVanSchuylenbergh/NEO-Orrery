@@ -427,7 +427,6 @@ document.getElementById('fastforward-button').addEventListener('click', function
 document.getElementById('open-overlay').addEventListener('pointerup', function(event) { event.stopPropagation(); });
 document.getElementById('open-overlay').addEventListener('pointerdown', function(event) { event.stopPropagation(); });
 document.getElementById('open-overlay').addEventListener('click', function(event){
-    console.log('test')
     document.getElementById('keyboardOverlay').classList.add('show');
     event.stopPropagation();
 })
