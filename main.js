@@ -60,6 +60,14 @@ window.addEventListener("resize", () => {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
+
+    /*
+    TESTING ONLY
+    const canvas2d = document.getElementById('2DCanvas');
+    const ctx = canvas2d.getContext('2d');
+    ctx.canvas.width  = window.innerWidth;
+    ctx.canvas.height = window.innerHeight;
+    */
 });
 
 const mouseDownXY = new THREE.Vector2(-10, -10);
@@ -402,6 +410,35 @@ initializePlanets(); // Initialize planets once
 initializeNeos(); // Initialize NEOs once
 initializeShower(); // Initialize showers once
 // console.log(planets.Saturn);
+
+
+/*
+//FOR TESTING PURPOSES
+// Function to draw nested ellipses
+function drawNestedEllipses(x, y, initialWidth, initialHeight, count) {
+    const canvas = document.getElementById('2DCanvas');
+    const ctx = canvas.getContext('2d');
+    ctx.canvas.width  = window.innerWidth;
+    ctx.canvas.height = window.innerHeight;
+
+
+    for (let i = 0; i < count; i++) {
+        ctx.beginPath();
+        ctx.ellipse(
+            x,                  // Center x
+            y,                  // Center y
+            initialWidth - i * 10,  // Semi-major axis (width)
+            initialHeight - i * 10,  // Semi-minor axis (height)
+            0.3,                  // Rotation
+            0, Math.PI * 2     // Start and end angle
+        );
+        ctx.strokeStyle = "white";
+        ctx.stroke();
+    }
+}
+
+drawNestedEllipses(window.innerWidth / 2, window.innerHeight / 2, 150, 100, 10); // x, y, initial width, initial height, number of ellipses
+*/
 
 // Animation loop with FPS control
 function animate(time) {
