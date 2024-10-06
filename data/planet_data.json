@@ -20,7 +20,8 @@
             "average_temperature_C": 167,
             "surface_gravity_m_s2": 3.7,
             "mass_kg": 3.3011e+23,
-            "obliquity": 0.01
+            "obliquity": 0.01,
+            "mass_earth": 0.05527286487608772
         }
     },
     "Venus": {
@@ -44,7 +45,8 @@
             "average_temperature_C": 464,
             "surface_gravity_m_s2": 8.87,
             "mass_kg": 4.8675e+24,
-            "obliquity": 177.36
+            "obliquity": 177.36,
+            "mass_earth": 0.8150030892258853
         }
     },
     "Earth": {
@@ -68,7 +70,8 @@
             "average_temperature_C": 15,
             "surface_gravity_m_s2": 9.81,
             "mass_kg": 5.97237e+24,
-            "obliquity": 23.45
+            "obliquity": 23.45,
+            "mass_earth": 1.0
         }
     },
     "Mars": {
@@ -92,7 +95,8 @@
             "average_temperature_C": -60,
             "surface_gravity_m_s2": 3.71,
             "mass_kg": 6.4171e+23,
-            "obliquity": 25.19
+            "obliquity": 25.19,
+            "mass_earth": 0.10744645760393279
         }
     },
     "Jupiter": {
@@ -116,7 +120,8 @@
             "average_temperature_C": -145,
             "surface_gravity_m_s2": 24.79,
             "mass_kg": 1.8982e+27,
-            "obliquity": 3.13
+            "obliquity": 3.13,
+            "mass_earth": 317.8302750834259
         }
     },
     "Saturn": {
@@ -140,7 +145,8 @@
             "average_temperature_C": -178,
             "surface_gravity_m_s2": 10.44,
             "mass_kg": 5.6834e+26,
-            "obliquity": 26.73
+            "obliquity": 26.73,
+            "mass_earth": 95.16155228159006
         }
     },
     "rings": {
@@ -165,7 +171,8 @@
             "average_temperature_C": -178,
             "surface_gravity_m_s2": 10.44,
             "mass_kg": 5.6834e+26,
-            "obliquity": 26.73
+            "obliquity": 26.73,
+            "mass_earth": 95.16155228159006
         }
     },
     "Uranus": {
@@ -189,7 +196,8 @@
             "average_temperature_C": -224,
             "surface_gravity_m_s2": 8.69,
             "mass_kg": 8.681e+25,
-            "obliquity": 97.77
+            "obliquity": 97.77,
+            "mass_earth": 14.535268243595091
         }
     },
     "Neptune": {
@@ -213,7 +221,8 @@
             "average_temperature_C": -214,
             "surface_gravity_m_s2": 11.15,
             "mass_kg": 1.02413e+26,
-            "obliquity": 28.32
+            "obliquity": 28.32,
+            "mass_earth": 17.14779894748651
         }
     },
     "Ceres": {
@@ -237,7 +246,8 @@
             "average_temperature_C": -105,
             "surface_gravity_m_s2": 0.27,
             "mass_kg": 9.3835e+20,
-            "obliquity": 4
+            "obliquity": 4,
+            "mass_earth": 0.00015711518208014576
         }
     },
     "Pluto": {
@@ -261,7 +271,8 @@
             "average_temperature_C": -229,
             "surface_gravity_m_s2": 0.62,
             "mass_kg": 1.303e+22,
-            "obliquity": 122.53
+            "obliquity": 122.53,
+            "mass_earth": 0.0021817134571367816
         }
     },
     "Haumea": {
@@ -285,7 +296,8 @@
             "average_temperature_C": -241,
             "surface_gravity_m_s2": 0.44,
             "mass_kg": 4.006e+21,
-            "obliquity": 0
+            "obliquity": 0,
+            "mass_earth": 0.0006707554957244779
         }
     },
     "Eris": {
@@ -309,7 +321,8 @@
             "average_temperature_C": -243,
             "surface_gravity_m_s2": 0.82,
             "mass_kg": 1.6466e+22,
-            "obliquity": 0
+            "obliquity": 0,
+            "mass_earth": 0.00275702945396886
         }
     },
     "Makemake": {
@@ -333,7 +346,8 @@
             "average_temperature_C": -239,
             "surface_gravity_m_s2": 0.5,
             "mass_kg": 3.1e+21,
-            "obliquity": 0
+            "obliquity": 0,
+            "mass_earth": 0.0005190569238007692
         }
     }
 }
