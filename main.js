@@ -786,16 +786,6 @@ function animate(time) {
         updateParentBodyPosition(animatedParentBodies[parentBodyName], JD);
     }
 
-
-    // Update position of selected object label if there is a highlighted object
-    if (highlightedObj != null){
-
-        const highlightedObjOrbitParams = highlightedObj.userData.parent.data.orbitParams;
-        const highlightedObjTrueAnomaly = JulianDateToTrueAnomaly(highlightedObjOrbitParams, MJD + deltaJulian);
-        const highlightedObjPos = getOrbitPosition(highlightedObjOrbitParams.a, highlightedObjOrbitParams.e, highlightedObjTrueAnomaly, highlightedObjOrbitParams.transformMatrix);
-        
-    }
-
     // Update the billboard plane to face the camera
     updateBillboard(billboardPlane, camera);
 
