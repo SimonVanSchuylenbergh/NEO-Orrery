@@ -238,6 +238,7 @@ document.addEventListener('pointerup', (event) => {
             document.getElementById('info-grav').textContent = '';
             document.getElementById('info-mass').textContent = '';
             document.getElementById('info-obl').textContent = '';
+            document.getElementById('info-rotper').textContent = '';
             document.getElementById('info-a').textContent = '';
             document.getElementById('info-e').textContent = '';
             document.getElementById('info-inc').textContent = '';
@@ -279,7 +280,7 @@ document.addEventListener('pointerup', (event) => {
                 }
                 if (('class' in obj_data.extraParams) && (obj_data.extraParams.class !== undefined))
                     document.getElementById('info-class').textContent = `Class: ${obj_data.extraParams.class}`;
-                if (('diameter' in obj_data.extraParams) && (obj_data.extraParams.diameter !== undefined))
+                if (('diameter' in obj_data.extraParams) && (obj_data.extraParams.diameter !== undefined) && (obj_data.extraParams.diameter !== null))
                     document.getElementById('info-diameter').textContent = `Diameter: ${obj_data.extraParams.diameter} m`;
                 else if (('diameter_km' in obj_data.extraParams) && (obj_data.extraParams.diameter_km !== undefined))
                     document.getElementById('info-diameter').textContent = `Diameter: ${obj_data.extraParams.diameter_km} km`;
@@ -299,14 +300,16 @@ document.addEventListener('pointerup', (event) => {
                 if (('mass_kg' in obj_data.extraParams) && (obj_data.extraParams.mass_kg !== undefined)){
                     const mass = obj_data.extraParams.mass_kg / 5.97237e+24
                     if (mass < 1e-3)
-                        document.getElementById('info-mass').textContent = `Mass: ${(mass * 1e4).toFixed(3)} \u00B7 10\u207B\u2074 M\u{1F728}`;
+                        document.getElementById('info-mass').textContent = `Mass: ${(mass * 1e4).toFixed(3)} \u00D7 10\u207B\u2074 M\u{1F728}`;
                     else if (mass < 1e-2)
-                        document.getElementById('info-mass').textContent = `Mass: ${(mass * 1e3).toFixed(3)} \u00B7 10\u207B\u00B3 M\u{1F728}`;
+                        document.getElementById('info-mass').textContent = `Mass: ${(mass * 1e3).toFixed(3)} \u00D7 10\u207B\u00B3 M\u{1F728}`;
                     else
                         document.getElementById('info-mass').textContent = `Mass: ${mass.toFixed(3)} M\u{1F728}`;
                 }
                 if (('obliquity' in obj_data.extraParams) && (obj_data.extraParams.obliquity !== undefined))
                     document.getElementById('info-obl').textContent = `Obliquity: ${obj_data.extraParams.obliquity.toFixed(1)}\u00B0`;
+                if (('rotation_period' in obj_data.extraParams) && (obj_data.extraParams.rotation_period !== undefined))
+                    document.getElementById('info-rotper').textContent = `Rotation Period: ${obj_data.extraParams.rotation_period.toFixed(2)} days`;
 
             document.getElementById('info-a').textContent = `Semi-major axis: ${obj_data.orbitParams.a.toFixed(3)} AU`;
             document.getElementById('info-e').textContent = `Eccentricity: ${obj_data.orbitParams.e.toFixed(3)}`;
