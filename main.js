@@ -236,62 +236,65 @@ document.addEventListener('pointerup', (event) => {
             document.querySelector('.info-panel').style.display = "block";
             // Update info in the info panel
             const parentObj = selectedOrbits[stackedObjIndex].object.userData.parent;
-            const obj_data = parentObj.data;
-
-            document.getElementById('info-name').textContent = selectedOrbits[stackedObjIndex].object.userData.parent.name;
-
-            if (('type' in obj_data.extraParams) && (obj_data.extraParams.type !== undefined)){
-                if (obj_data.extraParams.type == 'NEA')
-                    document.getElementById('info-type').textContent = `Type: Asteroid`;
-                else if (obj_data.extraParams.type == 'NEC')
-                    document.getElementById('info-type').textContent = `Type: Comet`;
-                else
-                    document.getElementById('info-type').textContent = `Type: ${obj_data.extraParams.type}`;
-            }
-            if (('renderParams' in obj_data) && ('is_dwarf' in obj_data.renderParams) && (obj_data.renderParams.is_dwarf !== undefined)){
-                if (obj_data.renderParams.is_dwarf)
-                    document.getElementById('info-type').textContent = `Type: Dwarf planet`;
-                else
-                    document.getElementById('info-type').textContent = `Type: Planet`;
-            }
-            if (('class' in obj_data.extraParams) && (obj_data.extraParams.class !== undefined))
-                document.getElementById('info-class').textContent = `Class: ${obj_data.extraParams.class}`;
-            if (('diameter' in obj_data.extraParams) && (obj_data.extraParams.diameter !== undefined))
-                document.getElementById('info-diameter').textContent = `Diameter: ${obj_data.extraParams.diameter} m`;
-            else if (('diameter_km' in obj_data.extraParams) && (obj_data.extraParams.diameter_km !== undefined))
-                document.getElementById('info-diameter').textContent = `Diameter: ${obj_data.extraParams.diameter_km} km`;
-            if (('impact' in obj_data.extraParams) && (obj_data.extraParams.impact !== undefined))
-                document.getElementById('info-first-impact').textContent = `First possible impact: ${obj_data.extraParams.impact}`;
-            if (('years' in obj_data.extraParams) && (obj_data.extraParams.years !== undefined))
-                document.getElementById('info-impact-period').textContent = `Possible impacts between ${obj_data.extraParams.years.split('-')[0]} and ${obj_data.extraParams.years.split('-')[1]}`;
-            if (('PS max' in obj_data.extraParams) && (obj_data.extraParams['PS max'] !== undefined))
-                document.getElementById('info-risk').textContent = `Risk: ${obj_data.extraParams['PS max']} (Palermo Scale)`;
-            if (('vel' in obj_data.extraParams) && (obj_data.extraParams.vel !== undefined))
-                document.getElementById('info-vel').textContent = `Velocity: ${obj_data.extraParams.vel} km/s`;
             
-            if (('average_temperature_C' in obj_data.extraParams) && (obj_data.extraParams.average_temperature_C !== undefined))
-                document.getElementById('info-temp').textContent = `Average temperature: ${obj_data.extraParams.average_temperature_C}\u00B0C`;
-            if (('surface_gravity_m_s2' in obj_data.extraParams) && (obj_data.extraParams.surface_gravity_m_s2 !== undefined))
-                document.getElementById('info-grav').textContent = `Surface gravity: ${obj_data.extraParams.surface_gravity_m_s2} m/s\u00B2`;
-            if (('mass_kg' in obj_data.extraParams) && (obj_data.extraParams.mass_kg !== undefined)){
-                const mass = obj_data.extraParams.mass_kg / 5.97237e+24
-                if (mass < 1e-3)
-                    document.getElementById('info-mass').textContent = `Mass: ${(mass * 1e4).toFixed(3)} \u00B7 10\u207B\u2074 M\u{1F728}`;
-                else if (mass < 1e-2)
-                    document.getElementById('info-mass').textContent = `Mass: ${(mass * 1e3).toFixed(3)} \u00B7 10\u207B\u00B3 M\u{1F728}`;
-                else
-                    document.getElementById('info-mass').textContent = `Mass: ${mass.toFixed(3)} M\u{1F728}`;
-            }
-            if (('obliquity' in obj_data.extraParams) && (obj_data.extraParams.obliquity !== undefined))
-                document.getElementById('info-obl').textContent = `Obliquity: ${obj_data.extraParams.obliquity.toFixed(1)}\u00B0`;
+            if (parentObj !== null && parentObj !== undefined) {
+                const obj_data = parentObj.data;
 
-            document.getElementById('info-a').textContent = `Semi-major axis: ${obj_data.orbitParams.a.toFixed(3)} AU`;
-            document.getElementById('info-e').textContent = `Eccentricity: ${obj_data.orbitParams.e.toFixed(3)}`;
-            document.getElementById('info-inc').textContent = `Inclination: ${(obj_data.orbitParams.inc / Math.PI * 180).toFixed(3)}\u00B0`;
-            document.getElementById('info-node').textContent = `Longitude of ascending node: ${(obj_data.orbitParams.node / Math.PI * 180).toFixed(3)}\u00B0`;
-            document.getElementById('info-peri').textContent = `Argument of perihelion: ${(obj_data.orbitParams.peri / Math.PI * 180).toFixed(3)}\u00B0`;
-            document.getElementById('info-ma').textContent = `Mean anomaly: ${(obj_data.orbitParams.ma / Math.PI * 180).toFixed(3)}\u00B0`;
-            document.getElementById('info-epoch').textContent = `Epoch: ${obj_data.orbitParams.epoch} (MJD)`;
+                document.getElementById('info-name').textContent = parentObj.name;
+
+                if (('type' in obj_data.extraParams) && (obj_data.extraParams.type !== undefined)){
+                    if (obj_data.extraParams.type == 'NEA')
+                        document.getElementById('info-type').textContent = `Type: Asteroid`;
+                    else if (obj_data.extraParams.type == 'NEC')
+                        document.getElementById('info-type').textContent = `Type: Comet`;
+                    else
+                        document.getElementById('info-type').textContent = `Type: ${obj_data.extraParams.type}`;
+                }
+                if (('renderParams' in obj_data) && ('is_dwarf' in obj_data.renderParams) && (obj_data.renderParams.is_dwarf !== undefined)){
+                    if (obj_data.renderParams.is_dwarf)
+                        document.getElementById('info-type').textContent = `Type: Dwarf planet`;
+                    else
+                        document.getElementById('info-type').textContent = `Type: Planet`;
+                }
+                if (('class' in obj_data.extraParams) && (obj_data.extraParams.class !== undefined))
+                    document.getElementById('info-class').textContent = `Class: ${obj_data.extraParams.class}`;
+                if (('diameter' in obj_data.extraParams) && (obj_data.extraParams.diameter !== undefined))
+                    document.getElementById('info-diameter').textContent = `Diameter: ${obj_data.extraParams.diameter} m`;
+                else if (('diameter_km' in obj_data.extraParams) && (obj_data.extraParams.diameter_km !== undefined))
+                    document.getElementById('info-diameter').textContent = `Diameter: ${obj_data.extraParams.diameter_km} km`;
+                if (('impact' in obj_data.extraParams) && (obj_data.extraParams.impact !== undefined))
+                    document.getElementById('info-first-impact').textContent = `First possible impact: ${obj_data.extraParams.impact}`;
+                if (('years' in obj_data.extraParams) && (obj_data.extraParams.years !== undefined))
+                    document.getElementById('info-impact-period').textContent = `Possible impacts between ${obj_data.extraParams.years.split('-')[0]} and ${obj_data.extraParams.years.split('-')[1]}`;
+                if (('PS max' in obj_data.extraParams) && (obj_data.extraParams['PS max'] !== undefined))
+                    document.getElementById('info-risk').textContent = `Risk: ${obj_data.extraParams['PS max']} (Palermo Scale)`;
+                if (('vel' in obj_data.extraParams) && (obj_data.extraParams.vel !== undefined))
+                    document.getElementById('info-vel').textContent = `Velocity: ${obj_data.extraParams.vel} km/s`;
+                
+                if (('average_temperature_C' in obj_data.extraParams) && (obj_data.extraParams.average_temperature_C !== undefined))
+                    document.getElementById('info-temp').textContent = `Average temperature: ${obj_data.extraParams.average_temperature_C}\u00B0C`;
+                if (('surface_gravity_m_s2' in obj_data.extraParams) && (obj_data.extraParams.surface_gravity_m_s2 !== undefined))
+                    document.getElementById('info-grav').textContent = `Surface gravity: ${obj_data.extraParams.surface_gravity_m_s2} m/s\u00B2`;
+                if (('mass_kg' in obj_data.extraParams) && (obj_data.extraParams.mass_kg !== undefined)){
+                    const mass = obj_data.extraParams.mass_kg / 5.97237e+24
+                    if (mass < 1e-3)
+                        document.getElementById('info-mass').textContent = `Mass: ${(mass * 1e4).toFixed(3)} \u00B7 10\u207B\u2074 M\u{1F728}`;
+                    else if (mass < 1e-2)
+                        document.getElementById('info-mass').textContent = `Mass: ${(mass * 1e3).toFixed(3)} \u00B7 10\u207B\u00B3 M\u{1F728}`;
+                    else
+                        document.getElementById('info-mass').textContent = `Mass: ${mass.toFixed(3)} M\u{1F728}`;
+                }
+                if (('obliquity' in obj_data.extraParams) && (obj_data.extraParams.obliquity !== undefined))
+                    document.getElementById('info-obl').textContent = `Obliquity: ${obj_data.extraParams.obliquity.toFixed(1)}\u00B0`;
+
+                document.getElementById('info-a').textContent = `Semi-major axis: ${obj_data.orbitParams.a.toFixed(3)} AU`;
+                document.getElementById('info-e').textContent = `Eccentricity: ${obj_data.orbitParams.e.toFixed(3)}`;
+                document.getElementById('info-inc').textContent = `Inclination: ${(obj_data.orbitParams.inc / Math.PI * 180).toFixed(3)}\u00B0`;
+                document.getElementById('info-node').textContent = `Longitude of ascending node: ${(obj_data.orbitParams.node / Math.PI * 180).toFixed(3)}\u00B0`;
+                document.getElementById('info-peri').textContent = `Argument of perihelion: ${(obj_data.orbitParams.peri / Math.PI * 180).toFixed(3)}\u00B0`;
+                document.getElementById('info-ma').textContent = `Mean anomaly: ${(obj_data.orbitParams.ma / Math.PI * 180).toFixed(3)}\u00B0`;
+                document.getElementById('info-epoch').textContent = `Epoch: ${obj_data.orbitParams.epoch} (MJD)`;
+            }
         }
     }
     else { //moved mouse

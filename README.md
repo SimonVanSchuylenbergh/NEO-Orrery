@@ -22,7 +22,7 @@
 - [ ] Make filter controls work
 - [ ] Make planets rotate
 - [ ] UI Filters
-- [ ] Keyboard controls
+- [x] Keyboard controls
 - [ ] DEMO ppt submit by 7pm with title explain what the screen capture is showing
 
 **if time allows**
