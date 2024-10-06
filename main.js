@@ -931,7 +931,7 @@ document.getElementById('risk-slider').noUiSlider.on('update', function(values, 
 });
 document.getElementById('size-slider').noUiSlider.on('update', function(values, handle) {
     if (handle === 0) {
-        document.getElementById('size-lower-value').textContent = `Size: ${SIZE_QUANTILES[Math.round(values[0])].toFixed(2)}`;
+        document.getElementById('size-lower-value').textContent = `Size (m): ${SIZE_QUANTILES[Math.round(values[0])].toFixed(2)}`;
     } else {
         document.getElementById('size-upper-value').textContent = SIZE_QUANTILES[Math.round(values[1])].toFixed(2);
     }
@@ -941,7 +941,7 @@ document.getElementById('size-slider').noUiSlider.on('update', function(values, 
 });
 document.getElementById('a-slider').noUiSlider.on('update', function(values, handle) {
     if (handle === 0) {
-        document.getElementById('a-lower-value').textContent = `a: ${A_QUANTILES[Math.round(values[0])].toFixed(2)}`;
+        document.getElementById('a-lower-value').textContent = `a (AU): ${A_QUANTILES[Math.round(values[0])].toFixed(2)}`;
     } else {
         document.getElementById('a-upper-value').textContent = A_QUANTILES[Math.round(values[1])].toFixed(2);
     }
