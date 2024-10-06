@@ -235,7 +235,7 @@ function initializeShower() {
     let i = 0;
     const showerEntries = Object.entries(showers);
     for (const [showerName, showerData] of showerEntries) {
-        const orbitParams = { ...showerData.OrbitParams };
+        const orbitParams = { ...showerData.orbitParams };
         const ExtraParams = showerData.ExtraParams;
 
         orbitParams.inc *= DEG_TO_RAD;
@@ -250,7 +250,7 @@ function initializeShower() {
                 j += 1;
                 for (const [parentBodyName, parentBodyData] of Object.entries(parentBodies)) {
                     if (parentBodyData.ExtraParams.Code === ExtraParams.Code) {
-                        const orbitParams_parent = { ...parentBodyData.OrbitParams };
+                        const orbitParams_parent = { ...parentBodyData.orbitParams };
                         orbitParams_parent.inc *= DEG_TO_RAD;
                         orbitParams_parent.node *= DEG_TO_RAD;
                         orbitParams_parent.peri *= DEG_TO_RAD;
