@@ -17,7 +17,7 @@ const PARENT_ORBIT_COLOR = 0xFF0000;
 
 const NEO_COLOR = 0xFFFFFF;
 const NEO_RADIUS = 0.01;
-const MAX_VISIBLE_NEOS = 1;
+const MAX_VISIBLE_NEOS = 100;
 
 const MOUSE_MIN_MOVE_CLICK = 0.005;
 
@@ -281,7 +281,7 @@ async function initializeShower() {
                 j += 1;
                 for (const [parentBodyName, parentBodyData] of Object.entries(parentBodies)) {
                     if (parentBodyData.ExtraParams.Code === ExtraParams.Code) {
-                        const orbitParams_parent = { ...parentBodyData.orbitParams };
+                        const orbitParams_parent = parentBodyData.orbitParams;
                         orbitParams_parent.inc *= DEG_TO_RAD;
                         orbitParams_parent.node *= DEG_TO_RAD;
                         orbitParams_parent.peri *= DEG_TO_RAD;
@@ -476,7 +476,7 @@ class Body {
 addSun();
 await initializePlanets(); // Initialize planets once
 await initializeNeos(); // Initialize NEOs once
-await initializeShower()
+await initializeShower();
 // console.log(planets.Saturn);
 
 // Animation loop with FPS control
@@ -495,20 +495,21 @@ function animate(time) {
     // Update planet positions and rotation
     for (let i = 0; i < planets.length; i++) {
         const orbitParams = planets[i].data.orbitParams;
-        const ExtraParams = planetData.ExtraParams;
+        const ExtraParams = planets[i].data.ExtraParams;
         const trueAnomaly = currentTime;
         // Update Position
         const pos = getOrbitPosition(orbitParams.a, orbitParams.e, trueAnomaly, orbitParams.transformMatrix);
-        planetMeshes[planetName].position.set(pos.x, pos.y, pos.z);
+        planets[i].setPosition(pos);
         // Rotate
-        planetMeshes[planetName].rotation.x += orbitParams.rotateX;
-        planetMeshes[planetName].rotation.y += orbitParams.rotateY;
-        planetMeshes[planetName].rotation.z += orbitParams.rotateZ;
+        planets[i].bodyMesh.rotation.x += orbitParams.rotateX;
+        planets[i].bodyMesh.rotation.y += orbitParams.rotateY;
+        planets[i].bodyMesh.rotation.z += orbitParams.rotateZ;
     }
 
     // Update NEO positions
     for (let i = 0; i < neos.length; i++) {
         const orbitParams = neos[i].data.orbitParams;
+        console.log(neos[i])
         const trueAnomaly = currentTime;
         const pos = getOrbitPosition(orbitParams.a, orbitParams.e, trueAnomaly, orbitParams.transformMatrix);
         neos[i].setPosition(pos);
