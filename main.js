@@ -921,7 +921,7 @@ noUiSlider.create(document.getElementById('e-slider'), {
 // Update the displayed values when the slider values change
 document.getElementById('risk-slider').noUiSlider.on('update', function(values, handle) {
     if (handle === 0) {
-        document.getElementById('risk-lower-value').textContent = `Risk: ${RISK_QUANTILES[Math.round(values[0])].toFixed(2)}`;
+        document.getElementById('risk-lower-value').textContent = `Risk (PS): ${RISK_QUANTILES[Math.round(values[0])].toFixed(2)}`;
     } else {
         document.getElementById('risk-upper-value').textContent = RISK_QUANTILES[Math.round(values[1])].toFixed(2);
     }
