@@ -18,7 +18,7 @@
 - [x] True anomaly fix
 - [ ] Add planet labels
 - [ ] Make info panel for planets work
-- [ ] Make time controls work
+- [x] Make time controls work
 - [ ] Make filter controls work
 - [ ] Make planets rotate
 - [ ] UI Filters
