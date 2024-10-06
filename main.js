@@ -179,7 +179,7 @@ document.addEventListener('pointerup', (event) => {
             document.querySelector('.info-panel').style.display = "none";
         }
 
-        console.log(selectedOrbits);
+        // console.log(selectedOrbits);
         
         if (selectedOrbits.length != 0){
             if (!moved) { stackedObjIndex = (stackedObjIndex + 1) % selectedOrbits.length; }
