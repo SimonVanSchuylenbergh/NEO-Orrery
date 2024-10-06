@@ -937,7 +937,14 @@ function animate(time) {
 
     // Update the current time and time speed displays
     document.getElementById("current-time").textContent = MJDToDatetime(MJD);
-    document.getElementById("timespeed").textContent = 'Timespeed: ' + TIMESPEEDS[timeSpeedIndex].toPrecision(3);
+    document.getElementById("timespeed").textContent = `Speed: \u00D7${TIMESPEEDS[timeSpeedIndex].toPrecision(3)}`;
+
+    // if (TIMESPEEDS[timeSpeedIndex] < 1.00){
+    //     document.getElementById("timespeed").textContent = `Speed: ${TIMESPEEDS[timeSpeedIndex].toPrecision(3)}\u00D7 10\u207B\u2074`;
+
+    //     const speed = TIMESPEEDS[timeSpeedIndex] * 1e3.toPrecision(3)
+    // }
+    // const speed = 
 
     controls.update();
     renderer.render(scene, camera);
