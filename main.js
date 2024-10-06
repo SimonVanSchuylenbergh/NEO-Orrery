@@ -10,7 +10,7 @@ const DEG_TO_RAD = Math.PI / 180;
 const TA_TIME_SCALE_FACTOR = 0.0001; // This will not be needed when the true anomaly code is included
 
 const DEFAULT_MESH_N = 32;
-const ORBIT_MESH_POINTS = 128;
+const ORBIT_MESH_POINTS = 192; // split the difference
 
 const NEO_ORBIT_COLOR = 0xcd0000;//0x1e90FF;
 const SHOWER_ORBIT_COLOR = 0x0200b9;
