@@ -292,6 +292,8 @@ document.addEventListener('pointerup', (event) => {
             document.getElementById('info-peri').textContent = `Argument of perihelion: ${(obj_data.orbitParams.peri / Math.PI * 180).toFixed(3)}\u00B0`;
             document.getElementById('info-ma').textContent = `Mean anomaly: ${(obj_data.orbitParams.ma / Math.PI * 180).toFixed(3)}\u00B0`;
             document.getElementById('info-epoch').textContent = `Epoch: ${obj_data.orbitParams.epoch} (MJD)`;
+            // .project(camera);
+            // console.log(highlightedObj.userData.parent.name);
         }
     }
     else { //moved mouse
@@ -325,6 +327,7 @@ document.getElementById('fastforward-button').addEventListener('click', function
 });
 
 // Functions
+
 async function readJSON(filePath) {
     try {
         const response = await fetch(filePath);
@@ -676,6 +679,23 @@ function drawNestedEllipses(x, y, initialWidth, initialHeight, count) {
 
 drawNestedEllipses(window.innerWidth / 2, window.innerHeight / 2, 150, 100, 10); // x, y, initial width, initial height, number of ellipses
 */
+// Function to create a text texture from canvas
+function createTextTexture(message) {
+    const canvas = document.createElement('canvas');
+    const context = canvas.getContext('2d');
+    const fontSize = 36;
+
+    canvas.width = 256;
+    canvas.height = 256;
+
+    context.font = `${fontSize}px helvetiker`;
+    context.fillStyle = 'white';
+    context.fillText(message, 10, fontSize);
+
+    const texture = new THREE.Texture(canvas);
+    texture.needsUpdate = true;
+    return texture;
+}
 
 // Animation loop with FPS control
 function animate(time) {
@@ -701,6 +721,8 @@ function animate(time) {
         // Update Position
         const pos = getOrbitPosition(orbitParams.a, orbitParams.e, trueAnomaly, orbitParams.transformMatrix);
         planets[i].setPosition(pos);
+
+        // .project(camera);
         // Rotate
         //planets[i].bodyMesh.rotation.x += orbitParams.rotateX;
         //planets[i].bodyMesh.rotation.y += orbitParams.rotateY;
@@ -720,12 +742,49 @@ function animate(time) {
         updateParentBodyPosition(animatedParentBodies[parentBodyName], JD);
     }
 
+
+    // Update position of selected object label if there is a highlighted object
+    if (highlightedObj != null){
+
+        const highlightedObjOrbitParams = highlightedObj.userData.parent.data.orbitParams;
+        const highlightedObjTrueAnomaly = JulianDateToTrueAnomaly(highlightedObjOrbitParams, MJD + deltaJulian);
+        const highlightedObjPos = getOrbitPosition(highlightedObjOrbitParams.a, highlightedObjOrbitParams.e, highlightedObjTrueAnomaly, highlightedObjOrbitParams.transformMatrix);
+        
+        // Create a 3D Sprite Label for the selected object
+        const spriteMaterial = new THREE.SpriteMaterial({ 
+            map: createTextTexture(highlightedObj.userData.parent.name),  // Create texture from canvas text
+            transparent: true 
+        });
+        var sprite = new THREE.Sprite(spriteMaterial);
+        sprite.name = 'label_sprite';
+        sprite.scale.set(0.05, 0.05, 0.05);  // Adjust the size of the label
+        sprite.position.set(0.01, 0.01, 0);  // Move it above the object
+        highlightedObj.userData.parent.bodyMesh.add(sprite);
+    }
+
     // Update the billboard plane to face the camera
     updateBillboard(billboardPlane, camera);
 
     controls.update();
     renderer.render(scene, camera);
 }
+function removeSpriteIfObjectExists(parentObject) {
+    // Check if the parent object exists
+    if (parentObject) {
+        // Loop through all the children of the parentObject
+        for (let i = parentObject.children.length - 1; i >= 0; i--) {
+            const child = parentObject.children[i];
 
+            // Check if the child is a Sprite
+            if (child instanceof THREE.Sprite) {
+                // Remove the sprite from the parent object
+                parentObject.remove(child);
+                console.log('Sprite removed from object.');
+            }
+        }
+    } else {
+        console.log('Parent object does not exist.');
+    }
+}
 // Start animation loop
 requestAnimationFrame(animate);
