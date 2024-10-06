@@ -509,7 +509,7 @@ function animate(time) {
     // Update NEO positions
     for (let i = 0; i < neos.length; i++) {
         const orbitParams = neos[i].data.orbitParams;
-        console.log(neos[i])
+        // console.log(neos[i])
         const trueAnomaly = currentTime;
         const pos = getOrbitPosition(orbitParams.a, orbitParams.e, trueAnomaly, orbitParams.transformMatrix);
         neos[i].setPosition(pos);
