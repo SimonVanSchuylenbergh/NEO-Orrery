@@ -512,9 +512,10 @@ async function initializePlanets() {
         const pos = getOrbitPosition(orbitParams.a, orbitParams.e, 0, orbitParams.transformMatrix);
         mesh.position.set(pos.x, pos.y, pos.z);
         // Rotate mesh by obliquity
+        // different axes for rings
         if (planetName === 'rings'){
-            mesh.rotation.z = Math.PI/2 + planetData.extraParams.obliquity * DEG_TO_RAD;
-            //mesh.rotation.x = Math.PI / 2;
+            mesh.rotation.x = Math.PI/2; 
+            mesh.rotation.y = planetData.extraParams.obliquity * DEG_TO_RAD;
         }
         else{
             const rotationAxis = new THREE.Vector3(0, 0, 1).normalize();// z axis is depth
