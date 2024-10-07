@@ -178,7 +178,7 @@
             "surface_gravity_m_s2": 10.44,
             "mass_kg": 5.6834e+26,
             "obliquity": 26.73,
-            "rotation_period": 0,
+            "rotation_period": 0.44002,
             "mass_earth": 95.16155228159006
         }
     },

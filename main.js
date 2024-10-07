@@ -300,8 +300,14 @@ document.addEventListener('pointerup', (event) => {
             if (parentObj !== null && parentObj !== undefined) {
                 const obj_data = parentObj.data;
 
-                document.getElementById('info-name').textContent = parentObj.name;
-
+                // replace with Saturn if rings otherwise use the name
+                if(parentObj.name === 'rings'){
+                    document.getElementById('info-name').textContent = 'Saturn';
+                }
+                else{
+                    document.getElementById('info-name').textContent = parentObj.name;
+                }
+                // object type
                 if (('type' in obj_data.extraParams) && (obj_data.extraParams.type !== undefined)){
                     if (obj_data.extraParams.type == 'NEA')
                         document.getElementById('info-type').textContent = `Type: Asteroid`;
