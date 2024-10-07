@@ -464,6 +464,9 @@ function addSun() {
     const material = new THREE.MeshBasicMaterial({map: sunTexture});
     var sunMesh = new THREE.Mesh(geometry, material);
     scene.add(sunMesh);
+    // Tilt the Sun based on obliquity
+    const sunTiltAxis = new THREE.Vector3(0, 0, 1).normalize();// z axis is depth
+    sunMesh.rotateOnAxis(sunTiltAxis, SUNOBLIQUITY * DEG_TO_RAD);  // rotate
 
     return sunMesh;
 }
@@ -1048,6 +1051,8 @@ function createTextTexture(message) {
     return texture;
 }
 
+
+
 // Animation loop with FPS control
 function animate(time) {
     requestAnimationFrame(animate);
@@ -1064,14 +1069,10 @@ function animate(time) {
     JD += deltaJulian;
     MJD += deltaJulian;
 
-    // Rotate the Sun
-    // Compute axis of rotation
-    const sunAxis = new THREE.Vector3(
-        Math.sin(SUNOBLIQUITY * DEG_TO_RAD), 
-        Math.cos(SUNOBLIQUITY * DEG_TO_RAD),
-        0).normalize();
+    // define rotation axis
+    const sunRotationAxis = new THREE.Vector3(0, 1, 0).normalize(); // rotate about the new Y axis
     // Set rotation speed of the Sun
-    sunMesh.rotateOnAxis(sunAxis, 
+    sunMesh.rotateOnAxis(sunRotationAxis, 
         (2 * Math.PI/(60 * SUNROTPER)) * 1 * TIMESPEEDS[timeSpeedIndex]);
 
     // Update planet positions and rotation
