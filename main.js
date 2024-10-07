@@ -267,6 +267,7 @@ document.addEventListener('pointerup', (event) => {
             document.getElementById('info-name').textContent = '';
             document.getElementById('info-type').textContent = '';
             document.getElementById('info-class').textContent = '';
+            document.getElementById('info-code').textContent = '';
             document.getElementById('info-diameter').textContent = '';
             document.getElementById('info-first-impact').textContent = '';
             document.getElementById('info-impact-period').textContent = '';
