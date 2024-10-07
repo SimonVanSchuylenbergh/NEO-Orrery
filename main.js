@@ -354,9 +354,9 @@ document.addEventListener('pointerup', (event) => {
                         document.getElementById('info-mass').textContent = `Mass: ${mass.toFixed(3)} M\u{1F728}`;
                 }
                 if (('obliquity' in obj_data.extraParams) && (obj_data.extraParams.obliquity !== undefined))
-                    document.getElementById('info-obl').textContent = `Obliquity: ${obj_data.extraParams.obliquity.toFixed(1)}\u00B0`;
+                    document.getElementById('info-obl').textContent = `Obliquity (axial tilt): ${obj_data.extraParams.obliquity.toFixed(1)}\u00B0`;
                 if (('rotation_period' in obj_data.extraParams) && (obj_data.extraParams.rotation_period !== undefined))
-                    document.getElementById('info-rotper').textContent = `Rotation Period: ${obj_data.extraParams.rotation_period.toFixed(2)} days`;
+                    document.getElementById('info-rotper').textContent = `Rotation period: ${obj_data.extraParams.rotation_period.toFixed(2)} days`;
 
             document.getElementById('info-a').textContent = `Semi-major axis: ${obj_data.orbitParams.a.toFixed(3)} AU`;
             document.getElementById('info-e').textContent = `Eccentricity: ${obj_data.orbitParams.e.toFixed(3)}`;
