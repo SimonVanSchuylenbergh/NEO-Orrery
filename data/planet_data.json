@@ -64,7 +64,7 @@
         "renderParams": {
             "is_dwarf": false,
             "radius": 0.012,
-            "color": "#0000A0",
+            "color": "#1e90FF",
             "texture": "8k_earth_daymap.jpg"
         },
         "extraParams": {

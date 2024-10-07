@@ -12,12 +12,12 @@ const TA_TIME_SCALE_FACTOR = 0.0001; // This will not be needed when the true an
 const DEFAULT_MESH_N = 32;
 const ORBIT_MESH_POINTS = 192; // split the difference
 
+const SHOWER_ORBIT_COLOR = 0x5D5CD2; 
+const SHOWER_ORBIT_COLOR_NOTVIS = 0x4b0096; //0x0200b9 0x4b0096
+const PARENT_ORBIT_COLOR = 0x0200b9;
 const NEO_ORBIT_COLOR = 0xcd0000;//0x1e90FF;
-const SHOWER_ORBIT_COLOR = 0x0200b9;
-const SHOWER_ORBIT_COLOR_NOTVIS = 0x0200b9;
-const PARENT_ORBIT_COLOR = 0x1000ff;
-
 const NEO_COLOR = 0xFFFFFF;
+
 const NEO_RADIUS = 0.01;
 const MAX_VISIBLE_NEOS = 999;
 const MAX_VISIBLE_SHOWERS = 999;
@@ -582,7 +582,7 @@ async function initializeShowers() {
                 orbitParams_parent.ma *= DEG_TO_RAD;
 
                 const geometry = new THREE.SphereGeometry(NEO_RADIUS, DEFAULT_MESH_N, DEFAULT_MESH_N);
-                const material = new THREE.MeshBasicMaterial({ color: PARENT_ORBIT_COLOR });
+                const material = new THREE.MeshBasicMaterial({ color: NEO_COLOR });
                 const parentMesh = new THREE.Mesh(geometry, material);
 
                 const parentOrbit = createOrbit(orbitParams_parent, PARENT_ORBIT_COLOR, ORBIT_MESH_POINTS);
