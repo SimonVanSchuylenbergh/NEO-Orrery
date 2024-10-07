@@ -29,6 +29,12 @@ const SUNROTPER = 25.05;  // days
 
 const TIMESPEEDS = [-365, -30, -7, -1, -3600 / 86400, -60 / 86400, -1 / 86400, 1 / 86400, 60 / 86400, 3600 / 86400, 1, 7, 30, 365]
 
+// Label text parameters
+const LABEL_SIZE = 0.1; // size of the labels
+const X_OFFSET = 0; // x offset
+const Y_OFFSET = -0.010; // y offset
+const Z_OFFSET = 0; // z offset
+
 //starting time
 let JD = (Date.now() / 86400000) + 2440587.5;
 let MJD = JDToMJD(JD);
@@ -375,8 +381,8 @@ document.addEventListener('pointerup', (event) => {
                 updateSpriteTexture(sprite, highlightedObj.userData.parent.name);
             }
             // Make visible
-            sprite.scale.set(0.1, 0.1, 0.1);  // Adjust the size of the label
-            sprite.position.set(0, -0.015, 0);  // Move it above the object
+            sprite.scale.set(LABEL_SIZE, LABEL_SIZE, LABEL_SIZE);  // Adjust the size of the label
+            sprite.position.set(X_OFFSET, Y_OFFSET, Z_OFFSET);  // Move it above the object
             highlightedObj.userData.parent.bodyMesh.add(sprite); // add to object
         }
     }
