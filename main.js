@@ -1134,7 +1134,7 @@ function animate(time) {
     if (timeSpeedIndex == 10)  // 1 day/second
         {document.getElementById("timespeed").textContent = `Speed: 1 day/second`}
     else if (timeSpeedIndex == 7){ // Real-time
-        {document.getElementById("timespeed").textContent = `Real-time`}
+        {document.getElementById("timespeed").textContent = `Speed: Real-time`}
     }
     else{
         document.getElementById("timespeed").textContent = `Speed: ${TIMESPEEDS[timeSpeedIndex].toPrecision(3)} days/second`;
