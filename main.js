@@ -322,7 +322,7 @@ document.addEventListener('pointerup', (event) => {
                     document.getElementById('info-code').textContent = `Code: ${obj_data.extraParams.Code}`;
                 if (('diameter' in obj_data.extraParams) && (obj_data.extraParams.diameter !== undefined) && (obj_data.extraParams.diameter !== null))
                     document.getElementById('info-diameter').textContent = `Diameter: ${obj_data.extraParams.diameter} m`;
-                else if (('diameter_km' in obj_data.extraParams) && (obj_data.extraParams.diameter_km !== undefined))
+                else if (('diameter_km' in obj_data.extraParams) && (obj_data.extraParams.diameter_km !== undefined) && (obj_data.extraParams.diameter_km !== null))
                     document.getElementById('info-diameter').textContent = `Diameter: ${obj_data.extraParams.diameter_km} km`;
                 if (('impact' in obj_data.extraParams) && (obj_data.extraParams.impact !== undefined))
                     document.getElementById('info-first-impact').textContent = `First possible impact: ${obj_data.extraParams.impact}`;
