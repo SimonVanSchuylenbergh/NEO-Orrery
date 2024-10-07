@@ -808,7 +808,7 @@
             "ma": 274.81
         },
         "extraParams": {
-            "Code": "ORI",
+            "Code": "ETA",
             "Meteor Stream": "Orionids",
             "Peak Activity": "mid-October",
             "spkid": 1000036,
@@ -865,7 +865,7 @@
             "ma": 274.81
         },
         "extraParams": {
-            "Code": "ETA",
+            "Code": "ORI",
             "Meteor Stream": "Orionids",
             "Peak Activity": "mid-October",
             "spkid": 1000036,
