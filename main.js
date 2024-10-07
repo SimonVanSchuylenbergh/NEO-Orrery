@@ -318,6 +318,8 @@ document.addEventListener('pointerup', (event) => {
                 }
                 if (('class' in obj_data.extraParams) && (obj_data.extraParams.class !== undefined))
                     document.getElementById('info-class').textContent = `Class: ${obj_data.extraParams.class}`;
+                if (('Code' in obj_data.extraParams) && (obj_data.extraParams.Code !== undefined))
+                    document.getElementById('info-code').textContent = `Code: ${obj_data.extraParams.Code}`;
                 if (('diameter' in obj_data.extraParams) && (obj_data.extraParams.diameter !== undefined) && (obj_data.extraParams.diameter !== null))
                     document.getElementById('info-diameter').textContent = `Diameter: ${obj_data.extraParams.diameter} m`;
                 else if (('diameter_km' in obj_data.extraParams) && (obj_data.extraParams.diameter_km !== undefined) && (obj_data.extraParams.diameter_km !== null))
@@ -1134,7 +1136,7 @@ function animate(time) {
     if (timeSpeedIndex == 10)  // 1 day/second
         {document.getElementById("timespeed").textContent = `Speed: 1 day/second`}
     else if (timeSpeedIndex == 7){ // Real-time
-        {document.getElementById("timespeed").textContent = `Real-time`}
+        {document.getElementById("timespeed").textContent = `Speed: Real-time`}
     }
     else{
         document.getElementById("timespeed").textContent = `Speed: ${TIMESPEEDS[timeSpeedIndex].toPrecision(3)} days/second`;
