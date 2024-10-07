@@ -336,7 +336,7 @@ document.addEventListener('pointerup', (event) => {
                 if (('years' in obj_data.extraParams) && (obj_data.extraParams.years !== undefined))
                     document.getElementById('info-impact-period').textContent = `Possible impacts between ${obj_data.extraParams.years.split('-')[0]} and ${obj_data.extraParams.years.split('-')[1]}`;
                 if (('PS max' in obj_data.extraParams) && (obj_data.extraParams['PS max'] !== undefined))
-                    document.getElementById('info-risk').textContent = `Risk: ${obj_data.extraParams['PS max']} (Palermo Scale)`;
+                    document.getElementById('info-risk').textContent = `Impact risk: ${obj_data.extraParams['PS max']} (Palermo Scale)`;
                 if (('vel' in obj_data.extraParams) && (obj_data.extraParams.vel !== undefined))
                     document.getElementById('info-vel').textContent = `Velocity: ${obj_data.extraParams.vel} km/s`;
                 
