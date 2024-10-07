@@ -367,7 +367,12 @@ document.addEventListener('pointerup', (event) => {
                 document.getElementById('info-epoch').textContent = `Epoch: ${obj_data.orbitParams.epoch} (MJD)`;
             }
             // Update sprite texture
-            updateSpriteTexture(sprite, highlightedObj.userData.parent.name);
+            if (highlightedObj.userData.parent.name == 'rings'){
+                updateSpriteTexture(sprite, 'Saturn');
+            }
+            else{
+                updateSpriteTexture(sprite, highlightedObj.userData.parent.name);
+            }
             // Make visible
             sprite.scale.set(0.1, 0.1, 0.1);  // Adjust the size of the label
             sprite.position.set(0, -0.015, 0);  // Move it above the object
@@ -487,8 +492,8 @@ async function initializePlanets() {
             });
 
             // Create the mesh
-            var mesh = new THREE.Mesh(geometry, material);
-            mesh.rotation.x = Math.PI / 2; //Rotate the rings to be flat
+            var mesh = new THREE.Mesh(geometry, material); 
+            //Rotate the rings to have the appropriate obliquity
         }
         // if not ring do sphere
         else {
@@ -502,6 +507,16 @@ async function initializePlanets() {
         const orbit = createOrbit(orbitParams, planetData.renderParams.color, ORBIT_MESH_POINTS);
         const pos = getOrbitPosition(orbitParams.a, orbitParams.e, 0, orbitParams.transformMatrix);
         mesh.position.set(pos.x, pos.y, pos.z);
+        // Rotate mesh by obliquity
+        if (planetName === 'rings'){
+            mesh.rotation.z = Math.PI/2 + planetData.extraParams.obliquity * DEG_TO_RAD;
+            //mesh.rotation.x = Math.PI / 2;
+        }
+        else{
+            const rotationAxis = new THREE.Vector3(0, 0, 1).normalize();// z axis is depth
+            const planetObliquity = planetData.extraParams.obliquity * DEG_TO_RAD; // obliquity in radians
+            mesh.rotateOnAxis(rotationAxis, planetObliquity);  // rotate
+        }
 
         const body = new Body(planetName, planetData, orbit, mesh);
 
@@ -1066,20 +1081,26 @@ function animate(time) {
         // Update Position
         const pos = getOrbitPosition(orbitParams.a, orbitParams.e, trueAnomaly, orbitParams.transformMatrix);
         planets[i].setPosition(pos);
-        // Compute normalized axis of rotation
-        const axis = new THREE.Vector3(
-            Math.sin(extraParams.obliquity * DEG_TO_RAD), 
-            Math.cos(extraParams.obliquity * DEG_TO_RAD), 
-            0).normalize();
-        // Set rotation speed
-        // console.log(planets[i], axis, 2 * Math.PI/(60 * extraParams.rotation_period) * TIMESPEEDS[timeSpeedIndex])
-        planets[i].bodyMesh.rotateOnAxis(axis, 
-            (2 * Math.PI/(60 * extraParams.rotation_period)) * 1 * TIMESPEEDS[timeSpeedIndex]);
-
-        // Rotate
-        //planets[i].bodyMesh.rotation.x += orbitParams.rotateX;
-        //planets[i].bodyMesh.rotation.y += orbitParams.rotateY;
-        //planets[i].bodyMesh.rotation.z += orbitParams.rotateZ;
+        // Perform rotation for all planets other than Saturn's rings:
+        if (planets[i].name != 'rings'){
+            // Compute normalized axis of rotation
+            const rotationAxis = new THREE.Vector3(0, 1, 0).normalize(); // rotate about the new Y axis
+            // Set rotation speed
+            planets[i].bodyMesh.rotateOnAxis(rotationAxis, 
+                (2 * Math.PI/(60 * extraParams.rotation_period)) * 1 * TIMESPEEDS[timeSpeedIndex]);
+            // const axis = new THREE.Vector3(
+            //     Math.sin(extraParams.obliquity * DEG_TO_RAD), 
+            //     Math.cos(extraParams.obliquity * DEG_TO_RAD), 
+            //     0).normalize();
+            // // Set rotation speed
+            // // console.log(planets[i], axis, 2 * Math.PI/(60 * extraParams.rotation_period) * TIMESPEEDS[timeSpeedIndex])
+            // planets[i].bodyMesh.rotateOnAxis(axis, 
+            //     (2 * Math.PI/(60 * extraParams.rotation_period)) * 1 * TIMESPEEDS[timeSpeedIndex]);
+            // Rotate
+            //planets[i].bodyMesh.rotation.x += orbitParams.rotateX;
+            //planets[i].bodyMesh.rotation.y += orbitParams.rotateY;
+            //planets[i].bodyMesh.rotation.z += orbitParams.rotateZ;
+        }
     }
 
     // Update NEO positions
